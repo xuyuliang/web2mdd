@@ -1,7 +1,15 @@
-import time, struct, lzo, zlib
+import time, zlib
+import os
+
 t0 = time.time()
-from readmdict import MDX
-mdx = MDX('The little dict/TLD.mdx', substyle=True)
+from mdict_utils.base.readmdict import MDX
+from mdict_utils.base import lzo
+
+# 相对于 app/ 目录，词典目录在上级目录
+DICT_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "The little dict")
+MDX_PATH = os.path.join(DICT_DIR, "TLD.mdx")
+
+mdx = MDX(MDX_PATH, substyle=True)
 print('init', '%.1fs'%(time.time()-t0))
 print('编码:', repr(mdx._encoding))
 
@@ -10,7 +18,7 @@ print(f'kl[0]: {kl[0]}')
 print(f'kl[1]: {kl[1]}')
 
 # 记录块信息
-f = open('The little dict/TLD.mdx', 'rb')
+f = open(MDX_PATH, 'rb')
 f.seek(mdx._record_block_offset)
 num_blocks = mdx._read_number(f)
 num_entries = mdx._read_number(f)
@@ -29,7 +37,7 @@ for c, d in block_infos:
     s += d
 
 # 验证第一个块的解压
-comp0 = open('The little dict/TLD.mdx', 'rb')
+comp0 = open(MDX_PATH, 'rb')
 comp0.seek(data_offset)
 compressed = comp0.read(block_infos[0][0])
 comp0.close()
@@ -38,7 +46,7 @@ bt = compressed[:4]
 print(f'块0类型: {bt}, 压缩大小: {block_infos[0][0]}, 解压大小: {block_infos[0][1]}')
 
 if bt == b'\x00\x00\x00\x00': dec = compressed[8:]
-elif bt == b'\x01\x00\x00\x00': dec = lzo.decompress(b'\xf0' + struct.pack('>I', block_infos[0][1]) + compressed[8:])
+elif bt == b'\x01\x00\x00\x00': dec = lzo.decompress(compressed[8:], initSize=block_infos[0][1], blockSize=1308672)
 elif bt == b'\x02\x00\x00\x00': dec = zlib.decompress(compressed[8:])
 
 print(f'解压大小: {len(dec)}, 预期: {block_infos[0][1]}, 匹配: {len(dec)==block_infos[0][1]}')

@@ -4,17 +4,20 @@
 
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.responses import HTMLResponse, Response, FileResponse
-from readmdict import MDX, MDD
+from mdict_utils.base.readmdict import MDX, MDD
 import os
 import bisect
-import struct
-import lzo
+from mdict_utils.base import lzo
 import zlib
 import time
 
 app = FastAPI()
 
-DICT_DIR = os.path.join(os.path.dirname(__file__), "The little dict")
+# __file__ 现在是 web2mdd/app/main.py，需上移两级到项目根目录
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DICT_DIR = os.path.join(BASE_DIR, "The little dict")
+TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
+STATIC_DIR = os.path.join(BASE_DIR, "static")
 MDX_PATH = os.path.join(DICT_DIR, "TLD.mdx")
 MDD_PATH = os.path.join(DICT_DIR, "TLD.mdd")
 CSS_PATH = os.path.join(DICT_DIR, "p.css")
@@ -82,7 +85,7 @@ class MDXReader:
         if bt == b"\x00\x00\x00\x00":
             return data[8:]
         elif bt == b"\x01\x00\x00\x00":
-            return lzo.decompress(b"\xf0" + struct.pack(">I", decomp) + data[8:])
+            return lzo.decompress(data[8:], initSize=decomp, blockSize=1308672)
         elif bt == b"\x02\x00\x00\x00":
             return zlib.decompress(data[8:])
         raise ValueError(f"未知压缩类型: {bt}")
@@ -185,6 +188,15 @@ mdd_reader = MDDReader(MDD_PATH) if os.path.exists(MDD_PATH) else None
 print("[OK] 词典加载完成，服务器就绪！")
 
 
+def _load_index_html():
+    """从 templates/index.html 读取首页 HTML"""
+    path = os.path.join(TEMPLATES_DIR, "index.html")
+    with open(path, "r", encoding="utf-8") as f:
+        return f.read()
+
+
+HOME_HTML = _load_index_html()
+
 
 @app.get("/", response_class=HTMLResponse)
 async def index():
@@ -238,89 +250,14 @@ async def get_css():
     raise HTTPException(status_code=404, detail="CSS not found")
 
 
-HOME_HTML = """<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Little Dict 查词</title>
-    <link rel="stylesheet" href="/static/p.css">
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; color: #333; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px 20px; text-align: center; }
-        .header h1 { color: #fff; font-size: 24px; margin-bottom: 20px; font-weight: 600; }
-        .search-box { max-width: 600px; margin: 0 auto; display: flex; gap: 10px; }
-        .search-box input { flex: 1; padding: 12px 20px; border: none; border-radius: 25px; font-size: 16px; outline: none; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .search-box button { padding: 12px 25px; background: #fff; color: #667eea; border: none; border-radius: 25px; font-size: 16px; cursor: pointer; font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s; }
-        .search-box button:hover { transform: scale(1.05); }
-        .container { max-width: 800px; margin: 20px auto; padding: 0 20px; }
-        #result { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 15px rgba(0,0,0,0.08); min-height: 120px; }
-        #result:empty::after { content: "输入单词开始查询"; display: block; text-align: center; color: #999; font-size: 16px; padding-top: 30px; }
-        .htmx-indicator { display: none; }
-        .htmx-request .htmx-indicator { display: block; }
-        .htmx-request.htmx-indicator { display: block; }
-        .loading { text-align: center; padding: 30px; color: #667eea; font-size: 16px; }
-        .suggestion { text-align: center; color: #999; padding: 20px; font-size: 15px; line-height: 2.2; }
-        .sug-link { color: #667eea; text-decoration: none; padding: 3px 10px; border-radius: 4px; cursor: pointer; display: inline-block; margin: 2px; }
-        .sug-link:hover { background: #667eea; color: #fff; }
-        @media (max-width: 480px) {
-            .header { padding: 20px 15px; } .header h1 { font-size: 20px; }
-            .search-box input { padding: 10px 15px; font-size: 14px; }
-            .search-box button { padding: 10px 18px; font-size: 14px; }
-            #result { padding: 15px; }
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>📖 The Little Dict</h1>
-        <div class="search-box">
-            <input type="text" name="word" placeholder="输入英文单词..." autofocus
-                   hx-get="/api/lookup" hx-target="#result" hx-trigger="keyup[keyCode==13], search" hx-indicator="#loading">
-            <button hx-get="/api/lookup" hx-target="#result" hx-include="[name='word']" hx-indicator="#loading">查词</button>
-        </div>
-    </div>
-    <div class="container">
-        <div id="loading" class="loading htmx-indicator">🔍 查询中...</div>
-        <div id="result"></div>
-    </div>
-    <script>
-        document.body.addEventListener('htmx:afterSwap', function() {
-            setTimeout(fixMediaPaths, 50);
-        });
-        function fixMediaPaths() {
-            document.querySelectorAll('#result img').forEach(function(img) {
-                var src = img.getAttribute('src');
-                if (src && !src.startsWith('http') && !src.startsWith('data:') && !src.startsWith('/api/')) {
-                    img.src = '/api/media/' + encodeURIComponent(src);
-                }
-            });
-            document.querySelectorAll('#result a[href$=".mp3"], #result a[href$=".wav"], #result a[href$=".spx"]').forEach(function(a) {
-                var href = a.getAttribute('href');
-                if (href && !href.startsWith('http') && !href.startsWith('/api/')) {
-                    a.href = '/api/media/' + encodeURIComponent(href);
-                }
-            });
-            document.querySelectorAll('#result audio source').forEach(function(source) {
-                var src = source.getAttribute('src');
-                if (src && !src.startsWith('http') && !src.startsWith('/api/')) {
-                    source.src = '/api/media/' + encodeURIComponent(src);
-                }
-            });
-            document.querySelectorAll('#result a[href*="sound://"]').forEach(function(a) {
-                var href = a.getAttribute('href');
-                var m = href.match(/sound:\/\/(.+)/);
-                if (m) a.href = '/api/media/' + encodeURIComponent(m[1]);
-            });
-
-        }
-    </script>
-</body>
-</html>"""
+@app.get("/static/style.css")
+async def get_style_css():
+    path = os.path.join(STATIC_DIR, "style.css")
+    if os.path.exists(path):
+        return FileResponse(path, media_type="text/css")
+    raise HTTPException(status_code=404, detail="style.css not found")
 
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)

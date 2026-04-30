@@ -1,4 +1,4 @@
-本文是给人类读的，AI没有必要阅读
+本文是一个备忘文件，给人类用的。
 
 # 每次运行前
 我已经创建了 memory-bank 文件夹和 .clineignore 文件。请你阅读这些文件，并以后在每次完成重大修改后，自动更新 memory-bank 里的 activeContext.md 和 progress.md，确保我们的开发进度有长期记忆。
@@ -12,6 +12,7 @@
    - `/api/lookup?word=xxx` 精确查词 + 前缀拼写建议
    - `/api/media/{path}` 代理多媒体资源（图片、音频）
    - `/static/p.css` 提供词典原生样式
+   - `/static/style.css` 提供页面布局样式
 
 2. **前端** - htmx 驱动的单页应用
    - 漂亮的渐变头部 + 居中搜索框
@@ -20,4 +21,12 @@
    - 自动替换词典资源路径代理到后端
    - 完整词典样式展示（音标、发音图标、词频、等级标注等）
 
-3. **启动命令**: `cd e:\mycodes\查词拆词 && venv\Scripts\python main.py`
+3. **目录结构**:
+   - `app/main.py` — 主程序
+   - `app/test_dict.py` — 测试脚本
+   - `templates/index.html` — 首页 HTML 模板
+   - `static/style.css` — 页面样式
+   - `The little dict/` — 词典数据（被 gitignore 排除）
+
+4. **启动命令**: `cd web2mdd && python -m app.main`
+   或: `cd web2mdd && venv\Scripts\python -m app.main`

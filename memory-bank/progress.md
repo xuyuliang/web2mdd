@@ -1,6 +1,7 @@
 # Progress
 
 - [x] 完成了查字典功能
+- [x] 建立 Memory Bank 长期记忆机制（.clineignore.md + memory-bank/ + 自动更新约定）
 - [ ] 单独获取到词频的值
 - [ ] 支持简单的正则表达式查字典
 - [ ] 能找出单词的词根词缀，同源词
