@@ -1,11 +1,13 @@
 # Active Context
 
-- **当前任务**: 解决 python-lzo 无法安装的问题，改用 mdict-utils 实现纯 Python LZO 解压
+- **当前任务**: 移除 MDD 多媒体依赖（用户删除了 TLD.mdd，代码已清理干净）
 - **最近修改**:
-  - 将 `readmdict` 和 `lzo` 依赖替换为 `mdict-utils`（已在 venv 中安装）
-  - `main.py`: `from readmdict import MDX, MDD` → `from mdict_utils.base.readmdict import MDX, MDD`，`import lzo` → `from mdict_utils.base import lzo`
-  - `test_dict.py`: 同样替换为 `mdict_utils` 的导入
-  - `_decompress_block` 中的 LZO 解压调用改为纯 Python 版本：`lzo.decompress(b'\xf0' + ...)` → `lzo.decompress(data[8:], initSize=decomp, blockSize=1308672)`
-  - `mdict-utils` 自带的纯 Python LZO 实现位于 `mdict_utils/base/lzo.py`，无需 C 编译
+  - `main.py`: 移除了 `MDD` 导入（`from mdict_utils.base.readmdict import MDX, MDD` → `from mdict_utils.base.readmdict import MDX`）
+  - `main.py`: 删除了 `MDD_PATH` 常量定义
+  - `main.py`: 删除了整个 `MDDReader` 类
+  - `main.py`: 删除了 `mdd_reader` 的初始化和条件加载
+  - `main.py`: 删除了 `/api/media/{path:path}` 路由
+  - `main.py`: 清理了未使用的 `Response` 导入（改为从 `fastapi.responses` 仅保留 `HTMLResponse, FileResponse`）
+  - `templates/index.html`: 删除了前端 `fixMediaPaths` 的 JavaScript 代码（包括 htmx:afterSwap 监听器）
 - **启动方式**: `cd web2mdd && venv\Scripts\python -m app.main`
 - **下一步计划**: 在"查字典"的返回数据中 把词频信息单独抽出来，不需要在web页面上显示它，只需要做成api接口就可以了。

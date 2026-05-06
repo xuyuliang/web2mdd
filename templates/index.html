@@ -36,48 +36,5 @@
       <div id="loading" class="loading htmx-indicator">🔍 查询中...</div>
       <div id="result"></div>
     </div>
-    <script>
-      document.body.addEventListener("htmx:afterSwap", function () {
-        setTimeout(fixMediaPaths, 50);
-      });
-      function fixMediaPaths() {
-        document.querySelectorAll("#result img").forEach(function (img) {
-          var src = img.getAttribute("src");
-          if (
-            src &&
-            !src.startsWith("http") &&
-            !src.startsWith("data:") &&
-            !src.startsWith("/api/")
-          ) {
-            img.src = "/api/media/" + encodeURIComponent(src);
-          }
-        });
-        document
-          .querySelectorAll(
-            '#result a[href$=".mp3"], #result a[href$=".wav"], #result a[href$=".spx"]',
-          )
-          .forEach(function (a) {
-            var href = a.getAttribute("href");
-            if (href && !href.startsWith("http") && !href.startsWith("/api/")) {
-              a.href = "/api/media/" + encodeURIComponent(href);
-            }
-          });
-        document
-          .querySelectorAll("#result audio source")
-          .forEach(function (source) {
-            var src = source.getAttribute("src");
-            if (src && !src.startsWith("http") && !src.startsWith("/api/")) {
-              source.src = "/api/media/" + encodeURIComponent(src);
-            }
-          });
-        document
-          .querySelectorAll('#result a[href*="sound://"]')
-          .forEach(function (a) {
-            var href = a.getAttribute("href");
-            var m = href.match(/sound:\/\/(.+)/);
-            if (m) a.href = "/api/media/" + encodeURIComponent(m[1]);
-          });
-      }
-    </script>
   </body>
 </html>
