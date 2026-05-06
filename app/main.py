@@ -3,13 +3,15 @@
 """
 
 from fastapi import FastAPI, Query, HTTPException
-from fastapi.responses import HTMLResponse, Response, FileResponse
-from mdict_utils.base.readmdict import MDX, MDD
+from fastapi.responses import HTMLResponse, FileResponse
+from readmdict import MDX
 import os
 import bisect
-from mdict_utils.base import lzo
+from readmdict import lzo
 import zlib
 import time
+import pickle
+import re
 
 app = FastAPI()
 
@@ -19,8 +21,8 @@ DICT_DIR = os.path.join(BASE_DIR, "The little dict")
 TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 STATIC_DIR = os.path.join(BASE_DIR, "static")
 MDX_PATH = os.path.join(DICT_DIR, "TLD.mdx")
-MDD_PATH = os.path.join(DICT_DIR, "TLD.mdd")
 CSS_PATH = os.path.join(DICT_DIR, "p.css")
+CACHE_PATH = MDX_PATH + ".pkl"  # 缓存文件路径
 
 
 class MDXReader:
@@ -28,38 +30,88 @@ class MDXReader:
 
     def __init__(self, path):
         t0 = time.time()
-        self.mdx = MDX(path, substyle=True)
-        self.path = path
-        self.encoding = self.mdx._encoding
-        self.key_list = self.mdx._key_list  # [(offset, key_bytes)]
 
-        # 单词 -> 索引号
-        self.word_to_idx = {}
-        for i, (off, key_bytes) in enumerate(self.key_list):
-            word = key_bytes.decode("utf-8", errors="ignore").strip()
-            self.word_to_idx[word] = i
+        # 检查缓存是否有效（缓存文件存在且比 MDX 文件新）
+        cache_valid = False
+        if os.path.exists(CACHE_PATH):
+            cache_mtime = os.path.getmtime(CACHE_PATH)
+            mdx_mtime = os.path.getmtime(path)
+            if cache_mtime > mdx_mtime:
+                cache_valid = True
 
-        # 用于前缀搜索的小写单词列表
-        self.lower_words = []
-        for i, (off, key_bytes) in enumerate(self.key_list):
-            word = key_bytes.decode("utf-8", errors="ignore").strip().lower()
-            self.lower_words.append(word)
+        if cache_valid:
+            # 从缓存加载（跳过 MDX 文件解析和索引构建）
+            print(f"[MDX] 正在加载缓存 {CACHE_PATH} ...")
+            with open(CACHE_PATH, "rb") as f:
+                cache = pickle.load(f)
+            self.path = path
+            self.encoding = cache["encoding"]
+            self.key_list = cache["key_list"]
+            self.word_to_idx = cache["word_to_idx"]
+            self.lower_words = cache["lower_words"]
+            self.block_infos = cache["block_infos"]
+            self.block_starts = cache["block_starts"]
+            self.data_offset = cache["data_offset"]
+            self._stylesheet = cache.get("_stylesheet")
+            self._substyle = cache.get("_substyle", False)
+            print(f"[MDX] 缓存加载完成（含 {len(self.key_list)} 词条），耗时 {time.time()-t0:.1f}s")
+        else:
+            # 完整构建
+            print(f"[MDX] 正在解析词典文件...")
+            mdx = MDX(path, substyle=True)
+            self.path = path
+            self.encoding = mdx._encoding
+            self.key_list = mdx._key_list  # [(offset, key_bytes)]
 
-        print(f"[MDX] 索引构建完成: {len(self.key_list)} 词条, {time.time()-t0:.1f}s")
-        self._load_block_info()
+            # 单词 -> 索引号
+            self.word_to_idx = {}
+            for i, (off, key_bytes) in enumerate(self.key_list):
+                word = key_bytes.decode("utf-8", errors="ignore").strip()
+                self.word_to_idx[word] = i
 
-    def _load_block_info(self):
+            # 用于前缀搜索的小写单词列表
+            self.lower_words = []
+            for i, (off, key_bytes) in enumerate(self.key_list):
+                word = key_bytes.decode("utf-8", errors="ignore").strip().lower()
+                self.lower_words.append(word)
+
+            print(f"[MDX] 索引构建完成: {len(self.key_list)} 词条, {time.time()-t0:.1f}s")
+
+            # 记录块信息 & 样式表（仅在构建时需要 mdx 对象）
+            self._stylesheet = mdx._stylesheet
+            self._substyle = mdx._substyle
+            self._load_block_info(mdx)
+
+            # 构建完成，保存缓存到磁盘
+            print(f"[MDX] 正在保存缓存到 {CACHE_PATH} ...")
+            cache = {
+                "encoding": self.encoding,
+                "key_list": self.key_list,
+                "word_to_idx": self.word_to_idx,
+                "lower_words": self.lower_words,
+                "block_infos": self.block_infos,
+                "block_starts": self.block_starts,
+                "data_offset": self.data_offset,
+                "_stylesheet": self._stylesheet,
+                "_substyle": self._substyle,
+            }
+            with open(CACHE_PATH, "wb") as f:
+                pickle.dump(cache, f, protocol=pickle.HIGHEST_PROTOCOL)
+            print(f"[MDX] 缓存保存完成")
+
+    def _load_block_info(self, mdx):
+        """从 MDX 对象读取块信息"""
         f = open(self.path, "rb")
-        f.seek(self.mdx._record_block_offset)
-        num_blocks = self.mdx._read_number(f)
-        self.mdx._read_number(f)  # num_entries
-        self.mdx._read_number(f)  # info_size
-        self.mdx._read_number(f)  # block_size
+        f.seek(mdx._record_block_offset)
+        num_blocks = mdx._read_number(f)
+        mdx._read_number(f)  # num_entries
+        mdx._read_number(f)  # info_size
+        mdx._read_number(f)  # block_size
 
         self.block_infos = []
         for _ in range(num_blocks):
-            comp = self.mdx._read_number(f)
-            decomp = self.mdx._read_number(f)
+            comp = mdx._read_number(f)
+            decomp = mdx._read_number(f)
             self.block_infos.append((comp, decomp))
         self.data_offset = f.tell()
         f.close()
@@ -70,6 +122,21 @@ class MDXReader:
         for comp, decomp in self.block_infos:
             self.block_starts.append(s)
             s += decomp
+
+    def _substitute_stylesheet(self, text):
+        """替换文本中的样式标记（替代 mdx._substitute_stylesheet 以减少依赖）"""
+        if not self._substyle or not self._stylesheet:
+            return text
+        txt_list = re.split(r'`\d+`', text)
+        txt_tag = re.findall(r'`\d+`', text)
+        txt_styled = txt_list[0]
+        for j, p in enumerate(txt_list[1:]):
+            style = self._stylesheet[txt_tag[j][1:-1]]
+            if p and p[-1] == '\n':
+                txt_styled = txt_styled + style[0] + p.rstrip() + style[1] + '\r\n'
+            else:
+                txt_styled = txt_styled + style[0] + p + style[1]
+        return txt_styled
 
     def _decompress_block(self, idx):
         """读取并解压指定索引的记录块"""
@@ -111,8 +178,7 @@ class MDXReader:
         text = raw.decode(self.encoding, errors="ignore").strip("\x00")
 
         # 样式替换
-        if self.mdx._substyle and self.mdx._stylesheet:
-            text = self.mdx._substitute_stylesheet(text)
+        text = self._substitute_stylesheet(text)
 
         return text
 
@@ -152,39 +218,8 @@ class MDXReader:
         return suggestions, False
 
 
-class MDDReader:
-    """MDD 多媒体资源读取器 - 全量缓存到内存"""
-
-    def __init__(self, path):
-        t0 = time.time()
-        self.mdd = MDD(path)
-        self.path = path
-        # 全量加载所有资源到内存字典
-        self.media_cache = {}
-        for key_bytes, data in self.mdd.items():
-            key = key_bytes.decode("utf-8", errors="ignore").strip().lower()
-            self.media_cache[key] = data
-        print(f"[MDD] 已加载 {len(self.media_cache)} 个资源到缓存, {time.time()-t0:.1f}s")
-
-    def get_media(self, path_str):
-        key = path_str.strip().lower()
-        # 直接字典查找
-        if key in self.media_cache:
-            return self.media_cache[key]
-        # 尝试替换路径分隔符
-        alt = key.replace("\\", "/")
-        if alt in self.media_cache:
-            return self.media_cache[alt]
-        alt = key.replace("/", "\\")
-        if alt in self.media_cache:
-            return self.media_cache[alt]
-        return None
-
-
-
-print("正在加载词典（首次约 25-30 秒）...")
+print("正在加载词典...")
 mdx_reader = MDXReader(MDX_PATH)
-mdd_reader = MDDReader(MDD_PATH) if os.path.exists(MDD_PATH) else None
 print("[OK] 词典加载完成，服务器就绪！")
 
 
@@ -224,23 +259,6 @@ async def lookup(word: str = Query(..., description="单词")):
         )
 
     return HTMLResponse(f'<div class="suggestion">未找到 "<strong>{word}</strong>"</div>')
-
-
-@app.get("/api/media/{path:path}")
-async def get_media(path: str):
-    if not mdd_reader:
-        raise HTTPException(status_code=404, detail="无多媒体资源")
-    data = mdd_reader.get_media(path)
-    if data is None:
-        raise HTTPException(status_code=404, detail="资源不存在")
-    ext = os.path.splitext(path)[1].lower()
-    ct_map = {
-        ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png",
-        ".gif": "image/gif", ".svg": "image/svg+xml",
-        ".mp3": "audio/mpeg", ".wav": "audio/wav", ".spx": "audio/speex",
-        ".ogg": "audio/ogg",
-    }
-    return Response(content=data, media_type=ct_map.get(ext, "application/octet-stream"))
 
 
 @app.get("/static/p.css")
