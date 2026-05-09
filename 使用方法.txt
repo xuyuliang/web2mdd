@@ -1,7 +1,7 @@
 本文是一个备忘文件，给人类用的。
 
 # 每次运行前
-我已经创建了 memory-bank 文件夹和 .clineignore 文件。请你阅读这些文件，并以后在每次完成重大修改后，自动更新 memory-bank 里的 activeContext.md 和 progress.md，确保我们的开发进度有长期记忆。
+我已经创建了 memory-bank 文件夹，请你阅读这些文件，并以后在每次完成修改后，自动更新 memory-bank 里的 文件，确保我们的开发进度有长期记忆。
 
 # 怎样运行
 已成功创建基于 FastAPI + htmx 的 TLD 词典查询网站，核心功能已完成：

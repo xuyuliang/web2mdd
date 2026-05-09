@@ -3,7 +3,9 @@
 """
 
 from fastapi import FastAPI, Query, HTTPException
-from fastapi.responses import HTMLResponse, FileResponse
+from fastapi.responses import FileResponse
+from fastapi.templating import Jinja2Templates
+from starlette.requests import Request
 from readmdict import MDX
 import os
 import bisect
@@ -23,6 +25,8 @@ STATIC_DIR = os.path.join(BASE_DIR, "static")
 MDX_PATH = os.path.join(DICT_DIR, "TLD.mdx")
 CSS_PATH = os.path.join(DICT_DIR, "p.css")
 CACHE_PATH = MDX_PATH + ".pkl"  # 缓存文件路径
+
+templates = Jinja2Templates(directory=TEMPLATES_DIR)
 
 
 class MDXReader:
@@ -233,42 +237,34 @@ mdx_reader = MDXReader(MDX_PATH)
 print("[OK] 词典加载完成，服务器就绪！")
 
 
-def _load_index_html():
-    """从 templates/index.html 读取首页 HTML"""
-    path = os.path.join(TEMPLATES_DIR, "index.html")
-    with open(path, "r", encoding="utf-8") as f:
-        return f.read()
-
-
-HOME_HTML = _load_index_html()
-
-
-@app.get("/", response_class=HTMLResponse)
-async def index():
-    return HOME_HTML
+@app.get("/")
+async def index(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 
 @app.get("/api/lookup")
-async def lookup(word: str = Query(..., description="单词")):
+async def lookup(request: Request, word: str = Query(..., description="单词")):
     if not word or not word.strip():
         raise HTTPException(status_code=400, detail="请输入单词")
 
     result, exact = mdx_reader.lookup(word)
 
     if exact:
-        return HTMLResponse(f'<div class="dict-content">{result}</div>')
+        return templates.TemplateResponse(
+            "partials/_lookup_result.html",
+            {"request": request, "content": result}
+        )
 
     if result:
-        suggestions = result
-        links = " ".join(
-            f'<a class="sug-link" onclick="document.querySelector(\'[name=word]\').value=\'{s}\'; htmx.trigger(\'[name=word]\', \'search\')">{s}</a>'
-            for s in suggestions
-        )
-        return HTMLResponse(
-            f'<div class="suggestion">未找到 "<strong>{word}</strong>"<br><br>您是不是想查：<br>{links}</div>'
+        return templates.TemplateResponse(
+            "partials/_suggestions.html",
+            {"request": request, "word": word, "suggestions": result}
         )
 
-    return HTMLResponse(f'<div class="suggestion">未找到 "<strong>{word}</strong>"</div>')
+    return templates.TemplateResponse(
+        "partials/_suggestions.html",
+        {"request": request, "word": word, "suggestions": []}
+    )
 
 
 @app.get("/api/rank")

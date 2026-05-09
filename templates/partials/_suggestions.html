@@ -1,0 +1,11 @@
+<div class="suggestion">
+  未找到 "<strong>{{ word }}</strong>"<br /><br />
+  {% if suggestions %} 您是不是想查：<br />
+  {% for s in suggestions %}
+  <a
+    class="sug-link"
+    onclick="document.querySelector('[name=word]').value='{{ s }}'; htmx.trigger('[name=word]', 'search')"
+    >{{ s }}</a
+  >
+  {% endfor %} {% endif %}
+</div>
