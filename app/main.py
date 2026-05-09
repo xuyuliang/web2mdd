@@ -217,6 +217,16 @@ class MDXReader:
 
         return suggestions, False
 
+    def get_rank(self, word):
+        """获取单词的词频（取所有 RANK 中的最小值）"""
+        result, exact = self.lookup(word)
+        if not exact or not result:
+            return None
+        ranks = re.findall(r'<span class="rank">(\d+)</span>', result)
+        if ranks:
+            return min(int(r) for r in ranks)
+        return None
+
 
 print("正在加载词典...")
 mdx_reader = MDXReader(MDX_PATH)
@@ -259,6 +269,24 @@ async def lookup(word: str = Query(..., description="单词")):
         )
 
     return HTMLResponse(f'<div class="suggestion">未找到 "<strong>{word}</strong>"</div>')
+
+
+@app.get("/api/rank")
+async def rank(word: str = Query(..., description="单词")):
+    """获取单词的词频（取所有 RANK 中的最小值）"""
+    if not word or not word.strip():
+        raise HTTPException(status_code=400, detail="请输入单词")
+
+    rank_val = mdx_reader.get_rank(word)
+
+    if rank_val is not None:
+        return {"word": word.strip(), "rank": rank_val, "found": True}
+    else:
+        # 检查是否是完全没找到 vs 找到了但没有 rank 字段
+        result, exact = mdx_reader.lookup(word)
+        if exact:
+            return {"word": word.strip(), "rank": None, "found": True}
+        return {"word": word.strip(), "rank": None, "found": False}
 
 
 @app.get("/static/p.css")
