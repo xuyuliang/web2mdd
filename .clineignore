@@ -5,7 +5,7 @@ The little dict/
 # 排除大型依赖文件夹
 
 node_modules/
-**pycache**/
+__pycache__/
 .venv/
 venv/
 env/
@@ -13,12 +13,12 @@ env/
 
 # 排除大型数据文件（防止 AI 被海量数据淹没）
 
-_.mdd
-_.mdx
-_.sqlite
-_.db
-_.csv
-_.log
+*.mdd
+*.mdx
+*.sqlite
+*.db
+*.csv
+*.log
 
 # 排除构建产物
 
@@ -28,5 +28,5 @@ build/
 # 排除敏感信息（安全第一）
 
 .env
-_.pem
-_.key
+*.pem
+*.key
