@@ -28,5 +28,5 @@
    - `static/style.css` — 页面样式
    - `The little dict/` — 词典数据（被 gitignore 排除）
 
-4. **启动命令**: `cd web2mdd && python -m app.main`
-   或: `cd web2mdd && venv\Scripts\python -m app.main`
+4. **启动命令**: 
+    `venv\Scripts\python -m app.main`

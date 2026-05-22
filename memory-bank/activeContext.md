@@ -1,18 +1,28 @@
 # Active Context
 
-- **当前任务**: 引入 Jinja2 模板引擎，替换手动拼接 HTML（已完成）
+- **当前任务**: 实现词根词缀分析与同源词查找（部分完成：词根词缀切分已完成；同源词查找待实现）
 - **最近修改**:
-  - `main.py`:
-    - 引入 `Jinja2Templates`，添加 `templates = Jinja2Templates(directory=TEMPLATES_DIR)`
-    - 移除 `_load_index_html()` 函数和 `HOME_HTML` 全局变量
-    - 移除 `HTMLResponse` 导入（不再使用）
-    - `/` 首页：改为 `templates.TemplateResponse("index.html", ...)`，注入 `request`
-    - `/api/lookup`：改为渲染 `partials/_lookup_result.html` 或 `partials/_suggestions.html` 片段模板
-  - `templates/index.html`：内容不变，但转为由 Jinja2 渲染（无变量注入）
-  - 新建 `templates/partials/` 目录：
-    - `_lookup_result.html`：`<div class="dict-content">{{ content | safe }}</div>`
-    - `_suggestions.html`：拼写建议片段，含 Jinja2 的 `{% if %}` / `{% for %}` 模板语法
-  - 新增依赖：`jinja2==3.1.6`
-- **API 接口**: 无变更 `/api/lookup` 返回内容不变，`/api/rank` 不变
+  - `app/main.py`:
+    - 引入 `AffixLoader`，在 `/api/lookup` 精确匹配时自动对单词进行词根词缀分析
+    - 调用 `affix_loader.analyze(word, is_valid_word=is_valid_word)` 进行切分
+    - 查询词干的词典释义，通过 Jinja2 渲染 `_affix_result.html` 附加到查词结果后
+    - 新增 `is_valid_word()` 函数，用于验证词干是否为有效单词
+  - `app/affix_loader.py`：新增词根词缀分析模块
+    - `AffixLoader` 类从 `_prefixes.txt`（149个前缀）和 `_suffixes.txt`（198个后缀）加载数据
+    - 按长度降序排列，优先匹配更长的词缀
+    - `analyze()` 方法支持 `is_valid_word` 回调函数验证词干有效性
+    - 包含内置测试用例
+  - `templates/partials/_affix_result.html`：新增词根词缀分析结果片段模板
+    - 显示单词拆分（前缀-词干-后缀，不同颜色高亮）
+    - 详细展示前缀/后缀/词干信息
+    - 可折叠展开词干的词典释义
+  - `_prefixes.txt`、`_suffixes.txt`：新增前缀/后缀数据文件
+  - 引入 Jinja2 模板引擎，替换手动拼接 HTML（已完成）
+- **API 接口**:
+  - `/api/lookup?word=xxx`：精确匹配时返回词典内容 + 词根词缀分析结果（附加在内容后）
+  - `/api/rank?word=xxx`：返回词频信息（取所有 RANK 中的最小值）
 - **启动方式**: `venv\Scripts\python -m app.main`
-- **下一步计划**: 第2项 - 支持简单的正则表达式查字典
+- **下一步计划**: 
+  1. 第2项 - 支持简单的正则表达式查字典（待实现）
+  2. 第3项 - 同源词查找（基于词根词缀分析结果，待实现）
+  3. 第4项 - 拼写相似单词查找（待实现）
