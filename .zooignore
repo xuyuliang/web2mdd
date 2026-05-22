@@ -1,0 +1,42 @@
+# 排除我自己的数据文件夹
+
+The little dict/
+
+# 排除大型依赖文件夹
+
+node_modules/
+__pycache__/
+.venv/
+venv/
+env/
+.git/
+
+# 排除大型数据文件（防止 AI 被海量数据淹没）
+
+*.mdd
+*.mdx
+*.sqlite
+*.db
+*.csv
+*.log
+*.pkl
+
+# 排除图片等媒体文件（词典目录中的图片资源）
+
+*.png
+*.gif
+*.jpg
+*.jpeg
+*.svg
+*.ico
+
+# 排除构建产物
+
+dist/
+build/
+
+# 排除敏感信息（安全第一）
+
+.env
+*.pem
+*.key

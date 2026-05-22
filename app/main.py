@@ -15,6 +15,8 @@ import time
 import pickle
 import re
 
+from app.affix_loader import AffixLoader
+
 app = FastAPI()
 
 # __file__ 现在是 web2mdd/app/main.py，需上移两级到项目根目录
@@ -236,6 +238,18 @@ print("正在加载词典...")
 mdx_reader = MDXReader(MDX_PATH)
 print("[OK] 词典加载完成，服务器就绪！")
 
+print("正在加载词根词缀数据...")
+affix_loader = AffixLoader()
+print(f"[OK] 词根词缀加载完成：{len(affix_loader.prefixes)} 个前缀，{len(affix_loader.suffixes)} 个后缀")
+
+
+def is_valid_word(word: str) -> bool:
+    """判断单词是否在词典中存在（用于词根词缀分析的词干验证）"""
+    if len(word) < 2:
+        return False
+    result, exact = mdx_reader.lookup(word)
+    return exact
+
 
 @app.get("/")
 async def index(request: Request):
@@ -250,9 +264,29 @@ async def lookup(request: Request, word: str = Query(..., description="单词"))
     result, exact = mdx_reader.lookup(word)
 
     if exact:
+        # 精确匹配时，同时进行词根词缀分析
+        analysis = affix_loader.analyze(word, is_valid_word=is_valid_word)
+        affix_html = None
+        if analysis and (analysis["prefix"] or analysis["suffix"]):
+            # 查询词干的词典释义
+            stem_result, stem_exact = mdx_reader.lookup(analysis["final_stem"])
+            stem_lookup_html = stem_result if stem_exact else None
+            # 用 Jinja2 直接渲染片段模板为字符串
+            affix_template = templates.env.get_template("partials/_affix_result.html")
+            affix_html = affix_template.render(
+                prefix=analysis["prefix"],
+                suffix=analysis["suffix"],
+                stem=analysis["stem"],
+                final_stem=analysis["final_stem"],
+                stem_lookup_result=stem_lookup_html,
+            )
+
+        # 将词根词缀分析结果附加到查词结果后面
+        combined = result + (affix_html or "")
+
         return templates.TemplateResponse(
             "partials/_lookup_result.html",
-            {"request": request, "content": result}
+            {"request": request, "content": combined}
         )
 
     if result:

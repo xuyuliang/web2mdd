@@ -1,0 +1,38 @@
+<div class="affix-analysis">
+  <div class="affix-title">📐 词根词缀分析</div>
+  <div class="affix-word-breakdown">
+    {% if prefix %}
+    <span class="affix-part affix-prefix" title="{{ prefix }}">{% if prefix.startswith('-') %}{{ prefix }}{% else %}{{ prefix }}{% endif %}</span>
+    {% endif %}
+    <span class="affix-part affix-stem">{{ stem }}</span>
+    {% if suffix %}
+    <span class="affix-part affix-suffix" title="{{ suffix }}">{{ suffix }}</span>
+    {% endif %}
+  </div>
+  <div class="affix-details">
+    {% if prefix %}
+    <div class="affix-item">
+      <span class="affix-label">前缀</span>
+      <span class="affix-value">{{ prefix }}</span>
+    </div>
+    {% endif %}
+    {% if suffix %}
+    <div class="affix-item">
+      <span class="affix-label">后缀</span>
+      <span class="affix-value">{{ suffix }}</span>
+    </div>
+    {% endif %}
+    <div class="affix-item">
+      <span class="affix-label">词干</span>
+      <span class="affix-value affix-stem-value">{{ final_stem }}</span>
+    </div>
+  </div>
+  {% if stem_lookup_result %}
+  <div class="affix-stem-lookup">
+    <details>
+      <summary>🔍 查看词干 "{{ final_stem }}" 的词典释义</summary>
+      <div class="dict-content">{{ stem_lookup_result | safe }}</div>
+    </details>
+  </div>
+  {% endif %}
+</div>

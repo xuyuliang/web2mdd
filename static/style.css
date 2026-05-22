@@ -16,9 +16,109 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
 .suggestion { text-align: center; color: #999; padding: 20px; font-size: 15px; line-height: 2.2; }
 .sug-link { color: #667eea; text-decoration: none; padding: 3px 10px; border-radius: 4px; cursor: pointer; display: inline-block; margin: 2px; }
 .sug-link:hover { background: #667eea; color: #fff; }
+/* ========== 词根词缀分析 ========== */
+.affix-analysis {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: #f8f9ff;
+    border: 1px solid #e0e3f0;
+    border-radius: 10px;
+    font-size: 14px;
+}
+.affix-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #5a4fcf;
+    margin-bottom: 12px;
+}
+.affix-word-breakdown {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    padding: 10px 14px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e8e8f0;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+.affix-part {
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+.affix-prefix {
+    color: #e67e22;
+    background: #fef5e7;
+}
+.affix-stem {
+    color: #2c3e50;
+}
+.affix-suffix {
+    color: #8e44ad;
+    background: #f4ecf7;
+}
+.affix-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.affix-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid #e8e8f0;
+}
+.affix-label {
+    font-size: 12px;
+    color: #999;
+    font-weight: 500;
+}
+.affix-value {
+    font-weight: 600;
+    color: #333;
+    font-family: 'Courier New', monospace;
+}
+.affix-stem-value {
+    color: #2c3e50;
+}
+.affix-stem-lookup {
+    margin-top: 12px;
+}
+.affix-stem-lookup details {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e8e8f0;
+    padding: 8px 12px;
+}
+.affix-stem-lookup summary {
+    cursor: pointer;
+    color: #5a4fcf;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 4px 0;
+}
+.affix-stem-lookup summary:hover {
+    color: #3d35a0;
+}
+.affix-stem-lookup .dict-content {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #eee;
+    font-size: 13px;
+}
+
 @media (max-width: 480px) {
     .header { padding: 20px 15px; } .header h1 { font-size: 20px; }
     .search-box input { padding: 10px 15px; font-size: 14px; }
     .search-box button { padding: 10px 18px; font-size: 14px; }
     #result { padding: 15px; }
+    .affix-word-breakdown { font-size: 16px; }
+    .affix-analysis { padding: 12px 14px; }
 }
