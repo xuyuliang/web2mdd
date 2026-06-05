@@ -1,16 +1,11 @@
-# 你的目录
-The little dict/
-
 # Python
 __pycache__/
-build/
-dist/
-
-
-# Environments
-.venv
+*.py[cod]
 venv/
+.venv/
 
 # IDE
 .vscode/
-查词分词.code-workspace
+
+# 第三方词典资源
+The little dict/

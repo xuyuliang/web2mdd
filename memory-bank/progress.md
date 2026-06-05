@@ -9,6 +9,11 @@
   - 词干有效性验证（防止误切）
   - 单字符后缀保护（防止 hello 被切 -o）
   - 查询词干的词典释义
+- [x] Anki 数据质量探查（`inspect_anki_data.py`）
+  - 探查 `myankidata.anki2` 数据库结构
+  - 自洽性校验：第6项第一个切分词去点后 == 第0项
+  - 输出质量报告 `plains/anki-data-quality-report.md`
+  - 提取 202 条有效切分数据到 `plains/anki-valid-data.csv`
 - [ ] 2. 支持简单的正则表达式查字典
 - [ ] 3b. 同源词查找（基于词根词缀分析结果，查找共享词干的单词）
 - [ ] 4. 能根据拼写，查找拼写相似的单词
