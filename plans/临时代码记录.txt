@@ -1,0 +1,43 @@
+临时代码说明
+==============
+
+在数据清洗调试过程中，创建了以下临时脚本用于诊断问题。
+如果不需要了可以安全删除，但建议先了解其用途。
+
+---
+
+1. _test_extract.py
+   - 用途：测试 extract_segmentation 和 extract_related_words 函数
+   - 测试用例：respectively, sovereignty, authoritarian, tyrant, propaganda, ardent
+   - 发现 Bug：Python str.isalpha() 对中文也返回 True，导致含中文的 field3 无法匹配英文单词
+   - 状态：已删除
+
+2. _debug_missed.py
+   - 用途：调试 tyrant, coinage, propaganda, ardent 为何没有切分
+   - 发现原因：这些词的切分不在第3项中，而在第4项或后面字段（不同笔记类型字段布局不同）
+   - 状态：已删除
+
+3. _verify.py / _verify2.py
+   - 用途：验证清洗结果的质量（切分格式准确率、相关词质量）
+   - 验证结果：前100条有切分的记录中，0条格式错误
+   - 状态：已删除
+
+4. _inspect_coral.py
+   - 用途：检查 coral 为何没有相关词
+   - 发现原因：coral 第3项中有 corral, carol 等相关词，但它们以纯字母形式出现
+     （而非带点号格式 co.rral / ca.rol），被 extract_related_words 遗漏
+   - 已删除
+
+5. _check_coral.py
+   - 用途：验证修复后 coral 和相关词质量
+   - 验证结果：coral → corral; carol ✅，噪声从 83.4% 降回 81.6%
+   - 已删除
+
+---
+
+总结
+数据清洗过程中遇到的几个关键问题：
+1. isalpha() 对中文返回 True → 改用 a-z/A-Z 范围判断
+2. HTML 标签删除导致单词合并（ly<br>re → lyre） → 改为替换为空格
+3. 相关词只匹配带点号格式 → 漏掉了纯字母形式的相关词（如 corral, carol）
+   → 修复：增加纯单词回退提取 + 过滤切分碎片 + 噪声词表
