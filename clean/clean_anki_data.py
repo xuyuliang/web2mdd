@@ -22,9 +22,10 @@ import os
 import argparse
 import html
 
-# 数据库路径
-ANKI_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "mydata.anki2")
-OUTPUT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "plains", "cleaned_data.csv")
+# 数据库路径（__file__ 在 clean/ 下，需上移一层到项目根目录）
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ANKI_PATH = os.path.join(BASE, "mydata.anki2")
+OUTPUT_PATH = os.path.join(BASE, "plains", "cleaned_data.csv")
 
 
 def is_english(ch: str) -> bool:
@@ -58,6 +59,11 @@ def clean_html(text: str) -> str:
     return text.strip()
 
 
+def _collapse_chinese(text: str) -> str:
+    """将连续汉字替换为 .（多个连续汉字视为一个分隔符）"""
+    return re.sub(r'[\u4e00-\u9fff]+', '.', text)
+
+
 def extract_segmentation(field3: str, word: str) -> tuple[str, str]:
     """
     从第3项中提取单词的切分结果和剩余文本。
@@ -72,7 +78,7 @@ def extract_segmentation(field3: str, word: str) -> tuple[str, str]:
     if not word_lower:
         return ("", field3)
 
-    # 策略1：找带点号切分模式
+    # 策略1：找带点号切分模式（只有带 . 的才是真正的切分）
     dotted_matches = DOTTED_PATTERN.findall(field3)
     for dm in dotted_matches:
         if dm.replace('.', '').lower() == word_lower:
@@ -80,7 +86,7 @@ def extract_segmentation(field3: str, word: str) -> tuple[str, str]:
             remaining = _find_remaining_after(field3, dm)
             return (dm, remaining)
 
-    # 策略2：逐字符扫描法
+    # 策略2：逐字符扫描法（仅当扫描结果含 . 时才有意义）
     raw_accum = ""        # 原始字符累计
     letter_accum = ""     # 只含字母的累计
     scan_chars = []       # 存储 (原始字符, 是否英文字母)
@@ -132,6 +138,10 @@ def extract_segmentation(field3: str, word: str) -> tuple[str, str]:
     segmentation = ''.join(seg_chars)
     remaining = field3[raw_end:]
 
+    # 策略2 扫描结果如果只有纯字母没有点号，说明没找到真正的切分（如单词本身出现在field3开头）
+    if '.' not in segmentation:
+        return ("", field3)
+
     return (segmentation, remaining)
 
 
@@ -148,38 +158,71 @@ def _strip_phonetic(text: str) -> str:
     return re.sub(r'\[[^\]]*\]', '', text)
 
 
+def _strip_separators(text: str) -> str:
+    """去掉单词间的分隔符（. +），仅保留字母，用于验证单词身份"""
+    return re.sub(r'[.+]', '', text)
+
+
+# 匹配英文单词间用 . / + 分隔的模式（如 de.fect, san+ator.ium）
+SEPARATED_PATTERN = re.compile(r'[a-zA-Z]+(?:[.+][a-zA-Z]+)+')
+
+
 def extract_related_words(text: str, word: str) -> list[str]:
     """
     从文本中提取相关单词。
 
     双策略：
-    1. 优先找带点号模式（如 de.fect, dis.pose），去点后验证——这是最可靠的
+    1. 优先找用 . / + / 汉字 分隔的模式（如 de.fect, san+ator.ium, mor死亡ator+ium）
+       去分隔符后验证是否是一个有效单词
     2. 回退策略：提取纯英文字母单词（长度≥4），排除主词
-       用于处理相关词不带点号的情况（如 coral → corral, carol）
+       用于处理相关词不带分隔符的情况（如 coral → corral, carol）
 
     注意：传入的 text 应是已经 clean_html() 处理过的纯文本。
     """
     word_lower = word.lower().strip()
 
-    # ===== 策略1：带点号匹配 =====
-    dotted_pattern = re.compile(r'[a-zA-Z]+(?:\.[a-zA-Z]+){1,}')
-    dotted_matches = dotted_pattern.findall(text)
+    # ===== 策略1：分隔模式匹配 =====
+    sep_matches = []
+    for m in SEPARATED_PATTERN.finditer(text):
+        match_str = m.group()
+        # 跳过 - 开头或结尾的匹配（如 -ator-、-ator.ium）
+        if match_str.startswith('-') or match_str.endswith('-'):
+            continue
+        # 检查前一个字符：如果紧挨着 . 或 - 说明是碎片衍生（如 -ator.ium），跳过
+        if m.start() > 0 and text[m.start() - 1] in '.-':
+            continue
+        sep_matches.append(match_str)
 
     related = []
-    for m in dotted_matches:
-        clean = m.replace('.', '').lower()
-        if clean != word_lower and len(clean) >= 4:
-            if m not in related:
-                related.append(m)
+    for m in sep_matches:
+        clean = _strip_separators(m).lower()
+        # 过滤条件：
+        # 1. 不是主词本身
+        # 2. 长度 >= 4
+        if (clean != word_lower
+                and len(clean) >= 4):
+            # 将 + 统一替换为 .（如 san+ator.ium → san.ator.ium）
+            normalized = m.replace('+', '.')
+            if normalized not in related:
+                related.append(normalized)
 
     # ===== 策略2：纯单词回退 =====
-    # 收集所有带点号匹配中的碎片（如 re.spec.tive → spec, tive）
+    # 收集所有分隔匹配中的碎片（如 re.spec.tive → spec, tive, san+ator.ium → san, ator, ium）
     # 这些碎片不应被当作相关词
     dotted_components = set()
-    for dm in dotted_matches:
-        for part in dm.split('.'):
-            if len(part) >= 4:
-                dotted_components.add(part.lower())
+    for sm in sep_matches:
+        clean = _strip_separators(sm).lower()
+        fragments = re.split(r'[.+]', sm)
+        if clean == word_lower:
+            # 主词自身的拆分碎片全部加入过滤集（如 ex+tradition → tradition 应过滤）
+            for part in fragments:
+                if len(part) >= 4 and part.lower() != word_lower:
+                    dotted_components.add(part.lower())
+        elif len(fragments) >= 3:
+            # ≥3段拆分时，中间碎片应加入过滤集（如 re.spec.tive → spec, tive）
+            for part in fragments:
+                if len(part) >= 4 and part.lower() != word_lower:
+                    dotted_components.add(part.lower())
 
     # 常见词源/注释噪声词（不是真正的相关词）
     NOISE_WORDS = {
@@ -255,6 +298,8 @@ def clean_data(limit: int = None):
 
         # 先清理 HTML：解码实体 + 剥离标签，只看纯文本内容
         field3 = clean_html(field3_raw)
+        # 将连续汉字替换为 .（切分相关词时统一用压缩后的文本）
+        field3 = _collapse_chinese(field3)
 
         # 提取切分结果
         segmentation, remaining = extract_segmentation(field3, word)
