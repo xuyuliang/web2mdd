@@ -114,6 +114,118 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
     font-size: 13px;
 }
 
+/* ========== 通配符搜索结果 ========== */
+.pattern-header {
+    text-align: center;
+    color: #666;
+    padding: 12px 0 16px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 16px;
+}
+.pattern-results {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.pattern-entry {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 12px;
+}
+.pattern-entry:last-child {
+    border-bottom: none;
+}
+.pattern-word {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+    margin-bottom: 8px;
+}
+.hl-literal {
+    color: #97060ffa !important;
+}
+.pattern-no-result {
+    color: #999;
+    font-size: 13px;
+    font-style: italic;
+    padding: 8px 0;
+}
+.pattern-summary {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;
+    padding: 4px 0;
+}
+.pattern-summary .coca2 {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+.pattern-summary .gdc .dcb {
+    display: inline;
+}
+.pattern-summary .pos {
+    color: #5a4fcf;
+    font-weight: 600;
+    margin-right: 4px;
+}
+.pattern-summary .dcn {
+    color: #2c3e50;
+    font-size: 15px;
+    font-weight: 500;
+}
+.pattern-no-summary {
+    color: #999;
+    font-size: 13px;
+    font-style: italic;
+    padding: 8px 0;
+}
+.expand-link {
+    display: inline-block;
+    margin-top: 6px;
+    color: #667eea;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 2px 8px;
+    border: 1px solid #667eea;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+.expand-link:hover {
+    background: #667eea;
+    color: #fff;
+}
+.pattern-divider {
+    border: none;
+    border-top: 2px solid #e74c3c;
+    margin: 10px 0;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 0 10px;
+}
+.page-link {
+    color: #667eea;
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid #667eea;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.page-link:hover {
+    background: #667eea;
+    color: #fff;
+}
+.page-info {
+    color: #666;
+    font-size: 14px;
+}
 @media (max-width: 480px) {
     .header { padding: 20px 15px; } .header h1 { font-size: 20px; }
     .search-box input { padding: 10px 15px; font-size: 14px; }

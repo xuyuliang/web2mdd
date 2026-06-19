@@ -1,0 +1,50 @@
+<div class="pattern-header">
+  模式 "<strong>{{ word }}</strong>" 共有 {{ total_count }} 个匹配结果（第 {{ page }}/{{ total_pages }} 页）
+</div>
+<div class="pattern-results">
+{% for item in results %}
+  <div class="pattern-entry">
+    <div class="pattern-word">{{ item.highlighted_word | safe }}</div>
+    {% if item.summary %}
+      <div class="pattern-summary">{{ item.summary | safe }}</div>
+    {% elif item.has_full %}
+      <div class="pattern-no-summary">（词典中无中文释义数据）</div>
+    {% else %}
+      <div class="pattern-no-result">（词典中未找到释义）</div>
+    {% endif %}
+    {% if item.has_full %}
+      <a class="expand-link"
+         hx-get="/api/lookup_expand?word={{ item.word | urlencode }}"
+         hx-target="closest .pattern-entry"
+         hx-swap="outerHTML"
+         hx-indicator="#loading">
+        ▶ 展开全文
+      </a>
+    {% endif %}
+    {% if loop.index == page_ranked_count and page_ranked_count > 0 and page_ranked_count < results|length %}
+      <hr class="pattern-divider" />
+    {% endif %}
+  </div>
+{% endfor %}
+</div>
+{% if total_pages > 1 %}
+<div class="pagination">
+  {% if page > 1 %}
+    <a class="page-link"
+       hx-get="/api/lookup?word={{ word | urlencode }}&page={{ page - 1 }}"
+       hx-target="#result"
+       hx-indicator="#loading">
+      &laquo; 上一页
+    </a>
+  {% endif %}
+  <span class="page-info">{{ page }} / {{ total_pages }}</span>
+  {% if page < total_pages %}
+    <a class="page-link"
+       hx-get="/api/lookup?word={{ word | urlencode }}&page={{ page + 1 }}"
+       hx-target="#result"
+       hx-indicator="#loading">
+      下一页 &raquo;
+    </a>
+  {% endif %}
+</div>
+{% endif %}

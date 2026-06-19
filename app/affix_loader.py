@@ -4,8 +4,8 @@
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PREFIXES_PATH = os.path.join(BASE_DIR, "_prefixes.txt")
-SUFFIXES_PATH = os.path.join(BASE_DIR, "_suffixes.txt")
+PREFIXES_PATH = os.path.join(BASE_DIR, "数据资料", "_prefixes.txt")
+SUFFIXES_PATH = os.path.join(BASE_DIR, "数据资料", "_suffixes.txt")
 
 
 class AffixLoader:

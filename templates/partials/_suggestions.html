@@ -1,11 +1,15 @@
 <div class="suggestion">
-  未找到 "<strong>{{ word }}</strong>"<br /><br />
-  {% if suggestions %} 您是不是想查：<br />
-  {% for s in suggestions %}
-  <a
-    class="sug-link"
-    onclick="document.querySelector('[name=word]').value='{{ s }}'; htmx.trigger('[name=word]', 'search')"
-    >{{ s }}</a
-  >
-  {% endfor %} {% endif %}
+   {% if pattern_mode %}
+     模式 "<strong>{{ word }}</strong>" 匹配到 {{ suggestions|length }} 个结果：<br /><br />
+   {% else %}
+     未找到 "<strong>{{ word }}</strong>"<br /><br />
+   {% endif %}
+   {% if suggestions %} {% if not pattern_mode %}您是不是想查：{% endif %}<br />
+   {% for s in suggestions %}
+   <a
+     class="sug-link"
+     onclick="document.querySelector('[name=word]').value='{{ s }}'; htmx.trigger('[name=word]', 'search')"
+     >{{ s }}</a
+   >
+   {% endfor %} {% endif %}
 </div>
