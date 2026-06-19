@@ -1,1 +1,10 @@
+{% if back_word %}
+  <div class="back-link">
+    <a hx-get="/api/lookup?word={{ back_word | urlencode }}&page={{ back_page }}"
+       hx-target="#result"
+       hx-indicator="#loading">
+      ← 返回搜索结果
+    </a>
+  </div>
+{% endif %}
 <div class="dict-content">{{ content | safe }}</div>

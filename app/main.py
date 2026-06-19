@@ -324,45 +324,24 @@ class MDXReader:
     def pattern_search_ranked(self, pattern: str):
         """带词频排序的模式搜索
 
-        先用 WordFreq 搜索（天然按词频排序），不足的从 MDX 补。
+        直接在 COCA 词频列表中搜索（天然按词频排序），
+        将结果映射到 MDX 原始大小写后返回。
         返回 (ranked_words, unranked_words, total_count)
-        ranked_words 和 unranked_words 均为 MDX 中的原始大小写形式。
+        ranked_words 和 unranked_words 均为 MDX 中的原始大小写形式
+        （unranked 始终为空，不使用全量 MDX 补词以避免性能问题）。
         """
         coca_results = word_freq.search(pattern, max_results=PATTERN_MAX_TOTAL)
 
-        # 第 1 步：将 COCA 小写词映射为 MDX 原始大小写
+        # 将 COCA 小写词映射为 MDX 原始大小写
         ranked_in_mdx = []
-        ranked_lower_set = set()
         for w in coca_results:
             mdx_word = self._get_mdx_word(w)
             if mdx_word:
                 ranked_in_mdx.append(mdx_word)
-                ranked_lower_set.add(w)
-
-        # 第 2 步：如果不足，从 MDX 补罕见词（不在 COCA 中的词）
-        if len(ranked_in_mdx) < PATTERN_MAX_TOTAL:
-            regex = self._pattern_to_regex(pattern)
-            remaining = PATTERN_MAX_TOTAL - len(ranked_in_mdx)
-            unranked = []
-            unranked_lower_set = set()
-            for i, w in enumerate(self.lower_words):
-                if not regex.match(w):
-                    continue
-                orig = self.key_list[i][1].decode("utf-8", errors="ignore").strip()
-                orig_lower = orig.lower()
-                if orig_lower in ranked_lower_set or orig_lower in unranked_lower_set:
-                    continue
-                # 不在 COCA 词频表 = 罕见词
-                if orig_lower not in word_freq.word_set:
-                    unranked.append(orig)
-                    unranked_lower_set.add(orig_lower)
-                    if len(unranked) >= remaining:
-                        break
-        else:
-            unranked = []
 
         ranked_out = ranked_in_mdx[:PATTERN_MAX_TOTAL]
-        total_count = len(ranked_out) + len(unranked)
+        unranked: list[str] = []
+        total_count = len(ranked_out)
 
         return ranked_out, unranked, total_count
 
@@ -409,16 +388,6 @@ class MDXReader:
 
         return suggestions, False
 
-    def get_rank(self, word):
-        """获取单词的词频（取所有 RANK 中的最小值）"""
-        result, exact = self.lookup(word)
-        if not exact or not result:
-            return None
-        ranks = re.findall(r'<span class="rank">(\d+)</span>', result)
-        if ranks:
-            return min(int(r) for r in ranks)
-        return None
-
 
 print("正在加载词典...")
 mdx_reader = MDXReader(MDX_PATH)
@@ -447,7 +416,7 @@ async def index(request: Request):
 
 
 @app.get("/api/lookup")
-async def lookup(request: Request, word: str = Query(..., description="单词"), page: int = Query(1, ge=1, description="页码")):
+async def lookup(request: Request, word: str = Query(..., description="单词"), page: int = Query(1, ge=1, description="页码"), back_word: str = Query(None, description="返回搜索词"), back_page: int = Query(1, description="返回页码")):
     if not word or not word.strip():
         raise HTTPException(status_code=400, detail="请输入单词")
 
@@ -476,7 +445,7 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
 
         return templates.TemplateResponse(
             request, "partials/_lookup_result.html",
-            {"content": combined}
+            {"content": combined, "back_word": back_word, "back_page": back_page}
         )
 
     # 模式搜索（包含 * 或 .）
@@ -501,11 +470,12 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
         for w in page_words:
             html, _ = mdx_reader.lookup(w)
             highlighted = MDXReader._pattern_highlight(word, w)
+            rank = word_freq.get_rank(w)
             if html:
                 summary = MDXReader._extract_summary(html)
-                page_results.append({"word": w, "highlighted_word": highlighted, "summary": summary, "has_full": True})
+                page_results.append({"word": w, "highlighted_word": highlighted, "summary": summary, "has_full": True, "rank": rank})
             else:
-                page_results.append({"word": w, "highlighted_word": highlighted, "summary": "", "has_full": False})
+                page_results.append({"word": w, "highlighted_word": highlighted, "summary": "", "has_full": False, "rank": rank})
 
         # 确定当前页中哪些是 ranked 的
         ranked_count = len(ranked)
@@ -570,37 +540,25 @@ async def lookup_expand(request: Request, word: str = Query(..., description="�
     )
 
 
-@app.get("/api/rank")
-async def rank(word: str = Query(..., description="单词")):
-    """获取单词的词频（取所有 RANK 中的最小值）"""
-    if not word or not word.strip():
-        raise HTTPException(status_code=400, detail="请输入单词")
-
-    rank_val = mdx_reader.get_rank(word)
-
-    if rank_val is not None:
-        return {"word": word.strip(), "rank": rank_val, "found": True}
-    else:
-        # 检查是否是完全没找到 vs 找到了但没有 rank 字段
-        result, exact = mdx_reader.lookup(word)
-        if exact:
-            return {"word": word.strip(), "rank": None, "found": True}
-        return {"word": word.strip(), "rank": None, "found": False}
-
 
 @app.get("/static/p.css")
 async def get_css():
+    """从词典目录提供 p.css（MDX 词典自带的样式）"""
     if os.path.exists(CSS_PATH):
         return FileResponse(CSS_PATH, media_type="text/css")
     raise HTTPException(status_code=404, detail="CSS not found")
 
 
-@app.get("/static/style.css")
-async def get_style_css():
-    path = os.path.join(STATIC_DIR, "style.css")
-    if os.path.exists(path):
-        return FileResponse(path, media_type="text/css")
-    raise HTTPException(status_code=404, detail="style.css not found")
+@app.get("/static/{file_path:path}")
+async def get_static_file(file_path: str):
+    """通用静态文件服务路由（favicon、style.css 等）"""
+    # 安全检查：防止目录穿越攻击
+    file_full_path = os.path.normpath(os.path.join(STATIC_DIR, file_path))
+    if not file_full_path.startswith(os.path.normpath(STATIC_DIR)):
+        raise HTTPException(status_code=403, detail="Forbidden")
+    if os.path.exists(file_full_path) and os.path.isfile(file_full_path):
+        return FileResponse(file_full_path)
+    raise HTTPException(status_code=404, detail="File not found")
 
 
 if __name__ == "__main__":

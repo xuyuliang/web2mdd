@@ -172,28 +172,32 @@ if reader._stylesheet:
 else:
     print("  无样式表，跳过")
 
-# ================== 测试3: get_rank 词频提取 ==================
+# ================== 测试3: WordFreq 词频排名 ==================
 print("\n" + "=" * 60)
-print("测试3: get_rank 词频提取")
+print("测试3: WordFreq 词频排名（COCA 排名）")
 print("=" * 60)
 
-# 测试已知词频的单词（取 rank 最小值）
+from app.word_freq import WordFreq
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+COCA_PATH = os.path.join(BASE_DIR, "数据资料", "coca60000.txt")
+word_freq = WordFreq(COCA_PATH)
+
 for word, expected in [("splice", 14588), ("hello", 487), ("abandon", 1340), ("book", 237)]:
-    rank_val = reader.get_rank(word)
+    rank_val = word_freq.get_rank(word)
     match = "✅" if rank_val == expected else "❌"
     print(f"  {match} {word}: 期望 {expected}, 实际 {rank_val}")
 
 # 测试不存在的单词
-rank_val = reader.get_rank("xyznonexistent12345")
+rank_val = word_freq.get_rank("xyznonexistent12345")
 print(f"  ✅ 不存在词: rank={rank_val}")
 
 # 测试空字符串
-rank_val = reader.get_rank("")
+rank_val = word_freq.get_rank("")
 print(f"  ✅ 空字符串: rank={rank_val}")
 
 # 测试大小写
-rank_val = reader.get_rank("SPLICE")
-rank_val2 = reader.get_rank("Hello")
+rank_val = word_freq.get_rank("SPLICE")
+rank_val2 = word_freq.get_rank("Hello")
 print(f"  ✅ 大写 SPLICE: rank={rank_val}")
 print(f"  ✅ 首字母大写 Hello: rank={rank_val2}")
 

@@ -24,7 +24,7 @@
   - 清理：删除项目根目录遗留的 `$null` 文件（命令错误产物）和 `_debug_output.txt`（临时调试输出）
 - **API 接口**:
   - `/api/lookup?word=xxx`：精确匹配时返回词典内容 + 词根词缀分析结果（附加在内容后）
-  - `/api/rank?word=xxx`：返回词频信息（取所有 RANK 中的最小值）
+
 - **启动方式**: `venv\Scripts\python -m app.main` 或 VS Code F5 调试启动
 - **数据探查工具**: `.\venv\Scripts\python.exe inspect_anki_data.py` 或 VS Code 调试配置
 - **下一步计划**: 

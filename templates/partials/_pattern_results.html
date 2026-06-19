@@ -4,8 +4,19 @@
 <div class="pattern-results">
 {% for item in results %}
   <div class="pattern-entry">
-    <div class="pattern-word">{{ item.highlighted_word | safe }}</div>
+    <div class="pattern-word"
+         hx-get="/api/lookup?word={{ item.word | urlencode }}&back_word={{ word | urlencode }}&back_page={{ page }}"
+         hx-target="#result"
+         hx-push-url="true"
+         hx-indicator="#loading"
+         style="cursor:pointer">
+      {{ item.highlighted_word | safe }}
+      {% if item.rank %}
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="pattern-rank">{{ item.rank }}</span>
+      {% endif %}
+    </div>
     {% if item.summary %}
+
       <div class="pattern-summary">{{ item.summary | safe }}</div>
     {% elif item.has_full %}
       <div class="pattern-no-summary">（词典中无中文释义数据）</div>
@@ -13,13 +24,7 @@
       <div class="pattern-no-result">（词典中未找到释义）</div>
     {% endif %}
     {% if item.has_full %}
-      <a class="expand-link"
-         hx-get="/api/lookup_expand?word={{ item.word | urlencode }}"
-         hx-target="closest .pattern-entry"
-         hx-swap="outerHTML"
-         hx-indicator="#loading">
-        ▶ 展开全文
-      </a>
+      <br>
     {% endif %}
     {% if loop.index == page_ranked_count and page_ranked_count > 0 and page_ranked_count < results|length %}
       <hr class="pattern-divider" />

@@ -8,15 +8,14 @@
 
 **状态**: ✅ 已实现
 
-**API**: `GET /api/rank?word=splice`
+**实现**: `WordFreq.get_rank(word) -> int | None`
 
-从词典结果中提取第一个 RANK 标签后面的数字作为词频值（取所有 RANK 中的最小值），通过独立 API 接口返回 JSON。
+加载 COCA60000.txt（每行一个单词，按频率降序排列），用行号作为单词的排名（1-based）。在模式搜索结果的单词旁显示 COCA 词频排名，排名不存在则不显示。
 
-```json
-{"word": "splice", "rank": 14588, "found": true}
+```python
+rank = word_freq.get_rank("splice")  # 返回 14588
 ```
 
-如果单词存在但没有词频字段，返回 `rank: null`；如果单词不存在，返回 `found: false`。
 
 ---
 

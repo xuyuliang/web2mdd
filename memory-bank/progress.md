@@ -1,7 +1,8 @@
 # Progress
 
 - [x] 完成了查字典功能（MDXReader 词典读取、精确匹配、前缀匹配）
-- [x] 1. 单独获取到词频的值（`/api/rank` 接口，正则提取 RANK 最小值）
+- [x] 1. 单独获取到词频的值（`WordFreq.get_rank()` 方法，从 COCA60000.txt 的行号获取排名）
+
 - [x] 引入 Jinja2 模板引擎，重构后端 HTML 渲染
 - [x] 3a. 词根词缀切分（`AffixLoader` 类 + `_affix_result.html` 模板）
   - 从 `_prefixes.txt` 和 `_suffixes.txt` 加载前缀/后缀数据
