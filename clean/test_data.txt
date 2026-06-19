@@ -1,0 +1,70 @@
+# 数据清洗测试用例
+# 从实际 mydata.anki2 中抽取 11 条代表性记录
+# 当前程序运行结果已填入 seg: 和 rel:
+# 请手工编辑 seg: 和 rel: 为期望值，然后运行 python tests\test_clean.py 验证
+
+# 标准点号切分 + 点号相关词 + 纯字母相关词
+respectively
+field3: re.spec.tive.ly re.spec.tive adj. 对应的；分别的 re.spect v.n. 尊重 successive adj. 连续的，依次的
+seg: re.spec.tive.ly
+rel: re.spec.tive; re.spect; spect; successive
+
+# +号分隔切分（无点号），纯字母相关词
+extradition
+field3: ex+tradition 传统：送中不是传统
+seg: ex.tradition
+rel: 
+
+# 汉字+ +号分隔，需过滤 ator+ium / ator.ium 子串噪声
+moratorium
+field3: mor死亡ator+ium morass 困境；泥沼 -ator- 做某种动作的人 -ator.ium 做某事的场所 san+ator.ium n.疗养院 mor+ator.ium n. 中止 crem+ator.ium 火葬场
+seg: mor.ator.ium
+rel: san.ator.ium; crem.ator.ium; morass
+
+# 无点号切分，纯字母相关词（带音标）
+coral
+field3: coral [ˈkɔrəl] 珊瑚 corral [ kəˈrɑːl] 牲口栏 carol [ˈkærəl] 圣诞颂歌
+seg: 
+rel: corral; carol
+
+# 无点号切分，纯字母相关词（带音标前缀）
+flex
+field3: 联想：花线是软的，相对硬线可以屈伸 flex re.flex 本能反应
+seg: 
+rel: re.flex
+
+# 长点号切分 + 点号相关词 + 纯字母相关词
+authoritarian
+field3: author作家i.tar.ian authority honorarium （给专业人士的）酬金
+seg: author.i.tar.ian
+rel: authority; honorarium
+
+# 点号切分 + 点号相关词
+chilly
+field3: chi.lly. chi.lli 辣椒
+seg: chi.lly
+rel: chi.lli
+
+# 点号切分 + 纯字母相关词（含词源注释）
+sovereignty
+field3: sover.eign.ty sover -> (vulgar latin) super sovereign 形容词
+seg: sover.eign.ty
+rel: super; sovereign
+
+# 无点号切分，纯字母相关词
+tyrant
+field3: autocrat 只强调独裁，没说残暴
+seg: 
+rel: autocrat
+
+# 无点号切分，纯字母相关词
+propaganda
+field3: 好多a propagate v.宣传。增殖
+seg: 
+rel: propagate
+
+# 无点号切分，纯字母相关词（多个）
+ardent
+field3: ardour 激情 热情 arduous 艰难的（需要大量努力的）（尤其是需要长时间的）
+seg: 
+rel: ardour; arduous
