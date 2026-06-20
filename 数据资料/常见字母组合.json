@@ -1,0 +1,148 @@
+{
+  "patterns": [
+    {
+      "name": "B",
+      "description": "表示出生、增长、建造或爆裂",
+      "regex": "^b",
+      "examples": ["birth", "boom", "bloom", "bud", "blow", "blast", "bit", "burst"]
+    },
+    {
+      "name": "P",
+      "description": "表示地点、精确、耐心",
+      "regex": "^p",
+      "examples": ["place", "point", "position", "pacific", "passage", "palace", "paradise", "particularity", "peace", "pad"]
+    },
+    {
+      "name": "T",
+      "description": "表示方向、旅行、教导或训练",
+      "regex": "^t",
+      "examples": ["travelling", "trip", "track", "trace", "turn", "teaches", "trains"]
+    },
+    {
+      "name": "SN",
+      "description": "表示不愉快的事情",
+      "regex": "sn",
+      "examples": ["snap", "snake", "sneeze", "snudge"]
+    },
+    {
+      "name": "SL",
+      "description": "表示倾斜或向下移动",
+      "regex": "sl",
+      "examples": ["slope", "slide", "slam"]
+    },
+    {
+      "name": "SW",
+      "description": "表示从一侧到一侧的运动，覆盖一定宽度空间",
+      "regex": "sw",
+      "examples": ["swagger", "swallow", "swamp", "sway", "sweep", "swill", "swing"]
+    },
+    {
+      "name": "_url_irl_earl",
+      "description": "发音[e:]与圆形相关",
+      "regex": "(url|irl|earl)$",
+      "examples": ["curl", "furl", "pearl", "swirl", "twirl", "whirl"]
+    },
+    {
+      "name": "ST",
+      "description": "表示支柱、稳定、力量或抵抗",
+      "regex": "^st",
+      "examples": ["stop", "stay", "stand", "stable", "strength"]
+    },
+    {
+      "name": "GL",
+      "description": "表示明亮或闪耀的事物",
+      "regex": "gl",
+      "examples": ["glimpse", "glisten", "glitter", "glass", "gloss"]
+    },
+    {
+      "name": "BB",
+      "description": "表示幼稚或儿童相关的事物",
+      "regex": "b[b]([aeiou])b\\1",
+      "examples": ["babble", "baby", "bib", "bob", "bobbery", "bobbish", "bubble"]
+    },
+    {
+      "name": "元音NV",
+      "description": "表示内部、进入或包围",
+      "regex": "in[v?]",
+      "examples": ["involvement", "invader", "invasion", "inveiglement", "inventory", "invert", "investment", "investigation", "envelope", "envoy", "environment"]
+    },
+    {
+      "name": "R元音L",
+      "description": "表示运动、旋转",
+      "regex": "r[aeiou]l",
+      "examples": ["rail", "reel", "relation", "relapse", "relish", "relay", "release", "roll"]
+    },
+    {
+      "name": "M元音L",
+      "description": "表示分割、分裂",
+      "regex": "m[aeiou]l",
+      "examples": ["mill", "mile", "mallet", "mall", "meal", "millennium", "multitude", "molecule"]
+    },
+    {
+      "name": "STR-",
+      "description": "表示力量、努力、张力",
+      "regex": "^str",
+      "examples": ["strong", "struggle", "strain", "effort"]
+    },
+    {
+      "name": "ST-",
+      "description": "表示较弱的力量或静止",
+      "regex": "^st",
+      "examples": ["stand", "stop", "stay"]
+    },
+    {
+      "name": "THR-",
+      "description": "表示强大的运动、一阵风",
+      "regex": "thr",
+      "examples": ["throw", "thrust", "thunder"]
+    },
+    {
+      "name": "BR-",
+      "description": "表示强烈的破裂声",
+      "regex": "^br",
+      "examples": ["break", "brook", "brake", "brand"]
+    },
+    {
+      "name": "CR-",
+      "description": "表示带有爆裂声的破碎",
+      "regex": "^cr",
+      "examples": ["crack", "cry", "crash", "crumble"]
+    },
+    {
+      "name": "GR-",
+      "description": "表示粗糙、坚硬的事物",
+      "regex": "^gr",
+      "examples": ["grate", "grind", "gross", "ground"]
+    },
+    {
+      "name": "CL-",
+      "description": "表示附着或约束",
+      "regex": "^cl",
+      "examples": ["cleave", "clay", "climb", "click", "close"]
+    },
+    {
+      "name": "SP-",
+      "description": "表示展开或分散",
+      "regex": "^sp",
+      "examples": ["spread", "spit", "split", "spare"]
+    },
+    {
+      "name": "SL-",
+      "description": "表示无声的滑动",
+      "regex": "^sl",
+      "examples": ["slide", "slip", "slither"]
+    },
+    {
+      "name": "SK-",
+      "description": "表示强烈的压缩",
+      "regex": "^sk",
+      "examples": ["skin", "skip", "skirt", "skull"]
+    },
+    {
+      "name": "SKR-",
+      "description": "表示强烈的压缩",
+      "regex": "skr",
+      "examples": ["screen", "screech", "screw", "script"]
+    }
+  ]
+}

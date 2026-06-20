@@ -48,6 +48,7 @@
 -cule
 -cy
 -dom
+-ed
 -ee
 -eer
 -el
@@ -110,6 +111,7 @@
 -ile
 -in
 -ine
+-ing
 -ion
 -ior
 -ious

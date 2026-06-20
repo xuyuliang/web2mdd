@@ -1,0 +1,32 @@
+<div class="related-words-section" id="related-words-section">
+  <div class="related-words-title">🔗 相似词推荐（词干: {{ stem }}）</div>
+  <div class="related-words-list">
+    {% for rw in related_words %}
+    <div class="related-word-item">
+      <div class="related-word"
+           hx-get="/api/lookup?word={{ rw.word | urlencode }}&back_word={{ back_word | urlencode }}"
+           hx-target="#result"
+           hx-push-url="true"
+           hx-indicator="#loading"
+           style="cursor:pointer">
+         {{ rw.highlighted_word | safe }}
+       </div>
+      <span class="related-score" title="相似度分数（越低越相似）">score: {{ rw.score }}</span>
+      {% if rw.rank %}
+      <span class="related-rank" title="COCA词频排名">rank: #{{ rw.rank }}</span>
+      {% else %}
+      <span class="related-rank unknown">未收录</span>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% if back_word %}
+  <div class="related-words-back">
+    <button type="button"
+            onclick="document.getElementById('header-section').scrollIntoView({behavior:'smooth'})"
+            style="cursor:pointer;text-decoration:underline;color:#007bff;border:none;background:none;font:inherit;padding:0;font-size:13px;display:flex;align-items:center;gap:4px;">
+      ↑ 返回上面
+    </button>
+  </div>
+  {% endif %}
+</div>

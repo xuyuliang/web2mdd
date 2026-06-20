@@ -1,0 +1,4 @@
+{
+  "single_consonants": ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"],
+  "common_blends": ["bl", "br", "cl", "cr", "dr", "fr", "gl", "gr", "pl", "pr", "sc", "sk", "sl", "sm", "sn", "sp", "st", "sw", "tr", "wr"]
+}

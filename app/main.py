@@ -28,6 +28,7 @@ import lzo  # 使用注入的 stub（引擎 2.0 用 zlib，不会真正调用 lz
 
 from app.affix_loader import AffixLoader
 from app.word_freq import WordFreq
+from app.related_words import RelatedWordsSearcher
 
 app = FastAPI()
 
@@ -256,6 +257,27 @@ class MDXReader:
         return re.compile(regex_str, re.IGNORECASE)
 
     @staticmethod
+    def _stem_highlight(stem: str, word: str) -> str:
+        """将词干在推荐词中的匹配部分高亮显示
+        
+        例如：stem='situ', word='situated' →
+        返回 '<span class="stem-highlight">situ</span>ated'
+        
+        优先匹配小写形式，保持原词的大小写。
+        """
+        stem_lower = stem.lower()
+        word_lower = word.lower()
+        pos = word_lower.find(stem_lower)
+        if pos >= 0:
+            # 找到词干位置
+            before = word[:pos]
+            matched = word[pos:pos + len(stem)]
+            after = word[pos + len(stem):]
+            return f'{before}<span class="stem-highlight">{matched}</span>{after}'
+        # 没找到直接匹配，返回原词
+        return word
+
+    @staticmethod
     def _pattern_highlight(pattern: str, word: str) -> str:
         """将匹配到的单词中的用户输入字面量部分用深蓝色高亮
 
@@ -424,6 +446,12 @@ print("正在加载 COCA 词频数据...")
 word_freq = WordFreq(COCA_PATH)
 print("[OK] 词频数据加载完成")
 
+# 初始化相似词搜索器
+DATA_DIR = os.path.join(BASE_DIR, "数据资料")
+print("正在加载相似词搜索数据...")
+related_words_searcher = RelatedWordsSearcher(COCA_PATH, DATA_DIR)
+print("[OK] 相似词搜索器初始化完成")
+
 
 def is_valid_word(word: str) -> bool:
     """判断单词是否在词典中存在（用于词根词缀分析的词干验证）"""
@@ -446,25 +474,45 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
     result, exact = mdx_reader.lookup(word)
 
     if exact:
-        # 精确匹配时，同时进行词根词缀分析
+        # 精确匹配时，同时进行词根词缀分析和相似词搜索
         analysis = affix_loader.analyze(word, is_valid_word=is_valid_word)
         affix_html = None
-        if analysis and (analysis["prefix"] or analysis["suffix"]):
-            # 查询词干的词典释义
-            stem_result, stem_exact = mdx_reader.lookup(analysis["final_stem"])
-            stem_lookup_html = stem_result if stem_exact else None
-            # 用 Jinja2 直接渲染片段模板为字符串
-            affix_template = templates.env.get_template("partials/_affix_result.html")
-            affix_html = affix_template.render(
-                prefix=analysis["prefix"],
-                suffix=analysis["suffix"],
-                stem=analysis["stem"],
-                final_stem=analysis["final_stem"],
-                stem_lookup_result=stem_lookup_html,
-            )
+        related_words_html = None
+        
+        if analysis:
+            # 如果有前缀或后缀，渲染词根词缀分析
+            if analysis.get("prefix") or analysis.get("suffix"):
+                # 查询词干的词典释义
+                stem_result, stem_exact = mdx_reader.lookup(analysis["final_stem"])
+                stem_lookup_html = stem_result if stem_exact else None
+                # 用 Jinja2 直接渲染片段模板为字符串
+                affix_template = templates.env.get_template("partials/_affix_result.html")
+                affix_html = affix_template.render(
+                    prefix=analysis["prefix"],
+                    suffix=analysis["suffix"],
+                    stem=analysis["stem"],
+                    final_stem=analysis["final_stem"],
+                    stem_lookup_result=stem_lookup_html,
+                )
+            
+            # 为词干搜索相似词（无论是否能拆分前后缀）
+            stem = analysis["final_stem"]
+            if stem and len(stem) >= 2:  # 词干至少2个字符才有意义
+                related_results = related_words_searcher.search_and_score(stem, max_results=30)
+                if related_results:
+                    # 为每个相似词添加高亮单词（分块并用 "." 连接）
+                    for rw in related_results:
+                        rw["highlighted_word"] = related_words_searcher.highlight_word(stem, rw["word"])
+                    
+                    related_template = templates.env.get_template("partials/_related_words.html")
+                    related_words_html = related_template.render(
+                        stem=stem,
+                        related_words=related_results,
+                        back_word=back_word if back_word else word,  # 保存原始搜索词用于返回
+                    )
 
-        # 将词根词缀分析结果附加到查词结果后面
-        combined = result + (affix_html or "")
+        # 将词根词缀分析结果和相似词结果附加到查词结果后面
+        combined = result + (affix_html or "") + (related_words_html or "")
 
         return templates.TemplateResponse(
             request, "partials/_lookup_result.html",
