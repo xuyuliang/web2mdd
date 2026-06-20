@@ -77,6 +77,20 @@ class MDXReader:
             self._stylesheet = cache.get("_stylesheet")
             self._substyle = cache.get("_substyle", False)
             self.lower_word_set = set(self.lower_words)
+
+            # 兼容旧缓存：加载或重建 lower_to_orig
+            if "lower_to_orig" in cache:
+                self.lower_to_orig = cache["lower_to_orig"]
+            else:
+                # 旧缓存，现场重建 lower_to_orig
+                print("[MDX] 旧缓存格式，正在重建 lower_to_orig ...")
+                self.lower_to_orig = {}
+                for i, (off, key_bytes) in enumerate(self.key_list):
+                    lower_w = key_bytes.decode("utf-8", errors="ignore").strip().lower()
+                    orig_w = key_bytes.decode("utf-8", errors="ignore").strip()
+                    self.lower_to_orig[lower_w] = orig_w
+                print(f"[MDX] lower_to_orig 重建完成（{len(self.lower_to_orig)} 条目）")
+
             print(f"[MDX] 缓存加载完成（含 {len(self.key_list)} 词条），耗时 {time.time()-t0:.1f}s")
         else:
             # 完整构建
@@ -98,6 +112,15 @@ class MDXReader:
                 word = key_bytes.decode("utf-8", errors="ignore").strip().lower()
                 self.lower_words.append(word)
 
+            # 小写单词 -> 原始大小写形式 的映射（用于 O(1) 查找，替代 bisect）
+            # 注意：lower_words 是按 MDX 记录顺序排列的（不是字母序），
+            # 所以不能用 bisect 做精确查找。lower_to_orig 字典提供 O(1) 映射。
+            self.lower_to_orig = {}
+            for i, (off, key_bytes) in enumerate(self.key_list):
+                lower_w = key_bytes.decode("utf-8", errors="ignore").strip().lower()
+                orig_w = key_bytes.decode("utf-8", errors="ignore").strip()
+                self.lower_to_orig[lower_w] = orig_w
+
             # 小写单词集合，用于 O(1) 存在性检查
             self.lower_word_set = set(self.lower_words)
 
@@ -115,6 +138,7 @@ class MDXReader:
                 "key_list": self.key_list,
                 "word_to_idx": self.word_to_idx,
                 "lower_words": self.lower_words,
+                "lower_to_orig": self.lower_to_orig,
                 "block_infos": self.block_infos,
                 "block_starts": self.block_starts,
                 "data_offset": self.data_offset,
@@ -314,12 +338,11 @@ class MDXReader:
     def _get_mdx_word(self, lower_word: str) -> str | None:
         """将小写单词映射到 MDX 中的原始大小写形式
 
-        lower_words 已 strip 掉空白，所以 lower_word 直接二分查找即可。
+        使用 lower_to_orig 字典进行 O(1) 查找。
+        注意：lower_words 是按 MDX 记录顺序排列的（不是字母序），
+        所以不能用 bisect 做精确查找——这是之前 bug 的根因。
         """
-        idx = bisect.bisect_left(self.lower_words, lower_word)
-        if idx < len(self.lower_words) and self.lower_words[idx] == lower_word:
-            return self.key_list[idx][1].decode("utf-8", errors="ignore").strip()
-        return None
+        return self.lower_to_orig.get(lower_word)
 
     def pattern_search_ranked(self, pattern: str):
         """带词频排序的模式搜索
