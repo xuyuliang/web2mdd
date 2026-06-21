@@ -17,9 +17,6 @@ if errorlevel 1 (
     exit /b 1
 )
 
-echo 正在打开浏览器...
-start http://localhost:8000
-
 echo.
 echo 启动服务器（按 Ctrl+C 停止）...
 echo.

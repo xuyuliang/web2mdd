@@ -308,46 +308,299 @@ class RelatedWordsSearcher:
     
     def highlight_word(self, stem: str, word: str) -> str:
         """
-        将单词分块并用 "." 连接显示
+        将单词分块并用 "." 连接显示，词干高亮
         
-        例如：stem='situ', word='situational' → 'situ.ation.al'
+        算法：
+        1. 先找到词干在单词中的位置，高亮词干
+        2. 对词干左边的部分，从左到右匹配前缀
+        3. 对词干右边的部分，从右到左匹配后缀
+        4. 词干和相邻的未识别部分直接连接（不加点）
+        5. 只有已知的前缀/后缀之间用 "." 分隔
         
-        分块规则：
-        1. 词干部分作为第一块
-        2. 前缀/后缀/常见字母组合各自为一块
-        3. 剩余未识别的单字符或多字符各为一块
+        例如：
+        - stem='comfor', word='comfortable' → '<span class="stem-highlight">comfor</span>t.able'
+        - stem='fort', word='comfortable' → 'com.<span class="stem-highlight">fort</span>.able'
+        - stem='situ', word='situational' → '<span class="stem-highlight">situ</span>ation.al'
         
         Args:
             stem: 词干
             word: 完整单词
             
         Returns:
-            用 "." 连接的块字符串
+            分块字符串，词干用 <span class="stem-highlight"> 包裹
         """
-        stem = stem.lower()
+        stem_lower = stem.lower()
         word_lower = word.lower()
         
-        # 找出 word 相对于 stem 的前缀、词干、后缀
-        stem_pos = word_lower.find(stem)
+        # 找出词干在单词中的位置
+        stem_pos = word_lower.find(stem_lower)
         
-        if stem_pos >= 0:
-            # word = 前缀 + stem + 后缀
-            prefix_part = word_lower[:stem_pos] if stem_pos > 0 else ""
-            suffix_part = word_lower[stem_pos + len(stem):] if stem_pos + len(stem) < len(word_lower) else ""
-            
-            blocks = []
-            # 前缀部分：从左向右匹配，只使用 prefixes_clean
-            if prefix_part:
-                blocks.extend(self._match_text(prefix_part, self.prefixes_clean, forward=True))
-            blocks.append(stem)  # 词干本身是一块
-            # 后缀部分：从右向左匹配，只使用 suffixes_clean
-            if suffix_part:
-                blocks.extend(self._match_text(suffix_part, self.suffixes_clean, forward=False))
-            
-            return ".".join(blocks)
+        if stem_pos < 0:
+            # 词干不在单词中，返回原词
+            return word
         
-        # 如果 stem 不在 word 中，尝试用编辑距离分块（简化处理）
-        return word
+        # 构建高亮词干标签
+        stem_highlight = f'<span class="stem-highlight">{word[stem_pos:stem_pos + len(stem)]}</span>'
+        
+        # 词干左边的部分
+        prefix_part = word_lower[:stem_pos] if stem_pos > 0 else ""
+        # 词干右边的部分
+        suffix_part = word_lower[stem_pos + len(stem_lower):] if stem_pos + len(stem_lower) < len(word_lower) else ""
+        
+        # 处理前缀部分（从左到右匹配）
+        prefix_blocks, left_unmatched = self._match_prefixes_with_unmatched(prefix_part)
+        
+        # 处理后缀部分（从右到左匹配），同时保留后缀块信息用于位置计算
+        suffix_result = self._match_suffixes_with_positions(suffix_part)
+        
+        # 构建最终输出
+        result = ""
+        
+        # 前缀部分
+        if prefix_blocks:
+            result += ".".join(prefix_blocks)
+            result += "."
+        result += left_unmatched
+        
+        # 词干（高亮）
+        result += stem_highlight
+        
+        # 后缀部分：按位置顺序构建
+        result += self._build_suffix_output(suffix_part, suffix_result)
+        
+        return result
+    
+    def _match_suffixes_with_positions(self, text: str) -> dict:
+        """
+        从右到左匹配后缀，返回包含后缀块信息和未识别字符的字典
+        
+        算法：从右端开始，逐个尝试匹配所有已知后缀，匹配成功后跳到该位置继续。
+        未匹配的字符作为未识别部分。
+        
+        Returns:
+            {'suffix_blocks': [(start, end, item), ...], 'unmatched_chars': [(pos, char), ...]}
+        """
+        if not text:
+            return {'suffix_blocks': [], 'unmatched_chars': []}
+        
+        suffix_blocks_info = []
+        i = len(text)
+        
+        while i > 0:
+            matched = False
+            for item in self.suffixes_clean:
+                if not item:
+                    continue
+                item_len = len(item)
+                start = i - item_len
+                if start >= 0 and text[start:i] == item:
+                    suffix_blocks_info.append((start, i, item))
+                    i = start
+                    matched = True
+                    break
+            if not matched:
+                i -= 1
+        
+        if not suffix_blocks_info:
+            return {'suffix_blocks': [], 'unmatched_chars': [(pos, text[pos]) for pos in range(len(text))]}
+        
+        # 按位置排序
+        suffix_blocks_info.sort(key=lambda x: x[0])
+        
+        # 找出未识别字符
+        covered_ranges = [(info[0], info[1]) for info in suffix_blocks_info]
+        unmatched_chars = []
+        
+        for pos in range(len(text)):
+            covered = False
+            for start, end in covered_ranges:
+                if start <= pos < end:
+                    covered = True
+                    break
+            if not covered:
+                unmatched_chars.append((pos, text[pos]))
+        
+        return {'suffix_blocks': suffix_blocks_info, 'unmatched_chars': unmatched_chars}
+    
+    def _build_suffix_output(self, text: str, suffix_result: dict) -> str:
+        """
+        按位置顺序构建后缀部分的输出
+        
+        规则：
+        - 后缀块之间用 "." 分隔
+        - 未识别字符和相邻的后缀块之间也用 "." 分隔
+        - 连续的未识别字符直接连接
+        """
+        if not text:
+            return ""
+        
+        suffix_blocks_info = suffix_result['suffix_blocks']
+        unmatched_chars = suffix_result['unmatched_chars']
+        
+        if not suffix_blocks_info:
+            # 没有匹配到任何后缀，返回原文本
+            return text
+        
+        # 合并所有块和字符，按位置排序
+        all_items = []
+        
+        # 添加后缀块
+        for start, end, item in suffix_blocks_info:
+            all_items.append(('block', start, end, item))
+        
+        # 添加未识别字符
+        for pos, char in unmatched_chars:
+            all_items.append(('char', pos, pos + 1, char))
+        
+        # 按起始位置排序
+        all_items.sort(key=lambda x: x[1])
+        
+        # 构建输出：后缀块之间用 "." 分隔，未识别字符和块之间也用 "." 分隔
+        # 连续的未识别字符直接连接
+        result = ""
+        for i, (item_type, start, end, content) in enumerate(all_items):
+            if item_type == 'block':
+                if result:
+                    # 如果前一项是块，加点分隔
+                    if all_items[i-1][0] == 'block':
+                        result += "."
+                    # 如果前一项是字符，不加点（字符直接连接到块）
+                result += content
+            else:
+                # 未识别字符直接添加
+                result += content
+        
+        return result
+    
+    def _match_prefixes_with_unmatched(self, text: str) -> tuple[list[str], str]:
+        """
+        从左到右匹配前缀，返回 (前缀块列表, 未识别部分字符串)
+        
+        Args:
+            text: 词干左边的部分
+            
+        Returns:
+            (前缀块列表, 未识别部分)
+        """
+        if not text:
+            return [], ""
+        
+        prefix_blocks = []
+        unmatched_parts = []
+        i = 0
+        
+        while i < len(text):
+            matched = False
+            for item in self.prefixes_clean:
+                if not item:
+                    continue
+                if text[i:i + len(item)] == item:
+                    # 先把积累的未识别部分连起来
+                    if unmatched_parts:
+                        prefix_blocks.append("".join(unmatched_parts))
+                        unmatched_parts = []
+                    prefix_blocks.append(text[i:i + len(item)])
+                    i += len(item)
+                    matched = True
+                    break
+            if not matched:
+                unmatched_parts.append(text[i])
+                i += 1
+        
+        # 剩余的未识别部分
+        if unmatched_parts:
+            prefix_blocks.append("".join(unmatched_parts))
+        
+        # 分离前缀块和未识别部分
+        # 前面的块如果是已知前缀则是 prefix，最后一个是未识别部分
+        final_prefix_blocks = []
+        final_unmatched = ""
+        
+        # 找到最后一个真正的后缀块（已知前缀）
+        for j in range(len(prefix_blocks)):
+            # 检查这个块是否是已知前缀
+            if prefix_blocks[j].lower() in set(self.prefixes_clean):
+                final_prefix_blocks.append(prefix_blocks[j])
+            else:
+                # 这不是一个已知前缀，是未识别部分
+                final_unmatched = prefix_blocks[j]
+        
+        # 如果最后一个块是已知前缀，没有未识别部分
+        if final_prefix_blocks and final_prefix_blocks[-1].lower() in set(self.prefixes_clean):
+            return final_prefix_blocks, ""
+        
+        # 否则，最后一个非前缀块是未识别部分
+        if final_unmatched:
+            return final_prefix_blocks[:-1] if len(final_prefix_blocks) > 1 else [], final_unmatched
+        
+        return final_prefix_blocks, ""
+    
+    def _match_suffixes_with_unmatched(self, text: str) -> tuple[str, list[str]]:
+        """
+        从右到左匹配后缀，返回 (未识别部分字符串, 后缀块列表)
+        
+        算法：从右到左扫描，在每个位置尝试匹配最长的后缀。
+        未匹配的字符作为未识别字符串返回。
+        
+        Args:
+            text: 词干右边的部分
+            
+        Returns:
+            (未识别部分, 后缀块列表)
+        """
+        if not text:
+            return "", []
+        
+        # 从右到左匹配，记录每个位置的匹配结果
+        suffix_blocks_info = []  # [(start, end, matched_item)]
+        
+        i = len(text)
+        while i > 0:
+            matched = False
+            for item in self.suffixes_clean:
+                if not item:
+                    continue
+                item_len = len(item)
+                start = i - item_len
+                if start >= 0 and text[start:i] == item:
+                    suffix_blocks_info.append((start, i, item))
+                    i = start
+                    matched = True
+                    break
+            if not matched:
+                i -= 1
+        
+        if not suffix_blocks_info:
+            return text, []
+        
+        # 按位置排序
+        suffix_blocks_info.sort(key=lambda x: x[0])
+        
+        # 获取所有被后缀块覆盖的位置范围
+        covered_ranges = [(info[0], info[1]) for info in suffix_blocks_info]
+        
+        # 找出未被覆盖的位置（未识别字符）
+        unmatched_chars = []
+        for pos in range(len(text)):
+            covered = False
+            for start, end in covered_ranges:
+                if start <= pos < end:
+                    covered = True
+                    break
+            if not covered:
+                unmatched_chars.append((pos, text[pos]))
+        
+        # 构建未识别部分字符串
+        if unmatched_chars:
+            unmatched_chars.sort(key=lambda x: x[0])
+            final_unmatched = "".join([c[1] for c in unmatched_chars])
+        else:
+            final_unmatched = ""
+        
+        # 构建后缀块列表
+        final_suffix_blocks = [info[2] for info in suffix_blocks_info]
+        
+        return final_unmatched, final_suffix_blocks
         
     def _split_into_blocks(self, text: str, known_items: list[str]) -> list[str]:
         """

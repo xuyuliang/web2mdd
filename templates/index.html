@@ -41,5 +41,49 @@
       <div id="loading" class="loading htmx-indicator">🔍 查询中...</div>
       <div id="result"></div>
     </div>
+
+    <script>
+      // 当用户在 .affix-word-breakdown 中选中文本后，自动正则搜索
+      document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.querySelector("[name='word']");
+        if (!searchInput) return;
+
+        const resultDiv = document.getElementById('result');
+        if (resultDiv) {
+          resultDiv.addEventListener('mouseup', function(e) {
+            const breakdownEl = e.target.closest('.affix-word-breakdown');
+            if (!breakdownEl) return;
+
+            const selection = window.getSelection().toString().replace(/[\s.]+/g, '').trim();
+
+            if (!selection) return;
+
+            // 构造正则搜索词 *selected*
+            const pattern = '*' + selection + '*';
+            searchInput.value = pattern;
+
+            // 获取当前的 back_word 和 back_page（如果存在），以便传递下去
+            const currentUrl = new URL(window.location.href);
+            const backWord = currentUrl.searchParams.get('back_word');
+            const backPage = currentUrl.searchParams.get('back_page');
+
+            // 构造 API URL，携带 back_word 和 back_page 参数
+            let apiUrl = '/api/lookup?word=' + encodeURIComponent(pattern);
+            if (backWord) {
+                apiUrl += '&back_word=' + encodeURIComponent(backWord);
+            }
+            if (backPage) {
+                apiUrl += '&back_page=' + encodeURIComponent(backPage);
+            }
+
+            // 触发表单搜索
+            htmx.ajax('GET', apiUrl, '#result');
+
+            // 清空选区
+            window.getSelection().removeAllRanges();
+          });
+        }
+      });
+    </script>
   </body>
 </html>
