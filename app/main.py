@@ -10,9 +10,14 @@ import time
 import threading
 import webbrowser
 import bisect
+import json
+import logging
+from datetime import datetime
+from pathlib import Path
+from typing import List
 
 from fastapi import FastAPI, Query, HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from starlette.requests import Request
 
@@ -382,17 +387,18 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
         affix_html = "".join(affix_html_parts) if affix_html_parts else ""
         combined = result + affix_html + (related_words_html or "")
 
-        # 推送到首页 URL，而不是 /api/lookup?...
-        push_url = f"{{{'?' if '?' not in word else ''}}}word={word}"
+        # 构建推送 URL，包含所有相关参数以便历史回退时恢复完整状态
+        push_url_parts = ["?word=" + word]
         if back_word:
-            push_url += f"&back_word={back_word}"
+            push_url_parts.append("&back_word=" + back_word)
         if back_page and int(back_page) > 1:
-            push_url += f"&back_page={back_page}"
+            push_url_parts.append("&back_page=" + back_page)
+        push_url = "".join(push_url_parts)
 
         return make_template_response(
             request, "partials/_lookup_result.html",
             {"content": combined, "back_word": back_word, "back_page": back_page, "word": word},
-            push_url=f"?word={word}"
+            push_url=push_url
         )
 
     # 模式搜索（包含 * 或 .）
@@ -517,6 +523,50 @@ MEDIA_TYPES = {
     ".ini": "text/plain",
     ".txt": "text/plain",
 }
+
+
+# ==================== 调试日志接口 ====================
+LOG_DIR = Path(BASE_DIR) / "logs"
+LOG_DIR.mkdir(exist_ok=True)
+DEBUG_LOG_FILE = LOG_DIR / "web_debug.log"
+
+# 配置调试日志记录器
+debug_logger = logging.getLogger("web_debug")
+debug_logger.setLevel(logging.INFO)
+file_handler = logging.FileHandler(DEBUG_LOG_FILE, encoding="utf-8", mode="a")
+file_handler.setFormatter(logging.Formatter("%(asctime)s | %(message)s"))
+debug_logger.addHandler(file_handler)
+
+
+@app.post("/api/debug/log")
+async def submit_debug_log(entries: List[dict]):
+    """接收前端提交的调试日志
+    
+    请求体格式: [{"timestamp": "...", "level": "info|warn|error", "message": "...", "url": "..."}, ...]
+    """
+    if not isinstance(entries, list):
+        raise HTTPException(status_code=400, detail="期望列表格式")
+    
+    for entry in entries:
+        ts = entry.get("timestamp", "")
+        level = entry.get("level", "info")
+        message = entry.get("message", "")
+        url = entry.get("url", "")
+        debug_logger.info(f"[{level}] {message} | url={url}")
+    
+    return JSONResponse({"status": "ok", "received": len(entries)})
+
+
+@app.get("/api/debug/logs")
+async def get_debug_logs(count: int = 100):
+    """读取最近的调试日志"""
+    if not DEBUG_LOG_FILE.exists():
+        return JSONResponse({"logs": [], "message": "无日志文件"})
+    
+    with open(DEBUG_LOG_FILE, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+    
+    return JSONResponse({"logs": lines[-count:]})
 
 
 @app.get("/config.ini")

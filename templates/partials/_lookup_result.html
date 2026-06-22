@@ -1,9 +1,11 @@
 {% if back_word %}
   <div class="back-link">
-    <a hx-get="/api/lookup?word={{ back_word | urlencode }}&page={{ back_page }}"
+    <a href="/api/lookup?word={{ back_word | urlencode }}&page={{ back_page }}"
+       hx-get="/api/lookup?word={{ back_word | urlencode }}&page={{ back_page }}"
        hx-target="#result"
        hx-push-url="true"
-       hx-indicator="#loading">
+       hx-indicator="#loading"
+       hx-trigger="click once">
       ← 返回搜索结果
     </a>
   </div>

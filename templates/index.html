@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/static/p.css" />
     <link rel="stylesheet" href="/static/style.css" />
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="/static/debug_logger.js"></script>
   </head>
   <body>
     <div class="header" id="header-section">
@@ -45,77 +46,131 @@
     </div>
 
     <script>
+      // 页面加载日志
+      debugLogger.info('页面加载完成', { htmxVersion: htmx.version });
+      
       // 监听浏览器历史回退事件
       window.addEventListener('popstate', function(event) {
-        // 获取当前 URL 中的 word 参数
+        // 获取当前 URL 中的所有相关参数
         const url = new URL(window.location.href);
         const word = url.searchParams.get('word');
+        const back_word = url.searchParams.get('back_word');
+        const back_page = url.searchParams.get('back_page');
+        const page = url.searchParams.get('page');
         
         if (word) {
-          console.log('[DEBUG] 检测到历史回退，重新搜索:', word);
-          htmx.ajax('GET', '/api/lookup?word=' + encodeURIComponent(word), '#result');
+          debugLogger.info('检测到历史回退，重新搜索', { word: word, back_word: back_word, back_page: back_page, page: page });
+          // 构建完整的查询字符串，包含所有相关参数
+          let apiUrl = '/api/lookup?word=' + encodeURIComponent(word);
+          if (back_word) apiUrl += '&back_word=' + encodeURIComponent(back_word);
+          if (back_page) apiUrl += '&back_page=' + encodeURIComponent(back_page);
+          if (page && parseInt(page) > 1) apiUrl += '&page=' + encodeURIComponent(page);
+          
+          htmx.ajax('GET', apiUrl, '#result');
         } else {
-          console.log('[DEBUG] 检测到历史回退到首页');
+          debugLogger.info('检测到历史回退到首页');
           document.getElementById('result').innerHTML = '<em>结果区域</em>';
-          document.querySelector("[name='word']").value = '';
+          const si = document.querySelector("[name='word']");
+          if (si) si.value = '';
         }
       });
 
       // 页面加载时检查 URL 参数，自动触发搜索
       document.addEventListener('DOMContentLoaded', function() {
+        debugLogger.info('DOMContentLoaded 触发', { url: window.location.href });
+        
         const url = new URL(window.location.href);
         const initialWord = url.searchParams.get('word');
+        const back_word = url.searchParams.get('back_word');
+        const back_page = url.searchParams.get('back_page');
+        const page = url.searchParams.get('page');
+        
         if (initialWord) {
-          console.log('[DEBUG] 页面加载时检测到 word 参数，自动搜索:', initialWord);
-          document.querySelector("[name='word']").value = initialWord;
-          htmx.ajax('GET', '/api/lookup?word=' + encodeURIComponent(initialWord), '#result');
+          debugLogger.info('页面加载时检测到 word 参数，自动搜索', { word: initialWord, back_word: back_word, back_page: back_page });
+          const searchInput = document.querySelector("[name='word']");
+          if (searchInput) {
+            searchInput.value = initialWord;
+          }
+          
+          // 构建完整的查询字符串，包含所有相关参数
+          let apiUrl = '/api/lookup?word=' + encodeURIComponent(initialWord);
+          if (back_word) apiUrl += '&back_word=' + encodeURIComponent(back_word);
+          if (back_page) apiUrl += '&back_page=' + encodeURIComponent(back_page);
+          if (page && parseInt(page) > 1) apiUrl += '&page=' + encodeURIComponent(page);
+          
+          htmx.ajax('GET', apiUrl, '#result');
+        }
+
+        // 为搜索输入框添加日志
+        const searchInput = document.querySelector("[name='word']");
+        if (searchInput) {
+          searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+              debugLogger.info('回车搜索', { word: searchInput.value });
+            }
+          });
+          searchInput.addEventListener('search', function(e) {
+            debugLogger.info('search 事件触发', { word: searchInput.value });
+          });
+        }
+        
+        // 为查词按钮添加日志
+        const searchButton = document.querySelector('button[hx-get*="/api/lookup"]');
+        if (searchButton) {
+          searchButton.addEventListener('click', function() {
+            debugLogger.info('查词按钮点击', { word: searchInput?.value });
+          });
         }
 
         // 当用户在 .affix-word-breakdown 中选中文本后，自动正则搜索
-        const searchInput = document.querySelector("[name='word']");
-        if (!searchInput) return;
+        // 注意：使用 document 级别的事件委托，因为 #result 的内容会被 htmx 动态替换
+        document.addEventListener('mouseup', function(e) {
+          // 检查事件是否发生在 #result 内部
+          const resultDiv = document.getElementById('result');
+          if (!resultDiv || !resultDiv.contains(e.target)) return;
+          
+          const breakdownEl = e.target.closest('.affix-word-breakdown');
+          if (!breakdownEl) return;
 
-        const resultDiv = document.getElementById('result');
-        if (resultDiv) {
-          resultDiv.addEventListener('mouseup', function(e) {
-            const breakdownEl = e.target.closest('.affix-word-breakdown');
-            if (!breakdownEl) return;
+          const selection = window.getSelection().toString().replace(/[\s.]+/g, '').trim();
 
-            const selection = window.getSelection().toString().replace(/[\s.]+/g, '').trim();
+          if (!selection) return;
+          
+          debugLogger.info('选中文本触发模式搜索', { selection: selection });
 
-            if (!selection) return;
-
-            // 构造正则搜索词 *selected*
-            const pattern = '*' + selection + '*';
+          // 构造正则搜索词 *selected*
+          const pattern = '*' + selection + '*';
+          if (searchInput) {
             searchInput.value = pattern;
+          }
 
-            // 获取当前的 back_word 和 back_page（如果存在），以便传递下去
-            const currentUrl = new URL(window.location.href);
-            let backWord = currentUrl.searchParams.get('back_word');
-            let backPage = currentUrl.searchParams.get('back_page');
+          // 获取当前的 back_word 和 back_page（如果存在），以便传递下去
+          const currentUrl = new URL(window.location.href);
+          let backWord = currentUrl.searchParams.get('back_word');
+          let backPage = currentUrl.searchParams.get('back_page');
 
-            // 如果当前 URL 中没有 back_word，说明是从普通单词搜索进入的，
-            // 需要将当前搜索的单词作为 back_word 传递，以便从模式搜索结果返回
-            if (!backWord) {
-                backWord = currentUrl.searchParams.get('word');
-            }
+          // 如果当前 URL 中没有 back_word，说明是从普通单词搜索进入的，
+          // 需要将当前搜索的单词作为 back_word 传递，以便从模式搜索结果返回
+          if (!backWord) {
+              backWord = currentUrl.searchParams.get('word');
+          }
 
-            // 构造 API URL，携带 back_word 和 back_page 参数
-            let apiUrl = '/api/lookup?word=' + encodeURIComponent(pattern);
-            if (backWord) {
-                apiUrl += '&back_word=' + encodeURIComponent(backWord);
-            }
-            if (backPage) {
-                apiUrl += '&back_page=' + encodeURIComponent(backPage);
-            }
+          // 构造 API URL，携带 back_word 和 back_page 参数
+          let apiUrl = '/api/lookup?word=' + encodeURIComponent(pattern);
+          if (backWord) {
+              apiUrl += '&back_word=' + encodeURIComponent(backWord);
+          }
+          if (backPage) {
+              apiUrl += '&back_page=' + encodeURIComponent(backPage);
+          }
 
-            // 触发搜索（后端通过 HX-Push header 自动更新 URL，无需手动 pushState）
-            htmx.ajax('GET', apiUrl, '#result');
+          // 触发搜索（后端通过 HX-Push header 自动更新 URL，无需手动 pushState）
+          debugLogger.info('选中文本触发模式搜索', { pattern: pattern, apiUrl: apiUrl });
+          htmx.ajax('GET', apiUrl, '#result');
 
-            // 清空选区
-            window.getSelection().removeAllRanges();
-          });
-        }
+          // 清空选区
+          window.getSelection().removeAllRanges();
+        });
       });
     </script>
   </body>

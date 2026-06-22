@@ -3,14 +3,15 @@
   <div class="related-words-list">
     {% for rw in related_words %}
     <div class="related-word-item">
-      <div class="related-word"
-           hx-get="/api/lookup?word={{ rw.word | urlencode }}&back_word={{ back_word | urlencode }}"
-           hx-target="#result"
-           hx-push-url="true"
-           hx-indicator="#loading"
-           style="cursor:pointer">
-         {{ rw.highlighted_word | safe }}
-       </div>
+      <a href="/api/lookup?word={{ rw.word | urlencode }}&back_word={{ back_word | urlencode }}"
+         class="related-word"
+         hx-get="/api/lookup?word={{ rw.word | urlencode }}&back_word={{ back_word | urlencode }}"
+         hx-target="#result"
+         hx-push-url="true"
+         hx-indicator="#loading"
+         hx-trigger="click once">
+        {{ rw.highlighted_word | safe }}
+      </a>
       <span class="related-score" title="相似度分数（越低越相似）">score: {{ rw.score }}</span>
       {% if rw.rank %}
       <span class="related-rank" title="COCA词频排名">rank: #{{ rw.rank }}</span>

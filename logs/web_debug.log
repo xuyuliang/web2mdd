@@ -1,0 +1,76 @@
+2026-06-22 22:27:51,174 | [info] 页面加载完成 | url=http://localhost:8000/
+2026-06-22 22:27:51,175 | [info] DOMContentLoaded 触发 | url=http://localhost:8000/
+2026-06-22 22:27:51,342 | [info] 页面加载完成 | url=http://localhost:8000/
+2026-06-22 22:27:51,343 | [info] DOMContentLoaded 触发 | url=http://localhost:8000/
+2026-06-22 22:32:59,685 | [info] 回车搜索 | url=http://localhost:8000/
+2026-06-22 22:33:22,921 | [info] 选中文本触发模式搜索 | url=http://localhost:8000/?word=opprobrium
+2026-06-22 22:35:23,544 | [info] 检测到历史回退，重新搜索 | url=http://localhost:8000/?word=*probr*&back_word=opprobrium
+2026-06-22 22:35:23,544 | [info] 页面加载完成 | url=http://localhost:8000/?word=*probr*&back_word=opprobrium
+2026-06-22 22:46:41,168 | [info] 页面加载完成 | url=http://localhost:8000/?word=acolyte
+2026-06-22 22:46:41,168 | [info] DOMContentLoaded 触发 | url=http://localhost:8000/?word=acolyte
+2026-06-22 22:46:41,168 | [info] 页面加载时检测到 word 参数，自动搜索 | url=http://localhost:8000/?word=acolyte
+2026-06-22 22:46:46,178 | [info] 选中文本触发模式搜索 | url=http://localhost:8000/?word=acolyte
+2026-06-22 22:50:55,607 | [info] 选中文本触发模式搜索 | url=http://localhost:8000/?word=electrolyte&back_word=*lyte*
+2026-06-22 22:50:55,607 | [info] 检测到历史回退，重新搜索 | url=http://localhost:8000/?word=electrolyte&back_word=*lyte*
+2026-06-22 22:50:55,607 | [info] 页面加载完成 | url=http://localhost:8000/?word=electrolyte&back_word=*lyte*
+2026-06-22 22:52:52,484 | [info] 页面加载完成 | url=http://localhost:8000/
+2026-06-22 22:52:52,484 | [info] DOMContentLoaded 触发 | url=http://localhost:8000/
+2026-06-22 22:52:52,484 | [info] HTMX 事件监听器已注册 | url=http://localhost:8000/
+2026-06-22 22:52:59,995 | [info] 页面加载完成 | url=http://localhost:8000/
+2026-06-22 22:52:59,995 | [info] HTMX 事件监听器已注册 | url=http://localhost:8000/
+2026-06-22 22:52:59,995 | [info] DOMContentLoaded 触发 | url=http://localhost:8000/
+2026-06-22 22:53:16,878 | [info] 回车搜索 | url=http://localhost:8000/
+2026-06-22 22:53:16,878 | [info] htmx 请求开始 | url=http://localhost:8000/
+2026-06-22 22:53:16,878 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=azalea
+2026-06-22 22:53:16,879 | [info] htmx 请求完成 | url=http://localhost:8000/?word=azalea
+2026-06-22 22:53:35,581 | [info] 选中文本触发模式搜索 | url=http://localhost:8000/?word=azalea
+2026-06-22 22:53:35,581 | [info] 选中文本触发模式搜索 | url=http://localhost:8000/?word=azalea
+2026-06-22 22:53:35,581 | [info] htmx 请求开始 | url=http://localhost:8000/?word=azalea
+2026-06-22 22:53:35,581 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=*lea*&back_word=azalea
+2026-06-22 22:53:35,581 | [info] htmx 请求完成 | url=http://localhost:8000/?word=*lea*&back_word=azalea
+2026-06-22 22:53:40,587 | [info] 检测到历史回退，重新搜索 | url=http://localhost:8000/?word=azalea
+2026-06-22 22:53:40,587 | [info] htmx 请求开始 | url=http://localhost:8000/?word=azalea
+2026-06-22 22:53:40,587 | [info] popstate 事件触发 | url=http://localhost:8000/?word=azalea
+2026-06-22 22:53:40,587 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=azalea
+2026-06-22 22:53:40,587 | [info] htmx 请求完成 | url=http://localhost:8000/?word=azalea
+2026-06-22 22:53:40,587 | [info] 页面加载完成 | url=http://localhost:8000/?word=azalea
+2026-06-22 22:53:57,752 | [info] htmx 请求开始 | url=http://localhost:8000/?word=azalea
+2026-06-22 22:53:57,752 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=pig
+2026-06-22 22:53:57,752 | [info] htmx 请求完成 | url=http://localhost:8000/?word=pig
+2026-06-22 22:54:02,761 | [info] 选中文本触发模式搜索 | url=http://localhost:8000/?word=pig
+2026-06-22 22:54:02,761 | [info] 选中文本触发模式搜索 | url=http://localhost:8000/?word=pig
+2026-06-22 22:54:02,761 | [info] htmx 请求开始 | url=http://localhost:8000/?word=pig
+2026-06-22 22:54:02,761 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:02,762 | [info] htmx 请求完成 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:35,558 | [info] htmx 请求开始 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:35,558 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=pigeon&back_word=*pig*
+2026-06-22 22:54:35,558 | [info] htmx 请求完成 | url=http://localhost:8000/?word=pigeon&back_word=*pig*
+2026-06-22 22:54:35,558 | [info] 检测到历史回退，重新搜索 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:35,558 | [info] htmx 请求开始 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:35,558 | [info] popstate 事件触发 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:35,559 | [info] 检测到历史回退，重新搜索 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:35,559 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:35,559 | [info] htmx 请求完成 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:35,559 | [info] htmx 请求开始 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:35,559 | [info] 页面加载完成 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:40,508 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:40,508 | [info] htmx 请求完成 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:49,802 | [info] 页面加载完成 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:49,802 | [info] HTMX 事件监听器已注册 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:49,802 | [info] DOMContentLoaded 触发 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:49,802 | [info] 页面加载时检测到 word 参数，自动搜索 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:49,802 | [info] htmx 请求开始 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:49,802 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:54:49,802 | [info] htmx 请求完成 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:55:04,244 | [info] htmx 请求开始 | url=http://localhost:8000/?word=*pig*&back_word=pig
+2026-06-22 22:55:04,244 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=pigeon&back_word=*pig*
+2026-06-22 22:55:04,244 | [info] htmx 请求完成 | url=http://localhost:8000/?word=pigeon&back_word=*pig*
+2026-06-22 22:55:04,244 | [info] 选中文本触发模式搜索 | url=http://localhost:8000/?word=pigeon&back_word=*pig*
+2026-06-22 22:55:04,244 | [info] 选中文本触发模式搜索 | url=http://localhost:8000/?word=pigeon&back_word=*pig*
+2026-06-22 22:55:04,244 | [info] htmx 请求开始 | url=http://localhost:8000/?word=pigeon&back_word=*pig*
+2026-06-22 22:55:04,244 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=*eon*&back_word=*pig*
+2026-06-22 22:55:04,244 | [info] htmx 请求完成 | url=http://localhost:8000/?word=*eon*&back_word=*pig*
+2026-06-22 22:55:09,255 | [info] 回车搜索 | url=http://localhost:8000/?word=*eon*&back_word=*pig*
+2026-06-22 22:55:14,253 | [info] htmx 请求开始 | url=http://localhost:8000/?word=*eon*&back_word=*pig*
+2026-06-22 22:55:14,253 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=*eon
+2026-06-22 22:55:14,253 | [info] htmx 请求完成 | url=http://localhost:8000/?word=*eon

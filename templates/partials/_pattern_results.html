@@ -1,10 +1,12 @@
 {% if back_word %}
 <div class="back-link">
-  <a hx-get="/api/lookup?word={{ back_word | urlencode }}&page={{ back_page }}"
+  <a href="/api/lookup?word={{ back_word | urlencode }}&page={{ back_page }}"
+     hx-get="/api/lookup?word={{ back_word | urlencode }}&page={{ back_page }}"
      hx-target="#result"
      hx-push-url="true"
-     hx-indicator="#loading">
-    ← 返回模式搜索
+     hx-indicator="#loading"
+     hx-trigger="click once">
+    ← 返回搜索结果
   </a>
 </div>
 {% endif %}
@@ -14,17 +16,18 @@
 <div class="pattern-results">
 {% for item in results %}
   <div class="pattern-entry">
-    <div class="pattern-word"
-         hx-get="/api/lookup?word={{ item.word | urlencode }}&back_word={{ word | urlencode }}&back_page={{ page }}"
-         hx-target="#result"
-         hx-push-url="true"
-         hx-indicator="#loading"
-         style="cursor:pointer">
+    <a href="/api/lookup?word={{ item.word | urlencode }}&back_word={{ word | urlencode }}&back_page={{ page }}"
+       class="pattern-word"
+       hx-get="/api/lookup?word={{ item.word | urlencode }}&back_word={{ word | urlencode }}&back_page={{ page }}"
+       hx-target="#result"
+       hx-push-url="true"
+       hx-indicator="#loading"
+       hx-trigger="click once">
       {{ item.highlighted_word | safe }}
       {% if item.rank %}
         &nbsp;&nbsp;&nbsp;&nbsp;<span class="pattern-rank">{{ item.rank }}</span>
       {% endif %}
-    </div>
+    </a>
     {% if item.summary %}
 
       <div class="pattern-summary">{{ item.summary | safe }}</div>
@@ -45,19 +48,23 @@
 {% if total_pages > 1 %}
 <div class="pagination">
   {% if page > 1 %}
-    <a class="page-link"
+    <a href="/api/lookup?word={{ word | urlencode }}&page={{ page - 1 }}"
+       class="page-link"
        hx-get="/api/lookup?word={{ word | urlencode }}&page={{ page - 1 }}"
        hx-target="#result"
-       hx-indicator="#loading">
+       hx-indicator="#loading"
+       hx-trigger="click once">
       &laquo; 上一页
     </a>
   {% endif %}
   <span class="page-info">{{ page }} / {{ total_pages }}</span>
   {% if page < total_pages %}
-    <a class="page-link"
+    <a href="/api/lookup?word={{ word | urlencode }}&page={{ page + 1 }}"
+       class="page-link"
        hx-get="/api/lookup?word={{ word | urlencode }}&page={{ page + 1 }}"
        hx-target="#result"
-       hx-indicator="#loading">
+       hx-indicator="#loading"
+       hx-trigger="click once">
       下一页 &raquo;
     </a>
   {% endif %}
