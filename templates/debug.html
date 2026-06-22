@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>调试模式 - 返回链接测试</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <style>
+      body { font-family: monospace; padding: 20px; background: #f5f5f5; }
+      #log { background: #000; color: #0f0; padding: 15px; border-radius: 5px; height: 400px; overflow-y: auto; font-size: 12px; margin-bottom: 20px; }
+      #log .info { color: #0f0; }
+      #log .warn { color: #ff0; }
+      #log .error { color: #f00; }
+      #log .title { color: #0ff; font-weight: bold; }
+      .controls { background: #fff; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+      .controls button { margin: 5px; padding: 10px 20px; cursor: pointer; }
+      #status { background: #fff; padding: 15px; border-radius: 5px; }
+      #status pre { white-space: pre-wrap; font-family: monospace; }
+    </style>
+  </head>
+  <body>
+    <h1>🔍 返回链接调试模式</h1>
+    
+    <div class="controls">
+      <h3>操作控制：</h3>
+      <button onclick="simulateSearch('beautiful')">模拟搜索 "beautiful"</button>
+      <button onclick="simulatePatternSearch('*beaut*')">模拟模式搜索 "*beaut*"</button>
+      <button onclick="clearLog()">清除日志</button>
+      <button onclick="checkBrowserHistory()">检查浏览器历史</button>
+    </div>
+
+    <div id="status">
+      <h3>当前状态：</h3>
+      <pre id="status-content">加载中...</pre>
+    </div>
+
+    <div id="result" style="background:#fff; padding:15px; border-radius:5px; margin:20px 0; min-height:100px;">
+      <em>结果区域（模拟内容）</em>
+    </div>
+
+    <div id="log"></div>
+
+    <script>
+      const logEl = document.getElementById('log');
+      const statusEl = document.getElementById('status-content');
+      
+      let logCounter = 0;
+      
+      function log(message, type = 'info') {
+        logCounter++;
+        const entry = document.createElement('div');
+        entry.className = type;
+        entry.textContent = `[${String(logCounter).padStart(4, '0')}] ${new Date().toLocaleTimeString()}: ${message}`;
+        logEl.appendChild(entry);
+        logEl.scrollTop = logEl.scrollHeight;
+        console.log(`[${type}] ${message}`);
+      }
+      
+      function updateStatus() {
+        const url = new URL(window.location.href);
+        const params = {
+          word: url.searchParams.get('word'),
+          back_word: url.searchParams.get('back_word'),
+          back_page: url.searchParams.get('back_page'),
+          page: url.searchParams.get('page')
+        };
+        
+        const historyInfo = {
+          length: window.history.length,
+          url: window.location.href,
+          pathname: window.location.pathname,
+          searchParams: params
+        };
+        
+        statusEl.textContent = JSON.stringify(historyInfo, null, 2);
+      }
+      
+      function checkBrowserHistory() {
+        log('=== 检查浏览器历史记录 ===', 'title');
+        log(`历史记录长度: ${window.history.length}`, 'info');
+        log(`当前 URL: ${window.location.href}`, 'info');
+        log(`当前 pathname: ${window.location.pathname}`, 'info');
+        
+        const url = new URL(window.location.href);
+        log(`URL 参数 word: ${url.searchParams.get('word') || '(无)'}`, 'info');
+        log(`URL 参数 back_word: ${url.searchParams.get('back_word') || '(无)'}`, 'info');
+        log(`URL 参数 back_page: ${url.searchParams.get('back_page') || '(无)'}`, 'info');
+        log(`URL 参数 page: ${url.searchParams.get('page') || '(无)'}`, 'info');
+        
+        updateStatus();
+      }
+      
+      function simulateSearch(word) {
+        log('=== 模拟普通搜索 ===', 'title');
+        log(`搜索词: ${word}`, 'info');
+        
+        // 模拟搜索请求
+        const apiUrl = `/api/lookup?word=${encodeURIComponent(word)}`;
+        log(`目标 API URL: ${apiUrl}`, 'info');
+        log(`当前页面 URL: ${window.location.href}`, 'info');
+        
+        // 使用 htmx 发起请求（后端会通过 HX-Push header 自动更新 URL）
+        htmx.ajax('GET', apiUrl, '#result').then(() => {
+            log('请求完成', 'info');
+            checkBrowserHistory();
+        }).catch(err => {
+            log(`请求失败: ${err.message}`, 'error');
+        });
+      }
+      
+      function simulatePatternSearch(pattern) {
+        log('=== 模拟模式搜索 ===', 'title');
+        log(`模式: ${pattern}`, 'info');
+        
+        const currentUrl = new URL(window.location.href);
+        const backWord = currentUrl.searchParams.get('back_word');
+        const backPage = currentUrl.searchParams.get('back_page');
+        const currentWord = currentUrl.searchParams.get('word');
+        
+        log(`当前 URL 的 back_word: ${backWord || '(无)'}`, 'info');
+        log(`当前 URL 的 back_page: ${backPage || '(无)'}`, 'info');
+        log(`当前 URL 的 word: ${currentWord || '(无)'}`, 'info');
+        
+        let apiUrl = `/api/lookup?word=${encodeURIComponent(pattern)}`;
+        if (backWord) {
+            apiUrl += `&back_word=${encodeURIComponent(backWord)}`;
+            log(`添加 back_word 参数: ${backWord}`, 'info');
+        } else if (currentWord) {
+            // 修复逻辑：如果没有 back_word，使用当前 word
+            apiUrl += `&back_word=${encodeURIComponent(currentWord)}`;
+            log(`没有 back_word，使用当前 word 作为 back_word: ${currentWord}`, 'warn');
+        } else {
+            log('警告：既没有 back_word 也没有 word！', 'error');
+        }
+        if (backPage) {
+            apiUrl += `&back_page=${encodeURIComponent(backPage)}`;
+            log(`添加 back_page 参数: ${backPage}`, 'info');
+        }
+        
+        log(`最终 API URL: ${apiUrl}`, 'title');
+        
+        // 使用 htmx 发起请求（后端会通过 HX-Push header 自动更新 URL）
+        htmx.ajax('GET', apiUrl, '#result').then(() => {
+            log('模式搜索完成', 'info');
+            checkBrowserHistory();
+        }).catch(err => {
+            log(`请求失败: ${err.message}`, 'error');
+        });
+      }
+      
+      function clearLog() {
+        logEl.innerHTML = '';
+        logCounter = 0;
+        log('日志已清除', 'warn');
+      }
+      
+      // 页面加载时的初始化日志
+      log('=== 页面加载完成，开始调试 ===', 'title');
+      log(`htmx 版本: ${htmx.version}`, 'info');
+      log(`当前 URL: ${window.location.href}`, 'info');
+      
+      // 监听 htmx 事件
+      document.body.addEventListener('htmx:beforeRequest', function(evt) {
+        log(`htmx:beforeRequest - 目标 URL: ${evt.detail.requestConfig.url}`, 'info');
+      });
+      
+      document.body.addEventListener('htmx:afterRequest', function(evt) {
+        log(`htmx:afterRequest - 状态: ${evt.detail.xhr.status}`, 'info');
+        log(`htmx:afterRequest - 当前 URL: ${window.location.href}`, 'info');
+      });
+      
+      document.body.addEventListener('htmx:pushedIntoHistory', function(evt) {
+        log(`htmx:pushedIntoHistory - URL 已更新: ${evt.detail.newUrl || window.location.href}`, 'title');
+      });
+      
+      document.body.addEventListener('htmx:historyItemPopulated', function(evt) {
+        log(`htmx:historyItemPopulated - ${JSON.stringify(evt.detail.item)}`, 'info');
+      });
+      
+      updateStatus();
+      log('请按照以下步骤操作:', 'warn');
+      log('1. 点击 "模拟搜索 beautiful" 按钮', 'info');
+      log('2. 点击 "检查浏览器历史" 查看 URL 是否更新', 'info');
+      log('3. 点击 "模拟模式搜索 *beaut*" 按钮', 'info');
+      log('4. 检查返回链接是否正确显示', 'info');
+      log('5. 点击浏览器返回按钮，观察行为', 'info');
+    </script>
+  </body>
+</html>

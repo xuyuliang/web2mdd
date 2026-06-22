@@ -14,7 +14,8 @@ def main():
     # 获取项目路径
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     data_dir = os.path.join(base_dir, "数据资料")
-    coca_path = os.path.join(data_dir, "COCA60000.txt")
+    dict_dir = os.path.join(base_dir, "The little dict")
+    db_path = os.path.join(dict_dir, "TLD.mdx.index.db")
     
     print("=" * 50)
     print("测试相似词搜索和打分功能")
@@ -22,7 +23,7 @@ def main():
     
     # 创建搜索器
     print("\n正在初始化搜索器...")
-    searcher = RelatedWordsSearcher(coca_path, data_dir)
+    searcher = RelatedWordsSearcher(db_path, data_dir)
     print("[OK] 搜索器初始化完成")
     
     # 测试用例

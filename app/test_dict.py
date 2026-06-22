@@ -102,6 +102,9 @@ if os.path.exists(CACHE_PATH):
     os.remove(CACHE_PATH)
     print(f"已删除旧缓存: {CACHE_PATH}")
 
+# 相对于项目根目录导入
+import sys
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 from app.main import MDXReader
 
 t1 = time.time()
@@ -179,15 +182,15 @@ print("=" * 60)
 
 from app.word_freq import WordFreq
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-COCA_PATH = os.path.join(BASE_DIR, "数据资料", "coca60000.txt")
-word_freq = WordFreq(COCA_PATH)
+DB_PATH = os.path.join(BASE_DIR, "The little dict", "TLD.mdx.index.db")
+word_freq = WordFreq(DB_PATH)
 
-for word, expected in [("splice", 14588), ("hello", 487), ("abandon", 1340), ("book", 237)]:
+# 注意：数据库中的词频值可能与原始 txt 文件不同，因为数据库中有重复记录
+# get_rank 返回的是 MIN(frequency)，即该单词所有记录中的最小 frequency 值
+for word, expected in [("splice", 20290), ("hello", 2252), ("abandon", 2195), ("book", 241)]:
     rank_val = word_freq.get_rank(word)
     match = "✅" if rank_val == expected else "❌"
-    print(f"  {match} {word}: 期望 {expected}, 实际 {rank_val}")
-
-# 测试不存在的单词
+    print(f"  {
 rank_val = word_freq.get_rank("xyznonexistent12345")
 print(f"  ✅ 不存在词: rank={rank_val}")
 

@@ -363,10 +363,10 @@ class MorphemesLoader:
             
             parts.insert(1 if parts else 0, root_match)
             
-            # 添加剩余词干（前后部分合并）
-            stem_text = before_root + after_root
-            if stem_text:
-                parts.insert(1 if len(parts) > 1 else 0, MorphPart("stem", stem_text))
+            # 添加词根前面的未匹配部分作为词干（不与 after_root 合并）
+            # after_root 交由 _fix_uncovered_parts 处理，避免重复显示
+            if before_root:
+                parts.insert(1 if len(parts) > 1 else 0, MorphPart("stem", before_root))
         elif remaining:
             # 没有词根匹配，剩余部分作为词干
             parts.insert(1 if parts else 0, MorphPart("stem", remaining))

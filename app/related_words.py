@@ -16,18 +16,18 @@ from app.affix_loader import AffixLoader
 class RelatedWordsSearcher:
     """相似词搜索和打分"""
 
-    def __init__(self, coca_path: str, data_dir: str):
+    def __init__(self, db_path: str, data_dir: str):
         """
         初始化搜索器
         
         Args:
-            coca_path: COCA60000.txt 文件路径
+            db_path: TLD.mdx.index.db 数据库文件路径
             data_dir: 数据资料目录路径
         """
         self.data_dir = data_dir
         
-        # 加载词频数据
-        self.word_freq = WordFreq(coca_path)
+        # 加载词频数据（从数据库读取）
+        self.word_freq = WordFreq(db_path)
         self.coca_word_set = self.word_freq.word_set
         
         # 加载前缀和后缀

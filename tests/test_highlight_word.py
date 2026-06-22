@@ -10,9 +10,9 @@ from app.related_words import RelatedWordsSearcher
 
 def main():
     # 初始化搜索器
-    coca_path = os.path.join("数据资料", "coca60000.txt")
+    db_path = os.path.join("The little dict", "TLD.mdx.index.db")
     data_dir = "数据资料"
-    searcher = RelatedWordsSearcher(coca_path, data_dir)
+    searcher = RelatedWordsSearcher(db_path, data_dir)
 
     # 测试 highlight_word
     print("=== 测试 highlight_word ===")
