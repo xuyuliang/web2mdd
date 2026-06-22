@@ -33,8 +33,8 @@ DB_PATH = os.path.join(DICT_DIR, "TLD.mdx.index.db")
 CSS_PATH = os.path.join(DICT_DIR, "p.css")
 DICT_STATIC_DIR = DICT_DIR  # 词典目录，用于提供静态资源
 # COCA 词频数据已从 TLD.mdx.index.db 的 coca_words 表读取，不再需要 txt 文件
-PATTERN_PAGE_SIZE = 15  # 模式搜索每页显示数量
-PATTERN_MAX_TOTAL = 50  # 模式搜索最多返回单词数
+PATTERN_PAGE_SIZE = 10  # 模式搜索每页显示数量
+PATTERN_MAX_TOTAL = 50  # 模式搜索预获取的候选单词总数（用于排序和分页）
 
 templates = Jinja2Templates(directory=TEMPLATES_DIR)
 # Python 3.14 兼容：Jinja2 3.1.6 缓存键含 dict（不可哈希），禁用缓存
@@ -218,16 +218,16 @@ class MDXReader:
         return None
     
     def pattern_search_ranked(self, pattern: str):
-        """带词频排序的模式搜索"""
+        """带词频排序的模式搜索
+        
+        预获取最多50个候选单词用于排序，但释义查询采用分页按需加载。
+        直接使用 COCA 返回的小写单词，不做大小写映射（lookup 方法内部会自动处理小写匹配）。
+        """
         coca_results = word_freq.search(pattern, max_results=PATTERN_MAX_TOTAL)
         
-        ranked_in_mdx = []
-        for w in coca_results:
-            mdx_word = self._get_mdx_word(w)
-            if mdx_word:
-                ranked_in_mdx.append(mdx_word)
-        
-        ranked_out = ranked_in_mdx[:PATTERN_MAX_TOTAL]
+        # 直接使用 COCA 返回的小写单词，不做大小写映射
+        # MDXSQLiteReader.lookup() 内部会先查 word 精确匹配，再查 word_lower 匹配
+        ranked_out = coca_results[:PATTERN_MAX_TOTAL]
         unranked: list[str] = []
         total_count = len(ranked_out)
         
@@ -517,6 +517,15 @@ MEDIA_TYPES = {
     ".ini": "text/plain",
     ".txt": "text/plain",
 }
+
+
+@app.get("/config.ini")
+async def get_config_ini():
+    """提供 static 目录下的 config.ini 文件"""
+    config_path = os.path.join(STATIC_DIR, "config.ini")
+    if os.path.exists(config_path):
+        return FileResponse(config_path, media_type="text/plain")
+    raise HTTPException(status_code=404, detail="config.ini not found")
 
 
 @app.get("/static/{file_path:path}")
