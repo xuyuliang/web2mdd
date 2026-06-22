@@ -74,3 +74,20 @@
 2026-06-22 22:55:14,253 | [info] htmx 请求开始 | url=http://localhost:8000/?word=*eon*&back_word=*pig*
 2026-06-22 22:55:14,253 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=*eon
 2026-06-22 22:55:14,253 | [info] htmx 请求完成 | url=http://localhost:8000/?word=*eon
+2026-06-22 23:01:13,299 | [info] 页面加载完成 | url=http://localhost:8000/?word=*eon
+2026-06-22 23:01:13,299 | [info] HTMX 事件监听器已注册 | url=http://localhost:8000/?word=*eon
+2026-06-22 23:01:13,299 | [info] DOMContentLoaded 触发 | url=http://localhost:8000/?word=*eon
+2026-06-22 23:01:13,299 | [info] 页面加载时检测到 word 参数，自动搜索 | url=http://localhost:8000/?word=*eon
+2026-06-22 23:01:13,299 | [info] htmx 请求开始 | url=http://localhost:8000/?word=*eon
+2026-06-22 23:01:13,299 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=*eon
+2026-06-22 23:01:13,299 | [info] htmx 请求完成 | url=http://localhost:8000/?word=*eon
+2026-06-22 23:01:39,526 | [info] 检测到历史回退，重新搜索 | url=http://localhost:8000/?word=electrolyte&back_word=*lyte*
+2026-06-22 23:01:39,526 | [info] 检测到历史回退，重新搜索 | url=http://localhost:8000/?word=electrolyte&back_word=*lyte*
+2026-06-22 23:01:39,526 | [info] 页面加载完成 | url=http://localhost:8000/?word=electrolyte&back_word=*lyte*
+2026-06-22 23:10:56,158 | [info] 页面加载完成 | url=http://localhost:8000/?word=.oach
+2026-06-22 23:10:56,158 | [info] HTMX 事件监听器已注册 | url=http://localhost:8000/?word=.oach
+2026-06-22 23:10:56,158 | [info] DOMContentLoaded 触发 | url=http://localhost:8000/?word=.oach
+2026-06-22 23:10:56,158 | [info] 页面加载时检测到 word 参数，自动搜索 | url=http://localhost:8000/?word=.oach
+2026-06-22 23:10:56,158 | [info] htmx 请求开始 | url=http://localhost:8000/?word=.oach
+2026-06-22 23:10:56,158 | [info] URL 已推送到历史 | url=http://localhost:8000/?word=.oach
+2026-06-22 23:10:56,158 | [info] htmx 请求完成 | url=http://localhost:8000/?word=.oach
