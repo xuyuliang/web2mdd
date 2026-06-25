@@ -392,7 +392,7 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
         if back_word:
             push_url_parts.append("&back_word=" + back_word)
         if back_page and int(back_page) > 1:
-            push_url_parts.append("&back_page=" + back_page)
+            push_url_parts.append("&back_page=" + str(back_page))
         push_url = "".join(push_url_parts)
 
         return make_template_response(
