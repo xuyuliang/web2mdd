@@ -18,6 +18,7 @@
     <div class="header" id="header-section">
       <h1>📖 The Little Dict</h1>
       <div class="search-box">
+          <!-- 第一次搜索使用 replace，后续使用 push -->
         <input
           type="text"
           name="word"
@@ -32,7 +33,6 @@
         <button
           hx-get="/api/lookup"
           hx-target="#result"
-          hx-include="[name='word']"
           hx-push-url="true"
           hx-indicator="#loading"
         >
@@ -51,25 +51,43 @@
       
       // 监听浏览器历史回退事件
       window.addEventListener('popstate', function(event) {
-        // 获取当前 URL 中的所有相关参数
         const url = new URL(window.location.href);
-        const word = url.searchParams.get('word');
+        let word = url.searchParams.get('word');
         const back_word = url.searchParams.get('back_word');
         const back_page = url.searchParams.get('back_page');
         const page = url.searchParams.get('page');
-        
+
+        // 当 URL 没有 word 参数时，尝试从 sessionStorage 中恢复最近一次搜索的词
+        if (!word) {
+          const stored = sessionStorage.getItem('lastWord');
+          if (stored) {
+            word = stored;
+            // 手动构造一个包含该词的 URL，保持历史一致性
+            const newUrl = new URL(window.location.href);
+            newUrl.searchParams.set('word', word);
+            history.replaceState(null, '', newUrl);
+          }
+        }
+
         if (word) {
-          debugLogger.info('检测到历史回退，重新搜索', { word: word, back_word: back_word, back_page: back_page, page: page });
-          // 构建完整的查询字符串，包含所有相关参数
+          debugLogger.info('检测到历史回退，重新搜索', { word, back_word, back_page, page });
           let apiUrl = '/api/lookup?word=' + encodeURIComponent(word);
           if (back_word) apiUrl += '&back_word=' + encodeURIComponent(back_word);
           if (back_page) apiUrl += '&back_page=' + encodeURIComponent(back_page);
           if (page && parseInt(page) > 1) apiUrl += '&page=' + encodeURIComponent(page);
-          
-          htmx.ajax('GET', apiUrl, '#result');
+          // 用 fetch 代替 htmx.ajax，避免后端 HX-Push 响应头污染浏览器历史
+          fetch(apiUrl)
+            .then(r => r.text())
+            .then(html => {
+              document.getElementById('result').innerHTML = html;
+              htmx.process(document.getElementById('result'));
+            })
+            .catch(err => {
+              debugLogger.error('回退搜索失败', { error: err.message });
+            });
         } else {
           debugLogger.info('检测到历史回退到首页');
-          document.getElementById('result').innerHTML = '<em>结果区域</em>';
+          document.getElementById('result').innerHTML = '';
           const si = document.querySelector("[name='word']");
           if (si) si.value = '';
         }
@@ -91,7 +109,9 @@
           if (searchInput) {
             searchInput.value = initialWord;
           }
-          
+          // 将当前词保存到 sessionStorage，供回退时使用
+          sessionStorage.setItem('lastWord', initialWord);
+
           // 构建完整的查询字符串，包含所有相关参数
           let apiUrl = '/api/lookup?word=' + encodeURIComponent(initialWord);
           if (back_word) apiUrl += '&back_word=' + encodeURIComponent(back_word);
