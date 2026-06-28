@@ -15,6 +15,7 @@ import logging
 from datetime import datetime
 from pathlib import Path
 from typing import List
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.responses import FileResponse, JSONResponse
@@ -26,7 +27,46 @@ from app.morphemes_loader import MorphemesLoader
 from app.word_freq import WordFreq
 from app.related_words import RelatedWordsSearcher
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """应用生命周期管理：启动时加载数据，关闭时释放资源"""
+    # 启动时加载所有数据
+    print("正在加载词典...")
+    mdx_reader = MDXReader(MDX_PATH, DB_PATH)
+    print("[OK] 词典加载完成，服务器就绪！")
+
+    print("正在加载词根词缀数据...")
+    morphemes_loader = MorphemesLoader()
+    print("[OK] 词根词缀加载完成")
+
+    print("正在加载 COCA 词频数据...")
+    word_freq = WordFreq(DB_PATH)
+    print("[OK] 词频数据加载完成")
+
+    DATA_DIR = os.path.join(BASE_DIR, "数据资料")
+    print("正在加载相似词搜索数据...")
+    related_words_searcher = RelatedWordsSearcher(DB_PATH, DATA_DIR)
+    print("[OK] 相似词搜索器初始化完成")
+
+    # 存储到 app.state
+    app.state.mdx_reader = mdx_reader
+    app.state.morphemes_loader = morphemes_loader
+    app.state.word_freq = word_freq
+    app.state.related_words_searcher = related_words_searcher
+
+    # 所有数据加载完成，延迟打开浏览器
+    print("正在打开浏览器...")
+    threading.Timer(2.0, lambda: webbrowser.open('http://localhost:8000')).start()
+
+    yield
+
+    # 关闭时释放资源
+    mdx_reader.close()
+
+
+
+
+app = FastAPI(lifespan=lifespan)
 
 # __file__ 现在是 web2mdd/app/main.py，需上移两级到项目根目录
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -228,7 +268,7 @@ class MDXReader:
         预获取最多50个候选单词用于排序，但释义查询采用分页按需加载。
         直接使用 COCA 返回的小写单词，不做大小写映射（lookup 方法内部会自动处理小写匹配）。
         """
-        coca_results = word_freq.search(pattern, max_results=PATTERN_MAX_TOTAL)
+        coca_results = app.state.word_freq.search(pattern, max_results=PATTERN_MAX_TOTAL)
         
         # 直接使用 COCA 返回的小写单词，不做大小写映射
         # MDXSQLiteReader.lookup() 内部会先查 word 精确匹配，再查 word_lower 匹配
@@ -285,34 +325,11 @@ class MDXReader:
         self._sqlite_reader.close()
 
 
-print("正在加载词典...")
-mdx_reader = MDXReader(MDX_PATH, DB_PATH)
-print("[OK] 词典加载完成，服务器就绪！")
-
-print("正在加载词根词缀数据...")
-morphemes_loader = MorphemesLoader()
-print("[OK] 词根词缀加载完成")
-
-print("正在加载 COCA 词频数据...")
-word_freq = WordFreq(DB_PATH)
-print("[OK] 词频数据加载完成")
-
-# 初始化相似词搜索器
-DATA_DIR = os.path.join(BASE_DIR, "数据资料")
-print("正在加载相似词搜索数据...")
-related_words_searcher = RelatedWordsSearcher(DB_PATH, DATA_DIR)
-print("[OK] 相似词搜索器初始化完成")
-
-# 所有数据加载完成，延迟打开浏览器
-print("正在打开浏览器...")
-threading.Timer(2.0, lambda: webbrowser.open('http://localhost:8000')).start()
-
-
 def is_valid_word(word: str) -> bool:
     """判断单词是否在词典中存在（用于词根词缀分析的词干验证）"""
     if len(word) < 2:
         return False
-    result, exact = mdx_reader.lookup(word)
+    result, exact = app.state.mdx_reader.lookup(word)
     return exact
 
 
@@ -342,11 +359,11 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
     if not word or not word.strip():
         raise HTTPException(status_code=400, detail="请输入单词")
 
-    result, exact = mdx_reader.lookup(word)
+    result, exact = request.app.state.mdx_reader.lookup(word)
 
     if exact:
         # 精确匹配时，同时进行词根词缀分析和相似词搜索
-        analysis = morphemes_loader.analyze(word)
+        analysis = request.app.state.morphemes_loader.analyze(word)
         affix_html_parts = []
         related_words_html = None
         
@@ -372,7 +389,7 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
             stem = primary.get("stem", "")
             if stem and len(stem) >= 2:
                 search_stem = stem.replace(".", "")
-                related_results = related_words_searcher.search_and_score(search_stem, max_results=30)
+                related_results = request.app.state.related_words_searcher.search_and_score(search_stem, max_results=30)
                 if related_results:
                     for rw in related_results:
                         rw["highlighted_word"] = MDXReader._stem_highlight(search_stem, rw["word"])
@@ -417,9 +434,9 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
 
         page_results = []
         for w in page_words:
-            html, _ = mdx_reader.lookup(w)
+            html, _ = request.app.state.mdx_reader.lookup(w)
             highlighted = MDXReader._pattern_highlight(word, w)
-            rank = word_freq.get_rank(w)
+            rank = request.app.state.word_freq.get_rank(w)
             if isinstance(html, str) and html:
                 summary = MDXReader._extract_summary(html)
                 page_results.append({"word": w, "highlighted_word": highlighted, "summary": summary, "has_full": True, "rank": rank})
@@ -471,9 +488,9 @@ async def lookup_expand(request: Request, word: str = Query(..., description="�
     if not word or not word.strip():
         raise HTTPException(status_code=400, detail="请输入单词")
 
-    html, exact = mdx_reader.lookup(word)
+    html, exact = request.app.state.mdx_reader.lookup(word)
     if exact and html:
-        analysis = morphemes_loader.analyze(word)
+        analysis = request.app.state.morphemes_loader.analyze(word)
         affix_html_parts = []
         
         if analysis:

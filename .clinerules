@@ -1,0 +1,12 @@
+## 工作方式约定
+
+1. **Plan 模式下禁止修改文件**：
+   如果 AI 需要创建或修改任何文件（包括代码、文档、规则文件等），必须先明确告知用户，由用户决定是否切换到 Act 模式。在 Plan 模式下，AI 只能阅读、搜索、分析，不得执行任何写入操作。
+
+2. **CRLF 换行符已经统一为 LF**：
+   项目已通过 `.editorconfig` + `.gitattributes` 将全部文本文件统一为 LF (`\n`) 换行符。
+   - `.editorconfig` 控制编辑器行为，防止重新引入 CRLF
+   - `.gitattributes` 用 `* text=auto eol=lf` 控制 Git 规范化
+   - 批处理文件（`.bat`/`.cmd`/`.ps1`）仍保留 CRLF
+   - 如果仍遇到 CRLF 问题，可用 `crlf2lf.py` 手动转换：
+     `python crlf2lf.py <文件>`

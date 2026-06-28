@@ -34,7 +34,8 @@ def main():
     gc.collect()
     
     print("\n[1/5] 加载 MDX 词典...")
-    from app.main import mdx_reader
+    from app.main import MDXReader, BASE_DIR, DB_PATH, MDX_PATH
+    mdx_reader = MDXReader(MDX_PATH, DB_PATH)
     
     # 分析 MDXReader 各属性的内存占用
     print("\n[2/5] 分析 MDXReader 属性内存占用:")
@@ -70,7 +71,11 @@ def main():
         print(f"  MDX文件大小: {mdx_size / 1024 / 1024:.2f} MB")
     
     print("\n[4/5] 加载其他数据:")
-    from app.main import morphemes_loader, word_freq, related_words_searcher
+    from app.main import MorphemesLoader, WordFreq, RelatedWordsSearcher, DB_PATH, BASE_DIR
+    DATA_DIR = os.path.join(BASE_DIR, "数据资料")
+    morphemes_loader = MorphemesLoader()
+    word_freq = WordFreq(DB_PATH)
+    related_words_searcher = RelatedWordsSearcher(DB_PATH, DATA_DIR)
     
     print("\n  MorphemesLoader:")
     print(f"    prefixes: {len(morphemes_loader.prefixes)} 条")
