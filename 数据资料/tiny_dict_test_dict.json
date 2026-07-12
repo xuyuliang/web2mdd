@@ -1,0 +1,907 @@
+{
+  "dict_name": "超级简陋小词典",
+  "version": "1.0",
+  "word_count": 225,
+  "words": {
+    "the": {
+      "frequency": 1,
+      "definition": "这"
+    },
+    "be": {
+      "frequency": 2,
+      "definition": "是"
+    },
+    "was": {
+      "frequency": 2,
+      "definition": "是"
+    },
+    "been": {
+      "frequency": 2,
+      "definition": "是"
+    },
+    "being": {
+      "frequency": 2,
+      "definition": "是"
+    },
+    "is": {
+      "frequency": 2,
+      "definition": "是"
+    },
+    "are": {
+      "frequency": 2,
+      "definition": "是"
+    },
+    "beings": {
+      "frequency": 2,
+      "definition": "是"
+    },
+    "bes": {
+      "frequency": 2,
+      "definition": "是"
+    },
+    "were": {
+      "frequency": 2,
+      "definition": "是"
+    },
+    "and": {
+      "frequency": 3,
+      "definition": "和"
+    },
+    "ands": {
+      "frequency": 3,
+      "definition": "和"
+    },
+    "of": {
+      "frequency": 4,
+      "definition": "关于"
+    },
+    "a": {
+      "frequency": 5,
+      "definition": "英语字母表的第一个字母"
+    },
+    "in": {
+      "frequency": 6,
+      "definition": "执政的"
+    },
+    "ins": {
+      "frequency": 6,
+      "definition": "执政的"
+    },
+    "to": {
+      "frequency": 9,
+      "definition": "向"
+    },
+    "have": {
+      "frequency": 8,
+      "definition": "有"
+    },
+    "had": {
+      "frequency": 8,
+      "definition": "有"
+    },
+    "having": {
+      "frequency": 8,
+      "definition": "有"
+    },
+    "has": {
+      "frequency": 8,
+      "definition": "有"
+    },
+    "haves": {
+      "frequency": 8,
+      "definition": "有"
+    },
+    "it": {
+      "frequency": 10,
+      "definition": "它"
+    },
+    "i": {
+      "frequency": 11,
+      "definition": "名词"
+    },
+    "mine": {
+      "frequency": 11,
+      "definition": "名词"
+    },
+    "mined": {
+      "frequency": 11,
+      "definition": "名词"
+    },
+    "mines": {
+      "frequency": 11,
+      "definition": "名词"
+    },
+    "mining": {
+      "frequency": 11,
+      "definition": "名词"
+    },
+    "that": {
+      "frequency": 27,
+      "definition": "那个"
+    },
+    "for": {
+      "frequency": 13,
+      "definition": "因为"
+    },
+    "forrest": {
+      "frequency": 13,
+      "definition": "因为"
+    },
+    "you": {
+      "frequency": 14,
+      "definition": "你"
+    },
+    "yer": {
+      "frequency": 14,
+      "definition": "你"
+    },
+    "your": {
+      "frequency": 69,
+      "definition": "你的"
+    },
+    "he": {
+      "frequency": 15,
+      "definition": "他"
+    },
+    "him": {
+      "frequency": 68,
+      "definition": "代词"
+    },
+    "his": {
+      "frequency": 25,
+      "definition": "他的"
+    },
+    "with": {
+      "frequency": 16,
+      "definition": "随着"
+    },
+    "on": {
+      "frequency": 17,
+      "definition": "关于"
+    },
+    "ons": {
+      "frequency": 17,
+      "definition": "关于"
+    },
+    "do": {
+      "frequency": 18,
+      "definition": null
+    },
+    "did": {
+      "frequency": 18,
+      "definition": null
+    },
+    "done": {
+      "frequency": 18,
+      "definition": null
+    },
+    "doing": {
+      "frequency": 18,
+      "definition": null
+    },
+    "does": {
+      "frequency": 18,
+      "definition": null
+    },
+    "doe": {
+      "frequency": 18,
+      "definition": null
+    },
+    "doings": {
+      "frequency": 18,
+      "definition": null
+    },
+    "dos": {
+      "frequency": 18,
+      "definition": null
+    },
+    "doth": {
+      "frequency": 18,
+      "definition": null
+    },
+    "say": {
+      "frequency": 19,
+      "definition": "说"
+    },
+    "said": {
+      "frequency": 19,
+      "definition": "说"
+    },
+    "saying": {
+      "frequency": 19,
+      "definition": "说"
+    },
+    "says": {
+      "frequency": 19,
+      "definition": "说"
+    },
+    "this": {
+      "frequency": 20,
+      "definition": "这个"
+    },
+    "they": {
+      "frequency": 21,
+      "definition": "他们"
+    },
+    "their": {
+      "frequency": 36,
+      "definition": "他们的"
+    },
+    "them": {
+      "frequency": 59,
+      "definition": "他们"
+    },
+    "at": {
+      "frequency": 22,
+      "definition": "向"
+    },
+    "but": {
+      "frequency": 23,
+      "definition": "但是"
+    },
+    "buts": {
+      "frequency": 23,
+      "definition": "但是"
+    },
+    "butted": {
+      "frequency": 23,
+      "definition": "但是"
+    },
+    "we": {
+      "frequency": 24,
+      "definition": "我们"
+    },
+    "our": {
+      "frequency": 79,
+      "definition": "我们的"
+    },
+    "wee": {
+      "frequency": 24,
+      "definition": "我们"
+    },
+    "weed": {
+      "frequency": 24,
+      "definition": "我们"
+    },
+    "wes": {
+      "frequency": 24,
+      "definition": "我们"
+    },
+    "from": {
+      "frequency": 26,
+      "definition": "来自"
+    },
+    "not": {
+      "frequency": 28,
+      "definition": "不"
+    },
+    "notting": {
+      "frequency": 28,
+      "definition": "不"
+    },
+    "n't": {
+      "frequency": 29,
+      "definition": "副词"
+    },
+    "by": {
+      "frequency": 30,
+      "definition": "通过"
+    },
+    "she": {
+      "frequency": 31,
+      "definition": "代词"
+    },
+    "her": {
+      "frequency": 42,
+      "definition": "她的"
+    },
+    "or": {
+      "frequency": 32,
+      "definition": "或者"
+    },
+    "as": {
+      "frequency": 49,
+      "definition": "如同"
+    },
+    "what": {
+      "frequency": 34,
+      "definition": "什么"
+    },
+    "whats": {
+      "frequency": 34,
+      "definition": "什么"
+    },
+    "go": {
+      "frequency": 35,
+      "definition": "去"
+    },
+    "went": {
+      "frequency": 35,
+      "definition": "去"
+    },
+    "gone": {
+      "frequency": 35,
+      "definition": "去"
+    },
+    "going": {
+      "frequency": 35,
+      "definition": "去"
+    },
+    "goes": {
+      "frequency": 35,
+      "definition": "去"
+    },
+    "goings": {
+      "frequency": 35,
+      "definition": "去"
+    },
+    "can": {
+      "frequency": 37,
+      "definition": "能"
+    },
+    "who": {
+      "frequency": 38,
+      "definition": "谁"
+    },
+    "get": {
+      "frequency": 39,
+      "definition": "得到"
+    },
+    "got": {
+      "frequency": 39,
+      "definition": "得到"
+    },
+    "getting": {
+      "frequency": 39,
+      "definition": "得到"
+    },
+    "gets": {
+      "frequency": 39,
+      "definition": "得到"
+    },
+    "gotten": {
+      "frequency": 39,
+      "definition": "得到"
+    },
+    "if": {
+      "frequency": 40,
+      "definition": "如果"
+    },
+    "ifs": {
+      "frequency": 40,
+      "definition": "如果"
+    },
+    "would": {
+      "frequency": 41,
+      "definition": "将"
+    },
+    "all": {
+      "frequency": 43,
+      "definition": "全部"
+    },
+    "my": {
+      "frequency": 44,
+      "definition": "代词"
+    },
+    "make": {
+      "frequency": 45,
+      "definition": "做"
+    },
+    "made": {
+      "frequency": 45,
+      "definition": "做"
+    },
+    "making": {
+      "frequency": 45,
+      "definition": "做"
+    },
+    "makes": {
+      "frequency": 45,
+      "definition": "做"
+    },
+    "maketh": {
+      "frequency": 45,
+      "definition": "做"
+    },
+    "about": {
+      "frequency": 46,
+      "definition": "关于"
+    },
+    "know": {
+      "frequency": 47,
+      "definition": "知道"
+    },
+    "knew": {
+      "frequency": 47,
+      "definition": "知道"
+    },
+    "known": {
+      "frequency": 47,
+      "definition": "知道"
+    },
+    "knowing": {
+      "frequency": 47,
+      "definition": "知道"
+    },
+    "knows": {
+      "frequency": 47,
+      "definition": "知道"
+    },
+    "knowed": {
+      "frequency": 47,
+      "definition": "知道"
+    },
+    "will": {
+      "frequency": 48,
+      "definition": "将"
+    },
+    "willed": {
+      "frequency": 48,
+      "definition": "将"
+    },
+    "willing": {
+      "frequency": 48,
+      "definition": "将"
+    },
+    "wills": {
+      "frequency": 48,
+      "definition": "将"
+    },
+    "up": {
+      "frequency": 50,
+      "definition": "起来"
+    },
+    "upped": {
+      "frequency": 50,
+      "definition": "起来"
+    },
+    "upping": {
+      "frequency": 50,
+      "definition": "起来"
+    },
+    "ups": {
+      "frequency": 50,
+      "definition": "起来"
+    },
+    "one": {
+      "frequency": 51,
+      "definition": null
+    },
+    "ones": {
+      "frequency": 51,
+      "definition": null
+    },
+    "time": {
+      "frequency": 52,
+      "definition": "时间"
+    },
+    "timed": {
+      "frequency": 52,
+      "definition": "时间"
+    },
+    "timing": {
+      "frequency": 52,
+      "definition": "时间"
+    },
+    "times": {
+      "frequency": 52,
+      "definition": "时间"
+    },
+    "there": {
+      "frequency": 53,
+      "definition": "在那里"
+    },
+    "year": {
+      "frequency": 54,
+      "definition": "年"
+    },
+    "years": {
+      "frequency": 54,
+      "definition": "年"
+    },
+    "so": {
+      "frequency": 55,
+      "definition": "所以"
+    },
+    "think": {
+      "frequency": 56,
+      "definition": "认为"
+    },
+    "thought": {
+      "frequency": 56,
+      "definition": "认为"
+    },
+    "thinking": {
+      "frequency": 56,
+      "definition": "认为"
+    },
+    "thinks": {
+      "frequency": 56,
+      "definition": "认为"
+    },
+    "when": {
+      "frequency": 57,
+      "definition": "什么时候"
+    },
+    "which": {
+      "frequency": 58,
+      "definition": "哪一个"
+    },
+    "some": {
+      "frequency": 60,
+      "definition": "一些"
+    },
+    "me": {
+      "frequency": 61,
+      "definition": "代词"
+    },
+    "mes": {
+      "frequency": 61,
+      "definition": "代词"
+    },
+    "people": {
+      "frequency": 62,
+      "definition": "人"
+    },
+    "peopled": {
+      "frequency": 62,
+      "definition": "人"
+    },
+    "peopling": {
+      "frequency": 62,
+      "definition": "人"
+    },
+    "peoples": {
+      "frequency": 62,
+      "definition": "人"
+    },
+    "take": {
+      "frequency": 63,
+      "definition": "取"
+    },
+    "took": {
+      "frequency": 63,
+      "definition": "取"
+    },
+    "taken": {
+      "frequency": 63,
+      "definition": "取"
+    },
+    "taking": {
+      "frequency": 63,
+      "definition": "取"
+    },
+    "takes": {
+      "frequency": 63,
+      "definition": "取"
+    },
+    "out": {
+      "frequency": 64,
+      "definition": "出"
+    },
+    "outed": {
+      "frequency": 64,
+      "definition": "出"
+    },
+    "outing": {
+      "frequency": 64,
+      "definition": "出"
+    },
+    "outs": {
+      "frequency": 64,
+      "definition": "出"
+    },
+    "into": {
+      "frequency": 65,
+      "definition": "除"
+    },
+    "just": {
+      "frequency": 66,
+      "definition": "仅仅"
+    },
+    "see": {
+      "frequency": 67,
+      "definition": "看见"
+    },
+    "saw": {
+      "frequency": 67,
+      "definition": "看见"
+    },
+    "seen": {
+      "frequency": 67,
+      "definition": "看见"
+    },
+    "seeing": {
+      "frequency": 67,
+      "definition": "看见"
+    },
+    "sees": {
+      "frequency": 67,
+      "definition": "看见"
+    },
+    "come": {
+      "frequency": 70,
+      "definition": "来"
+    },
+    "came": {
+      "frequency": 70,
+      "definition": "来"
+    },
+    "coming": {
+      "frequency": 70,
+      "definition": "来"
+    },
+    "comes": {
+      "frequency": 70,
+      "definition": "来"
+    },
+    "cometh": {
+      "frequency": 70,
+      "definition": "来"
+    },
+    "could": {
+      "frequency": 71,
+      "definition": "能"
+    },
+    "now": {
+      "frequency": 72,
+      "definition": "现在"
+    },
+    "than": {
+      "frequency": 73,
+      "definition": "比"
+    },
+    "like": {
+      "frequency": 74,
+      "definition": "像"
+    },
+    "liked": {
+      "frequency": 74,
+      "definition": "像"
+    },
+    "liking": {
+      "frequency": 74,
+      "definition": "像"
+    },
+    "likes": {
+      "frequency": 74,
+      "definition": "像"
+    },
+    "other": {
+      "frequency": 75,
+      "definition": "其他的"
+    },
+    "others": {
+      "frequency": 75,
+      "definition": "其他的"
+    },
+    "how": {
+      "frequency": 76,
+      "definition": "如何"
+    },
+    "hows": {
+      "frequency": 76,
+      "definition": "如何"
+    },
+    "then": {
+      "frequency": 77,
+      "definition": "然后"
+    },
+    "its": {
+      "frequency": 78,
+      "definition": "代词"
+    },
+    "two": {
+      "frequency": 80,
+      "definition": "两个"
+    },
+    "more": {
+      "frequency": 91,
+      "definition": "更多"
+    },
+    "mores": {
+      "frequency": 81,
+      "definition": "更多"
+    },
+    "these": {
+      "frequency": 82,
+      "definition": "这些"
+    },
+    "want": {
+      "frequency": 83,
+      "definition": "要"
+    },
+    "wanted": {
+      "frequency": 83,
+      "definition": "要"
+    },
+    "wanting": {
+      "frequency": 83,
+      "definition": "要"
+    },
+    "wants": {
+      "frequency": 83,
+      "definition": "要"
+    },
+    "way": {
+      "frequency": 84,
+      "definition": "方式"
+    },
+    "ways": {
+      "frequency": 84,
+      "definition": "方式"
+    },
+    "look": {
+      "frequency": 85,
+      "definition": "看"
+    },
+    "looked": {
+      "frequency": 85,
+      "definition": "看"
+    },
+    "looking": {
+      "frequency": 85,
+      "definition": "看"
+    },
+    "looks": {
+      "frequency": 85,
+      "definition": "看"
+    },
+    "first": {
+      "frequency": 86,
+      "definition": "第一"
+    },
+    "firsts": {
+      "frequency": 86,
+      "definition": "第一"
+    },
+    "also": {
+      "frequency": 87,
+      "definition": "而且"
+    },
+    "new": {
+      "frequency": 88,
+      "definition": "新的"
+    },
+    "newer": {
+      "frequency": 88,
+      "definition": "新的"
+    },
+    "newest": {
+      "frequency": 88,
+      "definition": "新的"
+    },
+    "because": {
+      "frequency": 89,
+      "definition": "因为"
+    },
+    "day": {
+      "frequency": 90,
+      "definition": "一天"
+    },
+    "days": {
+      "frequency": 90,
+      "definition": "一天"
+    },
+    "use": {
+      "frequency": 92,
+      "definition": "使用"
+    },
+    "used": {
+      "frequency": 92,
+      "definition": "使用"
+    },
+    "using": {
+      "frequency": 92,
+      "definition": "使用"
+    },
+    "uses": {
+      "frequency": 92,
+      "definition": "使用"
+    },
+    "no": {
+      "frequency": 93,
+      "definition": "不"
+    },
+    "nos": {
+      "frequency": 93,
+      "definition": "不"
+    },
+    "man": {
+      "frequency": 94,
+      "definition": "人"
+    },
+    "manned": {
+      "frequency": 94,
+      "definition": "人"
+    },
+    "manning": {
+      "frequency": 94,
+      "definition": "人"
+    },
+    "mans": {
+      "frequency": 94,
+      "definition": "人"
+    },
+    "men": {
+      "frequency": 94,
+      "definition": "人"
+    },
+    "find": {
+      "frequency": 95,
+      "definition": "找到"
+    },
+    "found": {
+      "frequency": 95,
+      "definition": "找到"
+    },
+    "finding": {
+      "frequency": 95,
+      "definition": "找到"
+    },
+    "finds": {
+      "frequency": 95,
+      "definition": "找到"
+    },
+    "here": {
+      "frequency": 96,
+      "definition": "这里"
+    },
+    "thing": {
+      "frequency": 97,
+      "definition": "事情"
+    },
+    "things": {
+      "frequency": 97,
+      "definition": "事情"
+    },
+    "give": {
+      "frequency": 98,
+      "definition": "给"
+    },
+    "gave": {
+      "frequency": 98,
+      "definition": "给"
+    },
+    "given": {
+      "frequency": 98,
+      "definition": "给"
+    },
+    "giving": {
+      "frequency": 98,
+      "definition": "给"
+    },
+    "gives": {
+      "frequency": 98,
+      "definition": "给"
+    },
+    "giveth": {
+      "frequency": 98,
+      "definition": "给"
+    },
+    "many": {
+      "frequency": 99,
+      "definition": "许多"
+    },
+    "well": {
+      "frequency": 100,
+      "definition": "井"
+    },
+    "welled": {
+      "frequency": 100,
+      "definition": "井"
+    },
+    "welling": {
+      "frequency": 100,
+      "definition": "井"
+    },
+    "wells": {
+      "frequency": 100,
+      "definition": "井"
+    },
+    "weller": {
+      "frequency": 100,
+      "definition": "井"
+    }
+  }
+}

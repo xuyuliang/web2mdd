@@ -1,0 +1,871 @@
+{
+  "dict_name": "超级简陋小词典",
+  "version": "1.0",
+  "word_count": 100,
+  "words": [
+    {
+      "word": "the",
+      "frequency": 1,
+      "definition": "这",
+      "inflections": []
+    },
+    {
+      "word": "be",
+      "frequency": 2,
+      "definition": "是",
+      "inflections": [
+        "was",
+        "been",
+        "being",
+        "is",
+        "are",
+        "been",
+        "being",
+        "beings",
+        "bes",
+        "was",
+        "were"
+      ]
+    },
+    {
+      "word": "and",
+      "frequency": 3,
+      "definition": "和",
+      "inflections": [
+        "ands"
+      ]
+    },
+    {
+      "word": "of",
+      "frequency": 4,
+      "definition": "关于",
+      "inflections": []
+    },
+    {
+      "word": "a",
+      "frequency": 5,
+      "definition": "英语字母表的第一个字母",
+      "inflections": []
+    },
+    {
+      "word": "in",
+      "frequency": 6,
+      "definition": "执政的",
+      "inflections": [
+        "ins"
+      ]
+    },
+    {
+      "word": "to",
+      "frequency": 7,
+      "definition": "向",
+      "inflections": []
+    },
+    {
+      "word": "have",
+      "frequency": 8,
+      "definition": "有",
+      "inflections": [
+        "had",
+        "having",
+        "has",
+        "had",
+        "has",
+        "haves",
+        "having"
+      ]
+    },
+    {
+      "word": "to",
+      "frequency": 9,
+      "definition": "向",
+      "inflections": []
+    },
+    {
+      "word": "it",
+      "frequency": 10,
+      "definition": "它",
+      "inflections": []
+    },
+    {
+      "word": "i",
+      "frequency": 11,
+      "definition": "名词",
+      "inflections": [
+        "mine",
+        "mined",
+        "mines",
+        "mining"
+      ]
+    },
+    {
+      "word": "that",
+      "frequency": 12,
+      "definition": "那个",
+      "inflections": []
+    },
+    {
+      "word": "for",
+      "frequency": 13,
+      "definition": "因为",
+      "inflections": [
+        "forrest"
+      ]
+    },
+    {
+      "word": "you",
+      "frequency": 14,
+      "definition": "你",
+      "inflections": [
+        "yer",
+        "your"
+      ]
+    },
+    {
+      "word": "he",
+      "frequency": 15,
+      "definition": "他",
+      "inflections": [
+        "him",
+        "his"
+      ]
+    },
+    {
+      "word": "with",
+      "frequency": 16,
+      "definition": "随着",
+      "inflections": []
+    },
+    {
+      "word": "on",
+      "frequency": 17,
+      "definition": "关于",
+      "inflections": [
+        "ons"
+      ]
+    },
+    {
+      "word": "do",
+      "frequency": 18,
+      "definition": null,
+      "inflections": [
+        "did",
+        "done",
+        "doing",
+        "does",
+        "did",
+        "doe",
+        "does",
+        "doing",
+        "doings",
+        "done",
+        "dos",
+        "doth"
+      ]
+    },
+    {
+      "word": "say",
+      "frequency": 19,
+      "definition": "说",
+      "inflections": [
+        "said",
+        "saying",
+        "says",
+        "said",
+        "saying",
+        "says"
+      ]
+    },
+    {
+      "word": "this",
+      "frequency": 20,
+      "definition": "这个",
+      "inflections": []
+    },
+    {
+      "word": "they",
+      "frequency": 21,
+      "definition": "他们",
+      "inflections": [
+        "their",
+        "them"
+      ]
+    },
+    {
+      "word": "at",
+      "frequency": 22,
+      "definition": "向",
+      "inflections": []
+    },
+    {
+      "word": "but",
+      "frequency": 23,
+      "definition": "但是",
+      "inflections": [
+        "buts",
+        "butted"
+      ]
+    },
+    {
+      "word": "we",
+      "frequency": 24,
+      "definition": "我们",
+      "inflections": [
+        "our",
+        "wee",
+        "weed",
+        "wes"
+      ]
+    },
+    {
+      "word": "his",
+      "frequency": 25,
+      "definition": "他的",
+      "inflections": []
+    },
+    {
+      "word": "from",
+      "frequency": 26,
+      "definition": "来自",
+      "inflections": []
+    },
+    {
+      "word": "that",
+      "frequency": 27,
+      "definition": "那个",
+      "inflections": []
+    },
+    {
+      "word": "not",
+      "frequency": 28,
+      "definition": "不",
+      "inflections": [
+        "notting"
+      ]
+    },
+    {
+      "word": "n't",
+      "frequency": 29,
+      "definition": "副词",
+      "inflections": []
+    },
+    {
+      "word": "by",
+      "frequency": 30,
+      "definition": "通过",
+      "inflections": []
+    },
+    {
+      "word": "she",
+      "frequency": 31,
+      "definition": "代词",
+      "inflections": [
+        "her"
+      ]
+    },
+    {
+      "word": "or",
+      "frequency": 32,
+      "definition": "或者",
+      "inflections": []
+    },
+    {
+      "word": "as",
+      "frequency": 33,
+      "definition": "如同",
+      "inflections": []
+    },
+    {
+      "word": "what",
+      "frequency": 34,
+      "definition": "什么",
+      "inflections": [
+        "whats"
+      ]
+    },
+    {
+      "word": "go",
+      "frequency": 35,
+      "definition": "去",
+      "inflections": [
+        "went",
+        "gone",
+        "going",
+        "goes",
+        "goes",
+        "going",
+        "goings",
+        "gone",
+        "went"
+      ]
+    },
+    {
+      "word": "their",
+      "frequency": 36,
+      "definition": "他们的",
+      "inflections": []
+    },
+    {
+      "word": "can",
+      "frequency": 37,
+      "definition": "能",
+      "inflections": []
+    },
+    {
+      "word": "who",
+      "frequency": 38,
+      "definition": "谁",
+      "inflections": []
+    },
+    {
+      "word": "get",
+      "frequency": 39,
+      "definition": "得到",
+      "inflections": [
+        "got",
+        "getting",
+        "gets",
+        "gets",
+        "getting",
+        "got",
+        "gotten"
+      ]
+    },
+    {
+      "word": "if",
+      "frequency": 40,
+      "definition": "如果",
+      "inflections": [
+        "ifs"
+      ]
+    },
+    {
+      "word": "would",
+      "frequency": 41,
+      "definition": "将",
+      "inflections": []
+    },
+    {
+      "word": "her",
+      "frequency": 42,
+      "definition": "她的",
+      "inflections": []
+    },
+    {
+      "word": "all",
+      "frequency": 43,
+      "definition": "全部",
+      "inflections": []
+    },
+    {
+      "word": "my",
+      "frequency": 44,
+      "definition": "代词",
+      "inflections": []
+    },
+    {
+      "word": "make",
+      "frequency": 45,
+      "definition": "做",
+      "inflections": [
+        "made",
+        "making",
+        "makes",
+        "made",
+        "makes",
+        "maketh",
+        "making"
+      ]
+    },
+    {
+      "word": "about",
+      "frequency": 46,
+      "definition": "关于",
+      "inflections": []
+    },
+    {
+      "word": "know",
+      "frequency": 47,
+      "definition": "知道",
+      "inflections": [
+        "knew",
+        "known",
+        "knowing",
+        "knows",
+        "knew",
+        "knowed",
+        "knowing",
+        "known",
+        "knows"
+      ]
+    },
+    {
+      "word": "will",
+      "frequency": 48,
+      "definition": "将",
+      "inflections": [
+        "willed",
+        "willing",
+        "wills"
+      ]
+    },
+    {
+      "word": "as",
+      "frequency": 49,
+      "definition": "如同",
+      "inflections": []
+    },
+    {
+      "word": "up",
+      "frequency": 50,
+      "definition": "起来",
+      "inflections": [
+        "upped",
+        "upping",
+        "up",
+        "upped",
+        "upping",
+        "ups"
+      ]
+    },
+    {
+      "word": "one",
+      "frequency": 51,
+      "definition": null,
+      "inflections": [
+        "ones"
+      ]
+    },
+    {
+      "word": "time",
+      "frequency": 52,
+      "definition": "时间",
+      "inflections": [
+        "timed",
+        "timing",
+        "times",
+        "timed",
+        "times",
+        "timing"
+      ]
+    },
+    {
+      "word": "there",
+      "frequency": 53,
+      "definition": "在那里",
+      "inflections": []
+    },
+    {
+      "word": "year",
+      "frequency": 54,
+      "definition": "年",
+      "inflections": [
+        "years"
+      ]
+    },
+    {
+      "word": "so",
+      "frequency": 55,
+      "definition": "所以",
+      "inflections": []
+    },
+    {
+      "word": "think",
+      "frequency": 56,
+      "definition": "认为",
+      "inflections": [
+        "thought",
+        "thinking",
+        "thinks",
+        "thinking",
+        "thinks",
+        "thought"
+      ]
+    },
+    {
+      "word": "when",
+      "frequency": 57,
+      "definition": "什么时候",
+      "inflections": []
+    },
+    {
+      "word": "which",
+      "frequency": 58,
+      "definition": "哪一个",
+      "inflections": []
+    },
+    {
+      "word": "them",
+      "frequency": 59,
+      "definition": "他们",
+      "inflections": []
+    },
+    {
+      "word": "some",
+      "frequency": 60,
+      "definition": "一些",
+      "inflections": []
+    },
+    {
+      "word": "me",
+      "frequency": 61,
+      "definition": "代词",
+      "inflections": [
+        "mes"
+      ]
+    },
+    {
+      "word": "people",
+      "frequency": 62,
+      "definition": "人",
+      "inflections": [
+        "peopled",
+        "peopling",
+        "peoples",
+        "peoples"
+      ]
+    },
+    {
+      "word": "take",
+      "frequency": 63,
+      "definition": "取",
+      "inflections": [
+        "took",
+        "taken",
+        "taking",
+        "takes",
+        "taken",
+        "takes",
+        "taking",
+        "took"
+      ]
+    },
+    {
+      "word": "out",
+      "frequency": 64,
+      "definition": "出",
+      "inflections": [
+        "outed",
+        "outing",
+        "outs",
+        "outed",
+        "outs"
+      ]
+    },
+    {
+      "word": "into",
+      "frequency": 65,
+      "definition": "除",
+      "inflections": []
+    },
+    {
+      "word": "just",
+      "frequency": 66,
+      "definition": "仅仅",
+      "inflections": []
+    },
+    {
+      "word": "see",
+      "frequency": 67,
+      "definition": "看见",
+      "inflections": [
+        "saw",
+        "seen",
+        "seeing",
+        "sees",
+        "saw",
+        "seeing",
+        "seen",
+        "sees"
+      ]
+    },
+    {
+      "word": "him",
+      "frequency": 68,
+      "definition": "代词",
+      "inflections": []
+    },
+    {
+      "word": "your",
+      "frequency": 69,
+      "definition": "你的",
+      "inflections": []
+    },
+    {
+      "word": "come",
+      "frequency": 70,
+      "definition": "来",
+      "inflections": [
+        "came",
+        "come",
+        "coming",
+        "comes",
+        "came",
+        "comes",
+        "cometh",
+        "coming"
+      ]
+    },
+    {
+      "word": "could",
+      "frequency": 71,
+      "definition": "能",
+      "inflections": []
+    },
+    {
+      "word": "now",
+      "frequency": 72,
+      "definition": "现在",
+      "inflections": []
+    },
+    {
+      "word": "than",
+      "frequency": 73,
+      "definition": "比",
+      "inflections": []
+    },
+    {
+      "word": "like",
+      "frequency": 74,
+      "definition": "像",
+      "inflections": [
+        "liked",
+        "liking",
+        "likes",
+        "liked",
+        "likes",
+        "liking"
+      ]
+    },
+    {
+      "word": "other",
+      "frequency": 75,
+      "definition": "其他的",
+      "inflections": [
+        "others"
+      ]
+    },
+    {
+      "word": "how",
+      "frequency": 76,
+      "definition": "如何",
+      "inflections": [
+        "hows"
+      ]
+    },
+    {
+      "word": "then",
+      "frequency": 77,
+      "definition": "然后",
+      "inflections": []
+    },
+    {
+      "word": "its",
+      "frequency": 78,
+      "definition": "代词",
+      "inflections": []
+    },
+    {
+      "word": "our",
+      "frequency": 79,
+      "definition": "我们的",
+      "inflections": []
+    },
+    {
+      "word": "two",
+      "frequency": 80,
+      "definition": "两个",
+      "inflections": []
+    },
+    {
+      "word": "more",
+      "frequency": 81,
+      "definition": "更多",
+      "inflections": [
+        "mores"
+      ]
+    },
+    {
+      "word": "these",
+      "frequency": 82,
+      "definition": "这些",
+      "inflections": []
+    },
+    {
+      "word": "want",
+      "frequency": 83,
+      "definition": "要",
+      "inflections": [
+        "wanted",
+        "wanting",
+        "wants",
+        "wanted",
+        "wanting",
+        "wants"
+      ]
+    },
+    {
+      "word": "way",
+      "frequency": 84,
+      "definition": "方式",
+      "inflections": [
+        "ways"
+      ]
+    },
+    {
+      "word": "look",
+      "frequency": 85,
+      "definition": "看",
+      "inflections": [
+        "looked",
+        "looking",
+        "looks",
+        "looked",
+        "looking",
+        "looks"
+      ]
+    },
+    {
+      "word": "first",
+      "frequency": 86,
+      "definition": "第一",
+      "inflections": [
+        "firsts"
+      ]
+    },
+    {
+      "word": "also",
+      "frequency": 87,
+      "definition": "而且",
+      "inflections": []
+    },
+    {
+      "word": "new",
+      "frequency": 88,
+      "definition": "新的",
+      "inflections": [
+        "newer",
+        "newest"
+      ]
+    },
+    {
+      "word": "because",
+      "frequency": 89,
+      "definition": "因为",
+      "inflections": []
+    },
+    {
+      "word": "day",
+      "frequency": 90,
+      "definition": "一天",
+      "inflections": [
+        "days"
+      ]
+    },
+    {
+      "word": "more",
+      "frequency": 91,
+      "definition": "更多",
+      "inflections": [
+        "mores"
+      ]
+    },
+    {
+      "word": "use",
+      "frequency": 92,
+      "definition": "使用",
+      "inflections": [
+        "used",
+        "using",
+        "uses",
+        "used",
+        "uses",
+        "using"
+      ]
+    },
+    {
+      "word": "no",
+      "frequency": 93,
+      "definition": "不",
+      "inflections": [
+        "nos"
+      ]
+    },
+    {
+      "word": "man",
+      "frequency": 94,
+      "definition": "人",
+      "inflections": [
+        "manned",
+        "manning",
+        "mans",
+        "manned",
+        "manning",
+        "mans",
+        "men"
+      ]
+    },
+    {
+      "word": "find",
+      "frequency": 95,
+      "definition": "找到",
+      "inflections": [
+        "found",
+        "finding",
+        "finds",
+        "finding",
+        "finds",
+        "found"
+      ]
+    },
+    {
+      "word": "here",
+      "frequency": 96,
+      "definition": "这里",
+      "inflections": []
+    },
+    {
+      "word": "thing",
+      "frequency": 97,
+      "definition": "事情",
+      "inflections": [
+        "things"
+      ]
+    },
+    {
+      "word": "give",
+      "frequency": 98,
+      "definition": "给",
+      "inflections": [
+        "gave",
+        "given",
+        "giving",
+        "gives",
+        "gave",
+        "given",
+        "gives",
+        "giveth",
+        "giving"
+      ]
+    },
+    {
+      "word": "many",
+      "frequency": 99,
+      "definition": "许多",
+      "inflections": []
+    },
+    {
+      "word": "well",
+      "frequency": 100,
+      "definition": "井",
+      "inflections": [
+        "welled",
+        "welling",
+        "wells",
+        "weller",
+        "welling",
+        "wells"
+      ]
+    }
+  ]
+}
