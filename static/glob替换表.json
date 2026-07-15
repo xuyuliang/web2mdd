@@ -1,0 +1,7 @@
+{
+  "A": "aeiou",
+  "T": "bcdfghjklmnpqrstvwxyz",
+  "AA": ["ai", "ay", "ee", "ea", "oa", "oo", "ie", "ei", "ey", "au", "aw", "ow", "ou", "oi", "oy", "ue", "ui", "eu", "ew", "oe"],
+  "TT": ["sp", "st", "tr", "cr", "gr", "fr", "pr", "br", "dr", "pl", "bl", "cl", "fl", "gl", "sl", "sc", "sk", "sm", "sn", "sw", "tw", "dw", "qu", "kn", "wr", "wh", "th", "ch", "sh", "ph", "gn", "rh"],
+  "TTT": ["str", "spr", "scr", "spl", "thr", "shr", "squ", "sph", "sch"]
+}

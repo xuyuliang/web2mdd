@@ -186,8 +186,8 @@ class MDXReader:
     
     @staticmethod
     def _has_pattern(word: str) -> bool:
-        """检查单词中是否含有通配符 * 或 ."""
-        return '*' in word or '.' in word
+        """检查单词中是否含有通配符 * 、 . 或字符类 [abc]"""
+        return '*' in word or '.' in word or ('[' in word and ']' in word)
     
     @staticmethod
     def _stem_highlight(stem: str, word: str) -> str:
