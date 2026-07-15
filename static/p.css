@@ -445,3 +445,13 @@ display:none;
     border-radius: 100%;
 }
 
+.pattern-ipa {
+    color: Sienna;
+    font-style: italic;
+    font-size: 0.6em;
+}
+
+.pattern-summary {
+    color: #666;
+    font-size: 0.9em;
+}

@@ -28,6 +28,9 @@
         &nbsp;&nbsp;&nbsp;&nbsp;<span class="pattern-rank">{{ item.rank }}</span>
       {% endif %}
     </a>
+      {% if item.ipa %}
+        &nbsp;&nbsp;<span class="pattern-ipa">{{ item.ipa }}</span>
+      {% endif %}
     {% if item.summary %}
 
       <div class="pattern-summary">{{ item.summary | safe }}</div>
@@ -35,9 +38,6 @@
       <div class="pattern-no-summary">（词典中无中文释义数据）</div>
     {% else %}
       <div class="pattern-no-result">（词典中未找到释义）</div>
-    {% endif %}
-    {% if item.has_full %}
-      <br>
     {% endif %}
     {% if loop.index == page_ranked_count and page_ranked_count > 0 and page_ranked_count < results|length %}
       <hr class="pattern-divider" />

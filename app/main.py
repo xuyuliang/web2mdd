@@ -24,7 +24,7 @@ from starlette.requests import Request
 
 from app.mdx_sqlite_reader import MDXSQLiteReader
 from app.morphemes_loader import MorphemesLoader
-from app.word_freq import WordFreq
+from app.word_freq import WordFreq, get_preprocessor
 from app.related_words import RelatedWordsSearcher
 
 @asynccontextmanager
@@ -201,58 +201,154 @@ class MDXReader:
             after = word[pos + len(stem):]
             return f'{before}<span class="stem-highlight">{matched}</span>{after}'
         return word
-    
     @staticmethod
     def _pattern_highlight(pattern: str, word: str) -> str:
-        """将匹配到的单词中的用户输入字面量部分用深蓝色高亮"""
-        group_parts = []
-        is_literal = []
-        for c in pattern:
-            if c == '*':
-                group_parts.append('(.*)')
-                is_literal.append(False)
-            elif c == '.':
-                group_parts.append('(.)')
-                is_literal.append(False)
-            else:
-                group_parts.append(f'({re.escape(c)})')
-                is_literal.append(True)
-        regex_str = '^' + ''.join(group_parts) + '$'
-        regex = re.compile(regex_str, re.IGNORECASE)
+        """将匹配到的单词中的用户输入字面量部分用深蓝色高亮
         
-        m = regex.match(word)
-        if not m:
-            return word
+        显示整个单词，通配符匹配的部分正常显示（不高亮），
+        字面字符部分用 <span class="hl-literal"> 包裹高亮。
+        连续的字面字符会合并为一个高亮标签。
+        被通配符隔开的字面字符分别高亮。
+        """
+        # 策略：
+        # 1. 从 pattern 中提取所有连续的字面字符段及其位置
+        # 2. 在每个字面字符段前面加上 .* ，依次在 word 中搜索
+        # 3. 每个匹配的部分分别高亮
         
-        html_parts = []
+        # 提取字面字符段列表，保持顺序
+        literal_segments = []  # [chars]
+        current_literal = []
+        
         i = 0
-        while i < len(is_literal):
-            if is_literal[i]:
-                literal_chars = []
-                while i < len(is_literal) and is_literal[i]:
-                    literal_chars.append(m.group(i + 1))
+        while i < len(pattern):
+            c = pattern[i]
+            if c in ('*', '.'):
+                # 通配符，保存当前的字面字符段
+                if current_literal:
+                    literal_segments.append(''.join(current_literal))
+                    current_literal = []
+                i += 1
+            elif c == '[':
+                # 查找闭合括号
+                j = pattern.find(']', i + 1)
+                if j == -1:
+                    # 没有闭合括号，当作普通字符
+                    current_literal.append(c)
                     i += 1
-                html_parts.append(f'<span class="hl-literal">{"".join(literal_chars)}</span>')
+                else:
+                    # 整个 [...] 是通配符，保存当前字面段
+                    if current_literal:
+                        literal_segments.append(''.join(current_literal))
+                        current_literal = []
+                    i = j + 1  # 跳过 ]
             else:
-                matched = m.group(i + 1) or ''
-                html_parts.append(matched)
+                current_literal.append(c)
                 i += 1
         
+        # 保存最后的字面字符段
+        if current_literal:
+            literal_segments.append(''.join(current_literal))
+        
+        # 如果没有字面字符段，直接返回原单词
+        if not literal_segments:
+            return word
+        
+        # 依次在每个字面字符段前面搜索，记录匹配位置
+        search_pos = 0
+        match_ranges = []  # [(start, end), ...]
+        
+        for idx, chars in enumerate(literal_segments):
+            escaped = re.escape(chars)
+            if idx < len(literal_segments) - 1:
+                # 不是最后一个段，用 .* 前缀搜索（贪婪匹配到下一个字面段）
+                pattern_search = f'.*{escaped}'
+            else:
+                # 最后一个段，精确匹配
+                pattern_search = escaped
+            
+            m = re.search(pattern_search, word[search_pos:], re.IGNORECASE)
+            if m:
+                matched_text = m.group(0)
+                # 计算字面部分在匹配文本中的位置
+                # 对于非最后一段，matched_text 可能是 "xxxtric"，我们需要找到 "tric" 的开始位置
+                if idx < len(literal_segments) - 1:
+                    # 找到字面段在匹配文本中的位置
+                    literal_pos = matched_text.lower().find(chars.lower())
+                    actual_start = search_pos + m.start() + literal_pos
+                    actual_end = actual_start + len(chars)
+                else:
+                    # 最后一段，整个匹配就是字面部分
+                    actual_start = search_pos + m.start()
+                    actual_end = search_pos + m.end()
+                
+                match_ranges.append((actual_start, actual_end))
+                search_pos = actual_end
+            else:
+                # 找不到这个段，返回原单词
+                return word
+        
+        # 构建 HTML：在高亮位置插入标签
+        html_parts = []
+        pos = 0
+        for start, end in match_ranges:
+            html_parts.append(word[pos:start])
+            html_parts.append(f'<span class="hl-literal">{word[start:end]}</span>')
+            pos = end
+        html_parts.append(word[pos:])
+        
         return ''.join(html_parts)
+    @staticmethod
+    def _glob_bracket_to_regex(bracket_content: str) -> str:
+        """将 GLOB 方括号内容转换为正则表达式字符类
+        
+        处理高级占位符：
+        - 'A' -> '[aeiou]'
+        - 'T' -> '[bcdfghjklmnpqrstvwxyz]'
+        - 'AA' -> '(ai|ay|ee|...)'  # 注意：AA 可能匹配多个字符，用非捕获组
+        - 'aeo' -> '[aeo]'  # 普通字符类保持不变
+        """
+        preprocessor = get_preprocessor()
+        
+        if bracket_content in preprocessor.replacements:
+            replacement = preprocessor.replacements[bracket_content]
+            if isinstance(replacement, list):
+                # 多字符组合：如 AA -> ["ai", "ay", ...]
+                # 转换为正则：(?:ai|ay|ee|...)
+                return '(?:' + '|'.join(replacement) + ')'
+            else:
+                # 单字符类：如 A -> "aeiou"
+                return f'[{replacement}]'
+        else:
+            # 不是高级占位符，直接作为字符类
+            return f'[{bracket_content}]'
+    
+    @staticmethod
+    def _extract_ipa(html: str) -> str:
+        """从完整释义 HTML 中提取音标"""
+        if not isinstance(html, str) or not html:
+            return ""
+        m = re.search(r'<span class="ipa">([^<]*)</span>', html)
+        if m:
+            return m.group(1).strip()
+        return ""
     
     @staticmethod
     def _extract_summary(html: str) -> str:
-        """从完整释义 HTML 中提取摘要（中文翻译+释义）"""
+        """从完整释义 HTML 中提取摘要（优先 coca2，不存在则取 gdc）"""
         if not isinstance(html, str) or not html:
             return ""
-        parts = []
+        
+        # 先尝试提取 coca2
         m = re.search(r'<div class="coca2">.*?</div>', html)
         if m:
-            parts.append(m.group(0))
+            return m.group(0)
+        
+        # coca2 不存在，尝试提取 gdc
         m = re.search(r'<div class="gdc">.*?</div>\s*</div>', html, re.DOTALL)
         if m:
-            parts.append(m.group(0))
-        return ''.join(parts) if parts else ''
+            return m.group(0)
+        
+        return ""
     
     def _get_mdx_word(self, lower_word: str) -> str | None:
         """将小写单词映射到 MDX 中的原始大小写形式"""
@@ -439,9 +535,10 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
             rank = request.app.state.word_freq.get_rank(w)
             if isinstance(html, str) and html:
                 summary = MDXReader._extract_summary(html)
-                page_results.append({"word": w, "highlighted_word": highlighted, "summary": summary, "has_full": True, "rank": rank})
+                ipa = MDXReader._extract_ipa(html)
+                page_results.append({"word": w, "highlighted_word": highlighted, "summary": summary, "ipa": ipa, "has_full": True, "rank": rank})
             else:
-                page_results.append({"word": w, "highlighted_word": highlighted, "summary": "", "has_full": False, "rank": rank})
+                page_results.append({"word": w, "highlighted_word": highlighted, "summary": "", "ipa": "", "has_full": False, "rank": rank})
 
         ranked_count = len(ranked)
         page_ranked_count = max(0, min(PATTERN_PAGE_SIZE, ranked_count - start_idx))
