@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用说明 - The Little Dict</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <style>
+      /* 使用说明页面专用样式 */
+      .guide-page {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .guide-page h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 8px;
+        font-size: 22px;
+      }
+      .guide-page .subtitle {
+        text-align: center;
+        color: #888;
+        font-size: 13px;
+        margin-bottom: 24px;
+      }
+      .guide-page .subtitle a {
+        color: #667eea;
+        text-decoration: none;
+      }
+      .guide-page .subtitle a:hover {
+        text-decoration: underline;
+      }
+      .guide-section {
+        background: #fff;
+        border-radius: 12px;
+        padding: 18px 20px;
+        margin-bottom: 14px;
+        box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+      }
+      .guide-section h2 {
+        font-size: 16px;
+        color: #5a4fcf;
+        margin: 0 0 10px 0;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #eee;
+      }
+      .guide-section h2 .icon {
+        margin-right: 6px;
+      }
+      .guide-section p {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #444;
+        margin: 0 0 8px 0;
+      }
+      .guide-section ul {
+        margin: 0;
+        padding: 0 0 0 18px;
+        font-size: 14px;
+        line-height: 1.8;
+        color: #444;
+      }
+      .guide-section li {
+        margin-bottom: 2px;
+      }
+      .guide-section code {
+        background: #f0f0f8;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        font-size: 13px;
+        color: #e67e22;
+        white-space: nowrap;
+      }
+      .guide-example {
+        background: #f8f9ff;
+        border: 1px solid #e0e3f0;
+        border-radius: 8px;
+        padding: 10px 14px;
+        margin-top: 8px;
+        font-size: 13px;
+        line-height: 1.7;
+        color: #555;
+      }
+      .guide-example .label {
+        font-weight: 600;
+        color: #5a4fcf;
+        margin-bottom: 4px;
+      }
+      .guide-example code {
+        font-size: 13px;
+      }
+      .guide-example .arrow {
+        color: #999;
+        margin: 0 4px;
+      }
+      .guide-example .result {
+        color: #2c3e50;
+        font-weight: 500;
+      }
+      .guide-combo {
+        background: linear-gradient(135deg, #f8f9ff 0%, #fff8f0 100%);
+        border: 1px solid #e8e0f0;
+      }
+      .guide-combo h2 {
+        color: #e67e22;
+        border-bottom-color: #f0e6d6;
+      }
+      .guide-tip {
+        background: #fffbe6;
+        border: 1px solid #ffe58f;
+        border-radius: 8px;
+        padding: 12px 16px;
+        margin-top: 14px;
+        font-size: 13px;
+        line-height: 1.7;
+        color: #666;
+      }
+      .guide-tip strong {
+        color: #d48806;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="guide-page">
+      <h1>📖 使用说明</h1>
+      <p class="subtitle"><a href="/">← 返回首页查词</a></p>
+
+      <!-- 基础通配符 -->
+      <div class="guide-section">
+        <h2><span class="icon">🔤</span>基础通配符</h2>
+        <ul>
+          <li><code>*</code> — 匹配任意多个字符（包括零个）</li>
+          <li><code>.</code> — 匹配恰好一个字符</li>
+        </ul>
+        <div class="guide-example">
+          <div class="label">搜索以 "bio" 开头的所有单词：</div>
+          <code>bio*</code> <span class="arrow">→</span> <span class="result">biology, biological, biography...</span>
+        </div>
+        <div class="guide-example">
+          <div class="label">搜索 3 个字母、c[元音]t 的单词：</div>
+          <code>c.t</code> <span class="arrow">→</span> <span class="result">cut, cat, cot...</span>
+        </div>
+      </div>
+
+      <!-- 元音占位符 -->
+      <div class="guide-section">
+        <h2><span class="icon">🅰️</span>元音占位符</h2>
+        <ul>
+          <li><code>[A]</code> — 匹配任意一个元音字母（a, e, i, o, u）</li>
+          <li><code>[AA]</code> — 匹配任意一个常见双字母元音组合（ai, ay, ee, ea, oa, oo, ie, ei, ey, au, aw, ow, ou, oi, oy, ue, ui, eu, ew, oe）</li>
+          <li><code>[AAA]</code> — 匹配任意三个字母的元音组合（如 eau, eia 等，具体取决于替换表）</li>
+        </ul>
+        <div class="guide-example">
+          <div class="label">搜索形如 "c_n_" 的 4 字母单词（第 2、4 位是元音）：</div>
+          <code>c[A]n[A]</code> <span class="arrow">→</span> <span class="result">cane, cone</span>
+        </div>
+        <div class="guide-example">
+          <div class="label">搜索含双元音的 "t*er" 单词：</div>
+          <code>t[AA]er</code> <span class="arrow">→</span> <span class="result">tower</span>注意这里的双元音定义，ow,aw也被定义成了双元音，并不是只有ou,ai才是双元音
+        </div>
+      </div>
+
+      <!-- 辅音占位符 -->
+      <div class="guide-section">
+        <h2><span class="icon">🅃</span>辅音占位符</h2>
+        <ul>
+          <li><code>[T]</code> — 匹配任意一个辅音字母（除 a,e,i,o,u 外的所有字母）</li>
+          <li><code>[TT]</code> — 匹配任意一个常见辅音组合（sp, st, tr, cr, gr, fr, pr, br, dr, pl, bl, cl, fl, gl, sl, sc, sk, sm, sn, sw, tw, dw, qu, kn, wr, wh, th, ch, sh, ph, gn, rh）</li>
+          <li><code>[TTT]</code> — 匹配任意三个字母的辅音组合（str, spr, scr, spl, thr, shr, squ, sph, sch）</li>
+        </ul>
+        <div class="guide-example">
+          <div class="label">搜索形如 "[双辅音]out" 的单词：</div>
+          <code>st*</code> <span class="arrow">→</span> <span class="result">shout, trout, scout, clout...</span>
+        </div>
+        <div class="guide-example">
+          <div class="label">搜索以三字母辅音组合开头 +一些其他字母+ "tion" 结尾的单词：</div>
+          <code>[TTT]*tion</code> <span class="arrow">→</span> <span class="result">instruction, stratification, strangulation...</span>
+        </div>
+      </div>
+
+      <!-- 反义占位符 -->
+      <div class="guide-section">
+        <h2><span class="icon">🚫</span>反义占位符 <code>[^...]</code></h2>
+        <p>方括号内以 <code>^</code> 开头，表示"不包含这些字符"。这是标准 GLOB 语法。</p>
+        <div class="guide-example">
+          <div class="label">搜索ep开头，但不是epi开头的单词：</div>
+          <code>ep[^i]*</code> <span class="arrow">→</span> <span class="result">epoch, ephemeral , epsilon...</span> 注意epsilon有i，但不是epi开头
+        </div>
+        <div class="guide-example">
+          <div class="label">搜索以 "s" 开头但不含 "e" 的 4 字母单词：</div>
+          <code>s[^e][^e][^e]</code> <span class="arrow">→</span> <span class="result">ship, shop, shut, shed, shyn...</span>
+        </div>
+      </div>
+
+      <!-- 综合实战 -->
+      <div class="guide-section guide-combo">
+        <h2><span class="icon">🏆</span>综合实战：寻找同根词</h2>
+        <p>掌握了以上规则，你可以用一条搜索词找到大量同根词！下面是一些实用技巧：</p>
+
+        <div class="guide-example">
+          <div class="label">📌 场景 1：找 "struct" 家族</div>
+          <p>你想找所有包含 "struct" 这个词根的单词：</p>
+          <code>*struct*</code> <span class="arrow">→</span> <span class="result">construct, structure, instruct, reconstruct, infrastructure...</span>
+        </div>
+
+        <div class="guide-example">
+          <div class="label">📌 场景 2：找 "spect" 家族（含各种拼写变体）</div>
+          <p>用 <code>[A]</code> 匹配元音变化：</p>
+          <code>*sp[A]ct*</code> <span class="arrow">→</span> <span class="result">respect, prospect, suspect, inspect, circumspect...</span>
+        </div>
+
+        <div class="guide-example">
+          <div class="label">📌 场景 3：找 "port" 家族（含辅音组合变体）</div>
+          <p>用 <code>[TT]</code> 匹配词首辅音组合：</p>
+          <code>[TT]*port</code> <span class="arrow">→</span> <span class="result">report, support, transport, deport, export, import, portfolio...</span>
+        </div>
+
+        <div class="guide-example">
+          <div class="label">📌 场景 4：找 "ceive/ceiv" 家族（含双元音）</div>
+          <p>用 <code>[AA]</code> 匹配各种元音组合：</p>
+          <code>*[AA]ceiv*</code> <span class="arrow">→</span> <span class="result">receive, perceive, conceive, deceive, achieve...</span>
+        </div>
+
+      </div>
+
+      <div class="guide-tip">
+        <strong>💡 小贴士：</strong>在搜索结果页面的词根词缀分析中，选中任意词干部分（如 <code>struct</code>），系统会自动以 <code>*struct*</code> 模式搜索同根词！这个功能的自动分析部分还正在完善。
+      </div>
+    </div>
+  </body>
+</html>

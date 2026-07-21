@@ -16,7 +16,8 @@
   </head>
   <body>
     <div class="header" id="header-section">
-      <h1>📖 The Little Dict</h1>
+      <h1><a href="/"> 📖 The Little Dict </a></h1>
+      <p style="margin-top:8px;"><a href="/guide" style="color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;">📖 使用说明</a></p>
       <div class="search-box">
           <!-- 第一次搜索使用 replace，后续使用 push -->
         <input
@@ -33,8 +34,10 @@
         <button
           hx-get="/api/lookup"
           hx-target="#result"
+          hx-trigger="click"
           hx-push-url="true"
           hx-indicator="#loading"
+          hx-include="[name='word']"
         >
           查词
         </button>

@@ -434,6 +434,12 @@ async def index(request: Request):
     return templates.TemplateResponse(request, "index.html")
 
 
+@app.get("/guide")
+async def guide_page(request: Request):
+    """使用说明页面"""
+    return templates.TemplateResponse(request, "guide.html")
+
+
 @app.get("/debug")
 async def debug_page(request: Request):
     """调试页面 - 用于测试返回链接流程"""

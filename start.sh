@@ -1,0 +1,44 @@
+#!/bin/bash
+set -e
+
+cd "$(dirname "$0")"
+
+echo "===================================="
+echo "  查词词典 - 正在启动..."
+echo "===================================="
+echo ""
+
+if [ ! -d "venv" ]; then
+    echo "[ERROR] 虚拟环境不存在，请先运行: python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt"
+    exit 1
+fi
+
+source venv/bin/activate
+
+PID_FILE=".server.pid"
+
+# 检查是否已在运行
+if [ -f "$PID_FILE" ]; then
+    OLD_PID=$(cat "$PID_FILE")
+    if kill -0 "$OLD_PID" 2>/dev/null; then
+        echo "[WARN] 服务已在运行（PID: $OLD_PID），如需重启请先执行: ./stop.sh"
+        exit 1
+    else
+        rm -f "$PID_FILE"
+    fi
+fi
+
+echo "启动服务器（后台运行，按 Ctrl+C 不会停止）..."
+echo ""
+
+nohup uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4 > logs/server.log 2>&1 &
+SERVER_PID=$!
+
+echo "$SERVER_PID" > "$PID_FILE"
+
+echo "✅ 服务已启动，PID: $SERVER_PID"
+echo "   日志: logs/server.log"
+echo "   访问: http://localhost:8000"
+echo ""
+echo "   停止: ./stop.sh"
+echo "   查看日志: tail -f logs/server.log"
