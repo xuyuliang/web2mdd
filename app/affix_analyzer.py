@@ -8,15 +8,18 @@ from typing import Optional
 
 
 class AffixAnalyzer:
-    def __init__(self, derivations_path=None, inflections_path=None):
+    def __init__(self, derivations_path=None, inflections_path=None, etym_path=None):
         BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.deriv_path = derivations_path or os.path.join(BASE_DIR, "data", "eng_derivations.json")
         self.infl_path = inflections_path or os.path.join(BASE_DIR, "data", "eng_inflections.json")
+        self.etym_path = etym_path or os.path.join(BASE_DIR, "data", "etym-dictionary.json")
 
         self.deriv_reverse = {}
         self.deriv_forward = {}
         self.infl_reverse = {}
+        self.infl_forward = set()
         self._word_set = set()
+        self._etym_roots = {}
         self._prefixes = []
         self._suffixes = []
         self._loaded = False
@@ -53,6 +56,7 @@ class AffixAnalyzer:
 
         for lemma, info in infl_data.items():
             lemma_lower = lemma.lower()
+            self.infl_forward.add(lemma_lower)
             for form, entries in info.get("forms", {}).items():
                 form_lower = form.lower()
                 for entry in entries:
@@ -72,7 +76,7 @@ class AffixAnalyzer:
                     elif not existing[1] and not suffix and lemma_lower != form_lower:
                         self.infl_reverse[form_lower] = (lemma_lower, suffix, features)
 
-        self._word_set = set(self.deriv_forward.keys())
+        self._word_set = set(self.deriv_forward.keys()) | self.infl_forward
 
         affix_dir = os.path.join(os.path.dirname(self.deriv_path), "..", "数据资料")
         pf_path = os.path.join(affix_dir, "_prefixes.txt")
@@ -98,11 +102,199 @@ class AffixAnalyzer:
         self._prefixes.sort(key=len, reverse=True)
         self._suffixes.sort(key=len, reverse=True)
 
+        self._load_etym()
+
         self._loaded = True
         print(f"[AffixAnalyzer] 加载完成: {len(self.deriv_forward)} 基词, "
               f"{len(self.deriv_reverse)} 可溯源派生词, "
               f"{len(self.infl_reverse)} 屈折形式, "
-              f"{len(self._prefixes)} 前缀规则, {len(self._suffixes)} 后缀规则")
+              f"{len(self._prefixes)} 前缀规则, {len(self._suffixes)} 后缀规则"
+              f"{', ' + str(len(self._etym_roots)) + ' 词根' if self._etym_roots else ''}")
+
+    def _load_etym(self):
+        if not os.path.exists(self.etym_path):
+            return
+        try:
+            with open(self.etym_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            entries = data.get("entries", [])
+            for e in entries:
+                roots_str = e.get("roots", "")
+                if not roots_str:
+                    continue
+                parts = [p.strip() for p in roots_str.split(",")]
+                base = parts[0]
+                if base.startswith(("=", "-")):
+                    base = base[1:]
+
+                variants = {base} if base else set()
+                for p in parts[1:]:
+                    p = p.strip()
+                    if not p:
+                        continue
+                    if p.startswith("="):
+                        variants.add(base + p[1:])
+                    elif p.startswith("-"):
+                        variants.add(base + p[1:])
+                    else:
+                        variants.add(p)
+
+                for v in variants:
+                    v = v.lstrip("-=")
+                    if v and len(v) >= 2:
+                        key = v.lower()
+                        self._etym_roots.setdefault(key, [])
+                        if e not in self._etym_roots[key]:
+                            self._etym_roots[key].append(e)
+        except Exception as ex:
+            print(f"[AffixAnalyzer] 词根词典加载失败: {ex}")
+
+    _COMMON_ENDINGS = ('y', 'a', 'o', 'i', 'e', 's', 'n', 'm', 'us', 'um', 'on', 'is', 'os', 'es', 'as', 'ae', 'en', 'in', 'ly')
+
+    def _etym_analyze(self, word: str) -> Optional[dict]:
+        if not self._etym_roots:
+            return None
+
+        best = None
+        best_score = -1.0
+        wlen = len(word)
+        root_set = self._etym_roots
+        all_suffixes = self._suffixes + list(self._COMMON_ENDINGS)
+
+        def append_result(parts, result_str, prefix_val, suffix_val, stem_val, score):
+            nonlocal best, best_score
+            if score > best_score:
+                best_score = score
+                best = {
+                    "prefix": prefix_val,
+                    "suffix": suffix_val,
+                    "stem": stem_val,
+                    "final_stem": stem_val,
+                    "result": result_str,
+                    "parts": parts,
+                    "score": score,
+                    "scheme": "etym"
+                }
+
+        def try_suffix(tail, min_len=1):
+            if not tail:
+                return True, ""
+            if len(tail) < min_len:
+                return False, ""
+            for sfx in all_suffixes:
+                if len(sfx) < min_len:
+                    continue
+                if tail == sfx:
+                    return True, sfx
+            return False, ""
+
+        # 1) prefix + root [+ suffix]
+        for pfx in self._prefixes:
+            if len(pfx) < 2:
+                continue
+            if not word.startswith(pfx) or len(word) - len(pfx) < 2:
+                continue
+            after_pfx = word[len(pfx):]
+            for rlen in range(min(len(after_pfx), 20), 1, -1):
+                cand_root = after_pfx[:rlen]
+                if cand_root not in root_set:
+                    continue
+                tail = after_pfx[rlen:]
+                ok, suffix = try_suffix(tail)
+                if ok:
+                    root_info = root_set[cand_root][0]
+                    meaning = root_info.get("meaning", "")[:40]
+                    lang = root_info.get("langCode", "")
+                    pfx_info = root_set.get(pfx)
+                    pfx_meaning = pfx_info[0].get("meaning", "")[:30] if pfx_info else ""
+                    pfx_lang = pfx_info[0].get("langCode", "") if pfx_info else ""
+                    parts = [{"type": "prefix", "text": pfx, "meaning": pfx_meaning, "lang": pfx_lang}]
+                    parts.append({"type": "root", "text": cand_root, "meaning": meaning, "lang": lang})
+                    if suffix:
+                        parts.append({"type": "suffix", "text": suffix})
+                    result_str = ".".join(p["text"] for p in parts if p["type"] != "prefix" or True)
+                    # rebuild with proper order
+                    result_parts = [p["text"] for p in parts]
+                    result_str = ".".join(result_parts)
+                    score = len(pfx) * 2 + rlen * 3 + (len(suffix) * 2 if suffix else 0) + (10 if suffix or not tail else 0)
+                    append_result(parts, result_str, pfx, suffix, cand_root, score)
+
+        # 2) root + suffix
+        for sfx in all_suffixes:
+            if len(sfx) < 1:
+                continue
+            if not word.endswith(sfx) or len(word) - len(sfx) < 2:
+                continue
+            before_sfx = word[:-len(sfx)]
+            for rlen in range(2, min(len(before_sfx) + 1, 21)):
+                cand_root = before_sfx[-rlen:]
+                if cand_root not in root_set:
+                    continue
+                rest = before_sfx[:-rlen]
+                if rest and not any(rest == p for p in self._prefixes):
+                    continue
+                pfx = rest if rest else ""
+                root_info = root_set[cand_root][0]
+                meaning = root_info.get("meaning", "")[:40]
+                lang = root_info.get("langCode", "")
+                parts = []
+                if pfx:
+                    parts.append({"type": "prefix", "text": pfx})
+                parts.append({"type": "root", "text": cand_root, "meaning": meaning, "lang": lang})
+                parts.append({"type": "suffix", "text": sfx})
+                result_str = ".".join(p["text"] for p in parts)
+                score = (len(pfx) * 2 if pfx else 0) + rlen * 3 + max(len(sfx), 1) * 2 + 10
+                append_result(parts, result_str, pfx, sfx, cand_root, score)
+
+        # 3) two roots (compound) + optional suffix
+        for r1len in range(3, min(wlen, 21)):
+            r1 = word[:r1len]
+            if r1 not in root_set:
+                continue
+            rest = word[r1len:]
+            for r2len in range(3, min(len(rest) + 1, 21)):
+                r2 = rest[:r2len]
+                if r2 not in root_set:
+                    continue
+                tail = rest[r2len:]
+                ok, suffix = try_suffix(tail)
+                if ok:
+                    r1_info = root_set[r1][0]
+                    r2_info = root_set[r2][0]
+                    parts = [
+                        {"type": "root", "text": r1, "meaning": r1_info.get("meaning", "")[:30], "lang": r1_info.get("langCode", "")},
+                        {"type": "root", "text": r2, "meaning": r2_info.get("meaning", "")[:30], "lang": r2_info.get("langCode", "")},
+                    ]
+                    if suffix:
+                        parts.append({"type": "suffix", "text": suffix})
+                    result_str = ".".join(p["text"] for p in parts)
+                    score = r1len * 2 + r2len * 3 + (len(suffix) * 2 if suffix else 0) + (15 if ok and (not tail or suffix) else 0)
+                    append_result(parts, result_str, "", suffix, r1 + "." + r2, score)
+
+        # 4) single root + short ending (when nothing else works)
+        if not best:
+            for rlen in range(3, min(wlen, 21)):
+                for start in range(0, wlen - rlen + 1):
+                    cand_root = word[start:start + rlen]
+                    if cand_root not in root_set:
+                        continue
+                    prefix_part = word[:start]
+                    suffix_part = word[start + rlen:]
+                    ok_pfx = not prefix_part or any(prefix_part == p for p in self._prefixes)
+                    ok_sfx, matched_sfx = try_suffix(suffix_part)
+                    if ok_pfx and ok_sfx:
+                        root_info = root_set[cand_root][0]
+                        parts = []
+                        if prefix_part:
+                            parts.append({"type": "prefix", "text": prefix_part})
+                        parts.append({"type": "root", "text": cand_root, "meaning": root_info.get("meaning", "")[:30]})
+                        if matched_sfx:
+                            parts.append({"type": "suffix", "text": matched_sfx})
+                        result_str = ".".join(p["text"] for p in parts)
+                        score = rlen * 3 + (len(prefix_part) * 2) + (len(matched_sfx) * 2 if matched_sfx else 0)
+                        append_result(parts, result_str, prefix_part, matched_sfx, cand_root, score)
+
+        return best
 
     @staticmethod
     def _check_derivation(word: str, base: str, affix: str, affix_type: str) -> bool:
@@ -135,11 +327,12 @@ class AffixAnalyzer:
                 best = (base, affix, affix_type)
         return best
 
-    def _analyze_one_hop(self, word):
-        """一层派生分析: 返回 (base, affix, affix_type) 或 None"""
+    def _analyze_one_hop(self, word, use_rule_fallback=False):
         entries = self.deriv_reverse.get(word)
         if entries:
             return self._pick_best(entries, word)
+        if use_rule_fallback:
+            return self._rule_one_hop(word)
         return None
 
     def _rule_fallback(self, word: str) -> Optional[dict]:
@@ -224,6 +417,26 @@ class AffixAnalyzer:
             "scheme": "rule" if best_score >= 3 else "rule_weak"
         }
 
+    def _rule_one_hop(self, word):
+        """用规则尝试一层拆分: 返回 (base, affix, affix_type) 或 None"""
+        for sfx in self._suffixes:
+            if len(sfx) < 2:
+                continue
+            if not word.endswith(sfx) or len(word) - len(sfx) < 3:
+                continue
+            stem = word[:-len(sfx)]
+            if stem in self._word_set:
+                return (stem, sfx, "suffix")
+        for pfx in self._prefixes:
+            if len(pfx) < 2:
+                continue
+            if not word.startswith(pfx) or len(word) - len(pfx) < 3:
+                continue
+            stem = word[len(pfx):]
+            if stem in self._word_set:
+                return (stem, pfx, "prefix")
+        return None
+
     def _build_strategy(self, word, base, affix, affix_type, depth=0):
         """构建一个分析策略"""
         if affix_type == "prefix":
@@ -301,12 +514,13 @@ class AffixAnalyzer:
         strategies = []
 
         hop1 = self._analyze_one_hop(word)
+        derivation_found = hop1 is not None
         if hop1:
             base1, affix1, type1 = hop1
             s1 = self._build_strategy(word, base1, affix1, type1, depth=0)
             strategies.append(s1)
 
-            hop2 = self._analyze_one_hop(base1)
+            hop2 = self._analyze_one_hop(base1, use_rule_fallback=True)
             if hop2:
                 base2, affix2, type2 = hop2
                 s2 = self._build_strategy(base1, base2, affix2, type2, depth=1)
@@ -314,8 +528,6 @@ class AffixAnalyzer:
 
                 combined = self._combine_strategies(word, s1, s2)
 
-                # Use combined as primary only when both prefix AND suffix are present
-                # (avoids ugly concatenation like "iblely" or "yation")
                 if combined["prefix"] and combined["suffix"]:
                     primary = combined
                 else:
@@ -346,19 +558,36 @@ class AffixAnalyzer:
 
             if not is_inflected:
                 rule_result = self._rule_fallback(word)
-                if rule_result:
-                    primary = rule_result
-                    strategies = [primary]
+                etym_result = self._etym_analyze(word)
+
+                word_is_base = word in self._word_set
+
+                if etym_result and rule_result:
+                    if etym_result["score"] > rule_result["score"] and (not word_is_base or etym_result["score"] >= 30):
+                        primary = etym_result
+                        strategies = [etym_result, rule_result]
+                    else:
+                        primary = rule_result
+                        strategies = [rule_result, etym_result]
+                elif etym_result and (not word_is_base or etym_result["score"] >= 30):
+                    primary = etym_result
+                    strategies = [etym_result]
+                elif rule_result or word_is_base:
+                    if rule_result:
+                        primary = rule_result
+                        strategies = [rule_result]
+                    else:
+                        primary = {
+                            "prefix": "", "suffix": "", "stem": word, "final_stem": word,
+                            "result": word, "parts": [{"type": "stem", "text": word}],
+                            "score": 0.0, "scheme": "none"
+                        }
+                        strategies = [primary]
                 else:
                     primary = {
-                        "prefix": "",
-                        "suffix": "",
-                        "stem": word,
-                        "final_stem": word,
-                        "result": word,
-                        "parts": [{"type": "stem", "text": word}],
-                        "score": 0.0,
-                        "scheme": "none"
+                        "prefix": "", "suffix": "", "stem": word, "final_stem": word,
+                        "result": word, "parts": [{"type": "stem", "text": word}],
+                        "score": 0.0, "scheme": "none"
                     }
                     strategies = [primary]
 
