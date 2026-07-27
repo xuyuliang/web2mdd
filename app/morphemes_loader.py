@@ -26,6 +26,7 @@ class MorphemesLoader:
         self.prefixes: List[Tuple[str, str, str, List]] = []
         self.suffixes: List[Tuple[str, str, str, List]] = []
         self.roots: List[Tuple[str, str, str, List]] = []
+        self._known_set: set = set()
         self._loaded = False
         
         if filepath:
@@ -48,13 +49,16 @@ class MorphemesLoader:
         prefixes = []
         suffixes = []
         roots = []
+        known_set = set()
         
         for key, value in morphemes.items():
             meaning = value.get("meaning", [])
             for form in value.get("forms", []):
                 loc = form.get("loc", "")
                 root = form.get("root", "")
-                match_str = root.strip("-")
+                match_str = root.strip("-").lower()
+                if match_str:
+                    known_set.add(match_str)
                 if match_str and loc == "prefix":
                     prefixes.append((match_str, root, key, meaning))
                 elif match_str and loc == "suffix":
@@ -66,12 +70,13 @@ class MorphemesLoader:
         self.prefixes = sorted(prefixes, key=lambda x: len(x[0]), reverse=True)
         self.suffixes = sorted(suffixes, key=lambda x: len(x[0]), reverse=True)
         self.roots = sorted(roots, key=lambda x: len(x[0]), reverse=True)
+        self._known_set = known_set
         
         self._loaded = True
-        print(f"[MorphemesLoader] 加载完成: {len(prefixes)} 前缀, {len(suffixes)} 后缀, {len(roots)} 词根")
+        print(f"[MorphemesLoader] 加载完成: {len(prefixes)} 前缀, {len(suffixes)} 后缀, {len(roots)} 词根, {len(known_set)} 条目")
     
-    def _find_prefix(self, text: str) -> Optional[MorphPart]:
-        """在文本开头查找匹配的前缀 - 返回最长匹配"""
+    def _find_next_prefix(self, text: str) -> Optional[MorphPart]:
+        """在文本开头查找最长匹配的前缀"""
         best_match = None
         best_len = 0
         for match_str, root, key, meaning in self.prefixes:
@@ -80,9 +85,9 @@ class MorphemesLoader:
                     best_len = len(match_str)
                     best_match = MorphPart("prefix", match_str, key, meaning)
         return best_match
-    
-    def _find_suffix(self, text: str) -> Optional[MorphPart]:
-        """在文本末尾查找匹配的后缀 - 返回最长匹配"""
+
+    def _find_next_suffix(self, text: str) -> Optional[MorphPart]:
+        """在文本末尾查找最长匹配的后缀"""
         best_match = None
         best_len = 0
         for match_str, root, key, meaning in self.suffixes:
@@ -91,9 +96,9 @@ class MorphemesLoader:
                     best_len = len(match_str)
                     best_match = MorphPart("suffix", match_str, key, meaning)
         return best_match
-    
+
     def _find_root(self, text: str) -> Optional[MorphPart]:
-        """在文本中间查找匹配的词根 - 返回最长匹配"""
+        """在文本中查找最长匹配的词根"""
         best_match = None
         best_len = 0
         for match_str, root, key, meaning in self.roots:
@@ -101,329 +106,173 @@ class MorphemesLoader:
                 continue
             pos = text.find(match_str)
             if pos != -1:
-                # 词根不应占据整个文本
-                if pos > 0 or pos + len(match_str) < len(text):
-                    if len(match_str) > best_len:
-                        best_len = len(match_str)
-                        best_match = MorphPart("root", match_str, key, meaning)
+                if len(match_str) > best_len:
+                    best_len = len(match_str)
+                    best_match = MorphPart("root", match_str, key, meaning)
         return best_match
-    
+
+    def _reclassify_parts(self, parts: List[MorphPart]) -> None:
+        if not parts:
+            return
+        last = parts[-1]
+        if last.type == "stem" and len(last.text) >= 2:
+            s = self._find_next_suffix(last.text)
+            if s and s.text == last.text:
+                parts[-1] = MorphPart("suffix", last.text, s.key, s.meaning)
+        first = parts[0]
+        if first.type == "stem" and len(first.text) >= 2:
+            pfx = self._find_next_prefix(first.text)
+            if pfx and pfx.text == first.text:
+                parts[0] = MorphPart("prefix", first.text, pfx.key, pfx.meaning)
+
     def _score_parts(self, parts: List[MorphPart]) -> float:
-        """
-        对拆分方案进行评分
-        
-        评分规则:
-        1. 匹配奖励：根据匹配长度加权，越长得分越高
-        2. 碎片惩罚：1个字母的碎片 -1分，2个字母及以上不扣分
-        3. 完全未切分惩罚：如果整个单词只有一个 stem 分块，-5分
-        4. 分块数量惩罚：超出必要分块数的惩罚
-        """
         score = 0.0
-        
-        # 统计各类型数量
-        prefix_count = sum(1 for p in parts if p.type == "prefix")
-        suffix_count = sum(1 for p in parts if p.type == "suffix")
-        root_count = sum(1 for p in parts if p.type == "root")
-        
-        # 匹配奖励：基于匹配长度
-        # 匹配越长，得分越高（鼓励更完整的词缀识别）
+
+        prefix_count = 0
+        suffix_count = 0
+        root_count = 0
+
         for p in parts:
+            if p.type in ("prefix", "suffix", "root"):
+                score += 2.0 + len(p.text) * 0.3
             if p.type == "prefix":
-                score += 2.0 + len(p.text) * 0.3
+                prefix_count += 1
             elif p.type == "suffix":
-                score += 2.0 + len(p.text) * 0.3
+                suffix_count += 1
             elif p.type == "root":
-                score += 2.0 + len(p.text) * 0.3
-        
+                root_count += 1
+
+        # 词干在已知表中 → 加分
+        for p in parts:
+            if p.type == "stem" and len(p.text) >= 2 and p.text in self._known_set:
+                score += 5.0
+
         # 碎片惩罚
         for p in parts:
-            if p.type == "uncovered" and len(p.text) == 1:
+            if p.type == "stem" and len(p.text) == 1:
                 score -= 1.0
-        
-        # 分块数量惩罚：超出必要分块数的惩罚
+
+        # 超出有意义匹配数量的分块惩罚
         meaningful_count = prefix_count + suffix_count + root_count
         if meaningful_count > 0:
-            actual_parts = len(parts)
-            # 超出有意义匹配数量的分块会受到惩罚
-            excess_parts = max(0, actual_parts - meaningful_count)
+            excess_parts = max(0, len(parts) - meaningful_count)
             score -= excess_parts * 3.0
-        
-        # 完全未切分惩罚：只有一个 stem 分块
+
+        # 完全未切分
         if len(parts) == 1 and parts[0].type == "stem":
             score -= 5.0
-        
+
         return score
-    
+
     def _build_result(self, parts: List[MorphPart], word: str) -> dict:
-        """构建结果字典"""
-        # 按物理位置排序：将每个 part 映射到它在单词中的起始位置，然后排序
-        # 这样可以确保显示顺序与实际单词结构一致
-        positioned_parts = []
-        for p in parts:
-            pos = word.find(p.text)
-            if pos >= 0:
-                positioned_parts.append((pos, p))
-        
-        # 按位置排序，然后去重（保留第一个出现）
-        positioned_parts.sort(key=lambda x: x[0])
-        
-        seen = set()
-        ordered = []
-        for pos, p in positioned_parts:
-            if p.text not in seen:
-                seen.add(p.text)
-                ordered.append(p)
-        
-        # 处理未覆盖的部分（如 uncovered 类型）
-        ordered = self._fix_uncovered_parts(word, ordered)
-        
-        result_str = ".".join(p.text for p in ordered)
-        
+        result_str = ".".join(p.text for p in parts)
         return {
-            "prefix": ordered[0].text if any(p.type == "prefix" for p in ordered) else "",
-            "suffix": ordered[-1].text if any(p.type == "suffix" for p in ordered) else "",
-            "stem": ".".join(p.text for p in ordered if p.type in ("stem", "root", "uncovered")),
+            "prefix": parts[0].text if parts and parts[0].type == "prefix" else "",
+            "suffix": parts[-1].text if parts and parts[-1].type == "suffix" else "",
+            "stem": ".".join(p.text for p in parts if p.type in ("stem", "root")),
             "result": result_str,
-            "parts": ordered,
-            "score": self._score_parts(ordered)
+            "parts": parts,
+            "score": self._score_parts(parts)
         }
-    
-    def _fix_uncovered_parts(self, word: str, parts: List[MorphPart]) -> List[MorphPart]:
-        """修复未覆盖的部分：保持未覆盖字符在原始位置"""
-        if not parts:
-            return [MorphPart("stem", word)]
-        
-        # 计算每个部分在单词中的位置覆盖
-        covered = [-1] * len(word)  # -1表示未覆盖
-        for idx, p in enumerate(parts):
-            pos = word.find(p.text)
-            if pos >= 0:
-                for i in range(pos, pos + len(p.text)):
-                    covered[i] = idx
-        
-        # 找出未覆盖的片段
-        uncovered = []  # list of (start, end)
-        start = None
-        for i in range(len(word)):
-            if covered[i] == -1:
-                if start is None:
-                    start = i
-            else:
-                if start is not None:
-                    uncovered.append((start, i))
-                    start = None
-        if start is not None:
-            uncovered.append((start, len(word)))
-        
-        if not uncovered:
-            return parts
-        
-        # 按位置顺序合并 parts 和 uncovered 片段
-        result = []
-        word_pos = 0
-        
-        for p in parts:
-            pos = word.find(p.text)
-            if pos < 0:
-                continue
-            
-            # 添加在这个part之前的未覆盖片段
-            for u_start, u_end in uncovered:
-                if u_start >= word_pos and u_end <= pos:
-                    result.append(MorphPart("uncovered", word[u_start:u_end]))
-            
-            # 添加这个part
-            result.append(p)
-            word_pos = pos + len(p.text)
-        
-        # 添加最后的未覆盖片段
-        for u_start, u_end in uncovered:
-            if u_start >= word_pos:
-                result.append(MorphPart("uncovered", word[u_start:u_end]))
-        
-        return result
-    
-    def _split_strategy_a(self, word: str) -> dict:
+
+    def _split(self, word: str) -> dict:
         """
-        策略A: 词根 → 后缀 → 前缀
-        1. 先在完整单词中查找词根
-        2. 词根前面的部分查找前缀
-        3. 词根后面的部分查找后缀
+        统一拆分算法：
+        遍历 0..N 个前缀 × 0..M 个后缀的组合，剥离后剩余 ≥3 字符且非全词缀，评分选最优。
+        找到的词根会从词干中分离出来。
         """
-        parts = []
-        
-        # 查找词根
-        root_match = self._find_root(word)
-        if root_match:
-            root_pos = word.find(root_match.text)
-            before_root = word[:root_pos]
-            after_root = word[root_pos + len(root_match.text):]
-            
-            parts.append(root_match)
-            
-            # 在 before_root 中查找前缀
-            if before_root:
-                prefix_match = self._find_prefix(before_root)
-                if prefix_match:
-                    parts.insert(0, prefix_match)
-                    stem_text = before_root[len(prefix_match.text):]
-                else:
-                    stem_text = before_root
-            else:
-                stem_text = ""
-            
-            # 在 after_root 中查找后缀
-            if after_root:
-                suffix_match = self._find_suffix(after_root)
-                if suffix_match:
-                    parts.append(suffix_match)
-                    stem_text += after_root[:-len(suffix_match.text)]
-                else:
-                    # 不将未匹配的后缀部分追加到 stem 中
-                    # stem_text 保持不变，未覆盖的部分会在 _build_result 中处理
-                    pass
-            
-            if stem_text:
-                parts.insert(1 if any(p.type == "prefix" for p in parts) else 0,
-                            MorphPart("stem", stem_text))
-        
-        if not parts:
-            parts.append(MorphPart("stem", word))
-        
-        return self._build_result(parts, word)
-    
-    def _split_strategy_b(self, word: str) -> dict:
-        """
-        策略B: 后缀 → 词根 → 前缀
-        1. 先在完整单词中查找后缀
-        2. 剩余部分中查找词根
-        3. 最后查找前缀
-        """
-        parts = []
-        remaining = word
-        
-        # 查找后缀
-        suffix_match = self._find_suffix(remaining)
-        if suffix_match:
-            remaining = remaining[:-len(suffix_match.text)]
-            parts.append(suffix_match)
-        
-        # 查找词根
-        root_match = self._find_root(remaining)
-        if root_match:
-            root_pos = remaining.find(root_match.text)
-            before_root = remaining[:root_pos]
-            remaining = before_root
-            parts.insert(1 if parts else 0, root_match)
-        
-        # 查找前缀
-        if remaining:
-            prefix_match = self._find_prefix(remaining)
-            if prefix_match:
-                parts.insert(0, prefix_match)
-                remaining = remaining[len(prefix_match.text):]
-        
-        # 添加剩余词干
-        if remaining:
-            parts.insert(1 if parts else 0, MorphPart("stem", remaining))
-        
-        if not parts:
-            parts.append(MorphPart("stem", word))
-        
-        return self._build_result(parts, word)
-    
-    def _split_strategy_c(self, word: str) -> dict:
-        """
-        策略C: 前缀 → 后缀 → 词根
-        1. 先在完整单词中查找前缀
-        2. 剩余部分中查找后缀
-        3. 最后查找词根
-        """
-        parts = []
-        remaining = word
-        
-        # 查找前缀
-        prefix_match = self._find_prefix(remaining)
-        if prefix_match:
-            remaining = remaining[len(prefix_match.text):]
-            parts.append(prefix_match)
-        
-        # 查找后缀
-        suffix_match = self._find_suffix(remaining)
-        if suffix_match:
-            remaining = remaining[:-len(suffix_match.text)]
-            parts.append(suffix_match)
-        
-        # 查找词根
-        root_match = self._find_root(remaining)
-        if root_match:
-            root_pos = remaining.find(root_match.text)
-            before_root = remaining[:root_pos]
-            after_root = remaining[root_pos + len(root_match.text):]
-            
-            parts.insert(1 if parts else 0, root_match)
-            
-            # 添加词根前面的未匹配部分作为词干（不与 after_root 合并）
-            # after_root 交由 _fix_uncovered_parts 处理，避免重复显示
-            if before_root:
-                parts.insert(1 if len(parts) > 1 else 0, MorphPart("stem", before_root))
-        elif remaining:
-            # 没有词根匹配，剩余部分作为词干
-            parts.insert(1 if parts else 0, MorphPart("stem", remaining))
-        
-        if not parts:
-            parts.append(MorphPart("stem", word))
-        
-        return self._build_result(parts, word)
-    
+        candidates = []
+        max_affixes = min(len(word) // 2, 15)
+
+        for p_count in range(0, max_affixes + 1):
+            mid = word
+            prefixes = []
+            ok = True
+            for _ in range(p_count):
+                p = self._find_next_prefix(mid)
+                if not p:
+                    ok = False
+                    break
+                prefixes.append(p)
+                mid = mid[len(p.text):]
+            if not ok:
+                break
+
+            for s_count in range(0, max_affixes + 1):
+                stem = mid
+                suffixes = []
+                ok = True
+                for _ in range(s_count):
+                    s = self._find_next_suffix(stem)
+                    if not s:
+                        ok = False
+                        break
+                    suffixes.insert(0, s)
+                    stem = stem[:-len(s.text)]
+                if not ok:
+                    break
+
+                # 词干必须 ≥ 3
+                if len(stem) < 3:
+                    continue
+
+                # 构建基础 parts
+                parts = list(prefixes) + [MorphPart("stem", stem)] + list(suffixes)
+
+                # 尝试在词干中找词根
+                root_match = self._find_root(stem)
+                if root_match:
+                    root_pos = stem.find(root_match.text)
+                    before = stem[:root_pos]
+                    after = stem[root_pos + len(root_match.text):]
+                    middle = []
+                    if before:
+                        middle.append(MorphPart("stem", before))
+                    middle.append(root_match)
+                    if after:
+                        middle.append(MorphPart("stem", after))
+                    parts = list(prefixes) + middle + list(suffixes)
+
+                self._reclassify_parts(parts)
+
+                # 拒绝不合理组合：要么有非词缀词干，要么有词根，要么前缀后缀都有
+                has_prefix = any(p.type == "prefix" for p in parts)
+                has_suffix = any(p.type == "suffix" for p in parts)
+                has_root = any(p.type == "root" for p in parts)
+                has_real_stem = any(p.type == "stem" and p.text not in self._known_set for p in parts)
+                if not (has_root or has_real_stem or (has_prefix and has_suffix)):
+                    continue
+
+                candidates.append(self._build_result(parts, word))
+
+        if not candidates:
+            return self._build_result([MorphPart("stem", word)], word)
+
+        candidates.sort(key=lambda x: -x["score"])
+        return candidates[0]
+
     def analyze(self, word: str, is_valid_word=None) -> dict:
         """
         分析单词的词根词缀
-        
-        参数:
-            word: 要分析的单词
-            is_valid_word: 可选函数，用于验证词干是否为有效单词
-        
+
         返回:
             {
                 "word": 原词,
                 "primary": {最佳拆分结果},
-                "all_strategies": [{去重后的拆分结果列表，每个带"scheme"标签}]
+                "all_strategies": [{拆分结果}]
             }
         """
         word = word.strip().lower()
         if not word:
             return None
-        
-        # 执行三种策略
-        result_a = self._split_strategy_a(word)
-        result_b = self._split_strategy_b(word)
-        result_c = self._split_strategy_c(word)
-        
-        # 标记策略来源
-        result_a["scheme"] = "A"
-        result_b["scheme"] = "B"
-        result_c["scheme"] = "C"
-        
-        # 排序：得分高的排前；得分相同时，A > B > C
-        scheme_order = {"A": 0, "B": 1, "C": 2}
-        all_results = [result_a, result_b, result_c]
-        all_results.sort(key=lambda x: (-x["score"], scheme_order.get(x.get("scheme", "Z"), 99)))
-        
-        # 去重：如果两个策略的拆分结果字符串相同，只保留第一个（优先级更高的）
-        seen_results = set()
-        deduped = []
-        for r in all_results:
-            if r["result"] not in seen_results:
-                seen_results.add(r["result"])
-                deduped.append(r)
-        
-        primary = deduped[0] if deduped else result_a
-        
+
+        primary = self._split(word)
+        primary["scheme"] = "A"
+
         return {
             "word": word,
             "primary": primary,
-            "all_strategies": deduped
+            "all_strategies": [primary]
         }
 
 
@@ -443,8 +292,16 @@ if __name__ == "__main__":
     loader = MorphemesLoader()
     
     test_words = [
-        "application",
+        "childishness",
+        "helpfulness",
+        "carelessness",
+        "antidisestablishment",
+        "reliability",
         "preliminary",
+        "cuteness",
+        "unhappiness",
+        "indonesia",
+        "application",
         "biology",
         "cat",
         "previously",
@@ -463,10 +320,7 @@ if __name__ == "__main__":
         result = loader.analyze(word)
         if result:
             primary = result["primary"]
-            all_strategies = result["all_strategies"]
             print(f"\n单词: {word}")
-            print(f"  主要: {primary['result']} (得分: {primary['score']:.1f})")
+            print(f"  拆分: {primary['result']} (得分: {primary['score']:.1f})")
             for p in primary['parts']:
                 print(f"    -> {p}")
-            for s in all_strategies:
-                print(f"  方案{s['scheme']}: {s['result']} (得分: {s['score']:.1f})")

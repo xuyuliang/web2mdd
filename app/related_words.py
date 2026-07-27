@@ -177,88 +177,27 @@ class RelatedWordsSearcher:
         return diffs if diffs else ["unknown"]
 
     def _score_part(self, part: str) -> int:
-        """
-        对差异部分打分
-        
-        - 如果部分是空字符串，0分
-        - 如果能匹配已知前缀/后缀/常见字母组合，整体只算1分
-        - 如果不能直接匹配，尝试拆分为多个已知后缀/前缀组合
-        - 否则，每个字母1分
-        """
         if not part:
             return 0
         
         part_lower = part.lower()
         
-        # 检查是否是已知前缀
-        for p in self.prefixes_clean:
-            if p and part_lower == p:
-                return 1
-        
-        # 检查是否是已知后缀
-        for s in self.suffixes_clean:
-            if s and part_lower == s:
-                return 1
-        
-        # 检查是否是常见字母组合
-        for regex, name in self.common_combos:
-            if regex.search(part_lower):
-                return 1
-        
-        # 尝试拆分：从右向左匹配后缀（因为是后缀，优先匹配右边的）
-        suffix_score = self._score_with_splitting(part_lower, self.suffixes_clean, is_prefix=False)
-        
-        # 尝试拆分：从左向右匹配前缀
-        prefix_score = self._score_with_splitting(part_lower, self.prefixes_clean, is_prefix=True)
-        
-        # 取较小值
-        split_score = min(suffix_score, prefix_score)
-        
-        # 如果拆分后比逐字母打分更优，使用拆分结果
-        if split_score < len(part_lower):
-            return split_score
-        
-        # 否则，每个字母1分
-        return len(part)
-    
-    def _score_with_splitting(self, text: str, known_items: list[str], is_prefix: bool = False) -> int:
-        """
-        使用动态规划将文本拆分为已知项的组合，计算最低分数
-        
-        允许部分字符无法匹配已知项，未匹配的每个字符计1分。
-        匹配到的已知项每个计1分（不管长度）。
-        
-        Args:
-            text: 待打分的文本
-            known_items: 已知前缀/后缀列表（已按长度降序排序）
-            
-        Returns:
-            最低分数
-        """
-        n = len(text)
-        if n == 0:
+        if self._match_known(part_lower):
             return 0
         
-        # dp[i] = 将 text[0:i] 拆分的最小分数
-        # 允许跳过未匹配的字符，每个计1分
-        dp = list(range(n + 1))  # 初始：每个字符都未匹配，i分
-        
-        # 从左到右扫描
-        for i in range(1, n + 1):
-            # 选项1：当前字符未匹配，继承 dp[i-1] + 1
-            dp[i] = min(dp[i], dp[i - 1] + 1)
-            
-            # 选项2：尝试匹配所有已知项，以位置i结尾
-            for item in known_items:
-                if not item:
-                    continue
-                item_len = len(item)
-                if i >= item_len and text[i - item_len:i] == item:
-                    # 匹配成功，尝试更新
-                    if dp[i] > dp[i - item_len] + 1:
-                        dp[i] = dp[i - item_len] + 1
-        
-        return dp[n]
+        return 1
+
+    def _match_known(self, text: str) -> bool:
+        for p in self.prefixes_clean:
+            if p and text == p:
+                return True
+        for s in self.suffixes_clean:
+            if s and text == s:
+                return True
+        for regex, name in self.common_combos:
+            if regex.search(text):
+                return True
+        return False
 
     def search_and_score(self, stem: str, max_results: int = 50) -> list[dict]:
         """

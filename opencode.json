@@ -1,9 +1,55 @@
 {
   "$schema": "https://opencode.ai/config.json",
+
+  "model": "opencode/deepseek-v4-flash-free",
+
   "lsp": {
     "python": {
-      "command": "pyright-langserver",
-      "args": ["--stdio"]
+      "command": ["pyright-langserver", "--stdio"],
+      "extensions": [".py", ".pyi"],
+      "env": {
+        // Windows 常见：pyright 装在用户目录，但 PATH 没刷新
+        "PATH": "{{env.PATH}};{{env.USERPROFILE}}\\AppData\\Local\\Programs\\Python\\Python311\\Scripts;C:\\Users\\{{env.USERNAME}}\\AppData\\Roaming\\npm"
+      }
+    }
+  },
+
+  "permission": {
+    // 只允许主 agent 使用 task 工具
+    "task": "allow",
+
+    // 禁止主 agent 直接编辑 / 写文件 / 跑 shell
+    // （所有修改都让它通过子代理间接完成，更安全）
+    "edit": "ask",
+    "write": "ask",
+    "bash": "deny"
+  },
+
+  "agent": {
+    "code-reviewer": {
+      "description": "审查代码质量、潜在 bug 与边界情况，只读不改",
+      "mode": "subagent",
+      "model": "opencode/big-pickle",
+      "temperature": 0.1,
+      "prompt": "你是资深代码审查员，重点关注：安全性、性能、可维护性、边界情况。只给建设性反馈，不直接改代码。",
+      "permission": {
+        "edit": "deny",
+        "write": "deny",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+
+    "algo-thinker": {
+      "description": "纯算法与逻辑推理，不碰文件",
+      "mode": "subagent",
+      "model": "opencode/nemotron-3-ultra-free",
+      "permission": {
+        "edit": "deny",
+        "write": "deny",
+        "bash": "deny",
+        "task": "deny"
+      }
     }
   }
 }
