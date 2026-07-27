@@ -32,6 +32,80 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent.parent
 GLOB_REPLACEMENTS_PATH = BASE_DIR / "static" / "glob替换表.json"
 
+# 已知大写通配符，按长度降序排列（贪心匹配）
+WILDCARD_KEYS = ['TTT', 'TT', 'T', 'AAA', 'AA', 'A']
+WILDCARD_LETTERS = frozenset(['A', 'T'])
+
+
+def add_brackets(pattern: str) -> str:
+    """将裸大写通配符（A, AA, T, TT 等）和裸 ^ 补上[...]括号
+
+    保持向后兼容，不修改已有的[...]内容。
+    示例：
+        aTTle    → a[TT]le
+        cAnA     → c[A]n[A]
+        ep^i*    → ep[^i]*
+        s^e^e^e  → s[^e][^e][^e]
+        c[A]nA   → c[A]n[A]   (混合写法)
+    """
+    result = []
+    i = 0
+    while i < len(pattern):
+        ch = pattern[i]
+
+        # 已有括号组 → 整段复制
+        if ch == '[':
+            j = pattern.find(']', i + 1)
+            if j == -1:
+                result.append(ch)
+                i += 1
+            else:
+                result.append(pattern[i:j + 1])
+                i = j + 1
+            continue
+
+        # 裸 ^ → 补为 [^...]
+        if ch == '^':
+            i += 1
+            if i < len(pattern):
+                rest = pattern[i:]
+                # 尝试匹配最长通配符
+                matched = False
+                for wc in WILDCARD_KEYS:
+                    wlen = len(wc)
+                    if len(rest) >= wlen and rest[:wlen] == wc:
+                        result.append(f'[^{wc}]')
+                        i += wlen
+                        matched = True
+                        break
+                if not matched:
+                    # 单个字符
+                    result.append(f'[^{pattern[i]}]')
+                    i += 1
+            else:
+                result.append('^')
+            continue
+
+        # 裸大写通配符
+        if ch in WILDCARD_LETTERS:
+            rest = pattern[i:]
+            matched = False
+            for wc in (w for w in WILDCARD_KEYS if w[0] == ch):
+                wlen = len(wc)
+                if len(rest) >= wlen and rest[:wlen] == wc:
+                    result.append(f'[{wc}]')
+                    i += wlen
+                    matched = True
+                    break
+            if matched:
+                continue
+
+        # 普通字符
+        result.append(ch)
+        i += 1
+
+    return ''.join(result)
+
 
 class PatternPreprocessor:
     """高级模式预处理器：将 [A], [AA] 等占位符展开为实际 GLOB 模式列表"""
@@ -54,21 +128,25 @@ class PatternPreprocessor:
     
     def preprocess(self, pattern: str) -> list[str]:
         """预处理模式，返回所有展开后的 GLOB 模式列表
-        
-        算法步骤：
-        1. 找到所有 [xxx] 方括号
-        2. 对每个方括号，确定其展开选项
-           - 如果是高级占位符且值为列表（如 AA->["ai","ay",...]），每个选项独立
-           - 如果是高级占位符且值为字符串（如 A->"aeiou"），包装为 [aeiou]
-           - 如果不是高级占位符（如 [aeo]），保持原样 [aeo]
-        3. 对所有方括号进行笛卡尔积组合
-        4. 将组合结果插入原模式对应位置
-        
-        示例：
-        - c[A]n*    -> ['can*', 'cen*', 'cin*', 'con*', 'cun*']
-        - c[AA]n*   -> ['cain*', 'cayn*', 'ceen*', 'cean*', ...]
-        - cen[aeo]* -> ['cen[aeo]*'] (普通字符类，不展开)
-        """
+         
+         算法步骤：
+         1. 将裸大写通配符（A, AA, T, TT 等）自动补上[...]
+         2. 找到所有 [xxx] 方括号
+         3. 对每个方括号，确定其展开选项
+            - 如果是高级占位符且值为列表（如 AA->["ai","ay",...]），每个选项独立
+            - 如果是高级占位符且值为字符串（如 A->"aeiou"），包装为 [aeiou]
+            - 如果不是高级占位符（如 [aeo]），保持原样 [aeo]
+         4. 对所有方括号进行笛卡尔积组合
+         5. 将组合结果插入原模式对应位置
+         
+         示例：
+         - cAn*     -> ['can*', 'cen*', 'cin*', 'con*', 'cun*']
+         - cAAn*    -> ['cain*', 'cayn*', 'ceen*', 'cean*', ...]
+         - cen[aeo]* -> ['cen[aeo]*'] (普通字符类，不展开)
+         """
+        # 补全裸大写通配符
+        pattern = add_brackets(pattern)
+
         # 查找所有 [xxx] 模式
         bracket_matches = list(re.finditer(r'\[([^\]]*)\]', pattern))
         

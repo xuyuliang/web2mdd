@@ -127,6 +127,15 @@
       <h1>📖 使用说明</h1>
       <p class="subtitle"><a href="/">← 返回首页查词</a></p>
 
+      <!-- 简写语法提示 -->
+      <div class="guide-tip">
+        <strong>💡 简写语法：</strong>所有大写占位符可以省略 <code>[]</code>！<br>
+        <code>A</code> = <code>[A]</code>，<code>AA</code> = <code>[AA]</code>，<code>T</code> = <code>[T]</code>，<code>TT</code> = <code>[TT]</code>，<code>TTT</code> = <code>[TTT]</code><br>
+        <code>^e</code> = <code>[^e]</code>（反义同样可以不加括号）<br>
+        例如 <code>aTTle</code> 等价于 <code>a[TT]le</code>，<code>cAnA</code> 等价于 <code>c[A]n[A]</code>。
+        旧的 <code>[A]</code> 写法仍然兼容。
+      </div>
+
       <!-- 基础通配符 -->
       <div class="guide-section">
         <h2><span class="icon">🔤</span>基础通配符</h2>
@@ -148,17 +157,17 @@
       <div class="guide-section">
         <h2><span class="icon">🅰️</span>元音占位符</h2>
         <ul>
-          <li><code>[A]</code> — 匹配任意一个元音字母（a, e, i, o, u）</li>
-          <li><code>[AA]</code> — 匹配任意一个常见双字母元音组合（ai, ay, ee, ea, oa, oo, ie, ei, ey, au, aw, ow, ou, oi, oy, ue, ui, eu, ew, oe）</li>
-          <li><code>[AAA]</code> — 匹配任意三个字母的元音组合（如 eau, eia 等，具体取决于替换表）</li>
+          <li><code>A</code>（或 <code>[A]</code>）— 匹配任意一个元音字母（a, e, i, o, u）</li>
+          <li><code>AA</code>（或 <code>[AA]</code>）— 匹配任意一个常见双字母元音组合（ai, ay, ee, ea, oa, oo, ie, ei, ey, au, aw, ow, ou, oi, oy, ue, ui, eu, ew, oe）</li>
+          <li><code>AAA</code>（或 <code>[AAA]</code>）— 匹配任意三个字母的元音组合（如 eau, eia 等，具体取决于替换表）</li>
         </ul>
         <div class="guide-example">
           <div class="label">搜索形如 "c_n_" 的 4 字母单词（第 2、4 位是元音）：</div>
-          <code>c[A]n[A]</code> <span class="arrow">→</span> <span class="result">cane, cone</span>
+          <code>cAnA</code> <span class="arrow">→</span> <span class="result">cane, cone</span>
         </div>
         <div class="guide-example">
           <div class="label">搜索含双元音的 "t*er" 单词：</div>
-          <code>t[AA]er</code> <span class="arrow">→</span> <span class="result">tower</span>注意这里的双元音定义，ow,aw也被定义成了双元音，并不是只有ou,ai才是双元音
+          <code>tAAer</code> <span class="arrow">→</span> <span class="result">tower</span>注意这里的双元音定义，ow,aw也被定义成了双元音，并不是只有ou,ai才是双元音
         </div>
       </div>
 
@@ -166,31 +175,31 @@
       <div class="guide-section">
         <h2><span class="icon">🅃</span>辅音占位符</h2>
         <ul>
-          <li><code>[T]</code> — 匹配任意一个辅音字母（除 a,e,i,o,u 外的所有字母）</li>
-          <li><code>[TT]</code> — 匹配任意一个常见辅音组合（sp, st, tr, cr, gr, fr, pr, br, dr, pl, bl, cl, fl, gl, sl, sc, sk, sm, sn, sw, tw, dw, qu, kn, wr, wh, th, ch, sh, ph, gn, rh）</li>
-          <li><code>[TTT]</code> — 匹配任意三个字母的辅音组合（str, spr, scr, spl, thr, shr, squ, sph, sch）</li>
+          <li><code>T</code>（或 <code>[T]</code>）— 匹配任意一个辅音字母（除 a,e,i,o,u 外的所有字母）</li>
+          <li><code>TT</code>（或 <code>[TT]</code>）— 匹配任意一个常见辅音组合（sp, st, tr, cr, gr, fr, pr, br, dr, pl, bl, cl, fl, gl, sl, sc, sk, sm, sn, sw, tw, dw, qu, kn, wr, wh, th, ch, sh, ph, gn, rh）</li>
+          <li><code>TTT</code>（或 <code>[TTT]</code>）— 匹配任意三个字母的辅音组合（str, spr, scr, spl, thr, shr, squ, sph, sch）</li>
         </ul>
         <div class="guide-example">
           <div class="label">搜索形如 "[双辅音]out" 的单词：</div>
-          <code>st*</code> <span class="arrow">→</span> <span class="result">shout, trout, scout, clout...</span>
+          <code>TTout</code> <span class="arrow">→</span> <span class="result">shout, trout, scout, clout...</span>
         </div>
         <div class="guide-example">
           <div class="label">搜索以三字母辅音组合开头 +一些其他字母+ "tion" 结尾的单词：</div>
-          <code>[TTT]*tion</code> <span class="arrow">→</span> <span class="result">instruction, stratification, strangulation...</span>
+          <code>TTT*tion</code> <span class="arrow">→</span> <span class="result">stratification, strangulation, striation...</span>
         </div>
       </div>
 
       <!-- 反义占位符 -->
       <div class="guide-section">
         <h2><span class="icon">🚫</span>反义占位符 <code>[^...]</code></h2>
-        <p>方括号内以 <code>^</code> 开头，表示"不包含这些字符"。这是标准 GLOB 语法。</p>
+        <p>方括号内以 <code>^</code> 开头，表示"不包含这些字符"。简写也可以省略 <code>[]</code>。</p>
         <div class="guide-example">
           <div class="label">搜索ep开头，但不是epi开头的单词：</div>
-          <code>ep[^i]*</code> <span class="arrow">→</span> <span class="result">epoch, ephemeral , epsilon...</span> 注意epsilon有i，但不是epi开头
+          <code>ep^i*</code> <span class="arrow">→</span> <span class="result">epoch, ephemeral , epsilon...</span> 注意epsilon有i，但不是epi开头
         </div>
         <div class="guide-example">
           <div class="label">搜索以 "s" 开头但不含 "e" 的 4 字母单词：</div>
-          <code>s[^e][^e][^e]</code> <span class="arrow">→</span> <span class="result">ship, shop, shut, shed, shyn...</span>
+          <code>s^e^e^e</code> <span class="arrow">→</span> <span class="result">ship, shop, shut, shed, shyn...</span>
         </div>
       </div>
 
@@ -207,20 +216,26 @@
 
         <div class="guide-example">
           <div class="label">📌 场景 2：找 "spect" 家族（含各种拼写变体）</div>
-          <p>用 <code>[A]</code> 匹配元音变化：</p>
-          <code>*sp[A]ct*</code> <span class="arrow">→</span> <span class="result">respect, prospect, suspect, inspect, circumspect...</span>
+          <p>用 <code>A</code> 匹配元音变化：</p>
+          <code>*spAct*</code> <span class="arrow">→</span> <span class="result">respect, prospect, suspect, inspect, circumspect...</span>
         </div>
 
         <div class="guide-example">
           <div class="label">📌 场景 3：找 "port" 家族（含辅音组合变体）</div>
-          <p>用 <code>[TT]</code> 匹配词首辅音组合：</p>
-          <code>[TT]*port</code> <span class="arrow">→</span> <span class="result">report, support, transport, deport, export, import, portfolio...</span>
+          <p>用 <code>TT</code> 匹配词首辅音组合：</p>
+          <code>TT*port</code> <span class="arrow">→</span> <span class="result">report, support, transport, deport, export, import, portfolio...</span>
         </div>
 
         <div class="guide-example">
           <div class="label">📌 场景 4：找 "ceive/ceiv" 家族（含双元音）</div>
-          <p>用 <code>[AA]</code> 匹配各种元音组合：</p>
-          <code>*[AA]ceiv*</code> <span class="arrow">→</span> <span class="result">receive, perceive, conceive, deceive, achieve...</span>
+          <p>用 <code>AA</code> 匹配各种元音组合：</p>
+          <code>*AAceiv*</code> <span class="arrow">→</span> <span class="result">receive, perceive, conceive, deceive, achieve...</span>
+        </div>
+
+        <div class="guide-example">
+          <div class="label">📌 场景 5：找以三辅音开头 + ? + "tion" 的单词</div>
+          <p>用 <code>TTT</code> 匹配词首三辅音组合：</p>
+          <code>TTT*tion</code> <span class="arrow">→</span> <span class="result">stratification, strangulation, striation...</span>
         </div>
 
       </div>

@@ -24,7 +24,7 @@ from starlette.requests import Request
 
 from app.mdx_sqlite_reader import MDXSQLiteReader
 from app.morphemes_loader import MorphemesLoader
-from app.word_freq import WordFreq, get_preprocessor
+from app.word_freq import WordFreq, get_preprocessor, add_brackets
 from app.related_words import RelatedWordsSearcher
 
 @asynccontextmanager
@@ -383,7 +383,10 @@ class MDXReader:
         word = word.strip()
         if not word:
             return None, False
-        
+
+        # 补全裸大写通配符（如 aTTle → a[TT]le）
+        word = add_brackets(word)
+
         word_lower = word.lower()
         
         # 通配符模式：包含 * 或 . 时直接跳过精确匹配，做正则搜索
@@ -461,6 +464,7 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
     if not word or not word.strip():
         raise HTTPException(status_code=400, detail="请输入单词")
 
+    word = add_brackets(word.strip())
     result, exact = request.app.state.mdx_reader.lookup(word)
 
     if exact:

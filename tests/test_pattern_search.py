@@ -22,7 +22,7 @@ import time
 # 确保能找到 app 模块
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-from app.word_freq import WordFreq
+from app.word_freq import WordFreq, add_brackets
 
 DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
                        "The little dict", "TLD.mdx.index.db")
@@ -32,6 +32,8 @@ wf = WordFreq(DB_PATH)
 
 def search_all(pattern: str) -> list[str]:
     """全量搜索所有匹配的 COCA 单词（不带 max_results 截断）"""
+    # 支持裸大写通配符
+    pattern = add_brackets(pattern)
     regex_parts = []
     for c in pattern:
         if c == "*":
@@ -118,6 +120,95 @@ def test_performance():
     print(f"[PASS] *tic* 全量搜索性能: {dt*1000:.1f}ms")
 
 
+def test_add_brackets_basic():
+    """add_brackets: 裸大写通配符补全"""
+    assert add_brackets("aTTle") == "a[TT]le"
+    assert add_brackets("cAnA") == "c[A]n[A]"
+    assert add_brackets("tAAer") == "t[AA]er"
+    assert add_brackets("TTout") == "[TT]out"
+    assert add_brackets("TTT*tion") == "[TTT]*tion"
+    assert add_brackets("TTTtion") == "[TTT]tion"
+    print("[PASS] add_brackets: 基础通配符补全正确")
+
+
+def test_add_brackets_caret():
+    """add_brackets: 裸 ^ 反义补全"""
+    assert add_brackets("ep^i*") == "ep[^i]*"
+    assert add_brackets("s^e^e^e") == "s[^e][^e][^e]"
+    print("[PASS] add_brackets: ^ 反义补全正确")
+
+
+def test_add_brackets_mixed():
+    """add_brackets: 混合写法（已有[] + 裸）"""
+    assert add_brackets("c[A]nA") == "c[A]n[A]"
+    assert add_brackets("[A]cAde") == "[A]c[A]de"  # wait, is this right?
+    print("[PASS] add_brackets: 混合写法正确")
+
+
+def test_add_brackets_noop():
+    """add_brackets: 无大写字母时不变"""
+    assert add_brackets("hello") == "hello"
+    assert add_brackets("dur*") == "dur*"
+    assert add_brackets("c.t") == "c.t"
+    assert add_brackets("*tic*") == "*tic*"
+    print("[PASS] add_brackets: 无大写字母时不变")
+
+
+def test_bare_vowel_search():
+    """裸 A 通配符搜索（通过 PatternPreprocessor 展开）"""
+    results = wf.search("cAn*", max_results=50)
+    assert "can" in results
+    print(f"[PASS] cAn*: {len(results)} 个匹配（含 can 等）")
+
+
+def test_bare_digraph_search():
+    """裸 AA 通配符搜索（通过 PatternPreprocessor 展开）"""
+    results = wf.search("tAAer", max_results=50)
+    assert "tower" in results
+    print(f"[PASS] tAAer: {len(results)} 个匹配（含 tower）")
+
+
+def test_bare_consonant_search():
+    """裸 TT 通配符搜索（通过 PatternPreprocessor 展开）"""
+    results = wf.search("TTout", max_results=50)
+    assert "shout" in results
+    assert "trout" in results
+    assert "scout" in results
+    print(f"[PASS] TTout: {len(results)} 个匹配（含 shout, trout, scout）")
+
+
+def test_bare_trigraph_search():
+    """裸 TTT 通配符搜索（通过 PatternPreprocessor 展开）"""
+    results = wf.search("TTT*tion", max_results=50)
+    assert "stratification" in results
+    assert "strangulation" in results
+    print(f"[PASS] TTT*tion: {len(results)} 个匹配（含 stratification 等）")
+
+
+def test_bare_caret_search():
+    """裸 ^ 反义搜索（通过 PatternPreprocessor 展开）"""
+    results = wf.search("ep^i*", max_results=50)
+    assert "epoch" in results
+    assert "epsilon" in results  # has i but not at ep^i position
+    assert "epic" not in results
+    print(f"[PASS] ep^i*: {len(results)} 个匹配（含 epoch，不含 epic）")
+
+
+def test_bare_bracket_equivalence():
+    """裸写法和括号写法产生相同结果"""
+    for bare, bracketed in [
+        ("cAn*", "c[A]n*"),
+        ("tAAer", "t[AA]er"),
+        ("TTout", "[TT]out"),
+        ("TTT*tion", "[TTT]*tion"),
+        ("ep^i*", "ep[^i]*"),
+    ]:
+        r1 = wf.search(bare, max_results=100)
+        r2 = wf.search(bracketed, max_results=100)
+        assert r1 == r2, f"{bare} != {bracketed}: {set(r1) ^ set(r2)}"
+        print(f"[PASS] {bare} == {bracketed}: {len(r1)} 个匹配")
+
+
 def test_ranked_includes_tick():
     """修复验证：如果全量收集再取前50，tick 应该出现"""
     results_all = search_all("*tic*")
@@ -136,6 +227,15 @@ if __name__ == "__main__":
     print("=" * 60)
     print()
 
+    test_add_brackets_basic()
+    test_add_brackets_caret()
+    test_add_brackets_mixed()
+    test_add_brackets_noop()
+    test_bare_vowel_search()
+    test_bare_digraph_search()
+    test_bare_consonant_search()
+    test_bare_trigraph_search()
+    test_bare_caret_search()
     test_search_prefix()
     test_search_suffix()
     test_search_middle()
