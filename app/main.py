@@ -23,7 +23,7 @@ from fastapi.templating import Jinja2Templates
 from starlette.requests import Request
 
 from app.mdx_sqlite_reader import MDXSQLiteReader
-from app.morphemes_loader import MorphemesLoader
+from app.affix_analyzer import AffixAnalyzer
 from app.word_freq import WordFreq, get_preprocessor, add_brackets
 from app.related_words import RelatedWordsSearcher
 
@@ -35,9 +35,11 @@ async def lifespan(app: FastAPI):
     mdx_reader = MDXReader(MDX_PATH, DB_PATH)
     print("[OK] 词典加载完成，服务器就绪！")
 
-    print("正在加载词根词缀数据...")
-    morphemes_loader = MorphemesLoader()
-    print("[OK] 词根词缀加载完成")
+    print("正在加载派生词和屈折变化数据...")
+    deriv_path = os.path.join(BASE_DIR, "data", "eng_derivations.json")
+    infl_path = os.path.join(BASE_DIR, "data", "eng_inflections.json")
+    affix_analyzer = AffixAnalyzer(deriv_path, infl_path)
+    print("[OK] 派生词数据加载完成")
 
     print("正在加载 COCA 词频数据...")
     word_freq = WordFreq(DB_PATH)
@@ -50,7 +52,7 @@ async def lifespan(app: FastAPI):
 
     # 存储到 app.state
     app.state.mdx_reader = mdx_reader
-    app.state.morphemes_loader = morphemes_loader
+    app.state.affix_analyzer = affix_analyzer
     app.state.word_freq = word_freq
     app.state.related_words_searcher = related_words_searcher
 
@@ -469,7 +471,7 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
 
     if exact:
         # 精确匹配时，同时进行词根词缀分析和相似词搜索
-        analysis = request.app.state.morphemes_loader.analyze(word)
+        analysis = request.app.state.affix_analyzer.analyze(word)
         affix_html_parts = []
         related_words_html = None
         
@@ -597,7 +599,7 @@ async def lookup_expand(request: Request, word: str = Query(..., description="�
 
     html, exact = request.app.state.mdx_reader.lookup(word)
     if exact and html:
-        analysis = request.app.state.morphemes_loader.analyze(word)
+        analysis = request.app.state.affix_analyzer.analyze(word)
         affix_html_parts = []
         
         if analysis:
