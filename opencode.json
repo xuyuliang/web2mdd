@@ -1,28 +1,23 @@
 {
   "$schema": "https://opencode.ai/config.json",
-
+  "shell": "pwsh",
   "model": "opencode/deepseek-v4-flash-free",
+
+  "instructions": [
+    "You are running in a native Windows environment. Linux Bash is NOT available.",
+    "Always use PowerShell (pwsh) syntax for any shell operations (e.g., Get-ChildItem, Select-String, Test-Path).",
+    "Never use Unix/Bash-specific commands (like ls, grep, rm -rf, export, cat) or bash control structures.",
+    "Use Windows path formats with backslashes (\\) or escaping where appropriate."
+  ],
 
   "lsp": {
     "python": {
       "command": ["pyright-langserver", "--stdio"],
       "extensions": [".py", ".pyi"],
       "env": {
-        // Windows 常见：pyright 装在用户目录，但 PATH 没刷新
         "PATH": "{{env.PATH}};{{env.USERPROFILE}}\\AppData\\Local\\Programs\\Python\\Python311\\Scripts;C:\\Users\\{{env.USERNAME}}\\AppData\\Roaming\\npm"
       }
     }
-  },
-
-  "permission": {
-    // 只允许主 agent 使用 task 工具
-    "task": "allow",
-
-    // 禁止主 agent 直接编辑 / 写文件 / 跑 shell
-    // （所有修改都让它通过子代理间接完成，更安全）
-    "edit": "ask",
-    "write": "ask",
-    "bash": "deny"
   },
 
   "agent": {
