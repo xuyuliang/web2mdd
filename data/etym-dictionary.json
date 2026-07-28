@@ -9408,7 +9408,7 @@
 "id": 1342
 },
 {
-"roots": "co, - 1 , -m, -n",
+"roots": "co, - 1, -m, -n, -r",
 "langCode": "L",
 "meaning": "With, together",
 "rawSegment": "co, - 1 , -m, -n (L). With, together",
@@ -9847,13 +9847,6 @@
 "meaning": "With long hair",
 "rawSegment": "comos (L). With long hair",
 "id": 1405
-},
-{
-"roots": "comp, -o",
-"langCode": "G",
-"meaning": "Make a noise, clash; a noise",
-"rawSegment": "comp, -o (G). Make a noise, clash; a noise",
-"id": 1406
 },
 {
 "roots": "comps, -o",
@@ -19670,7 +19663,7 @@
 "id": 2808
 },
 {
-"roots": "ident, -i",
+"roots": "identi",
 "langCode": "L",
 "meaning": "Repeatedly",
 "rawSegment": "ident, -i (L). Repeatedly",

@@ -1,6 +1,11 @@
 {
   "entries": [
     {
+      "roots": "-el",
+      "langCode": "?",
+      "meaning": "able to"
+    },
+    {
       "roots": "-able",
       "langCode": "?",
       "meaning": "able to"
