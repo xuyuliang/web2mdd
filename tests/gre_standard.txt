@@ -1,0 +1,129 @@
+Word                 Stage1                                           Parts
+------------------------------------------------------------------------------------------------------------------------
+aberration           aberrate.ion                                     ab.errat.ion
+acquiesce            (not found)                                      ac.[qui].esce
+admonish             (not found)                                      ad.mon.ish
+altruistic           altruism.ist.ic                                  [altru].ist.ic
+ambivalent           (not found)                                      am.bi.valent
+anomalous            anomaly.ous                                      ano.mal.ous
+apotheosis           (not found)                                      apo.theo.sis
+arduous              (not found)                                      ar.du.ous
+ascetic              (not found)                                      asc.et.ic
+austere              (not found)                                      aus.tere
+aver                 (not found)                                      [a].ver
+banal                (not found)                                      [ban].al
+belie                be.lie                                           [be].[l].ie
+bombastic            bombast.ic                                       bomb.ast.ic
+cacophony            (not found)                                      caco.phony
+capricious           (not found)                                      capr.ic.ious
+censure              (not found)                                      [cens].ure
+chicanery            chicane.ry                                       [chic].ane.ry
+circumlocution       circum.locution                                  circ.um.loc.ution
+coalesce             (not found)                                      [coal].esce
+cogent               (not found)                                      [cog].ent
+complaisant          (not found)                                      comp.la.is.ant
+conflagration        (not found)                                      con.flagr.ation
+contiguous           (not found)                                      contigu.ous
+corroborate          (not found)                                      [cor].robor.ate
+craven               (not found)                                      [crav].en
+debunk               de.bunk                                          de.[bunk]
+decorum              (not found)                                      decor.um
+deference            defer.ence                                       de.fer.ence
+deluge               (not found)                                      del.[u].ge
+demagogue            (not found)                                      [dem].agogue
+denigrate            (not found)                                      de.nig.[r].ate
+desiccate            (not found)                                      [d].esic.[c].ate
+diaphanous           (not found)                                      dia.phan.ous
+diffident            (not found)                                      [diff].ident
+dilatory             (not found)                                      di.lat.ory
+discern              (not found)                                      dis.cern
+disparage            (not found)                                      dis.par.age
+ebullient            (not found)                                      [e].bull.ient
+effulgent            (not found)                                      [ef].fulg.ent
+elucidate            (not found)                                      [e].lucid.ate
+emollient            (not found)                                      emolli.ent
+ephemeral            (not found)                                      eph.emer.al
+equanimity           (not found)                                      equ.anim.ity
+equivocal            (not found)                                      equi.voc.al
+erudite              (not found)                                      er.ud.ite
+eschew               (not found)                                      [eschew]
+evanescent           (not found)                                      ev.an.escent
+exacerbate           ex.acerbate                                      ex.acerb.ate
+exculpate            (not found)                                      ex.culp.ate
+exegesis             (not found)                                      ex.[e].ge.sis
+exigent              (not found)                                      exi.[g].ent
+extant               (not found)                                      [ext].ant
+facetious            (not found)                                      [fac].et.ious
+fallacious           fallacy.ous                                      [fall].aci.ous
+fatuous              fatuity.ous                                      fatu.ous
+feckless             feck.less                                        [feck].less
+fulminate            (not found)                                      fulm.in.ate
+garrulous            (not found)                                      garrul.ous
+gregarious           (not found)                                      greg.ar.ious
+harangue             (not found)                                      [har].ang.[ue]
+hedonist             hedonic.ism.ist                                  hed.on.ist
+hegemony             hegemon.y                                        [he].ge.mon.[y]
+iconoclast           (not found)                                      ic.ono.clast
+impecunious          in.pecunious                                     im.pec.uni.ous
+implacable           (not found)                                      im.plac.able
+inchoate             (not found)                                      incho.ate
+inculcate            (not found)                                      [inc].ulc.ate
+ineffable            (not found)                                      ine.[f].fab.le
+ingenuous            (not found)                                      ing.en.uous
+insidious            (not found)                                      insidi.ous
+intransigent         (not found)                                      intr.an.sig.ent
+inveterate           (not found)                                      [inv].et.er.ate
+laconic              (not found)                                      lac.on.ic
+limpid               (not found)                                      limpid
+loquacious           (not found)                                      loquac.ious
+magnanimous          (not found)                                      magn.anim.ous
+mendacity            mendacious.ity                                   mend.ac.ity
+mettlesome           mettle.some                                      [mett].le.some
+mulct                (not found)                                      [mulct]
+nefarious            (not found)                                      [nef].ar.ious
+obdurate             (not found)                                      ob.dur.ate
+obfuscate            (not found)                                      ob.fus.[c].ate
+obsequious           (not found)                                      [obs].equi.ous
+occlude              (not found)                                      oc.clu.de
+palliate             (not found)                                      pall.iate
+paroxysm             (not found)                                      par.oxysm
+pedant               (not found)                                      ped.ant
+pellucid             per.lucid                                        pel.lucid
+penurious            penury.ous                                       pen.uri.ous
+percipient           (not found)                                      perc.ip.ient
+pertinacious         (not found)                                      per.tin.acious
+phlegmatic           (not found)                                      phlegma.tic
+piquant              (not found)                                      pi.quant
+platitude            (not found)                                      plati.tude
+prevaricate          (not found)                                      pre.varic.ate
+probity              (not found)                                      prob.ity
+proclivity           (not found)                                      [procl].ivity
+profligate           (not found)                                      pro.flig.ate
+propitiate           (not found)                                      [pr].opi.[t].iate
+pugnacious           (not found)                                      pugn.ac.ious
+punctilious          punctilio.ous                                    puncti.lio.us
+querulous            (not found)                                      quer.ulous
+raconteur            (not found)                                      [r].acont.eur
+recalcitrant         (not found)                                      re.calcitr.ant
+redoubtable          re.doubt.able                                    re.[doubt].ab.le
+sanguine             (not found)                                      san.gui.ne
+sedulous             (not found)                                      sed.ul.ous
+stultify             (not found)                                      stulti.fy
+sycophant            (not found)                                      sy.coph.ant
+taciturn             (not found)                                      tacit.[urn]
+tenuous              tenuis.ous                                       tenu.ous
+timorous             (not found)                                      tim.or.ous
+torpid               (not found)                                      torp.id
+turgid               (not found)                                      turg.id
+turpitude            (not found)                                      turpi.tude
+ubiquitous           ubiquity.ous                                     ubiquit.ous
+unctuous             (not found)                                      unct.uous
+vacillate            (not found)                                      vacill.ate
+vagary               (not found)                                      vaga.ry
+vehement             (not found)                                      [ve].hem.ent
+verisimilitude       (not found)                                      veri.simil.itude
+vituperate           (not found)                                      vit.uper.ate
+vociferous           voice.ferous                                     voci.fero.us
+historic             history.ic                                       hist.or.ic
+
+Total: 125

@@ -31,76 +31,113 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
     color: #5a4fcf;
     margin-bottom: 12px;
 }
-.affix-score {
-    font-size: 12px;
-    font-weight: 500;
-    color: #888;
-    margin-left: 8px;
-}
-.affix-breakdown-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-}
+
+/* ── 第一行：词根段显示 ── */
 .affix-word-breakdown {
     display: inline-flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 4px 8px;
-    font-size: 18px;
-    font-weight: 600;
+    gap: 0;
+    font-size: 20px;
+    font-weight: 700;
     font-family: 'Courier New', monospace;
-    letter-spacing: 1px;
-}
-.affix-details-group {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    flex-wrap: wrap;
-}
-.affix-part {
-    border-radius: 4px;
-}
-.affix-prefix {
-    color: #e67e22;
-    background: #fef5e7;
-}
-.affix-stem {
-    color: #2c3e50;
-}
-.affix-suffix {
-    color: #8e44ad;
-    background: #f4ecf7;
-}
-.affix-detail-sep {
-    color: #ddd;
-    font-size: 16px;
-    font-weight: 400;
-    margin: 0 2px;
-}
-.affix-detail-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 13px;
-    font-weight: 400;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     letter-spacing: 0;
 }
-.affix-label {
-    font-size: 12px;
+.affix-part {
+    border-radius: 3px;
+    padding: 1px 2px;
+}
+.affix-dot {
+    color: #bbb;
+    font-weight: 400;
+    margin: 0 1px;
+}
+.affix-part-matched {
     color: #999;
+}
+.affix-part-unknown {
+    color: #999;
+    background: #f0f0f0;
+}
+
+/* ── 分割线 ── */
+.affix-divider {
+    border: none;
+    border-top: 1px solid #e0e3f0;
+    margin: 10px 0;
+}
+
+/* ── 第二行：Stage1 派生追溯 ── */
+.affix-stage1 {
+    font-size: 13px;
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+.affix-stage1-label {
+    color: #888;
     font-weight: 500;
 }
-.affix-value {
+.affix-stage1-value {
+    color: #5a4fcf;
+    font-family: 'Courier New', monospace;
     font-weight: 600;
-    color: #333;
+}
+
+/* ── 第三行：含义 ── */
+.affix-meanings {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #555;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+.affix-meaning-item {
+    display: inline;
+    white-space: normal;
+}
+.affix-meaning-text {
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+    color: #e67e22 !important;
+}
+.affix-langcode {
+    color: #aaa;
+    font-size: 11px;
+    font-weight: 400;
+}
+.affix-src-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 1px 3px;
+    border-radius: 3px;
+    margin: 0 2px;
     font-family: 'Courier New', monospace;
 }
-.affix-stem-value {
-    color: #2c3e50;
+
+/* ── 第四行：图例 ── */
+.affix-legend {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #eee;
+    font-size: 12px;
+    color: #999;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
 }
+.affix-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+.affix-source-tag {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    padding: 0 3px;
+    border-radius: 2px;
+    font-size: 11px;
+}
+
 .affix-stem-lookup {
     margin-top: 12px;
 }

@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenCode Config (local mirror)",
+  "description": "Local schema mirror to avoid VS Code 'untrusted URL' warning. Covers the fields commonly used in opencode.json. OpenCode runtime does not require $schema to be present.",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "shell": { "type": "string" },
+    "logLevel": { "type": "string", "enum": ["DEBUG","INFO","WARN","ERROR"] },
+    "model": { "type": "string" },
+    "small_model": { "type": "string" },
+    "default_agent": { "type": "string" },
+    "subagent_depth": { "type": "integer", "minimum": 0 },
+    "username": { "type": "string" },
+    "snapshot": { "type": "boolean" },
+    "share": { "type": "string", "enum": ["manual","auto","disabled"] },
+    "autoupdate": { "anyOf": [{ "type": "boolean" }, { "type": "string", "enum": ["notify"] }] },
+
+    "lsp": {
+      "anyOf": [
+        { "type": "boolean" },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": { "disabled": { "type": "boolean", "enum": [true] } },
+                "required": ["disabled"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "command": { "type": "array", "items": { "type": "string" } },
+                  "extensions": { "type": "array", "items": { "type": "string" } },
+                  "disabled": { "type": "boolean" },
+                  "env": { "type": "object", "additionalProperties": { "type": "string" } },
+                  "initialization": { "type": "object" }
+                },
+                "required": ["command"],
+                "additionalProperties": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+
+    "permission": {
+      "anyOf": [
+        { "type": "string", "enum": ["ask","allow","deny"] },
+        {
+          "type": "object",
+          "properties": {
+            "read":   { "anyOf": [{ "type": "string", "enum": ["ask","allow","deny"] }, { "type": "object", "additionalProperties": { "type": "string", "enum": ["ask","allow","deny"] } }] },
+            "edit":   { "anyOf": [{ "type": "string", "enum": ["ask","allow","deny"] }, { "type": "object", "additionalProperties": { "type": "string", "enum": ["ask","allow","deny"] } }] },
+            "write":  { "anyOf": [{ "type": "string", "enum": ["ask","allow","deny"] }, { "type": "object", "additionalProperties": { "type": "string", "enum": ["ask","allow","deny"] } }] },
+            "glob":   { "anyOf": [{ "type": "string", "enum": ["ask","allow","deny"] }, { "type": "object", "additionalProperties": { "type": "string", "enum": ["ask","allow","deny"] } }] },
+            "grep":   { "anyOf": [{ "type": "string", "enum": ["ask","allow","deny"] }, { "type": "object", "additionalProperties": { "type": "string", "enum": ["ask","allow","deny"] } }] },
+            "list":   { "anyOf": [{ "type": "string", "enum": ["ask","allow","deny"] }, { "type": "object", "additionalProperties": { "type": "string", "enum": ["ask","allow","deny"] } }] },
+            "bash":   { "anyOf": [{ "type": "string", "enum": ["ask","allow","deny"] }, { "type": "object", "additionalProperties": { "type": "string", "enum": ["ask","allow","deny"] } }] },
+            "task":   { "anyOf": [{ "type": "string", "enum": ["ask","allow","deny"] }, { "type": "object", "additionalProperties": { "type": "string", "enum": ["ask","allow","deny"] } }] },
+            "external_directory": { "anyOf": [{ "type": "string", "enum": ["ask","allow","deny"] }, { "type": "object", "additionalProperties": { "type": "string", "enum": ["ask","allow","deny"] } }] },
+            "todowrite": { "type": "string", "enum": ["ask","allow","deny"] },
+            "question":   { "type": "string", "enum": ["ask","allow","deny"] },
+            "webfetch":   { "type": "string", "enum": ["ask","allow","deny"] },
+            "websearch":  { "type": "string", "enum": ["ask","allow","deny"] },
+            "lsp":        { "anyOf": [{ "type": "string", "enum": ["ask","allow","deny"] }, { "type": "object", "additionalProperties": { "type": "string", "enum": ["ask","allow","deny"] } }] },
+            "doom_loop":  { "type": "string", "enum": ["ask","allow","deny"] },
+            "skill":      { "anyOf": [{ "type": "string", "enum": ["ask","allow","deny"] }, { "type": "object", "additionalProperties": { "type": "string", "enum": ["ask","allow","deny"] } }] }
+          },
+          "additionalProperties": { "anyOf": [{ "type": "string", "enum": ["ask","allow","deny"] }, { "type": "object", "additionalProperties": { "type": "string", "enum": ["ask","allow","deny"] } }] }
+        }
+      ]
+    },
+
+    "agent": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "model": { "type": "string" },
+          "variant": { "type": "string" },
+          "temperature": { "type": "number" },
+          "top_p": { "type": "number" },
+          "prompt": { "type": "string" },
+          "description": { "type": "string" },
+          "mode": { "type": "string", "enum": ["subagent","primary","all"] },
+          "hidden": { "type": "boolean" },
+          "disable": { "type": "boolean" },
+          "options": { "type": "object" },
+          "color": {
+            "anyOf": [
+              { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+              { "type": "string", "enum": ["primary","secondary","accent","success","warning","error","info"] }
+            ]
+          },
+          "steps": { "type": "integer", "minimum": 1 },
+          "permission": { "type": "object" }
+        }
+      }
+    },
+
+    "compaction": {
+      "type": "object",
+      "properties": {
+        "auto": { "type": "boolean" },
+        "prune": { "type": "boolean" },
+        "tail_turns": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+
+    "instructions": { "type": "array", "items": { "type": "string" } },
+    "tools": { "type": "object", "additionalProperties": { "type": "boolean" } },
+
+    "command": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "template": { "type": "string" },
+          "description": { "type": "string" },
+          "agent": { "type": "string" },
+          "model": { "type": "string" },
+          "variant": { "type": "string" },
+          "subtask": { "type": "boolean" }
+        },
+        "required": ["template"],
+        "additionalProperties": false
+      }
+    },
+
+    "skills": {
+      "type": "object",
+      "properties": {
+        "paths": { "type": "array", "items": { "type": "string" } },
+        "urls":  { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+
+    "mcp": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          { "type": "object", "properties": { "enabled": { "type": "boolean" } }, "required": ["enabled"], "additionalProperties": false },
+          {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string", "enum": ["local","remote"] },
+              "command": { "type": "array", "items": { "type": "string" } },
+              "url": { "type": "string" },
+              "enabled": { "type": "boolean" },
+              "cwd": { "type": "string" },
+              "environment": { "type": "object", "additionalProperties": { "type": "string" } },
+              "headers": { "type": "object", "additionalProperties": { "type": "string" } },
+              "timeout": { "type": "integer", "minimum": 1 }
+            }
+          }
+        ]
+      }
+    },
+
+    "provider": { "type": "object", "additionalProperties": { "type": "object" } },
+    "plugin":   { "type": "array" },
+    "watcher":  { "type": "object", "properties": { "ignore": { "type": "array", "items": { "type": "string" } } } },
+
+    "formatter": {
+      "anyOf": [
+        { "type": "boolean" },
+        { "type": "object", "additionalProperties": { "type": "object" } }
+      ]
+    },
+
+    "attachment": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "type": "object",
+          "properties": {
+            "auto_resize": { "type": "boolean" },
+            "max_width":  { "type": "integer", "minimum": 1 },
+            "max_height": { "type": "integer", "minimum": 1 },
+            "max_base64_bytes": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

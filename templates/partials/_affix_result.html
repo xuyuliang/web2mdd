@@ -1,82 +1,41 @@
 <div class="affix-analysis">
-  {% if strategies is defined and strategies|length > 0 %}
-    <div class="affix-title">📐 词根词缀分析 <span class="affix-score">{{ "%.1f"|format(strategies[0].score) }}分</span></div>
+  <div class="affix-title">词根词缀分析</div>
 
-    {% for strategy in strategies %}
-    <div class="affix-breakdown-row">
-      <div class="affix-word-breakdown">
-        {% if strategy.prefix %}
-        <span class="affix-part affix-prefix" title="{{ strategy.prefix }}">{{ strategy.prefix }}</span>
-        {% endif %}
-        <span class="affix-part affix-stem">{{ strategy.stem }}</span>
-        {% if strategy.suffix %}
-        <span class="affix-part affix-suffix" title="{{ strategy.suffix }}">{{ strategy.suffix }}</span>
-        {% endif %}
-      </div>
-      <div class="affix-details-group">
-        <span class="affix-detail-sep">|</span>
-        {% if strategy.prefix %}
-        <span class="affix-detail-item">
-          <span class="affix-label">前缀</span>
-          <span class="affix-value">{{ strategy.prefix }}</span>
-        </span>
-        {% endif %}
-        {% if strategy.suffix %}
-        <span class="affix-detail-item">
-          <span class="affix-label">后缀</span>
-          <span class="affix-value">{{ strategy.suffix }}</span>
-        </span>
-        {% endif %}
-        <span class="affix-detail-item">
-          <span class="affix-label">词干</span>
-          <span class="affix-value affix-stem-value">{{ strategy.final_stem }}</span>
-        </span>
-      </div>
+  {% if pipeline and pipeline.parts %}
+    {# 第一行：各段词根用 . 连接 #}
+    <div class="affix-word-breakdown">
+      {% for part in pipeline.parts %}
+        {%- if part.meaning -%}
+        <span class="affix-part affix-part-matched">{{ part.text }}</span>
+        {%- else -%}
+        <span class="affix-part affix-part-unknown">{{ part.text }}</span>
+        {%- endif -%}
+        {%- if not loop.last %}<span class="affix-dot">.</span>{% endif -%}
+      {% endfor %}
     </div>
-    {% endfor %}
 
-  {% else %}
-    {# 向后兼容：旧的使用方式（单个策略） #}
-    <div class="affix-title">
-      {% if is_secondary %}
-      📐 词根词缀分析（备选拆分）
-      {% else %}
-      📐 词根词缀分析
-      {% endif %}
-      {% if score is defined %}
-      <span class="affix-score">得分: {{ "%.1f"|format(score) }}</span>
-      {% endif %}
+    <div class="affix-divider"></div>
+
+    {# 第二行：Stage1 派生追溯 #}
+    {% if pipeline.stage1 %}
+    <div class="affix-stage1">
+      <span class="affix-stage1-label">派生追溯</span>
+      <span class="affix-stage1-value">{{ pipeline.stage1 }}</span>
     </div>
-    
-    <div class="affix-breakdown-row">
-      <div class="affix-word-breakdown">
-        {% if prefix %}
-        <span class="affix-part affix-prefix" title="{{ prefix }}">{{ prefix }}</span>
-        {% endif %}
-        <span class="affix-part affix-stem">{{ stem }}</span>
-        {% if suffix %}
-        <span class="affix-part affix-suffix" title="{{ suffix }}">{{ suffix }}</span>
-        {% endif %}
-      </div>
-      <div class="affix-details-group">
-        <span class="affix-detail-sep">|</span>
-        {% if prefix %}
-        <span class="affix-detail-item">
-          <span class="affix-label">前缀</span>
-          <span class="affix-value">{{ prefix }}</span>
-        </span>
-        {% endif %}
-        {% if suffix %}
-        <span class="affix-detail-item">
-          <span class="affix-label">后缀</span>
-          <span class="affix-value">{{ suffix }}</span>
-        </span>
-        {% endif %}
-        <span class="affix-detail-item">
-          <span class="affix-label">词干</span>
-          <span class="affix-value affix-stem-value">{{ final_stem }}</span>
-        </span>
-      </div>
+    {% endif %}
+
+    {# 第三行：各段含义 #}
+    <div class="affix-meanings">
+      │
+      {% for part in pipeline.parts %}
+      {% if part.meaning %}
+      <span class="affix-meaning-item">
+        <span class="affix-meaning-text">{{ part.text }}</span>
+        ={{ part.meaning }}<span class="affix-langcode">[{{ part.langCode }}]</span>
+      </span>
+      {% endif %}
+      {% endfor %}
     </div>
+
   {% endif %}
 </div>

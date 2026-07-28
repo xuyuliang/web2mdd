@@ -23,9 +23,9 @@ from fastapi.templating import Jinja2Templates
 from starlette.requests import Request
 
 from app.mdx_sqlite_reader import MDXSQLiteReader
-from app.affix_analyzer import AffixAnalyzer
 from app.word_freq import WordFreq, get_preprocessor, add_brackets
 from app.related_words import RelatedWordsSearcher
+from app.word_cutter import WordCutter
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -35,11 +35,9 @@ async def lifespan(app: FastAPI):
     mdx_reader = MDXReader(MDX_PATH, DB_PATH)
     print("[OK] 词典加载完成，服务器就绪！")
 
-    print("正在加载派生词和屈折变化数据...")
-    deriv_path = os.path.join(BASE_DIR, "data", "eng_derivations.json")
-    infl_path = os.path.join(BASE_DIR, "data", "eng_inflections.json")
-    affix_analyzer = AffixAnalyzer(deriv_path, infl_path)
-    print("[OK] 派生词数据加载完成")
+    print("正在加载词根切分数据...")
+    word_cutter = WordCutter(BASE_DIR)
+    print("[OK] 词根切分数据加载完成")
 
     print("正在加载 COCA 词频数据...")
     word_freq = WordFreq(DB_PATH)
@@ -52,7 +50,7 @@ async def lifespan(app: FastAPI):
 
     # 存储到 app.state
     app.state.mdx_reader = mdx_reader
-    app.state.affix_analyzer = affix_analyzer
+    app.state.word_cutter = word_cutter
     app.state.word_freq = word_freq
     app.state.related_words_searcher = related_words_searcher
 
@@ -470,38 +468,21 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
     result, exact = request.app.state.mdx_reader.lookup(word)
 
     if exact:
-        # 精确匹配时，同时进行词根词缀分析和相似词搜索
-        analysis = request.app.state.affix_analyzer.analyze(word)
-        affix_html_parts = []
+        # 精确匹配时进行词根切分和相似词搜索
+        pipeline_result = request.app.state.word_cutter.segment(word)
+        affix_template = templates.env.get_template("partials/_affix_result.html")
+        affix_html = affix_template.render(pipeline=pipeline_result)
         related_words_html = None
-        
-        if analysis:
-            all_strategies = analysis.get("all_strategies", [])
-            affix_template = templates.env.get_template("partials/_affix_result.html")
-            
-            strategy_items = []
-            for strategy in all_strategies:
-                strategy_items.append({
-                    "scheme": strategy.get("scheme", ""),
-                    "prefix": strategy.get("prefix", ""),
-                    "suffix": strategy.get("suffix", ""),
-                    "stem": strategy.get("stem", ""),
-                    "final_stem": strategy.get("stem", ""),
-                    "score": strategy.get("score", 0),
-                })
-            
-            affix_html_parts.append(affix_template.render(strategies=strategy_items))
-            
-            # 为词干搜索相似词
-            primary = analysis.get("primary", {})
-            stem = primary.get("stem", "")
-            if stem and len(stem) >= 2:
-                search_stem = stem.replace(".", "")
-                related_results = request.app.state.related_words_searcher.search_and_score(search_stem, max_results=30)
+
+        if pipeline_result and pipeline_result.get("parts"):
+            parts = pipeline_result["parts"]
+            meaningful = [p for p in parts if p.get("meaning") and p.get("source")]
+            if meaningful:
+                stem = max(meaningful, key=lambda p: len(p["text"]))["text"]
+                related_results = request.app.state.related_words_searcher.search_and_score(stem, max_results=30)
                 if related_results:
                     for rw in related_results:
-                        rw["highlighted_word"] = MDXReader._stem_highlight(search_stem, rw["word"])
-                    
+                        rw["highlighted_word"] = MDXReader._stem_highlight(stem, rw["word"])
                     related_template = templates.env.get_template("partials/_related_words.html")
                     related_words_html = related_template.render(
                         stem=stem,
@@ -509,7 +490,6 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
                         back_word=back_word if back_word else word,
                     )
 
-        affix_html = "".join(affix_html_parts) if affix_html_parts else ""
         combined = result + affix_html + (related_words_html or "")
 
         # 构建推送 URL，包含所有相关参数以便历史回退时恢复完整状态
@@ -599,27 +579,9 @@ async def lookup_expand(request: Request, word: str = Query(..., description="�
 
     html, exact = request.app.state.mdx_reader.lookup(word)
     if exact and html:
-        analysis = request.app.state.affix_analyzer.analyze(word)
-        affix_html_parts = []
-        
-        if analysis:
-            all_strategies = analysis.get("all_strategies", [])
-            affix_template = templates.env.get_template("partials/_affix_result.html")
-            
-            strategy_items = []
-            for strategy in all_strategies:
-                strategy_items.append({
-                    "scheme": strategy.get("scheme", ""),
-                    "prefix": strategy.get("prefix", ""),
-                    "suffix": strategy.get("suffix", ""),
-                    "stem": strategy.get("stem", ""),
-                    "final_stem": strategy.get("stem", ""),
-                    "score": strategy.get("score", 0),
-                })
-            
-            affix_html_parts.append(affix_template.render(strategies=strategy_items))
-        
-        affix_html = "".join(affix_html_parts) if affix_html_parts else ""
+        pipeline_result = request.app.state.word_cutter.segment(word)
+        affix_template = templates.env.get_template("partials/_affix_result.html")
+        affix_html = affix_template.render(pipeline=pipeline_result)
         combined = html + affix_html
         return templates.TemplateResponse(
             request, "partials/_lookup_result.html",

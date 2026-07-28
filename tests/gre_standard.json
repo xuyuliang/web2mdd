@@ -1,0 +1,627 @@
+[
+  {
+    "word": "aberration",
+    "stage1": "aberrate.ion",
+    "parts": "ab.errat.ion"
+  },
+  {
+    "word": "acquiesce",
+    "stage1": null,
+    "parts": "ac.[qui].esce"
+  },
+  {
+    "word": "admonish",
+    "stage1": null,
+    "parts": "ad.mon.ish"
+  },
+  {
+    "word": "altruistic",
+    "stage1": "altruism.ist.ic",
+    "parts": "[altru].ist.ic"
+  },
+  {
+    "word": "ambivalent",
+    "stage1": null,
+    "parts": "am.bi.valent"
+  },
+  {
+    "word": "anomalous",
+    "stage1": "anomaly.ous",
+    "parts": "ano.mal.ous"
+  },
+  {
+    "word": "apotheosis",
+    "stage1": null,
+    "parts": "apo.theo.sis"
+  },
+  {
+    "word": "arduous",
+    "stage1": null,
+    "parts": "ar.du.ous"
+  },
+  {
+    "word": "ascetic",
+    "stage1": null,
+    "parts": "asc.et.ic"
+  },
+  {
+    "word": "austere",
+    "stage1": null,
+    "parts": "aus.tere"
+  },
+  {
+    "word": "aver",
+    "stage1": null,
+    "parts": "[a].ver"
+  },
+  {
+    "word": "banal",
+    "stage1": null,
+    "parts": "[ban].al"
+  },
+  {
+    "word": "belie",
+    "stage1": "be.lie",
+    "parts": "[be].[l].ie"
+  },
+  {
+    "word": "bombastic",
+    "stage1": "bombast.ic",
+    "parts": "bomb.ast.ic"
+  },
+  {
+    "word": "cacophony",
+    "stage1": null,
+    "parts": "caco.phony"
+  },
+  {
+    "word": "capricious",
+    "stage1": null,
+    "parts": "capr.ic.ious"
+  },
+  {
+    "word": "censure",
+    "stage1": null,
+    "parts": "[cens].ure"
+  },
+  {
+    "word": "chicanery",
+    "stage1": "chicane.ry",
+    "parts": "[chic].ane.ry"
+  },
+  {
+    "word": "circumlocution",
+    "stage1": "circum.locution",
+    "parts": "circ.um.loc.ution"
+  },
+  {
+    "word": "coalesce",
+    "stage1": null,
+    "parts": "[coal].esce"
+  },
+  {
+    "word": "cogent",
+    "stage1": null,
+    "parts": "[cog].ent"
+  },
+  {
+    "word": "complaisant",
+    "stage1": null,
+    "parts": "comp.la.is.ant"
+  },
+  {
+    "word": "conflagration",
+    "stage1": null,
+    "parts": "con.flagr.ation"
+  },
+  {
+    "word": "contiguous",
+    "stage1": null,
+    "parts": "contigu.ous"
+  },
+  {
+    "word": "corroborate",
+    "stage1": null,
+    "parts": "[cor].robor.ate"
+  },
+  {
+    "word": "craven",
+    "stage1": null,
+    "parts": "[crav].en"
+  },
+  {
+    "word": "debunk",
+    "stage1": "de.bunk",
+    "parts": "de.[bunk]"
+  },
+  {
+    "word": "decorum",
+    "stage1": null,
+    "parts": "decor.um"
+  },
+  {
+    "word": "deference",
+    "stage1": "defer.ence",
+    "parts": "de.fer.ence"
+  },
+  {
+    "word": "deluge",
+    "stage1": null,
+    "parts": "del.[u].ge"
+  },
+  {
+    "word": "demagogue",
+    "stage1": null,
+    "parts": "[dem].agogue"
+  },
+  {
+    "word": "denigrate",
+    "stage1": null,
+    "parts": "de.nig.[r].ate"
+  },
+  {
+    "word": "desiccate",
+    "stage1": null,
+    "parts": "[d].esic.[c].ate"
+  },
+  {
+    "word": "diaphanous",
+    "stage1": null,
+    "parts": "dia.phan.ous"
+  },
+  {
+    "word": "diffident",
+    "stage1": null,
+    "parts": "[diff].ident"
+  },
+  {
+    "word": "dilatory",
+    "stage1": null,
+    "parts": "di.lat.ory"
+  },
+  {
+    "word": "discern",
+    "stage1": null,
+    "parts": "dis.cern"
+  },
+  {
+    "word": "disparage",
+    "stage1": null,
+    "parts": "dis.par.age"
+  },
+  {
+    "word": "ebullient",
+    "stage1": null,
+    "parts": "[e].bull.ient"
+  },
+  {
+    "word": "effulgent",
+    "stage1": null,
+    "parts": "[ef].fulg.ent"
+  },
+  {
+    "word": "elucidate",
+    "stage1": null,
+    "parts": "[e].lucid.ate"
+  },
+  {
+    "word": "emollient",
+    "stage1": null,
+    "parts": "emolli.ent"
+  },
+  {
+    "word": "ephemeral",
+    "stage1": null,
+    "parts": "eph.emer.al"
+  },
+  {
+    "word": "equanimity",
+    "stage1": null,
+    "parts": "equ.anim.ity"
+  },
+  {
+    "word": "equivocal",
+    "stage1": null,
+    "parts": "equi.voc.al"
+  },
+  {
+    "word": "erudite",
+    "stage1": null,
+    "parts": "er.ud.ite"
+  },
+  {
+    "word": "eschew",
+    "stage1": null,
+    "parts": "[eschew]"
+  },
+  {
+    "word": "evanescent",
+    "stage1": null,
+    "parts": "ev.an.escent"
+  },
+  {
+    "word": "exacerbate",
+    "stage1": "ex.acerbate",
+    "parts": "ex.acerb.ate"
+  },
+  {
+    "word": "exculpate",
+    "stage1": null,
+    "parts": "ex.culp.ate"
+  },
+  {
+    "word": "exegesis",
+    "stage1": null,
+    "parts": "ex.[e].ge.sis"
+  },
+  {
+    "word": "exigent",
+    "stage1": null,
+    "parts": "exi.[g].ent"
+  },
+  {
+    "word": "extant",
+    "stage1": null,
+    "parts": "[ext].ant"
+  },
+  {
+    "word": "facetious",
+    "stage1": null,
+    "parts": "[fac].et.ious"
+  },
+  {
+    "word": "fallacious",
+    "stage1": "fallacy.ous",
+    "parts": "[fall].aci.ous"
+  },
+  {
+    "word": "fatuous",
+    "stage1": "fatuity.ous",
+    "parts": "fatu.ous"
+  },
+  {
+    "word": "feckless",
+    "stage1": "feck.less",
+    "parts": "[feck].less"
+  },
+  {
+    "word": "fulminate",
+    "stage1": null,
+    "parts": "fulm.in.ate"
+  },
+  {
+    "word": "garrulous",
+    "stage1": null,
+    "parts": "garrul.ous"
+  },
+  {
+    "word": "gregarious",
+    "stage1": null,
+    "parts": "greg.ar.ious"
+  },
+  {
+    "word": "harangue",
+    "stage1": null,
+    "parts": "[har].ang.[ue]"
+  },
+  {
+    "word": "hedonist",
+    "stage1": "hedonic.ism.ist",
+    "parts": "hed.on.ist"
+  },
+  {
+    "word": "hegemony",
+    "stage1": "hegemon.y",
+    "parts": "[he].ge.mon.[y]"
+  },
+  {
+    "word": "iconoclast",
+    "stage1": null,
+    "parts": "ic.ono.clast"
+  },
+  {
+    "word": "impecunious",
+    "stage1": "in.pecunious",
+    "parts": "im.pec.uni.ous"
+  },
+  {
+    "word": "implacable",
+    "stage1": null,
+    "parts": "im.plac.able"
+  },
+  {
+    "word": "inchoate",
+    "stage1": null,
+    "parts": "incho.ate"
+  },
+  {
+    "word": "inculcate",
+    "stage1": null,
+    "parts": "[inc].ulc.ate"
+  },
+  {
+    "word": "ineffable",
+    "stage1": null,
+    "parts": "ine.[f].fab.le"
+  },
+  {
+    "word": "ingenuous",
+    "stage1": null,
+    "parts": "ing.en.uous"
+  },
+  {
+    "word": "insidious",
+    "stage1": null,
+    "parts": "insidi.ous"
+  },
+  {
+    "word": "intransigent",
+    "stage1": null,
+    "parts": "intr.an.sig.ent"
+  },
+  {
+    "word": "inveterate",
+    "stage1": null,
+    "parts": "[inv].et.er.ate"
+  },
+  {
+    "word": "laconic",
+    "stage1": null,
+    "parts": "lac.on.ic"
+  },
+  {
+    "word": "limpid",
+    "stage1": null,
+    "parts": "limpid"
+  },
+  {
+    "word": "loquacious",
+    "stage1": null,
+    "parts": "loquac.ious"
+  },
+  {
+    "word": "magnanimous",
+    "stage1": null,
+    "parts": "magn.anim.ous"
+  },
+  {
+    "word": "mendacity",
+    "stage1": "mendacious.ity",
+    "parts": "mend.ac.ity"
+  },
+  {
+    "word": "mettlesome",
+    "stage1": "mettle.some",
+    "parts": "[mett].le.some"
+  },
+  {
+    "word": "mulct",
+    "stage1": null,
+    "parts": "[mulct]"
+  },
+  {
+    "word": "nefarious",
+    "stage1": null,
+    "parts": "[nef].ar.ious"
+  },
+  {
+    "word": "obdurate",
+    "stage1": null,
+    "parts": "ob.dur.ate"
+  },
+  {
+    "word": "obfuscate",
+    "stage1": null,
+    "parts": "ob.fus.[c].ate"
+  },
+  {
+    "word": "obsequious",
+    "stage1": null,
+    "parts": "[obs].equi.ous"
+  },
+  {
+    "word": "occlude",
+    "stage1": null,
+    "parts": "oc.clu.de"
+  },
+  {
+    "word": "palliate",
+    "stage1": null,
+    "parts": "pall.iate"
+  },
+  {
+    "word": "paroxysm",
+    "stage1": null,
+    "parts": "par.oxysm"
+  },
+  {
+    "word": "pedant",
+    "stage1": null,
+    "parts": "ped.ant"
+  },
+  {
+    "word": "pellucid",
+    "stage1": "per.lucid",
+    "parts": "pel.lucid"
+  },
+  {
+    "word": "penurious",
+    "stage1": "penury.ous",
+    "parts": "pen.uri.ous"
+  },
+  {
+    "word": "percipient",
+    "stage1": null,
+    "parts": "perc.ip.ient"
+  },
+  {
+    "word": "pertinacious",
+    "stage1": null,
+    "parts": "per.tin.acious"
+  },
+  {
+    "word": "phlegmatic",
+    "stage1": null,
+    "parts": "phlegma.tic"
+  },
+  {
+    "word": "piquant",
+    "stage1": null,
+    "parts": "pi.quant"
+  },
+  {
+    "word": "platitude",
+    "stage1": null,
+    "parts": "plati.tude"
+  },
+  {
+    "word": "prevaricate",
+    "stage1": null,
+    "parts": "pre.varic.ate"
+  },
+  {
+    "word": "probity",
+    "stage1": null,
+    "parts": "prob.ity"
+  },
+  {
+    "word": "proclivity",
+    "stage1": null,
+    "parts": "[procl].ivity"
+  },
+  {
+    "word": "profligate",
+    "stage1": null,
+    "parts": "pro.flig.ate"
+  },
+  {
+    "word": "propitiate",
+    "stage1": null,
+    "parts": "[pr].opi.[t].iate"
+  },
+  {
+    "word": "pugnacious",
+    "stage1": null,
+    "parts": "pugn.ac.ious"
+  },
+  {
+    "word": "punctilious",
+    "stage1": "punctilio.ous",
+    "parts": "puncti.lio.us"
+  },
+  {
+    "word": "querulous",
+    "stage1": null,
+    "parts": "quer.ulous"
+  },
+  {
+    "word": "raconteur",
+    "stage1": null,
+    "parts": "[r].acont.eur"
+  },
+  {
+    "word": "recalcitrant",
+    "stage1": null,
+    "parts": "re.calcitr.ant"
+  },
+  {
+    "word": "redoubtable",
+    "stage1": "re.doubt.able",
+    "parts": "re.[doubt].ab.le"
+  },
+  {
+    "word": "sanguine",
+    "stage1": null,
+    "parts": "san.gui.ne"
+  },
+  {
+    "word": "sedulous",
+    "stage1": null,
+    "parts": "sed.ul.ous"
+  },
+  {
+    "word": "stultify",
+    "stage1": null,
+    "parts": "stulti.fy"
+  },
+  {
+    "word": "sycophant",
+    "stage1": null,
+    "parts": "sy.coph.ant"
+  },
+  {
+    "word": "taciturn",
+    "stage1": null,
+    "parts": "tacit.[urn]"
+  },
+  {
+    "word": "tenuous",
+    "stage1": "tenuis.ous",
+    "parts": "tenu.ous"
+  },
+  {
+    "word": "timorous",
+    "stage1": null,
+    "parts": "tim.or.ous"
+  },
+  {
+    "word": "torpid",
+    "stage1": null,
+    "parts": "torp.id"
+  },
+  {
+    "word": "turgid",
+    "stage1": null,
+    "parts": "turg.id"
+  },
+  {
+    "word": "turpitude",
+    "stage1": null,
+    "parts": "turpi.tude"
+  },
+  {
+    "word": "ubiquitous",
+    "stage1": "ubiquity.ous",
+    "parts": "ubiquit.ous"
+  },
+  {
+    "word": "unctuous",
+    "stage1": null,
+    "parts": "unct.uous"
+  },
+  {
+    "word": "vacillate",
+    "stage1": null,
+    "parts": "vacill.ate"
+  },
+  {
+    "word": "vagary",
+    "stage1": null,
+    "parts": "vaga.ry"
+  },
+  {
+    "word": "vehement",
+    "stage1": null,
+    "parts": "[ve].hem.ent"
+  },
+  {
+    "word": "verisimilitude",
+    "stage1": null,
+    "parts": "veri.simil.itude"
+  },
+  {
+    "word": "vituperate",
+    "stage1": null,
+    "parts": "vit.uper.ate"
+  },
+  {
+    "word": "vociferous",
+    "stage1": "voice.ferous",
+    "parts": "voci.fero.us"
+  },
+  {
+    "word": "historic",
+    "stage1": "history.ic",
+    "parts": "hist.or.ic"
+  }
+]

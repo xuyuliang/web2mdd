@@ -1,5 +1,8 @@
 {
 "source": "Donald J. Borror, Dictionary of Word Roots and Combining Forms (1960)",
+
+  "_note_root_notation": "roots 中符号约定：\n- `-` 或者`*`：可选后缀（可加可不加）\n- `=`：主格固有字符，不可分割\n\n示例：iri, -d, -do, =s, -t\n- iris：s 来自 =s，必须整体切分为 iris\n- irit：t 可能属于根（iri）或后缀（itis），优先切为 iri.itis\n- iridescent：虽有 -d，但 escent 是独立后缀，应切为 irid.escent\n（元音合并/去重为后续处理步骤，此处不展开）",
+
 "order": "book-columns",
 "entryCount": 7076,
 "entries": [

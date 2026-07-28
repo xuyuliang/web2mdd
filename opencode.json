@@ -1,5 +1,5 @@
 {
-  "$schema": "https://opencode.ai/config.json",
+  "$schema": "./opencode.schema.json",
   "model": "opencode/deepseek-v4-flash-free",
 
   "lsp": {
@@ -7,13 +7,26 @@
       "command": ["pyright-langserver", "--stdio"],
       "extensions": [".py", ".pyi"],
       "env": {
-        "PATH": "{{env.PATH}};{{env.USERPROFILE}}\\AppData\\Local\\Programs\\Python\\Python311\\Scripts;C:\\Users\\{{env.USERNAME}}\\AppData\\Roaming\\npm"
+        "PATH": "{{env.PATH}}"
       }
     }
   },
 
   "permission": {
-    "task": "allow"
+    "bash": {
+      "*": "allow",
+      "rm *": "deny",
+      "sudo *": "deny",
+      "git status": "allow",
+      "git diff *": "allow",
+      "git log *": "allow",
+      "dir": "allow"
+    },
+    "edit": "allow",
+    "write": "allow",
+    "read": "allow",
+    "list": "allow",
+    "grep": "allow"
   },
 
   "agent": {
@@ -24,23 +37,42 @@
       "temperature": 0.1,
       "prompt": "你是资深代码审查员，重点关注：安全性、性能、可维护性、边界情况。只给建设性反馈，不直接改代码。",
       "permission": {
+        "bash": "deny",
         "edit": "deny",
         "write": "deny",
-        "bash": "deny",
         "task": "deny"
       }
     },
-
     "algo-thinker": {
       "description": "纯算法与逻辑推理，不碰文件",
       "mode": "subagent",
       "model": "opencode/nemotron-3-ultra-free",
       "permission": {
+        "bash": "deny",
         "edit": "deny",
         "write": "deny",
-        "bash": "deny",
         "task": "deny"
       }
+    },
+    "etymology-helper": {
+      "description": "词源与拉丁/希腊词根分析，只做查询和解释",
+      "mode": "subagent",
+      "model": "opencode/qwen3.6-plus-free",
+      "prompt": "你是词源学助手，擅长拉丁/希腊词根分析、PIE 根回溯、同根词族扩展。给出结论时标注词根语言来源（Latin/Greek/PIE）。",
+      "permission": {
+        "bash": "deny",
+        "edit": "deny",
+        "write": "deny",
+        "task": "deny",
+        "webfetch": "allow",
+        "websearch": "allow"
+      }
     }
+  },
+
+  "compaction": {
+    "auto": true,
+    "prune": false,
+    "tail_turns": 2
   }
 }
