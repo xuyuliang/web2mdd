@@ -53,7 +53,7 @@ eschew               [eschew]                                 [eschew]          
 evanescent           e.van.escent                             ev.an.escent                             ✗
 exacerbate           ex.acerb.ate                             ex.acerb.ate                             ✓
 exculpate            ex.culp.ate                              ex.culp.ate                              ✓
-exegesis             ex.e.gesis                               ex.[e].ge.sis                            ✗
+exegesis             ex.e.gesis                               ex.[e].ge.sis  o                          ✗
 exigent              ex.ig.ent                                exi.[g].ent                              ✗
 extant               ex.tant                                  [ext].ant                                ✗
 facetious            fac.et.ious                              [fac].et.ious                            ✓
