@@ -1,5 +1,5 @@
-Score: 55/125 = 44.0%
-Mismatches: 70
+Score: 56/125 = 44.8%
+Mismatches: 69
 
 Word                 Expected                                 Got                                      OK
 ---------------------------------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ censure              cens.ure                                 cens.ure          
 chicanery            chicane.ry                               [chic].ane.ry                            ✗
 circumlocution       circ.um.locut.ion                        circum.loc.ution                         ✗
 coalesce             co.al.esce                               [coal].esce                              ✗
-cogent               co.g.ent                                 cog.ent                                  ✗
+cogent               co.g.ent                                 co.gent                                  ✗
 complaisant          com.plac.is.ant                          com.[plais].ant                          ✗
 conflagration        con.flagr.ation                          con.flagr.ation                          ✓
 contiguous           contigu.ous                              contigu.ous                              ✓
@@ -44,7 +44,7 @@ disparage            dis.par.age                              dis.par.age       
 ebullient            e.bull.ient                              eb.ul.[l].ient                           ✗
 effulgent            ef.fulg.ent                              ef.ful.gent                              ✗
 elucidate            e.lucid.ate                              el.[uc].id.ate                           ✗
-emollient            e.moll.ient                              emolli.ent                               ✗
+emollient            e.moll.ient                              emoll.ient                               ✗
 ephemeral            eph.emer.al                              ephemer.al                               ✗
 equanimity           equ.anim.ity                             equ.anim.ity                             ✓
 equivocal            equi.voc.al                              equi.voc.al                              ✓
@@ -109,7 +109,7 @@ querulous            quer.ulous                               quer.ulous        
 raconteur            racont.eur                               [r].acont.eur                            ✗
 recalcitrant         re.calcitr.ant                           re.calcitr.ant                           ✓
 redoubtable          re.doubt.able                            re.doubt.able                            ✓
-sanguine             sangu.ine                                sangui.ne                                ✗
+sanguine             sangu.ine                                sangu.ine                                ✓
 sedulous             sed.ul.ous                               sed.ulous                                ✗
 stultify             stulti.fy                                stult.ify                                ✗
 sycophant            syc.o.phant                              sy.coph.ant                              ✗
