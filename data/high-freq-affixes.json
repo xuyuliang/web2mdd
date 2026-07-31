@@ -1,0 +1,3294 @@
+[
+  {
+    "affix": "a-",
+    "type": "prefix",
+    "meaning": "1. 无，不，非",
+    "example": "azonic 非地带性的"
+  },
+  {
+    "affix": "a-",
+    "type": "prefix",
+    "meaning": "2. 含in,at等意义",
+    "example": "asleep 在熟睡中"
+  },
+  {
+    "affix": "a-",
+    "type": "prefix",
+    "meaning": "3. 加强意义",
+    "example": "aloud 高声地"
+  },
+  {
+    "affix": "ab-",
+    "type": "prefix",
+    "meaning": "离去，相反，不",
+    "example": "abuse 滥用"
+  },
+  {
+    "affix": "ac-",
+    "type": "prefix",
+    "meaning": "含at,to意,加强意义",
+    "example": "accustom 使习惯"
+  },
+  {
+    "affix": "ad-",
+    "type": "prefix",
+    "meaning": "含at,to意,加强意义",
+    "example": "adventure 冒险"
+  },
+  {
+    "affix": "af-",
+    "type": "prefix",
+    "meaning": "含at,to意,加强意义",
+    "example": "afforest 造林，绿化"
+  },
+  {
+    "affix": "ag-",
+    "type": "prefix",
+    "meaning": "含at,to意,加强意义",
+    "example": "aggrandize 增大"
+  },
+  {
+    "affix": "air-",
+    "type": "prefix",
+    "meaning": "空中的",
+    "example": "airline 航空公司"
+  },
+  {
+    "affix": "al-",
+    "type": "prefix",
+    "meaning": "1. 含at,to意,加强意义",
+    "example": "allocate 分配"
+  },
+  {
+    "affix": "al-",
+    "type": "prefix",
+    "meaning": "2. 构成副词",
+    "example": "almost 几乎"
+  },
+  {
+    "affix": "amphi-",
+    "type": "prefix",
+    "meaning": "两，双",
+    "example": "amphibian 水陆两用车"
+  },
+  {
+    "affix": "an-",
+    "type": "prefix",
+    "meaning": "1. 无，不",
+    "example": "anarchistic 无政府的"
+  },
+  {
+    "affix": "an-",
+    "type": "prefix",
+    "meaning": "2. 含at,to意,加强意义",
+    "example": "annotate 注解"
+  },
+  {
+    "affix": "ante-",
+    "type": "prefix",
+    "meaning": "前，先",
+    "example": "anteroom 接待室"
+  },
+  {
+    "affix": "anthropo-",
+    "type": "prefix",
+    "meaning": "有关人的",
+    "example": "anthropophagus 吃人族"
+  },
+  {
+    "affix": "anti-",
+    "type": "prefix",
+    "meaning": "反对，相反，防止",
+    "example": "antibiotics 抗生素"
+  },
+  {
+    "affix": "any-",
+    "type": "prefix",
+    "meaning": "任何",
+    "example": "anywhere 任何地方"
+  },
+  {
+    "affix": "ap-",
+    "type": "prefix",
+    "meaning": "加强或引申意义",
+    "example": "appraise 评价"
+  },
+  {
+    "affix": "apo-",
+    "type": "prefix",
+    "meaning": "离开",
+    "example": "apogee 远地点"
+  },
+  {
+    "affix": "ar-",
+    "type": "prefix",
+    "meaning": "含at,to意,加强意义",
+    "example": "arrange 安排"
+  },
+  {
+    "affix": "arch-",
+    "type": "prefix",
+    "meaning": "主要的，首位的",
+    "example": "archenemy 头号敌人"
+  },
+  {
+    "affix": "as-",
+    "type": "prefix",
+    "meaning": "含at,to意,加强意义",
+    "example": "assort 分类"
+  },
+  {
+    "affix": "at-",
+    "type": "prefix",
+    "meaning": "含at,to意,加强意义",
+    "example": "attract 吸引"
+  },
+  {
+    "affix": "auto-",
+    "type": "prefix",
+    "meaning": "自己，自动",
+    "example": "autobiography 自传"
+  },
+  {
+    "affix": "back-",
+    "type": "prefix",
+    "meaning": "反的，向后的",
+    "example": "backstroke 仰泳"
+  },
+  {
+    "affix": "be-",
+    "type": "prefix",
+    "meaning": "1. 使...，使成为...",
+    "example": "belittle 使缩小，贬低"
+  },
+  {
+    "affix": "be-",
+    "type": "prefix",
+    "meaning": "2. 加以...，用...",
+    "example": "bespangle 用小亮片装饰"
+  },
+  {
+    "affix": "be-",
+    "type": "prefix",
+    "meaning": "3. 在",
+    "example": "below 在...下面"
+  },
+  {
+    "affix": "be-",
+    "type": "prefix",
+    "meaning": "4. 加强及引申意义",
+    "example": "befall 降临，发生"
+  },
+  {
+    "affix": "bene-",
+    "type": "prefix",
+    "meaning": "善，好",
+    "example": "benediction 祝福"
+  },
+  {
+    "affix": "bi-",
+    "type": "prefix",
+    "meaning": "两，二",
+    "example": "bimonthly 双月刊"
+  },
+  {
+    "affix": "by-",
+    "type": "prefix",
+    "meaning": "旁，侧，非正式",
+    "example": "byroad 小路，僻径"
+  },
+  {
+    "affix": "centi-",
+    "type": "prefix",
+    "meaning": "百分之一，厘",
+    "example": "centimetre 厘米"
+  },
+  {
+    "affix": "circum-",
+    "type": "prefix",
+    "meaning": "周围，环境",
+    "example": "circumpolar 极地周围的"
+  },
+  {
+    "affix": "co-",
+    "type": "prefix",
+    "meaning": "共同",
+    "example": "cooperation 合作"
+  },
+  {
+    "affix": "col-",
+    "type": "prefix",
+    "meaning": "1. 共同",
+    "example": "collocate 并置，并列"
+  },
+  {
+    "affix": "col-",
+    "type": "prefix",
+    "meaning": "2. 加强或引申意义",
+    "example": "collate 校对"
+  },
+  {
+    "affix": "com-",
+    "type": "prefix",
+    "meaning": "1. 共同",
+    "example": "combine 联合，结合"
+  },
+  {
+    "affix": "com-",
+    "type": "prefix",
+    "meaning": "2. 加强或引申意义",
+    "example": "commix 混合"
+  },
+  {
+    "affix": "con-",
+    "type": "prefix",
+    "meaning": "1. 共同",
+    "example": "concolorous 同色的"
+  },
+  {
+    "affix": "con-",
+    "type": "prefix",
+    "meaning": "2. 加强或引申意义",
+    "example": "confirm 使坚定"
+  },
+  {
+    "affix": "contra-",
+    "type": "prefix",
+    "meaning": "反对，相反",
+    "example": "contradict 反驳，相矛盾"
+  },
+  {
+    "affix": "cor-",
+    "type": "prefix",
+    "meaning": "1. 共同，互相",
+    "example": "correspond 共鸣"
+  },
+  {
+    "affix": "cor-",
+    "type": "prefix",
+    "meaning": "2. 加强或引申意义",
+    "example": "corrupt 腐败，败坏"
+  },
+  {
+    "affix": "counter-",
+    "type": "prefix",
+    "meaning": "反对，相反",
+    "example": "counterattack 反攻，反击"
+  },
+  {
+    "affix": "de-",
+    "type": "prefix",
+    "meaning": "1. 否定，非，相反",
+    "example": "deprecatory 反对的"
+  },
+  {
+    "affix": "de-",
+    "type": "prefix",
+    "meaning": "2. 除去，取消，毁",
+    "example": "deflower 摧残，蹂躏"
+  },
+  {
+    "affix": "de-",
+    "type": "prefix",
+    "meaning": "3. 离开",
+    "example": "depart 离去"
+  },
+  {
+    "affix": "de-",
+    "type": "prefix",
+    "meaning": "4. 向下，降低",
+    "example": "devaluate 贬值"
+  },
+  {
+    "affix": "de-",
+    "type": "prefix",
+    "meaning": "5. 使成...，加强意义",
+    "example": "delimit 划定界限"
+  },
+  {
+    "affix": "deca-",
+    "type": "prefix",
+    "meaning": "十",
+    "example": "decameter 十米"
+  },
+  {
+    "affix": "deci-",
+    "type": "prefix",
+    "meaning": "十分之一",
+    "example": "decigram 十分之一克"
+  },
+  {
+    "affix": "demi-",
+    "type": "prefix",
+    "meaning": "半",
+    "example": "demigod 半神半人"
+  },
+  {
+    "affix": "di-",
+    "type": "prefix",
+    "meaning": "二，双",
+    "example": "dioxide 二氧化物"
+  },
+  {
+    "affix": "dia-",
+    "type": "prefix",
+    "meaning": "贯通，对穿，透过",
+    "example": "diameter 直径"
+  },
+  {
+    "affix": "dif-",
+    "type": "prefix",
+    "meaning": "1. 不，无，相反",
+    "example": "diffidence 无自信"
+  },
+  {
+    "affix": "dif-",
+    "type": "prefix",
+    "meaning": "2. 分开，离，散",
+    "example": "diffract 分散"
+  },
+  {
+    "affix": "dis-",
+    "type": "prefix",
+    "meaning": "1. 不，无，相反",
+    "example": "dislike 不喜欢"
+  },
+  {
+    "affix": "dis-",
+    "type": "prefix",
+    "meaning": "2. 取消，除去",
+    "example": "disappear 消失"
+  },
+  {
+    "affix": "dis-",
+    "type": "prefix",
+    "meaning": "3. 加强意义",
+    "example": "disannul 使无效，废除"
+  },
+  {
+    "affix": "dis-",
+    "type": "prefix",
+    "meaning": "4. 分开，离，散",
+    "example": "distract 分心"
+  },
+  {
+    "affix": "dys-",
+    "type": "prefix",
+    "meaning": "不良，恶，困难",
+    "example": "dyspepsia 消化不良"
+  },
+  {
+    "affix": "e-",
+    "type": "prefix",
+    "meaning": "1. 加强或引申意义",
+    "example": "evaluate 评价"
+  },
+  {
+    "affix": "e-",
+    "type": "prefix",
+    "meaning": "2. 出，外",
+    "example": "erupt 喷出"
+  },
+  {
+    "affix": "ef-",
+    "type": "prefix",
+    "meaning": "出，离去",
+    "example": "efflux 流出"
+  },
+  {
+    "affix": "electro-",
+    "type": "prefix",
+    "meaning": "有关电的",
+    "example": "electrograph 电传电报"
+  },
+  {
+    "affix": "em-",
+    "type": "prefix",
+    "meaning": "1. 置...之内",
+    "example": "embosom 藏于胸中，怀抱"
+  },
+  {
+    "affix": "em-",
+    "type": "prefix",
+    "meaning": "2. '配（饰）以...'",
+    "example": "embroider 镶边"
+  },
+  {
+    "affix": "em-",
+    "type": "prefix",
+    "meaning": "3. 致使...",
+    "example": "empurple 使发紫"
+  },
+  {
+    "affix": "en-",
+    "type": "prefix",
+    "meaning": "1. 置...之中",
+    "example": "encage 关入笼中"
+  },
+  {
+    "affix": "en-",
+    "type": "prefix",
+    "meaning": "2. '配（饰）以...'",
+    "example": "enchain 用链锁住"
+  },
+  {
+    "affix": "en-",
+    "type": "prefix",
+    "meaning": "3. 致使...",
+    "example": "enlarge 使扩大，放大"
+  },
+  {
+    "affix": "en-",
+    "type": "prefix",
+    "meaning": "4. 'in'或加强意义",
+    "example": "enregister 登记"
+  },
+  {
+    "affix": "endo-",
+    "type": "prefix",
+    "meaning": "内",
+    "example": "endoparasite 体内寄生虫"
+  },
+  {
+    "affix": "epi-",
+    "type": "prefix",
+    "meaning": "在...上面",
+    "example": "epidermis 表皮"
+  },
+  {
+    "affix": "equi-",
+    "type": "prefix",
+    "meaning": "相等，同等",
+    "example": "equilateral 正多边形"
+  },
+  {
+    "affix": "eu-",
+    "type": "prefix",
+    "meaning": "优，善，好",
+    "example": "euphonic 声音优的"
+  },
+  {
+    "affix": "every-",
+    "type": "prefix",
+    "meaning": "每一",
+    "example": "everyday 每天"
+  },
+  {
+    "affix": "ex-",
+    "type": "prefix",
+    "meaning": "1. 出，外",
+    "example": "excavate 挖出，发掘"
+  },
+  {
+    "affix": "ex-",
+    "type": "prefix",
+    "meaning": "2. 前任的，以前的",
+    "example": "ex-mayor 前任市长"
+  },
+  {
+    "affix": "ex-",
+    "type": "prefix",
+    "meaning": "3. 使（做）...",
+    "example": "expurgate 使清洁"
+  },
+  {
+    "affix": "exo-",
+    "type": "prefix",
+    "meaning": "外，外部",
+    "example": "exotic 外来的"
+  },
+  {
+    "affix": "extra-",
+    "type": "prefix",
+    "meaning": "以外，超过",
+    "example": "extraterritorial 治外法权的"
+  },
+  {
+    "affix": "for-",
+    "type": "prefix",
+    "meaning": "禁止，离去，克制",
+    "example": "forbear 忍受"
+  },
+  {
+    "affix": "fore-",
+    "type": "prefix",
+    "meaning": "前，先，预先",
+    "example": "foreground 前景"
+  },
+  {
+    "affix": "geo-",
+    "type": "prefix",
+    "meaning": "地质，地球",
+    "example": "geometry 大地测量术，几何"
+  },
+  {
+    "affix": "hecto-",
+    "type": "prefix",
+    "meaning": "一百",
+    "example": "hectopascal 百帕"
+  },
+  {
+    "affix": "hemi-",
+    "type": "prefix",
+    "meaning": "半",
+    "example": "hemisphere 半球"
+  },
+  {
+    "affix": "hepta-",
+    "type": "prefix",
+    "meaning": "七",
+    "example": "heptagon 七角形"
+  },
+  {
+    "affix": "hetero-",
+    "type": "prefix",
+    "meaning": "异",
+    "example": "heterosexual 异性的"
+  },
+  {
+    "affix": "hexa-",
+    "type": "prefix",
+    "meaning": "六",
+    "example": "hexangular 有六角的"
+  },
+  {
+    "affix": "high-",
+    "type": "prefix",
+    "meaning": "高，大，主要",
+    "example": "highway 高速路"
+  },
+  {
+    "affix": "holo-",
+    "type": "prefix",
+    "meaning": "全",
+    "example": "hologram 全息图"
+  },
+  {
+    "affix": "homo-",
+    "type": "prefix",
+    "meaning": "同",
+    "example": "homonym 同音字"
+  },
+  {
+    "affix": "hyper-",
+    "type": "prefix",
+    "meaning": "超过，过多，太甚",
+    "example": "hyperacid 胃酸过多的"
+  },
+  {
+    "affix": "hypo-",
+    "type": "prefix",
+    "meaning": "下，低，次，少",
+    "example": "hypotension 低血压"
+  },
+  {
+    "affix": "ideo-",
+    "type": "prefix",
+    "meaning": "观念，意义",
+    "example": "ideograph 会意字"
+  },
+  {
+    "affix": "il-",
+    "type": "prefix",
+    "meaning": "1. 不，无，非",
+    "example": "illegal 非法的"
+  },
+  {
+    "affix": "il-",
+    "type": "prefix",
+    "meaning": "2. 使成...，加强意义",
+    "example": "illuminate 照耀"
+  },
+  {
+    "affix": "im-",
+    "type": "prefix",
+    "meaning": "1. 不，无，非",
+    "example": "immoral 不道德的"
+  },
+  {
+    "affix": "im-",
+    "type": "prefix",
+    "meaning": "2. 向内，入",
+    "example": "imprison 投入狱中，监禁"
+  },
+  {
+    "affix": "im-",
+    "type": "prefix",
+    "meaning": "3. 使成...，加强意义",
+    "example": "imparadise 使登天堂"
+  },
+  {
+    "affix": "in-",
+    "type": "prefix",
+    "meaning": "1. 不，无，非",
+    "example": "inhuman 不人道的"
+  },
+  {
+    "affix": "in-",
+    "type": "prefix",
+    "meaning": "2. 内，入",
+    "example": "inbreak 入侵"
+  },
+  {
+    "affix": "in-",
+    "type": "prefix",
+    "meaning": "3. 使成...，加强意义",
+    "example": "inflame 燃烧"
+  },
+  {
+    "affix": "infra-",
+    "type": "prefix",
+    "meaning": "下，低",
+    "example": "infrared 红外线（低于红线）"
+  },
+  {
+    "affix": "inter-",
+    "type": "prefix",
+    "meaning": "1. 在...之间，..际",
+    "example": "interoceanic 大洋之间的"
+  },
+  {
+    "affix": "inter-",
+    "type": "prefix",
+    "meaning": "2. 互相",
+    "example": "interview 会见"
+  },
+  {
+    "affix": "intra-",
+    "type": "prefix",
+    "meaning": "在内，内部",
+    "example": "intrastate 州内的"
+  },
+  {
+    "affix": "intro-",
+    "type": "prefix",
+    "meaning": "向内，入内",
+    "example": "intromit 插入"
+  },
+  {
+    "affix": "ir-",
+    "type": "prefix",
+    "meaning": "1. 不，无",
+    "example": "irregular 不规则的"
+  },
+  {
+    "affix": "ir-",
+    "type": "prefix",
+    "meaning": "2. 向内，入",
+    "example": "irrigate 灌入水，灌溉"
+  },
+  {
+    "affix": "iso-",
+    "type": "prefix",
+    "meaning": "等，同",
+    "example": "isotope 同位素"
+  },
+  {
+    "affix": "kilo-",
+    "type": "prefix",
+    "meaning": "千",
+    "example": "kilowatt 千瓦"
+  },
+  {
+    "affix": "macro-",
+    "type": "prefix",
+    "meaning": "大，宏，长",
+    "example": "macroclimate 大气候"
+  },
+  {
+    "affix": "magni-",
+    "type": "prefix",
+    "meaning": "大，长",
+    "example": "magnify 扩大"
+  },
+  {
+    "affix": "mal-",
+    "type": "prefix",
+    "meaning": "恶，不良，失",
+    "example": "malfunction 故障"
+  },
+  {
+    "affix": "mega-",
+    "type": "prefix",
+    "meaning": "百万",
+    "example": "megabyte 兆字节"
+  },
+  {
+    "affix": "meta-",
+    "type": "prefix",
+    "meaning": "1. 超",
+    "example": "metachemistry 超级化学"
+  },
+  {
+    "affix": "meta-",
+    "type": "prefix",
+    "meaning": "2. 变化",
+    "example": "metagenesis 世代交替"
+  },
+  {
+    "affix": "micro-",
+    "type": "prefix",
+    "meaning": "微",
+    "example": "microwave 微波"
+  },
+  {
+    "affix": "mid-",
+    "type": "prefix",
+    "meaning": "中",
+    "example": "midsummer 仲夏"
+  },
+  {
+    "affix": "milli-",
+    "type": "prefix",
+    "meaning": "1. 千分之一，毫",
+    "example": "milligram 千分之一克"
+  },
+  {
+    "affix": "milli-",
+    "type": "prefix",
+    "meaning": "2. 千",
+    "example": "millipede 千足虫，多足虫"
+  },
+  {
+    "affix": "mini-",
+    "type": "prefix",
+    "meaning": "小",
+    "example": "minipark 小型公园"
+  },
+  {
+    "affix": "mis-",
+    "type": "prefix",
+    "meaning": "误，错，恶，不",
+    "example": "misspell 拼错"
+  },
+  {
+    "affix": "mono-",
+    "type": "prefix",
+    "meaning": "单一，独",
+    "example": "monoxide 一氧化物"
+  },
+  {
+    "affix": "multi-",
+    "type": "prefix",
+    "meaning": "多",
+    "example": "multimedia 多媒体的"
+  },
+  {
+    "affix": "neo-",
+    "type": "prefix",
+    "meaning": "新",
+    "example": "neoimpressionism 新印象派"
+  },
+  {
+    "affix": "no-",
+    "type": "prefix",
+    "meaning": "无",
+    "example": "nothing 没事"
+  },
+  {
+    "affix": "non-",
+    "type": "prefix",
+    "meaning": "1. 不",
+    "example": "nonsmoker 不抽烟的人"
+  },
+  {
+    "affix": "non-",
+    "type": "prefix",
+    "meaning": "2. 非",
+    "example": "nonmetal 非金属"
+  },
+  {
+    "affix": "non-",
+    "type": "prefix",
+    "meaning": "3. 无",
+    "example": "nonpayment 无力支付"
+  },
+  {
+    "affix": "ob-",
+    "type": "prefix",
+    "meaning": "逆，反，非，倒",
+    "example": "object 反对"
+  },
+  {
+    "affix": "oc-",
+    "type": "prefix",
+    "meaning": "逆，反，非，倒",
+    "example": "occupy 占领"
+  },
+  {
+    "affix": "octa-",
+    "type": "prefix",
+    "meaning": "八",
+    "example": "octagon 八角形"
+  },
+  {
+    "affix": "of-",
+    "type": "prefix",
+    "meaning": "逆，反，非，倒",
+    "example": "offend 触犯"
+  },
+  {
+    "affix": "omni-",
+    "type": "prefix",
+    "meaning": "全，总，公，都",
+    "example": "omnibus 公共汽车"
+  },
+  {
+    "affix": "op-",
+    "type": "prefix",
+    "meaning": "逆，反，非，倒",
+    "example": "opposite 相反的"
+  },
+  {
+    "affix": "out-",
+    "type": "prefix",
+    "meaning": "1. 胜过，超过",
+    "example": "outrun 跑过，追过"
+  },
+  {
+    "affix": "out-",
+    "type": "prefix",
+    "meaning": "2. 过度，太甚",
+    "example": "outdream 做梦太多"
+  },
+  {
+    "affix": "out-",
+    "type": "prefix",
+    "meaning": "3. 外，出",
+    "example": "outdoor 户外的"
+  },
+  {
+    "affix": "out-",
+    "type": "prefix",
+    "meaning": "4. 除去",
+    "example": "outcast 开除的，遗弃的"
+  },
+  {
+    "affix": "over-",
+    "type": "prefix",
+    "meaning": "1. 过度，太甚",
+    "example": "overpraise 过奖"
+  },
+  {
+    "affix": "over-",
+    "type": "prefix",
+    "meaning": "2. 在上，在外，从上",
+    "example": "overbridge 天桥"
+  },
+  {
+    "affix": "over-",
+    "type": "prefix",
+    "meaning": "3. 颠倒，反转",
+    "example": "overthrow 推翻"
+  },
+  {
+    "affix": "paleo-",
+    "type": "prefix",
+    "meaning": "古，旧",
+    "example": "paleozoology 古动物学"
+  },
+  {
+    "affix": "pan-",
+    "type": "prefix",
+    "meaning": "全，泛",
+    "example": "pantheism 泛神论"
+  },
+  {
+    "affix": "para-",
+    "type": "prefix",
+    "meaning": "1. 半，类似，准",
+    "example": "parallel 平行的"
+  },
+  {
+    "affix": "para-",
+    "type": "prefix",
+    "meaning": "2. 辅助，副",
+    "example": "paramilitary 辅助军事的"
+  },
+  {
+    "affix": "para-",
+    "type": "prefix",
+    "meaning": "3. 旁，靠近，外",
+    "example": "parasite 寄生虫"
+  },
+  {
+    "affix": "para-",
+    "type": "prefix",
+    "meaning": "4. 错误，伪",
+    "example": "paradox 似是而非"
+  },
+  {
+    "affix": "para-",
+    "type": "prefix",
+    "meaning": "5. 防，避开，保护",
+    "example": "parasol 遮阳伞"
+  },
+  {
+    "affix": "para-",
+    "type": "prefix",
+    "meaning": "6. 超过",
+    "example": "paramount 至上的"
+  },
+  {
+    "affix": "pen-",
+    "type": "prefix",
+    "meaning": "几乎，相近，相似",
+    "example": "penultimate 倒数第二个"
+  },
+  {
+    "affix": "penta-",
+    "type": "prefix",
+    "meaning": "五",
+    "example": "pentagram 五角星形"
+  },
+  {
+    "affix": "per-",
+    "type": "prefix",
+    "meaning": "1. 贯穿，通，透",
+    "example": "persist 坚持"
+  },
+  {
+    "affix": "per-",
+    "type": "prefix",
+    "meaning": "2. 加强意义",
+    "example": "perturb 扰乱"
+  },
+  {
+    "affix": "per-",
+    "type": "prefix",
+    "meaning": "3. 过，高",
+    "example": "perchloride 高氯化物"
+  },
+  {
+    "affix": "peri-",
+    "type": "prefix",
+    "meaning": "周围，外层，靠近",
+    "example": "pericarp 果皮"
+  },
+  {
+    "affix": "poly-",
+    "type": "prefix",
+    "meaning": "多",
+    "example": "polyfunctional 多功能的"
+  },
+  {
+    "affix": "post-",
+    "type": "prefix",
+    "meaning": "后",
+    "example": "postscript 后记"
+  },
+  {
+    "affix": "pre-",
+    "type": "prefix",
+    "meaning": "1. 前",
+    "example": "prefix 前缀"
+  },
+  {
+    "affix": "pre-",
+    "type": "prefix",
+    "meaning": "2. 预先",
+    "example": "prepay 预付"
+  },
+  {
+    "affix": "pro-",
+    "type": "prefix",
+    "meaning": "1. 向前，在前",
+    "example": "prologue 前言，序言"
+  },
+  {
+    "affix": "pro-",
+    "type": "prefix",
+    "meaning": "2. 代理，代替",
+    "example": "procurator 代理人"
+  },
+  {
+    "affix": "pro-",
+    "type": "prefix",
+    "meaning": "3. 拥护，亲，赞成",
+    "example": "pro-British 亲英的"
+  },
+  {
+    "affix": "proto-",
+    "type": "prefix",
+    "meaning": "原始",
+    "example": "protoplasm 原生质，细胞质"
+  },
+  {
+    "affix": "pseudo-",
+    "type": "prefix",
+    "meaning": "假",
+    "example": "pesudonym 假名"
+  },
+  {
+    "affix": "quadr-",
+    "type": "prefix",
+    "meaning": "四",
+    "example": "quadruped 四足动物"
+  },
+  {
+    "affix": "quinque-",
+    "type": "prefix",
+    "meaning": "五",
+    "example": "quinquesection 五等分"
+  },
+  {
+    "affix": "re-",
+    "type": "prefix",
+    "meaning": "1. 回，向后",
+    "example": "reclaim 收回"
+  },
+  {
+    "affix": "re-",
+    "type": "prefix",
+    "meaning": "2. 再，重复，重新",
+    "example": "reconsider 重新考虑"
+  },
+  {
+    "affix": "re-",
+    "type": "prefix",
+    "meaning": "3. 相反，反对",
+    "example": "revolt 反叛，造反"
+  },
+  {
+    "affix": "retro-",
+    "type": "prefix",
+    "meaning": "向后，回，后",
+    "example": "retrospect 回顾"
+  },
+  {
+    "affix": "se-",
+    "type": "prefix",
+    "meaning": "离开，分开",
+    "example": "secede 脱离，退出"
+  },
+  {
+    "affix": "semi-",
+    "type": "prefix",
+    "meaning": "半",
+    "example": "semimonthly 半月刊"
+  },
+  {
+    "affix": "sept-",
+    "type": "prefix",
+    "meaning": "七",
+    "example": "septuple 七倍的"
+  },
+  {
+    "affix": "sex-",
+    "type": "prefix",
+    "meaning": "六",
+    "example": "sexto 六开本"
+  },
+  {
+    "affix": "Sino-",
+    "type": "prefix",
+    "meaning": "中国",
+    "example": "Sino-Tibetan 汉藏语系"
+  },
+  {
+    "affix": "some-",
+    "type": "prefix",
+    "meaning": "某",
+    "example": "sometime 某时"
+  },
+  {
+    "affix": "step-",
+    "type": "prefix",
+    "meaning": "后，继",
+    "example": "stepfather 继父"
+  },
+  {
+    "affix": "stereo-",
+    "type": "prefix",
+    "meaning": "立体",
+    "example": "stereosonic 立体声的"
+  },
+  {
+    "affix": "sub-",
+    "type": "prefix",
+    "meaning": "1. 下",
+    "example": "submarine 海面下的"
+  },
+  {
+    "affix": "sub-",
+    "type": "prefix",
+    "meaning": "2. 次，亚，准，半",
+    "example": "subtropics 亚热带"
+  },
+  {
+    "affix": "sub-",
+    "type": "prefix",
+    "meaning": "3. 稍，略，微",
+    "example": "subarid 略干燥的"
+  },
+  {
+    "affix": "sub-",
+    "type": "prefix",
+    "meaning": "4. 副，分支，下级",
+    "example": "subworker 副手，助手"
+  },
+  {
+    "affix": "sub-",
+    "type": "prefix",
+    "meaning": "5. 接近",
+    "example": "subarctic 近北极圈的"
+  },
+  {
+    "affix": "sub-",
+    "type": "prefix",
+    "meaning": "6. 更进一层，再",
+    "example": "sublet 转租，再租"
+  },
+  {
+    "affix": "suc-",
+    "type": "prefix",
+    "meaning": "使成...，加强意义",
+    "example": "succeed 成功"
+  },
+  {
+    "affix": "suf-",
+    "type": "prefix",
+    "meaning": "使成...，加强意义",
+    "example": "suffocate 窒息"
+  },
+  {
+    "affix": "sup-",
+    "type": "prefix",
+    "meaning": "使成...，加强意义",
+    "example": "support 支持"
+  },
+  {
+    "affix": "super-",
+    "type": "prefix",
+    "meaning": "1. 超，超级",
+    "example": "superpower 超级大国"
+  },
+  {
+    "affix": "super-",
+    "type": "prefix",
+    "meaning": "2. 上",
+    "example": "superstructure 上层建筑"
+  },
+  {
+    "affix": "super-",
+    "type": "prefix",
+    "meaning": "3. 过度，过多",
+    "example": "superexcitation 过度兴奋"
+  },
+  {
+    "affix": "supra-",
+    "type": "prefix",
+    "meaning": "超，上",
+    "example": "suprarenal 肾上腺的"
+  },
+  {
+    "affix": "sur-",
+    "type": "prefix",
+    "meaning": "1. 上，外，超",
+    "example": "surcharge 超载"
+  },
+  {
+    "affix": "sur-",
+    "type": "prefix",
+    "meaning": "2. 使成...，加强意义",
+    "example": "surround 包围"
+  },
+  {
+    "affix": "sym-",
+    "type": "prefix",
+    "meaning": "共同，相同",
+    "example": "symmetry 对称"
+  },
+  {
+    "affix": "syn-",
+    "type": "prefix",
+    "meaning": "共同，相同",
+    "example": "synthesis 合成"
+  },
+  {
+    "affix": "tele-",
+    "type": "prefix",
+    "meaning": "1. 电",
+    "example": "telecommunication 电信"
+  },
+  {
+    "affix": "tele-",
+    "type": "prefix",
+    "meaning": "2. 远程",
+    "example": "telemetry 远距离测量"
+  },
+  {
+    "affix": "tetra-",
+    "type": "prefix",
+    "meaning": "四",
+    "example": "tetrachord 四弦乐器"
+  },
+  {
+    "affix": "trans-",
+    "type": "prefix",
+    "meaning": "1. 越过，横过，超",
+    "example": "translucent 半透明的"
+  },
+  {
+    "affix": "trans-",
+    "type": "prefix",
+    "meaning": "2. 转移，变换",
+    "example": "transport 运输"
+  },
+  {
+    "affix": "tri-",
+    "type": "prefix",
+    "meaning": "三",
+    "example": "triangle 三角"
+  },
+  {
+    "affix": "twi-",
+    "type": "prefix",
+    "meaning": "二，两",
+    "example": "twin 双胞胎"
+  },
+  {
+    "affix": "ultra-",
+    "type": "prefix",
+    "meaning": "1. 极端",
+    "example": "ultrathin 极薄的"
+  },
+  {
+    "affix": "ultra-",
+    "type": "prefix",
+    "meaning": "2. 超，以外",
+    "example": "ultramarine 海外的"
+  },
+  {
+    "affix": "un-",
+    "type": "prefix",
+    "meaning": "1. 不",
+    "example": "unfortunate 不幸的"
+  },
+  {
+    "affix": "un-",
+    "type": "prefix",
+    "meaning": "2. 无",
+    "example": "unmanned 无人驾驶的"
+  },
+  {
+    "affix": "un-",
+    "type": "prefix",
+    "meaning": "3. 非",
+    "example": "unartificial 非人工的"
+  },
+  {
+    "affix": "un-",
+    "type": "prefix",
+    "meaning": "4. 未",
+    "example": "uncivilized 未开化的"
+  },
+  {
+    "affix": "un-",
+    "type": "prefix",
+    "meaning": "5. 相反动作，取消",
+    "example": "unbutton 解开钮扣"
+  },
+  {
+    "affix": "un-",
+    "type": "prefix",
+    "meaning": "6. 由...中弄出",
+    "example": "unbosom 吐露（心事）"
+  },
+  {
+    "affix": "under-",
+    "type": "prefix",
+    "meaning": "1. 下",
+    "example": "underworld 下层社会"
+  },
+  {
+    "affix": "under-",
+    "type": "prefix",
+    "meaning": "2. 内（用于衣服）",
+    "example": "undershirt 帖身内衣"
+  },
+  {
+    "affix": "under-",
+    "type": "prefix",
+    "meaning": "3. 不足，少",
+    "example": "underestimate 估计不足"
+  },
+  {
+    "affix": "under-",
+    "type": "prefix",
+    "meaning": "4. 副，次",
+    "example": "underking 副王，小王"
+  },
+  {
+    "affix": "uni-",
+    "type": "prefix",
+    "meaning": "单一",
+    "example": "unicorn 独角兽"
+  },
+  {
+    "affix": "vice-",
+    "type": "prefix",
+    "meaning": "副",
+    "example": "vice-manager 副经理"
+  },
+  {
+    "affix": "with-",
+    "type": "prefix",
+    "meaning": "向后，相反",
+    "example": "withdraw 撤回，撤退"
+  },
+  {
+    "affix": "-a",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "构成复数名词 (n)",
+    "example": "stadia 体育馆"
+  },
+  {
+    "affix": "-ability",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "可...性 (n)",
+    "example": "dependability 可靠性"
+  },
+  {
+    "affix": "-able",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "可...的 (a)",
+    "example": "inflammable 易燃的"
+  },
+  {
+    "affix": "-ably",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "ad",
+    "meaning": "-able的副词形式",
+    "example": "suitably 合适地"
+  },
+  {
+    "affix": "-ac",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "a",
+    "meaning": "属于... 的",
+    "example": "",
+    "extra_examples": [
+      "具有...性质的"
+    ]
+  },
+  {
+    "affix": "-ace",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "与...有关的 (a)",
+    "example": "menace 威胁",
+    "extra_examples": [
+      "populace 大众",
+      "Terrace 平台"
+    ]
+  },
+  {
+    "affix": "-acious",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-acity",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "具有...特性的 (a)",
+    "example": ""
+  },
+  {
+    "affix": "-acy",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "性质、状态 quality state office",
+    "example": ""
+  },
+  {
+    "affix": "-acle",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "与...相关的事物 (n)",
+    "example": "manacle 手铐"
+  },
+  {
+    "affix": "-ade",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "集合名词 原型 -ad",
+    "example": ""
+  },
+  {
+    "affix": "-ades",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "-ad 的复数",
+    "example": "Plei+-ades 昂宿星团"
+  },
+  {
+    "affix": "-ade",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "动作，状态 (n) 、 人物",
+    "example": "blockade 封锁"
+  },
+  {
+    "affix": "-age",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ain",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "与...有关的人或物",
+    "example": "chieftain 酋长，头子"
+  },
+  {
+    "affix": "-al",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "1. 有...性质的 (a)",
+    "example": "continental 大陆的"
+  },
+  {
+    "affix": "-al",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "行为（抽象）(n)",
+    "example": "withdrawal 撤退",
+    "extra_examples": [
+      "人\trival 竟争者",
+      "物\tmanual 手册"
+    ]
+  },
+  {
+    "affix": "-an",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "属于... 的",
+    "example": "metropolitan 大都市的",
+    "extra_examples": [
+      "具有...性质的"
+    ]
+  },
+  {
+    "affix": "-an",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "...的人 (n)",
+    "example": "pubican 旅店主人"
+  },
+  {
+    "affix": "-ane",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "有...性质的 (a)",
+    "example": "Humane 人道的",
+    "extra_examples": [
+      "Mundane 世俗的"
+    ]
+  },
+  {
+    "affix": "-ana",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "集合名词",
+    "example": ""
+  },
+  {
+    "affix": "-ance",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "情况等（抽象）(n)",
+    "example": "buoyance 浮力"
+  },
+  {
+    "affix": "-ancy",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "情况等（抽象）(n)",
+    "example": "elegancy 优美，高雅"
+  },
+  {
+    "affix": "-aneous",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "有...性质的 (a)",
+    "example": "subterraneous 地下的"
+  },
+  {
+    "affix": "-ant",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "1. 属于...的 (a)",
+    "example": "luxuriant 奢华的"
+  },
+  {
+    "affix": "-ant",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "与...有关的人或物",
+    "example": "participant 参与者"
+  },
+  {
+    "affix": "-ar",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "有...性质的 (a)",
+    "example": "consular 领事的"
+  },
+  {
+    "affix": "-ar",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "er的异体. 人 (n)",
+    "example": "liar 说谎的人",
+    "extra_examples": [
+      "altar 祭坛"
+    ]
+  },
+  {
+    "affix": "-ard",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "n",
+    "meaning": "…的 人（贬义）(n)",
+    "example": "bastard 私生子"
+  },
+  {
+    "affix": "-arian",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "1. 人 (n)",
+    "example": "parliamentarian 国会议员"
+  },
+  {
+    "affix": "-arily",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "ad",
+    "meaning": "有...性质地",
+    "example": "extraordinarily 不寻常地"
+  },
+  {
+    "affix": "-arium",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "容器、场所，...馆 (n)",
+    "example": "planetarium 天文馆"
+  },
+  {
+    "affix": "-ary",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "1. 有...性质的 (a)",
+    "example": "customary 习惯的"
+  },
+  {
+    "affix": "-ary",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "2. 场所，地点 (n)",
+    "example": "apiary 养蜂场"
+  },
+  {
+    "affix": "-ary",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "3. 人 (n)",
+    "example": "secretary 书记，秘书"
+  },
+  {
+    "affix": "-ary",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "4. 物 (n)",
+    "example": "glossary 词汇表"
+  },
+  {
+    "affix": "-asis",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "性质（抽象）(n)",
+    "example": "sarcasm 讥讽"
+  },
+  {
+    "affix": "-aster",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "人（缩小或贬低的称呼）(n)",
+    "example": "medicaster 江湖医生"
+  },
+  {
+    "affix": "-ate",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "v",
+    "meaning": "1. 做，造成 (v)",
+    "example": "activate 激活",
+    "extra_examples": [
+      "-atum(中) -ata（阴）"
+    ]
+  },
+  {
+    "affix": "-ate",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "2. 有...性质的 (a)",
+    "example": "private 私人的"
+  },
+  {
+    "affix": "-ate",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "3. 人 (n)",
+    "example": "graduate 毕业生"
+  },
+  {
+    "affix": "-ate",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "4. 职位，职权 (n)",
+    "example": "professoriate 教授职位"
+  },
+  {
+    "affix": "-ate",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "5. 构成化学名词 (n)",
+    "example": "acetate 醋酸盐"
+  },
+  {
+    "affix": "-atic",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "有...性质的 (a)",
+    "example": "diagrammatic 图解的"
+  },
+  {
+    "affix": "-ation",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "1. 行为，情况 (n)",
+    "example": "invitation 邀请"
+  },
+  {
+    "affix": "-ative",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "与...有关的 (a)",
+    "example": "affirmative 肯定的"
+  },
+  {
+    "affix": "-ator",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "做...工作的人，物 (n)",
+    "example": "calculator 计算机"
+  },
+  {
+    "affix": "-atory",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "1. 具有...的 (a)",
+    "example": "exclamatory 感叹的"
+  },
+  {
+    "affix": "-be",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "life 生物",
+    "example": "aerobe",
+    "extra_examples": [
+      "Microbe",
+      "Saprobe sapro=rotten"
+    ]
+  },
+  {
+    "affix": "-ble",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-cle",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "小东西",
+    "example": "corpuscle 血球"
+  },
+  {
+    "affix": "-cle",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "地方 方法",
+    "example": "vehicle"
+  },
+  {
+    "affix": "-cule",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "小东西",
+    "example": ""
+  },
+  {
+    "affix": "-cy",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "性质，状态 (n)",
+    "example": "infancy 幼年期",
+    "extra_examples": [
+      "拉丁 -cia -tia 希腊 -kia"
+    ]
+  },
+  {
+    "affix": "-dom",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "1. 情况，身分 (n)",
+    "example": "freedom 自由",
+    "extra_examples": [
+      "2. 领域，...界 (n)\tsportsdom 体育界"
+    ]
+  },
+  {
+    "affix": "-ee",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "n",
+    "meaning": "及物动词之受词 (n)",
+    "example": "employee 雇员",
+    "extra_examples": [
+      "其他词性之主词"
+    ]
+  },
+  {
+    "affix": "-eer",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "n",
+    "meaning": "从事...的人",
+    "example": "volunteer 志愿者",
+    "extra_examples": [
+      "与...有关的人"
+    ]
+  },
+  {
+    "affix": "-el",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "小东西",
+    "example": ""
+  },
+  {
+    "affix": "-elle",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "小东西",
+    "example": ""
+  },
+  {
+    "affix": "-ella",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "小东西",
+    "example": ""
+  },
+  {
+    "affix": "-en",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "a",
+    "meaning": "1. 含...的",
+    "example": "golden 含金的",
+    "extra_examples": [
+      "2 ...制做的"
+    ]
+  },
+  {
+    "affix": "-en",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "v",
+    "meaning": "2. 使成为 (v)",
+    "example": "widen 加宽"
+  },
+  {
+    "affix": "-ence",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "性质，状态，行为 (n)",
+    "example": "existence 存在"
+  },
+  {
+    "affix": "-ency",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-end",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-enne",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "n",
+    "meaning": "女性",
+    "example": ""
+  },
+  {
+    "affix": "-ent",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "做...的人",
+    "example": "deterrent 妨碍的",
+    "extra_examples": [
+      "有...性质的"
+    ]
+  },
+  {
+    "affix": "-ern",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "a",
+    "meaning": "在...方向的 (a)",
+    "example": "northern 北方的"
+  },
+  {
+    "affix": "-ery",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "n",
+    "meaning": "状态",
+    "example": ""
+  },
+  {
+    "affix": "-esce",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "v",
+    "meaning": "表发展中的",
+    "example": "念es"
+  },
+  {
+    "affix": "-escence",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "",
+    "example": "念esns"
+  },
+  {
+    "affix": "-escent",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ese",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "a",
+    "meaning": "...民族的人或语言",
+    "example": "Japanese 日本的"
+  },
+  {
+    "affix": "-esis",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-esque",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "a",
+    "meaning": "像...一样的",
+    "example": "picturesque 如画般的",
+    "extra_examples": [
+      "...式的；...派的\tDantesque 但丁派的"
+    ]
+  },
+  {
+    "affix": "-ess",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "n",
+    "meaning": "阴性 (n)",
+    "example": "airhostess 空姐",
+    "extra_examples": [
+      "Poetess 女诗人"
+    ]
+  },
+  {
+    "affix": "-et",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "n",
+    "meaning": "小东西",
+    "example": "floweret 小花"
+  },
+  {
+    "affix": "-etic",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ette",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "n",
+    "meaning": "小东西",
+    "example": "cigarette"
+  },
+  {
+    "affix": "-ey",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "a",
+    "meaning": "",
+    "example": "clayey"
+  },
+  {
+    "affix": "-faction",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-fold",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "a",
+    "meaning": "...倍的，...重的 (a)",
+    "example": "multifold 多倍的"
+  },
+  {
+    "affix": "-ful",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "a",
+    "meaning": "1. 有...性质的 (a)",
+    "example": "beautiful 美丽的"
+  },
+  {
+    "affix": "-ful",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "2. ...的量 (n)",
+    "example": "teaspoonful 一茶匙"
+  },
+  {
+    "affix": "-fully",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "ad",
+    "meaning": "有...性质地 (ad)",
+    "example": "carefully 小心地"
+  },
+  {
+    "affix": "-fy",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "v",
+    "meaning": "使...化 (v)",
+    "example": "electrify 通电"
+  },
+  {
+    "affix": "-fic",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-hood",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "时期；组织",
+    "example": "childhood 童年"
+  },
+  {
+    "affix": "-ia",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ible",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ibly",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "adv",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ic",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "a",
+    "meaning": "关于/属于/像 ...的人/物",
+    "example": "basic 基本的"
+  },
+  {
+    "affix": "-ic",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "被...影响了的人",
+    "example": "alcholic"
+  },
+  {
+    "affix": "-ical",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ice",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "与...相关的行为，动作，状态",
+    "example": "service 服务"
+  },
+  {
+    "affix": "-icious",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "a",
+    "meaning": "具有...的，多...的 (a)",
+    "example": "suspicious 可疑的"
+  },
+  {
+    "affix": "-icity",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "性质 (n)",
+    "example": "authenticity 真实性，可靠性"
+  },
+  {
+    "affix": "-ics",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "学科 (n)",
+    "example": "physics 物理学"
+  },
+  {
+    "affix": "-id",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "有...性质地",
+    "example": ""
+  },
+  {
+    "affix": "-ide",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "...化物",
+    "example": "oxide 氧化物",
+    "extra_examples": [
+      "Carbide 碳化物"
+    ]
+  },
+  {
+    "affix": "-ie",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "小东西",
+    "example": "cookie"
+  },
+  {
+    "affix": "-il",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ile",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "可...的；容易...的",
+    "example": "fragile 易碎的",
+    "extra_examples": [
+      "Mobile 可移动的"
+    ]
+  },
+  {
+    "affix": "-ig",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "a",
+    "meaning": "1）名词/动词变形容词",
+    "example": "",
+    "extra_examples": [
+      "2）类似加-ed的功能，如roodharig = red-haired"
+    ]
+  },
+  {
+    "affix": "-in",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "化学、医学 …... 素 （表中性化合物）",
+    "example": "Toxin 毒素",
+    "extra_examples": [
+      "Insulin 胰岛素"
+    ]
+  },
+  {
+    "affix": "-ine",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "化学、医学 …... 素（表基本物质）",
+    "example": "iodine 碘元素",
+    "extra_examples": [
+      "Fluorine 氟元素"
+    ]
+  },
+  {
+    "affix": "-ine",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "具有...特性的 (a)",
+    "example": "adamantine 坚硬的",
+    "extra_examples": [
+      "Crystalline 水晶般的"
+    ]
+  },
+  {
+    "affix": "-ion",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "",
+    "example": "",
+    "extra_examples": [
+      "比较： -cion -xion"
+    ]
+  },
+  {
+    "affix": "-ior",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "",
+    "example": "superior junior",
+    "extra_examples": [
+      "warrior savior"
+    ]
+  },
+  {
+    "affix": "-ious",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-isation",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ise",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "v",
+    "meaning": "使...化 (v)",
+    "example": "surprise 使惊愕"
+  },
+  {
+    "affix": "-ise",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ish",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "a",
+    "meaning": "...的 (a)",
+    "example": "Turkish 土耳其的",
+    "extra_examples": [
+      "Tallish高的"
+    ]
+  },
+  {
+    "affix": "-ish",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "v",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ism",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "主义，学说，状态 (n)",
+    "example": "socialism 社会主义"
+  },
+  {
+    "affix": "-ist",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "...主义者，...家 (n)",
+    "example": "novelist 小说家"
+  },
+  {
+    "affix": "-istic",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-it",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "...的动作 (n) 原型拉丁词尾ittere等",
+    "example": "pursuit 追求"
+  },
+  {
+    "affix": "-ite",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-itic",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-itis",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "医学 ...炎",
+    "example": "arthritis 关节炎"
+  },
+  {
+    "affix": "-ition",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-itious",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ity",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "表性质，状态 之抽象名词",
+    "example": "solidarity 团结"
+  },
+  {
+    "affix": "-itive",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-itor",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ium",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "名词",
+    "example": "calcium 钙",
+    "extra_examples": [
+      "Gymnasium 运动场"
+    ]
+  },
+  {
+    "affix": "-ive",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "有...倾向的",
+    "example": "attractive 迷人的"
+  },
+  {
+    "affix": "-ization",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ize",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "v",
+    "meaning": "动词后缀",
+    "example": "initialize 初始化"
+  },
+  {
+    "affix": "-le",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "a/n/v",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-less",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "a",
+    "meaning": "无，没有，不 (a)",
+    "example": "hopeless 绝望的"
+  },
+  {
+    "affix": "-let",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "小 (n)",
+    "example": "booklet 小册子"
+  },
+  {
+    "affix": "-like",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "似...的 (n)",
+    "example": "catlike 猫样的"
+  },
+  {
+    "affix": "-ling",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "小（轻蔑）(n)",
+    "example": "starling 小星星"
+  },
+  {
+    "affix": "-ly",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "adv",
+    "meaning": "名词或者形容词变副词",
+    "example": "friendly 友好的"
+  },
+  {
+    "affix": "-ly",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "a/adv",
+    "meaning": "像...一样的 每（时间） ... 地",
+    "example": "saintly 像圣徒一样的Daily 每日地"
+  },
+  {
+    "affix": "-ment",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "动词+ment变名词…行为，结果，手段 (n)",
+    "example": "implement 工具"
+  },
+  {
+    "affix": "-ness",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "形容词变名词",
+    "example": "illness 疾病"
+  },
+  {
+    "affix": "-o-",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "",
+    "meaning": "连接两个辅音",
+    "example": "speedometer 速度计"
+  },
+  {
+    "affix": "-o",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "",
+    "example": "ammo 弹药，军火Limo 豪华轿车"
+  },
+  {
+    "affix": "-oid",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "a/n",
+    "meaning": "与...相似的东西",
+    "example": "android 机器人Cuboid 立方体的"
+  },
+  {
+    "affix": "-ole",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "小 (n)",
+    "example": ""
+  },
+  {
+    "affix": "-ol",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ola",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-oon",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-on",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-or",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "1. 人 (n) 2.状态",
+    "example": "emperor 皇帝"
+  },
+  {
+    "affix": "-ory",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "describes something that does a particular thing:",
+    "example": "congratulatory"
+  },
+  {
+    "affix": "-ory",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "1：a place or thing that is used for doing something",
+    "example": "observatory"
+  },
+  {
+    "affix": "-ose",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "多...的",
+    "example": "verbose 啰嗦的frondose 有叶的"
+  },
+  {
+    "affix": "-our",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "类似 or",
+    "example": "favour 好感"
+  },
+  {
+    "affix": "-ous",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "a",
+    "meaning": "describes something that has a particular quality",
+    "example": "dangerous 危险的Spacious"
+  },
+  {
+    "affix": "-on",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "原子物理学词汇",
+    "example": "Electron 电子Neutron 中子"
+  },
+  {
+    "affix": "-osis",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "a diseased condition",
+    "example": "silicosis"
+  },
+  {
+    "affix": "-otic",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-que",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "",
+    "meaning": "没有特别的意义",
+    "example": ""
+  },
+  {
+    "affix": "-rel",
+    "type": "suffix",
+    "origin": "French",
+    "pos": "n",
+    "meaning": "小 (n)",
+    "example": ""
+  },
+  {
+    "affix": "-ress",
+    "type": "suffix",
+    "origin": "",
+    "pos": "",
+    "meaning": "阴性 (n)",
+    "example": "actress 女演员"
+  },
+  {
+    "affix": "-ry",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "名词",
+    "example": "rivalry 敌对"
+  },
+  {
+    "affix": "-ship",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "1. 动作 (n)",
+    "example": "courtship 求爱"
+  },
+  {
+    "affix": "-sion",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "动作，状态 (n)",
+    "example": "revision 复习"
+  },
+  {
+    "affix": "-sis",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "构成抽象名词",
+    "example": "crisis 危机"
+  },
+  {
+    "affix": "-ster",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "人、职业（有贬损意味）",
+    "example": ""
+  },
+  {
+    "affix": "-stress",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "（阴性）人、职业（有贬损意味）",
+    "example": ""
+  },
+  {
+    "affix": "-sy",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "a/n",
+    "meaning": "小 (n)",
+    "example": "bitsy artsy cutesy"
+  },
+  {
+    "affix": "-some",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "a",
+    "meaning": "引起的 (a)",
+    "example": "troublesome 烦人的"
+  },
+  {
+    "affix": "-teen",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "十... (num)",
+    "example": "fifteen 十五"
+  },
+  {
+    "affix": "-th",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "1. 行为，结果 (n)",
+    "example": "death 死亡"
+  },
+  {
+    "affix": "-tic",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "a",
+    "meaning": "有...性质的 (a)",
+    "example": "romantic 浪漫的"
+  },
+  {
+    "affix": "-tion",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "行为，状态，情况 (n)",
+    "example": "contribution 贡献"
+  },
+  {
+    "affix": "-tious",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "有...性质的 (a)",
+    "example": "cautious 谨慎的"
+  },
+  {
+    "affix": "-tor",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "人、职业",
+    "example": "janitor ,jani = 门orator , ora= 说"
+  },
+  {
+    "affix": "-tory",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "表场所地点",
+    "example": ""
+  },
+  {
+    "affix": "-tude",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "",
+    "example": "altitude 海拔platitude 陈腐 plat = flat 平淡"
+  },
+  {
+    "affix": "-ty",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "状态",
+    "example": "safety 安全"
+  },
+  {
+    "affix": "-ular",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ule",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "小 (n)",
+    "example": ""
+  },
+  {
+    "affix": "-ulent",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-ure",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "结果，动作，过程 (n)",
+    "example": "procedure 程序"
+  },
+  {
+    "affix": "-ulous",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-urgy",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "工作",
+    "example": "dramaturgy 编剧法"
+  },
+  {
+    "affix": "-ward",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "a",
+    "meaning": "向，向...的 (prep,a)",
+    "example": "backward 向后"
+  },
+  {
+    "affix": "-wards",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "adv",
+    "meaning": "向 (ad)",
+    "example": "skywards 朝上地"
+  },
+  {
+    "affix": "-y",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "a",
+    "meaning": "1. 充满，有...性质 (a)",
+    "example": "handy 手巧的"
+  },
+  {
+    "affix": "-y",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "2. 亲昵 (n)",
+    "example": "kitty 猫咪",
+    "extra_examples": [
+      "后缀"
+    ]
+  },
+  {
+    "affix": "-arch",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "首领 统治者",
+    "example": "monarch",
+    "extra_examples": [
+      "Patriarch"
+    ]
+  },
+  {
+    "affix": "-archy",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "统治 (n)",
+    "example": "origarchy"
+  },
+  {
+    "affix": "-aster",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "星星",
+    "example": "diaster 双星"
+  },
+  {
+    "affix": "-cide",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "杀...剂（的东西）",
+    "example": ""
+  },
+  {
+    "affix": "-cracy",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "统治 (n)",
+    "example": "bureaucracy 官僚主义"
+  },
+  {
+    "affix": "-crat",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "参加者，支持者 (n)",
+    "example": "democrat 民主主义者"
+  },
+  {
+    "affix": "-teria",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "小店",
+    "example": "roadeteria"
+  },
+  {
+    "affix": "-fer",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "生产者，承受者",
+    "example": ""
+  },
+  {
+    "affix": "-ferous",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "具有...的",
+    "example": ""
+  },
+  {
+    "affix": "-fuge",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "使...逃逸之物",
+    "example": "vermifuge (vermi = worm) 驱虫药"
+  },
+  {
+    "affix": "-fest",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "聚会",
+    "example": "lovefest"
+  },
+  {
+    "affix": "-gamy",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "结婚",
+    "example": ""
+  },
+  {
+    "affix": "-gen",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "生成...之物",
+    "example": "hydrogen 氢气 （hydro=水）",
+    "extra_examples": [
+      "pathogen  病原体 path= 病"
+    ]
+  },
+  {
+    "affix": "-graph",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "书写器材，记录器",
+    "example": "electrograph 电传真"
+  },
+  {
+    "affix": "-gnomy",
+    "type": "suffix",
+    "origin": "",
+    "pos": "",
+    "meaning": "知识",
+    "example": ""
+  },
+  {
+    "affix": "-gnosis",
+    "type": "suffix",
+    "origin": "",
+    "pos": "",
+    "meaning": "认识",
+    "example": ""
+  },
+  {
+    "affix": "-gon",
+    "type": "suffix",
+    "origin": "",
+    "pos": "",
+    "meaning": "角",
+    "example": ""
+  },
+  {
+    "affix": "-gony",
+    "type": "suffix",
+    "origin": "",
+    "pos": "",
+    "meaning": "起源",
+    "example": ""
+  },
+  {
+    "affix": "-grade",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "行走",
+    "example": ""
+  },
+  {
+    "affix": "-gram",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "",
+    "meaning": "书写成的作品",
+    "example": ""
+  },
+  {
+    "affix": "-graph",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "",
+    "meaning": "书写",
+    "example": ""
+  },
+  {
+    "affix": "-gnomy",
+    "type": "suffix",
+    "origin": "",
+    "pos": "",
+    "meaning": "知识",
+    "example": ""
+  },
+  {
+    "affix": "-gnosis",
+    "type": "suffix",
+    "origin": "",
+    "pos": "",
+    "meaning": "认识",
+    "example": ""
+  },
+  {
+    "affix": "-gon",
+    "type": "suffix",
+    "origin": "",
+    "pos": "",
+    "meaning": "角",
+    "example": ""
+  },
+  {
+    "affix": "-gony",
+    "type": "suffix",
+    "origin": "",
+    "pos": "",
+    "meaning": "起源",
+    "example": ""
+  },
+  {
+    "affix": "-grade",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "行走",
+    "example": ""
+  },
+  {
+    "affix": "-gram",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "",
+    "meaning": "书写成的作品",
+    "example": ""
+  },
+  {
+    "affix": "-graph",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "",
+    "meaning": "书写",
+    "example": ""
+  },
+  {
+    "affix": "-lith",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "石头",
+    "example": "aerolith 陨石"
+  },
+  {
+    "affix": "-lite",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "石头",
+    "example": "Cryolitegranite"
+  },
+  {
+    "affix": "-logue",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "话",
+    "example": "dialogue"
+  },
+  {
+    "affix": "-logy",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "学科 (n)",
+    "example": "astrology 占星术"
+  },
+  {
+    "affix": "-log",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "",
+    "example": ""
+  },
+  {
+    "affix": "-mania",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "疯狂的嗜好",
+    "example": "bibliomania 藏书癖"
+  },
+  {
+    "affix": "-meter",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "计量表",
+    "example": "barometer 气压计"
+  },
+  {
+    "affix": "-metric",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "a",
+    "meaning": "-meter之形容词",
+    "example": "geometric 几何的"
+  },
+  {
+    "affix": "-metrics",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "测量科学",
+    "example": "econometrics 计量经济学"
+  },
+  {
+    "affix": "-mo",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "（纸张）......开",
+    "example": "sixteenmo 十六开本"
+  },
+  {
+    "affix": "-nomy",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "...学术",
+    "example": "astronomy 天文学Bionomy 生理学"
+  },
+  {
+    "affix": "-onym",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "名字",
+    "example": "pseudonym 假名"
+  },
+  {
+    "affix": "-phile",
+    "type": "suffix",
+    "origin": "Greek",
+    "pos": "n",
+    "meaning": "爱好者",
+    "example": ""
+  },
+  {
+    "affix": "-ability",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "n",
+    "meaning": "可...性 (n)",
+    "example": "dependability 可靠性"
+  },
+  {
+    "affix": "-able",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "a",
+    "meaning": "可...的 (a)",
+    "example": "inflammable 易燃的"
+  },
+  {
+    "affix": "-ably",
+    "type": "suffix",
+    "origin": "Latin",
+    "pos": "ad",
+    "meaning": "-able的副词形式",
+    "example": "suitably 合适地"
+  },
+  {
+    "affix": "-teen",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "十... (num)",
+    "example": "fifteen 十五"
+  },
+  {
+    "affix": "-dom",
+    "type": "suffix",
+    "origin": "English",
+    "pos": "n",
+    "meaning": "1. 情况，身分 (n)2. 领域，...界 (n)",
+    "example": "freedom 自由sportsdom 体育界"
+  }
+]

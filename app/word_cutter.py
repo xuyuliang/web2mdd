@@ -285,6 +285,7 @@ class WordCutter:
     def _select_best_ltr(pos, w, root_index, candidates):
         best = candidates[0]
         best_score = len(best[0]) + WordCutter._best_path_ltr(pos + len(best[0]), w, root_index)
+        second_score = None
         if WordCutter.debug:
             print(f"  LTR pos={pos}: [{best[0]}]({best_score:.1f})", end="")
         for c in candidates[1:]:
@@ -294,16 +295,21 @@ class WordCutter:
             if c_score > best_score or (
                 c_score == best_score and len(c[0]) > len(best[0])
             ):
+                second_score = best_score
                 best = c
                 best_score = c_score
+            elif second_score is None:
+                second_score = c_score
         if WordCutter.debug:
-            print(f" → winner: [{best[0]}]")
-        return best
+            hf = second_score is not None and best_score == second_score
+            print(f" → winner: [{best[0]}] hf_decided={hf and best[4] == 'affix'}")
+        return best, second_score is not None and best_score == second_score
 
     @staticmethod
     def _select_best_rtl(end_pos, w, root_index, candidates):
         best = candidates[0]
         best_score = len(best[0]) + WordCutter._best_path_rtl(end_pos - len(best[0]), w, root_index)
+        second_score = None
         if WordCutter.debug:
             print(f"  RTL end={end_pos}: [{best[0]}]({best_score:.1f})", end="")
         for c in candidates[1:]:
@@ -313,11 +319,15 @@ class WordCutter:
             if c_score > best_score or (
                 c_score == best_score and len(c[0]) > len(best[0])
             ):
+                second_score = best_score
                 best = c
                 best_score = c_score
+            elif second_score is None:
+                second_score = c_score
         if WordCutter.debug:
-            print(f" → winner: [{best[0]}]")
-        return best
+            hf = second_score is not None and best_score == second_score
+            print(f" → winner: [{best[0]}] hf_decided={hf and best[4] == 'affix'}")
+        return best, second_score is not None and best_score == second_score
 
     @staticmethod
     def _match_one_pass(text, pos_offset, root_index, direction):
@@ -333,16 +343,17 @@ class WordCutter:
             while i < L:
                 candidates = WordCutter._find_candidates_ltr(i, w, root_index, segments)
                 if candidates:
-                    best = WordCutter._select_best_ltr(i, w, root_index, candidates)
+                    best, tied = WordCutter._select_best_ltr(i, w, root_index, candidates)
                     segments.append({
                         "text": text[i:i + len(best[0])],
                         "pos": pos_offset + i,
                         "meaning": best[2],
                         "source": best[4] if len(best) > 4 else "",
                         "langCode": best[1],
+                        "hf_decided": tied and best[4] == "affix",
                     })
                     if WordCutter.debug:
-                        print(f"    LTR match at {i}: [{best[0]}] ({best[2]})")
+                        print(f"    LTR match at {i}: [{best[0]}] ({best[2]}) hf_decided={tied and best[4] == 'affix'}")
                     i += len(best[0])
                 else:
                     remaining = text[i:]
@@ -372,7 +383,7 @@ class WordCutter:
             while i >= 0:
                 candidates = WordCutter._find_candidates_rtl(i, w, root_index, segments)
                 if candidates:
-                    best = WordCutter._select_best_rtl(i, w, root_index, candidates)
+                    best, tied = WordCutter._select_best_rtl(i, w, root_index, candidates)
                     start = i - len(best[0]) + 1
                     segments.insert(0, {
                         "text": text[start:i + 1],
@@ -380,9 +391,10 @@ class WordCutter:
                         "meaning": best[2],
                         "source": best[4] if len(best) > 4 else "",
                         "langCode": best[1],
+                        "hf_decided": tied and best[4] == "affix",
                     })
                     if WordCutter.debug:
-                        print(f"    RTL match end={i}: [{best[0]}] ({best[2]})")
+                        print(f"    RTL match end={i}: [{best[0]}] ({best[2]}) hf_decided={tied and best[4] == 'affix'}")
                     i = start - 1
                     if i >= 0:
                         remaining = text[:i + 1]
@@ -439,6 +451,31 @@ class WordCutter:
                 return True
         return False
 
+    @staticmethod
+    def _resolve_overlaps(segments, root_index):
+        resolved = [dict(seg) for seg in segments]
+        root_src = {}
+        for r in root_index:
+            root_src.setdefault(r[0], r[4])
+        i = 0
+        changed = False
+        while i < len(resolved) - 1:
+            left = resolved[i]
+            right = resolved[i + 1]
+            if left["meaning"] is not None and right["meaning"] is not None:
+                right_text = right["text"].lower()
+                overlap = left["text"][-1].lower() + right_text
+                orig_src = root_src.get(right_text)
+                ov_src = root_src.get(overlap)
+                if orig_src == "dict" and ov_src == "affix":
+                    left["text"] = left["text"][:-1]
+                    right["text"] = overlap
+                    changed = True
+            i += 1
+        if changed:
+            return resolved
+        return segments
+
     def _segment_word(self, word, root_index):
         if self._count_syllables(word) <= 1:
             for r in root_index:
@@ -459,7 +496,7 @@ class WordCutter:
             if WordCutter.debug:
                 print(f"  No match found, return as-is")
             for seg in segments:
-                del seg["pos"]
+                seg.pop("pos", None)
             return segments
 
         if WordCutter.debug:
@@ -501,8 +538,10 @@ class WordCutter:
 
             direction = "ltr" if direction == "rtl" else "rtl"
 
+        segments = self._resolve_overlaps(segments, root_index)
+
         for seg in segments:
-            del seg["pos"]
+            seg.pop("pos", None)
 
         return segments
 
@@ -535,7 +574,7 @@ class WordCutter:
                 "parts": [
                     {
                         "text": s["text"],
-                        "source": self.SRC_LABEL.get(s.get("source", ""), ""),
+                        "source": "h" if s.get("hf_decided") else self.SRC_LABEL.get(s.get("source", ""), ""),
                         "meaning": s.get("meaning"),
                         "langCode": s.get("langCode", ""),
                     }
@@ -550,7 +589,7 @@ class WordCutter:
                 "parts": [
                     {
                         "text": s["text"],
-                        "source": self.SRC_LABEL.get(s.get("source", ""), ""),
+                        "source": "h" if s.get("hf_decided") else self.SRC_LABEL.get(s.get("source", ""), ""),
                         "meaning": s.get("meaning"),
                         "langCode": s.get("langCode", ""),
                     }
