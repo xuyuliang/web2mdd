@@ -22432,6 +22432,20 @@
       "ety_meaning": "Slender",
       "ety_lang": "L"
     },
+    "crasy": {
+      "meaning": "authority; government; rule",
+      "lang": "GR",
+      "forms": {
+        "crasy": {
+          "opt": false,
+          "pos": [
+            "suffix"
+          ]
+        }
+      },
+      "ety_meaning": "Rule; strength",
+      "ety_lang": "G"
+    },
     "cracy": {
       "meaning": "authority; government; rule",
       "lang": "GR",

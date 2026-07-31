@@ -1,4 +1,5 @@
 import json
+import math
 import os
 
 
@@ -16,6 +17,8 @@ class WordCutter:
     SRC_LABEL = {"dict": "d", "affix": "a"}
     VOWELS = set("aeiouy")
     OPT_PENALTY = 0.5
+    SEG_COST = 2.0
+    GAP_COST = 1.0
     debug = False
 
     def __init__(self, base_dir=None):
@@ -24,8 +27,7 @@ class WordCutter:
         self.base_dir = base_dir
         self.rev_index = self._load_rev_index(base_dir)
         self.root_index, self.max_root_len = self._load_unified_index(base_dir)
-        self.high_freq_pos = self._load_high_freq(base_dir)
-        self.high_freq = set(self.high_freq_pos)
+        self.high_freq, self.high_freq_pos = self._load_high_freq(base_dir)
         WordCutter.hf_pos_map = self.high_freq_pos
 
     # ── data loading ────────────────────────────────────────────
@@ -82,16 +84,21 @@ class WordCutter:
         return root_index, max_len
 
     def _load_high_freq(self, base_dir):
-        path = os.path.join(base_dir, "data", "high-freq-affixes.json")
+        path = os.path.join(base_dir, "数据资料", "highfreq.json")
         with open(path, encoding="utf-8") as f:
             entries = json.load(f)
+        freq = {}
         pos_map = {}
         for e in entries:
             form = (e.get("affix") or "").strip("-").strip().lower()
             if len(form) < 2:
                 continue
-            pos_map.setdefault(form, set()).add(e.get("type", ""))
-        return {f: frozenset(t) for f, t in pos_map.items()}
+            n = e.get("次数") or 0
+            freq[form] = max(freq.get(form, 0), n)
+            t = e.get("type", "")
+            if t:
+                pos_map.setdefault(form, set()).add(t)
+        return freq, {f: frozenset(t) for f, t in pos_map.items()}
 
     # ── Stage 1: derivation tracing ─────────────────────────────
 
@@ -139,7 +146,7 @@ class WordCutter:
             pieces.append((word[prev_end:], prev_end))
         return pieces
 
-    # ── Stage 2: alternating-direction greedy root matching ────
+    # ── Stage 2: global optimal DAG segmentation ────────────────
 
     @staticmethod
     def _count_syllables(text):
@@ -155,45 +162,27 @@ class WordCutter:
         return count
 
     @staticmethod
-    def _can_match_short_root(pos, segments, word_len, root_len):
-        if root_len > 2:
-            return True
-        if pos == 0:
-            return True
-        for seg in segments:
-            if seg["meaning"] is None:
-                continue
-            if seg["pos"] + len(seg["text"]) == pos:
-                return True
-        return False
+    def _secondary_score(text, high_freq, opt=False):
+        penalty = WordCutter.OPT_PENALTY if opt else 0
+        bonus = 0.0
+        n = high_freq.get(text)
+        if n is not None and n >= 3:
+            bonus = 0.5 + 0.25 * math.log2(n / 3)
+        return bonus - penalty
 
     @staticmethod
-    def _can_match_short_root_rtl(end_pos, segments, segment_len, root_len):
-        if root_len > 2:
-            return True
-        if end_pos == segment_len - 1:
-            return True
-        for seg in segments:
-            if seg["meaning"] is None:
-                continue
-            if end_pos + 1 == seg["pos"]:
-                return True
-        return False
-
-    @staticmethod
-    def _pos_allowed(interp, abs_pos, rlen, word_len):
+    def _pos_allowed(pos_types, abs_pos, rlen, word_len):
         """位置约束：纯前缀不能在词尾，纯后缀不能在词首；其余位置不限。"""
-        p = interp["pos"]
-        if not p:
+        if not pos_types:
             return True
-        if p == frozenset({"prefix"}) and abs_pos + rlen == word_len:
+        if pos_types == frozenset({"prefix"}) and abs_pos + rlen == word_len:
             return False
-        if p == frozenset({"suffix"}) and abs_pos == 0:
+        if pos_types == frozenset({"suffix"}) and abs_pos == 0:
             return False
         return True
 
     @staticmethod
-    def _find_candidates_ltr(pos, w, root_index, segments, abs_off, word_len, max_len, relax_short=False):
+    def _find_candidates_dp(pos, w, root_index, abs_off, word_len, max_len, prev_matched):
         candidates = []
         limit = min(max_len, len(w) - pos)
         for L in range(1, limit + 1):
@@ -202,322 +191,161 @@ class WordCutter:
             if not interps:
                 continue
             for interp in interps:
-                if not WordCutter._pos_allowed(interp, abs_off + pos, L, word_len):
+                if not WordCutter._pos_allowed(interp["pos"], abs_off + pos, L, word_len):
                     continue
-                if not WordCutter._hf_pos_allowed(form, abs_off + pos, L, word_len):
+                hf_types = WordCutter.hf_pos_map.get(form)
+                if not WordCutter._pos_allowed(hf_types, abs_off + pos, L, word_len):
                     continue
-                if not relax_short and not WordCutter._can_match_short_root(pos, segments, len(w), L):
+                if L <= 2 and not (pos == 0 or prev_matched):
                     continue
-                candidates.append((w[pos:pos + L], interp))
+                candidates.append((form, interp))
         return candidates
 
     @staticmethod
-    def _find_candidates_rtl(end_pos, w, root_index, segments, abs_off, word_len, max_len, relax_short=False):
-        candidates = []
-        limit = min(max_len, end_pos + 1)
-        for L in range(1, limit + 1):
-            start = end_pos - L + 1
-            form = w[start:end_pos + 1]
-            interps = root_index.get(form)
-            if not interps:
-                continue
-            for interp in interps:
-                if not WordCutter._pos_allowed(interp, abs_off + start, L, word_len):
-                    continue
-                if not WordCutter._hf_pos_allowed(form, abs_off + start, L, word_len):
-                    continue
-                if not relax_short and not WordCutter._can_match_short_root_rtl(end_pos, segments, len(w), L):
-                    continue
-                candidates.append((w[start:end_pos + 1], interp))
-        return candidates
-
-    @staticmethod
-    def _best_path_ltr(pos, w, root_index, abs_off, word_len, max_len, memo=None):
-        if memo is None:
-            memo = {}
-        if pos in memo:
-            return memo[pos]
-        candidates = WordCutter._find_candidates_ltr(
-            pos, w, root_index, [], abs_off, word_len, max_len, relax_short=True
-        )
-        if candidates:
-            best_cov = -1
-            best_segs = float("inf")
-            best_edge = False
-            best_len = 0
-            substr_len = len(w)
-            for c in candidates:
-                cov, segs, edge = WordCutter._best_path_ltr(
-                    pos + len(c[0]), w, root_index, abs_off, word_len, max_len, memo
-                )
-                total = len(c[0]) + cov
-                this_edge = (len(c[0]) == 2 and pos + len(c[0]) == substr_len) or edge
-                if (
-                    total > best_cov
-                    or (total == best_cov and 1 + segs < best_segs)
-                    or (total == best_cov and 1 + segs == best_segs and not this_edge and best_edge)
-                    or (total == best_cov and 1 + segs == best_segs and this_edge == best_edge and len(c[0]) > best_len)
-                ):
-                    best_cov = total
-                    best_segs = 1 + segs
-                    best_edge = this_edge
-                    best_len = len(c[0])
-            memo[pos] = (best_cov, best_segs, best_edge)
-            return memo[pos]
-        remaining = w[pos:]
-        if WordCutter._count_syllables(remaining) <= 1:
-            memo[pos] = (0, 0, False)
-            return memo[pos]
-        memo[pos] = WordCutter._best_path_ltr(
-            pos + 1, w, root_index, abs_off, word_len, max_len, memo
-        )
-        return memo[pos]
-
-    @staticmethod
-    def _best_path_rtl(end_pos, w, root_index, abs_off, word_len, max_len, memo=None):
-        if memo is None:
-            memo = {}
-        if end_pos in memo:
-            return memo[end_pos]
-        candidates = WordCutter._find_candidates_rtl(
-            end_pos, w, root_index, [], abs_off, word_len, max_len, relax_short=True
-        )
-        if candidates:
-            best_cov = -1
-            best_segs = float("inf")
-            best_edge = False
-            best_len = 0
-            substr_len = len(w)
-            for c in candidates:
-                start = end_pos - len(c[0]) + 1
-                cov, segs, edge = WordCutter._best_path_rtl(
-                    start - 1, w, root_index, abs_off, word_len, max_len, memo
-                )
-                total = len(c[0]) + cov
-                this_edge = (len(c[0]) == 2 and start == 0) or edge
-                if (
-                    total > best_cov
-                    or (total == best_cov and 1 + segs < best_segs)
-                    or (total == best_cov and 1 + segs == best_segs and not this_edge and best_edge)
-                    or (total == best_cov and 1 + segs == best_segs and this_edge == best_edge and len(c[0]) > best_len)
-                ):
-                    best_cov = total
-                    best_segs = 1 + segs
-                    best_edge = this_edge
-                    best_len = len(c[0])
-            memo[end_pos] = (best_cov, best_segs, best_edge)
-            return memo[end_pos]
-        remaining = w[:end_pos + 1]
-        if WordCutter._count_syllables(remaining) <= 1:
-            memo[end_pos] = (0, 0, False)
-            return memo[end_pos]
-        memo[end_pos] = WordCutter._best_path_rtl(
-            end_pos - 1, w, root_index, abs_off, word_len, max_len, memo
-        )
-        return memo[end_pos]
-
-    @staticmethod
-    def _candidate_score(text, cov, high_freq, opt=False):
-        penalty = WordCutter.OPT_PENALTY if opt else 0
-        return len(text) + cov + (0.5 if text in high_freq else 0) - penalty
-
-    @staticmethod
-    def _hf_pos_allowed(form, abs_pos, rlen, word_len):
-        """高频位置约束：高频纯前缀只能在词首，纯后缀只能在词尾。"""
-        types = WordCutter.hf_pos_map.get(form)
-        if not types:
-            return True
-        if types == frozenset({"prefix"}):
-            return abs_pos == 0
-        if types == frozenset({"suffix"}):
-            return abs_pos + rlen == word_len
-        return True
-
-    @staticmethod
-    def _select_best_ltr(pos, w, root_index, candidates, abs_off, word_len, max_len, high_freq):
-        best = candidates[0]
-        best_cov, best_segs, best_edge = WordCutter._best_path_ltr(
-            pos + len(best[0]), w, root_index, abs_off, word_len, max_len
-        )
-        best_segs += 1
-        best_score = WordCutter._candidate_score(best[0], best_cov, high_freq, best[1]["opt"])
-        second_score = None
-        if WordCutter.debug:
-            print(f"  LTR pos={pos}: [{best[0]}]({best_score:.1f})", end="")
-        for c in candidates[1:]:
-            cov, segs, edge = WordCutter._best_path_ltr(
-                pos + len(c[0]), w, root_index, abs_off, word_len, max_len
-            )
-            c_score = WordCutter._candidate_score(c[0], cov, high_freq, c[1]["opt"])
-            c_segs = 1 + segs
-            if WordCutter.debug:
-                print(f" [{c[0]}]({c_score:.1f})", end="")
-            if (
-                c_score > best_score
-                or (c_score == best_score and c_segs < best_segs)
-                or (c_score == best_score and c_segs == best_segs and not edge and best_edge)
-                or (c_score == best_score and c_segs == best_segs and edge == best_edge and len(c[0]) > len(best[0]))
-            ):
-                second_score = best_score
-                best = c
-                best_score = c_score
-                best_segs = c_segs
-                best_edge = edge
-            elif second_score is None:
-                second_score = c_score
-        if WordCutter.debug:
-            hf = second_score is not None and best_score == second_score
-            print(f" → winner: [{best[0]}] hf_decided={hf and best[1]['src'] == 'affix'}")
-        return best, second_score is not None and best_score == second_score
-
-    @staticmethod
-    def _select_best_rtl(end_pos, w, root_index, candidates, abs_off, word_len, max_len, high_freq):
-        best = candidates[0]
-        best_cov, best_segs, best_edge = WordCutter._best_path_rtl(
-            end_pos - len(best[0]), w, root_index, abs_off, word_len, max_len
-        )
-        best_segs += 1
-        best_score = WordCutter._candidate_score(best[0], best_cov, high_freq, best[1]["opt"])
-        second_score = None
-        if WordCutter.debug:
-            print(f"  RTL end={end_pos}: [{best[0]}]({best_score:.1f})", end="")
-        for c in candidates[1:]:
-            cov, segs, edge = WordCutter._best_path_rtl(
-                end_pos - len(c[0]), w, root_index, abs_off, word_len, max_len
-            )
-            c_score = WordCutter._candidate_score(c[0], cov, high_freq, c[1]["opt"])
-            c_segs = 1 + segs
-            if WordCutter.debug:
-                print(f" [{c[0]}]({c_score:.1f})", end="")
-            if (
-                c_score > best_score
-                or (c_score == best_score and c_segs < best_segs)
-                or (c_score == best_score and c_segs == best_segs and not edge and best_edge)
-                or (c_score == best_score and c_segs == best_segs and edge == best_edge and len(c[0]) > len(best[0]))
-            ):
-                second_score = best_score
-                best = c
-                best_score = c_score
-                best_segs = c_segs
-                best_edge = edge
-            elif second_score is None:
-                second_score = c_score
-        if WordCutter.debug:
-            hf = second_score is not None and best_score == second_score
-            print(f" → winner: [{best[0]}] hf_decided={hf and best[1]['src'] == 'affix'}")
-        return best, second_score is not None and best_score == second_score
-
-    @staticmethod
-    def _match_one_pass(text, pos_offset, root_index, direction, word_len, max_len, high_freq):
-        w = text.lower()
+    def _segment_global(word, abs_base, root_index, word_len, max_len, high_freq):
+        w = word.lower()
         L = len(w)
+        memo = {}
+        for pos in range(L, -1, -1):
+            for prev_matched in (False, True):
+                if pos == L:
+                    memo[(pos, prev_matched)] = ((0.0, 0.0, 0, 0, 0), None)
+                    continue
+                edge_list = []
+                tail = memo[(pos + 1, False)]
+                t = tail[0]
+                edge_list.append((
+                    (t[0] - WordCutter.GAP_COST, t[1], t[2], t[3], 0),
+                    ("gap", pos + 1, False, None, None, False, pos),
+                ))
+                for form, interp in WordCutter._find_candidates_dp(
+                    pos, w, root_index, abs_base, word_len, max_len, prev_matched
+                ):
+                    Lm = len(form)
+                    end = pos + Lm
+                    sec = WordCutter._secondary_score(form, high_freq, interp["opt"])
+                    tail = memo[(end, True)]
+                    t = tail[0]
+                    ec = 1 if (Lm == 2 and (pos == 0 or end == L)) else 0
+                    edge_list.append((
+                        (
+                            t[0] + (Lm - WordCutter.SEG_COST),
+                            t[1] + sec,
+                            t[2] - 1,
+                            t[3] - ec,
+                            Lm,
+                        ),
+                        ("match", end, True, form, interp, False, pos),
+                    ))
+                    if end < L and w[end] in WordCutter.VOWELS and w[end - 1] not in WordCutter.VOWELS:
+                        tail = memo[(end + 1, True)]
+                        t = tail[0]
+                        edge_list.append((
+                            (
+                                t[0] + (Lm - WordCutter.SEG_COST),
+                                t[1] + sec,
+                                t[2] - 1,
+                                t[3],
+                                Lm + 1,
+                            ),
+                            ("absorb_r", end + 1, True, form, interp, False, pos),
+                        ))
+                    if w[end - 1] in WordCutter.VOWELS:
+                        j = end - 1
+                        for Lo in range(2, min(max_len, L - j) + 1):
+                            form2 = w[j:j + Lo]
+                            interps2 = root_index.get(form2)
+                            if not interps2:
+                                continue
+                            for interp2 in interps2:
+                                if not WordCutter._pos_allowed(interp2["pos"], abs_base + j, Lo, word_len):
+                                    continue
+                                hf2 = WordCutter.hf_pos_map.get(form2)
+                                if not WordCutter._pos_allowed(hf2, abs_base + j, Lo, word_len):
+                                    continue
+                                tail = memo[(j + Lo, True)]
+                                t = tail[0]
+                                ec1 = 1 if (Lm == 2 and pos == 0) else 0
+                                ec2 = 1 if (Lo == 2 and j + Lo == L) else 0
+                                edge_list.append((
+                                    (
+                                        t[0] + (Lm + Lo - 1 - 2 * WordCutter.SEG_COST),
+                                        t[1] + sec + WordCutter._secondary_score(form2, high_freq, interp2["opt"]),
+                                        t[2] - 2,
+                                        t[3] - ec1 - ec2,
+                                        Lo,
+                                    ),
+                                    ("elide", j + Lo, True, form, interp, False, pos, form2, interp2, j),
+                                ))
+                if pos + 1 < L and w[pos] not in WordCutter.VOWELS and w[pos + 1] in WordCutter.VOWELS:
+                    for form2, interp2 in WordCutter._find_candidates_dp(
+                        pos + 1, w, root_index, abs_base, word_len, max_len, True
+                    ):
+                        Lm2 = len(form2)
+                        sec2 = WordCutter._secondary_score(form2, high_freq, interp2["opt"])
+                        tail = memo[(pos + 1 + Lm2, True)]
+                        t = tail[0]
+                        edge_list.append((
+                            (
+                                t[0] + (Lm2 - WordCutter.SEG_COST),
+                                t[1] + sec2,
+                                t[2] - 1,
+                                t[3],
+                                Lm2 + 1,
+                            ),
+                            ("absorb_l", pos + 1 + Lm2, True, form2, interp2, False, pos),
+                        ))
+                edge_list.sort(key=lambda e: e[0], reverse=True)
+                best_key, best_bp = edge_list[0]
+                if (
+                    best_bp[0] != "gap"
+                    and best_bp[4]["src"] == "affix"
+                    and sum(1 for e in edge_list if e[1][0] != "gap" and e[0] == best_key) >= 2
+                ):
+                    best_bp = (best_bp[0], best_bp[1], best_bp[2], best_bp[3], best_bp[4], True, best_bp[6])
+                memo[(pos, prev_matched)] = (best_key, best_bp)
         segments = []
-
-        if WordCutter.debug:
-            print(f"\n  [{direction}] pass on '{text}':")
-
-        if direction == "ltr":
-            i = 0
-            while i < L:
-                candidates = WordCutter._find_candidates_ltr(
-                    i, w, root_index, segments, pos_offset, word_len, max_len
-                )
-                if candidates:
-                    best, tied = WordCutter._select_best_ltr(
-                        i, w, root_index, candidates, pos_offset, word_len, max_len, high_freq
-                    )
-                    segments.append({
-                        "text": text[i:i + len(best[0])],
-                        "pos": pos_offset + i,
-                        "meaning": best[1]["meaning"],
-                        "source": best[1]["src"],
-                        "langCode": best[1]["lang"],
-                        "hf_decided": tied and best[1]["src"] == "affix",
-                    })
-                    if WordCutter.debug:
-                        print(f"    LTR match at {i}: [{best[0]}] ({best[1]['meaning']}) hf_decided={tied and best[1]['src'] == 'affix'}")
-                    i += len(best[0])
-                else:
-                    remaining = text[i:]
-                    if WordCutter._count_syllables(remaining) <= 1:
-                        if WordCutter.debug:
-                            print(f"    LTR no-candidate at {i}, remaining '{remaining}' ≤1 syll → stop")
-                        segments.append({
-                            "text": remaining,
-                            "pos": pos_offset + i,
-                            "meaning": None,
-                            "source": "",
-                            "langCode": "",
-                        })
-                        break
-                    if WordCutter.debug:
-                        print(f"    LTR no-candidate at {i}, skip 1 char '{text[i]}'")
-                    segments.append({
-                        "text": text[i],
-                        "pos": pos_offset + i,
-                        "meaning": None,
-                        "source": "",
-                        "langCode": "",
-                    })
-                    i += 1
-        else:
-            i = L - 1
-            while i >= 0:
-                candidates = WordCutter._find_candidates_rtl(
-                    i, w, root_index, segments, pos_offset, word_len, max_len
-                )
-                if candidates:
-                    best, tied = WordCutter._select_best_rtl(
-                        i, w, root_index, candidates, pos_offset, word_len, max_len, high_freq
-                    )
-                    start = i - len(best[0]) + 1
-                    segments.insert(0, {
-                        "text": text[start:i + 1],
-                        "pos": pos_offset + start,
-                        "meaning": best[1]["meaning"],
-                        "source": best[1]["src"],
-                        "langCode": best[1]["lang"],
-                        "hf_decided": tied and best[1]["src"] == "affix",
-                    })
-                    if WordCutter.debug:
-                        print(f"    RTL match end={i}: [{best[0]}] ({best[1]['meaning']}) hf_decided={tied and best[1]['src'] == 'affix'}")
-                    i = start - 1
-                    if i >= 0:
-                        remaining = text[:i + 1]
-                        if WordCutter.debug:
-                            print(f"    RTL leftover: '{remaining}' marked as unknown")
-                        segments.insert(0, {
-                            "text": remaining,
-                            "pos": pos_offset,
-                            "meaning": None,
-                            "source": "",
-                            "langCode": "",
-                        })
-                    break
-                else:
-                    remaining = text[:i]
-                    if WordCutter._count_syllables(remaining) <= 1:
-                        if WordCutter.debug:
-                            print(f"    RTL no-candidate at {i}, remaining '{remaining}' ≤1 syll → stop")
-                        segments.insert(0, {
-                            "text": text[:i + 1],
-                            "pos": pos_offset,
-                            "meaning": None,
-                            "source": "",
-                            "langCode": "",
-                        })
-                        break
-                    if WordCutter.debug:
-                        print(f"    RTL no-candidate at {i}, skip 1 char '{text[i]}'")
-                    segments.insert(0, {
-                        "text": text[i],
-                        "pos": pos_offset + i,
-                        "meaning": None,
-                        "source": "",
-                        "langCode": "",
-                    })
-                    i -= 1
-
+        pos, prev_matched = 0, False
+        while pos < L:
+            bp = memo[(pos, prev_matched)][1]
+            etype, npos, nprev, form, interp, hf, seg_start = bp[:7]
+            if etype == "gap":
+                segments.append({
+                    "text": word[pos],
+                    "pos": abs_base + pos,
+                    "meaning": None,
+                    "source": "",
+                    "langCode": "",
+                    "hf_decided": False,
+                })
+            elif etype == "elide":
+                form2, interp2, j = bp[7], bp[8], bp[9]
+                segments.append({
+                    "text": word[seg_start:j + 1],
+                    "pos": abs_base + seg_start,
+                    "meaning": interp["meaning"],
+                    "source": interp["src"],
+                    "langCode": interp["lang"],
+                    "hf_decided": hf,
+                })
+                segments.append({
+                    "text": word[j:npos],
+                    "pos": abs_base + j,
+                    "meaning": interp2["meaning"],
+                    "source": interp2["src"],
+                    "langCode": interp2["lang"],
+                    "hf_decided": False,
+                })
+            else:
+                segments.append({
+                    "text": word[seg_start:npos],
+                    "pos": abs_base + seg_start,
+                    "meaning": interp["meaning"],
+                    "source": interp["src"],
+                    "langCode": interp["lang"],
+                    "hf_decided": hf,
+                })
+            pos, prev_matched = npos, nprev
         return segments
 
     @staticmethod
@@ -529,9 +357,6 @@ class WordCutter:
             else:
                 merged.append(dict(s))
         return merged
-
-    def _has_exact_root(self, text, root_index):
-        return text.lower() in root_index
 
     def _segment_word(self, word, root_index, max_len, abs_base, word_len, high_freq):
         if self._count_syllables(word) <= 1:
@@ -546,55 +371,8 @@ class WordCutter:
                 }]
             return [{"text": word, "meaning": None, "source": "", "langCode": ""}]
 
-        chunks = self._match_one_pass(word, abs_base, root_index, "rtl", word_len, max_len, high_freq)
+        chunks = self._segment_global(word, abs_base, root_index, word_len, max_len, high_freq)
         segments = self._merge_unknowns(chunks)
-
-        has_match = any(s["meaning"] is not None for s in segments)
-        if not has_match:
-            if WordCutter.debug:
-                print(f"  No match found, return as-is")
-            for seg in segments:
-                seg.pop("pos", None)
-            return segments
-
-        if WordCutter.debug:
-            print(f"\n  After RTL: {[s['text'] for s in segments]}")
-
-        direction = "ltr"
-        loop_n = 0
-        while True:
-            loop_n += 1
-            any_new_match = False
-            new_segments = []
-
-            for seg in segments:
-                if seg["meaning"] is not None:
-                    new_segments.append(seg)
-                    continue
-                if self._count_syllables(seg["text"]) <= 1 and not self._has_exact_root(seg["text"], root_index):
-                    if WordCutter.debug:
-                        print(f"  Loop#{loop_n} {direction}: skip '{seg['text']}' (≤1 syll, not in index)")
-                    new_segments.append(seg)
-                    continue
-
-                chunks = self._match_one_pass(seg["text"], seg["pos"], root_index, direction, word_len, max_len, high_freq)
-                for c in chunks:
-                    if c["meaning"] is not None:
-                        any_new_match = True
-                        break
-                new_segments.extend(chunks)
-
-            segments = self._merge_unknowns(new_segments)
-
-            if WordCutter.debug:
-                print(f"  Loop#{loop_n} {direction} result: {[s['text'] for s in segments]}")
-
-            if not any_new_match:
-                if WordCutter.debug:
-                    print(f"  No new matches, done")
-                break
-
-            direction = "ltr" if direction == "rtl" else "rtl"
 
         for seg in segments:
             seg.pop("pos", None)
