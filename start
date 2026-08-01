@@ -19,6 +19,9 @@ fi
 
 source venv/bin/activate
 
+# 服务器无桌面环境，禁止自动打开浏览器
+export OPEN_BROWSER=0
+
 PID_FILE=".server.pid"
 
 # 检查是否已在运行

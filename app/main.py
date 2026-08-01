@@ -66,9 +66,10 @@ async def lifespan(app: FastAPI):
     app.state.word_freq = word_freq
     app.state.related_words_searcher = related_words_searcher
 
-    # 所有数据加载完成，延迟打开浏览器
-    print("正在打开浏览器...")
-    threading.Timer(2.0, lambda: webbrowser.open('http://localhost:8000')).start()
+    # 所有数据加载完成，延迟打开浏览器（服务器上通过环境变量 OPEN_BROWSER=0 关闭）
+    if os.environ.get("OPEN_BROWSER", "1") == "1":
+        print("正在打开浏览器...")
+        threading.Timer(2.0, lambda: webbrowser.open('http://localhost:8000')).start()
 
     yield
 
