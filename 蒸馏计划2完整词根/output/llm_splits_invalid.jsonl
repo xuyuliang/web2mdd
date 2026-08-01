@@ -1,0 +1,3 @@
+{"word": "shi'ite", "reason": "bad_segments", "raw": "shi.it.e", "segments": ["shi", "'it", "e"]}
+{"word": "chef/owner", "reason": "bad_segments", "raw": "chef.owner", "segments": ["chef", "/owner"]}
+{"word": "nor'easter", "reason": "bad_segments", "raw": "nor.eas.ter", "segments": ["nor", "'eas", "ter"]}

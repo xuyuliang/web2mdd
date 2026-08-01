@@ -1,0 +1,5 @@
+total records: 23697  usable: 23697
+changed words: 2591 (10.9%)
+tiling failures: 0
+per-rule changed: 1letter:1464, er:523, ation:226, ed:164, us:110, ization:106, ia:68, ist:53, tion:43, ment:20, etic:16, ify:15, exo:10, iatric:4, cata:2, devas:1
+consistency before: 72.2%  after: 73.0%

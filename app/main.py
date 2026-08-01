@@ -39,6 +39,17 @@ async def lifespan(app: FastAPI):
     word_cutter = WordCutter(BASE_DIR)
     print("[OK] 词根切分数据加载完成")
 
+    print("正在加载蒸馏模型2...")
+    from app.distill_cutter import DistillCutter
+    distill_model_path = os.path.join(BASE_DIR, "蒸馏计划2完整词根", "output", "model.npz")
+    distill_rules_path = os.path.join(BASE_DIR, "蒸馏计划2完整词根", "rules.py")
+    if os.path.exists(distill_model_path):
+        distill_cutter = DistillCutter(distill_model_path, distill_rules_path)
+        print("[OK] 蒸馏模型2加载完成")
+    else:
+        distill_cutter = None
+        print("[WARN] 未找到蒸馏模型2权重，跳过:", distill_model_path)
+
     print("正在加载 COCA 词频数据...")
     word_freq = WordFreq(DB_PATH)
     print("[OK] 词频数据加载完成")
@@ -51,6 +62,7 @@ async def lifespan(app: FastAPI):
     # 存储到 app.state
     app.state.mdx_reader = mdx_reader
     app.state.word_cutter = word_cutter
+    app.state.distill_cutter = distill_cutter
     app.state.word_freq = word_freq
     app.state.related_words_searcher = related_words_searcher
 
@@ -474,6 +486,12 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
         affix_html = affix_template.render(pipeline=pipeline_result)
         related_words_html = None
 
+        distill_html = None
+        if request.app.state.distill_cutter is not None:
+            distill_segs = request.app.state.distill_cutter.segment(word)
+            distill_template = templates.env.get_template("partials/_distill_result.html")
+            distill_html = distill_template.render(word=word, segments=distill_segs)
+
         if pipeline_result and pipeline_result.get("parts"):
             parts = pipeline_result["parts"]
             meaningful = [p for p in parts if p.get("meaning") and p.get("source")]
@@ -490,7 +508,7 @@ async def lookup(request: Request, word: str = Query(..., description="单词"),
                         back_word=back_word if back_word else word,
                     )
 
-        combined = result + affix_html + (related_words_html or "")
+        combined = result + affix_html + (distill_html or "") + (related_words_html or "")
 
         # 构建推送 URL，包含所有相关参数以便历史回退时恢复完整状态
         push_url_parts = ["?word=" + word]
@@ -582,7 +600,12 @@ async def lookup_expand(request: Request, word: str = Query(..., description="�
         pipeline_result = request.app.state.word_cutter.segment(word)
         affix_template = templates.env.get_template("partials/_affix_result.html")
         affix_html = affix_template.render(pipeline=pipeline_result)
-        combined = html + affix_html
+        distill_html = ""
+        if request.app.state.distill_cutter is not None:
+            distill_segs = request.app.state.distill_cutter.segment(word)
+            distill_template = templates.env.get_template("partials/_distill_result.html")
+            distill_html = distill_template.render(word=word, segments=distill_segs)
+        combined = html + affix_html + distill_html
         return templates.TemplateResponse(
             request, "partials/_lookup_result.html",
             {"content": combined}

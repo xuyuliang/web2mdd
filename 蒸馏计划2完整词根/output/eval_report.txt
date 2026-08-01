@@ -1,0 +1,40 @@
+test words: 1186
+gap-level  P=0.710 R=0.718 F1=0.714   (tp=1064 fp=435 fn=418)
+word exact-match: 649/1186 = 54.7%
+--- samples (OK=matches teacher, DIFF=diffs) ---
+  OK  separateness
+       teacher: se . par . ate . ness
+       model  : se . par . ate . ness
+  DIFF legged
+       teacher: leg . ged
+       model  : legg . ed
+  DIFF hombre
+       teacher: hom . bre
+       model  : hombre
+  OK  discriminating
+       teacher: dis . crim . in . at . ing
+       model  : dis . crim . in . at . ing
+  DIFF wrongdoer
+       teacher: wrongdo . er
+       model  : wrong . do . er
+  DIFF agrarian
+       teacher: agr . arian
+       model  : a . grar . ian
+  DIFF roundup
+       teacher: round . up
+       model  : roun . dup
+  OK  preachy
+       teacher: preach . y
+       model  : preach . y
+  DIFF bougainvillea
+       teacher: bougain . vill . ea
+       model  : bougain . villea
+  DIFF invalidate
+       teacher: in . val . id . ate
+       model  : in . valid . ate
+  DIFF audition
+       teacher: au . di . tion
+       model  : audi . tion
+  DIFF picnic
+       teacher: pic . nic
+       model  : picn . ic

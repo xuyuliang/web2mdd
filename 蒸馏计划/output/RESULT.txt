@@ -1,0 +1,33 @@
+===== 纯蒸馏 最终结果 =====
+日期: 完成于 overnight 自动运行
+
+[数据]
+- 输入词: COCA 第 10000~40000 号, 去 '-' 合成词, 去重, 全长度 => 24,149 词
+- 蒸馏模型: agnes-2.0-flash, enable_thinking=false (rt=0, 格式守规率 100%)
+- 批量 20 词/次, 两份并行 + 断点续跑, 总耗时约 94 分钟
+
+[蒸馏质量]
+- 有效切分: 23,207 / 24,149 = 96.1%
+- 丢弃: 942 (675 段无法拼接回原词 + 267 解析失败)
+- 平均段数: 2.60; 多段词 20,269 (87.4%)
+- 4+ 字母串一致性: 73.1% -> 82.3% (一致性修复 pass 生效)
+
+[模型] (numpy 实现, 无需 torch)
+- 结构: 字符级局部窗口 MLP (窗口 6 字符, 隐层 128), 逐 gap 边界二分类
+- 训练: 20,886 词 / 验证 1,160 / 测试 1,161 (90/5/5)
+- 验证 best val_bce 0.1854, 最优阈值 0.38
+
+[测试集 fidelity] (与 agnes 老师标签对比)
+- gap-level: P=0.796  R=0.855  F1=0.825
+- 词级完全一致: 60.4% (701/1161)
+
+[产物]
+- output/llm_splits_clean.jsonl  有效切分 (训练用)
+- output/train.jsonl / val.jsonl / test.jsonl  拆分
+- output/model.npz  训练好的模型权重
+- segment.py  分词入口: python segment.py word1 word2 ...
+- eval_model.py / train_model.py / postprocess.py / generate.py 等完整管线
+
+[注意/后续]
+- 无任何本地词典/考试题参与, 纯 agnes 蒸馏
+- app 释义链路 (词素->释义) 未接, 待决定

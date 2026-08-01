@@ -1,0 +1,942 @@
+{"word": "visibly", "reason": "bad_segments", "raw": "vis.ible.ly", "segments": ["vis", "ible", "ly"]}
+{"word": "finale", "reason": "bad_segments", "raw": "fin.al", "segments": ["fin", "al"]}
+{"word": "reimbursement", "reason": "bad_segments", "raw": "re.im.burs.ment", "segments": ["re", "im", "burs", "ment"]}
+{"word": "scarcity", "reason": "bad_segments", "raw": "scarce.ty", "segments": ["scarce", "ty"]}
+{"word": "locale", "reason": "bad_segments", "raw": "lo.cal", "segments": ["lo", "cal"]}
+{"word": "combustion", "reason": "bad_segments", "raw": "com.bust.tion", "segments": ["com", "bust", "tion"]}
+{"word": "ventilation", "reason": "bad_segments", "raw": "ven.til.at.tion", "segments": ["ven", "til", "at", "tion"]}
+{"word": "affiliate", "reason": "bad_segments", "raw": "af.fil.i.at", "segments": ["af", "fil", "i", "at"]}
+{"word": "affirmation", "reason": "bad_segments", "raw": "af.firm.at.tion", "segments": ["af", "firm", "at", "tion"]}
+{"word": "aggravate", "reason": "bad_segments", "raw": "a.grav.ate", "segments": ["a", "grav", "ate"]}
+{"word": "geometric", "reason": "bad_segments", "raw": "geo.met.ri.cal", "segments": ["geo", "met", "ri", "cal"]}
+{"word": "divisive", "reason": "bad_segments", "raw": "di.vis.si.ve", "segments": ["di", "vis", "si", "ve"]}
+{"word": "unmistakable", "reason": "bad_segments", "raw": "un.mis.ta.ke.able", "segments": ["un", "mis", "ta", "ke", "able"]}
+{"word": "vineyard", "reason": "unparsed", "raw": null}
+{"word": "abandonment", "reason": "bad_segments", "raw": "a.band.on.mint", "segments": ["a", "band", "on", "mint"]}
+{"word": "analog", "reason": "bad_segments", "raw": "an.log", "segments": ["an", "log"]}
+{"word": "immensely", "reason": "bad_segments", "raw": "im.mens.ly", "segments": ["im", "mens", "ly"]}
+{"word": "festive", "reason": "bad_segments", "raw": "fes.tiv.", "segments": ["fes", "tiv"]}
+{"word": "incompatible", "reason": "unparsed", "raw": null}
+{"word": "symmetry", "reason": "bad_segments", "raw": "sym.met.ric", "segments": ["sym", "met", "ric"]}
+{"word": "favorably", "reason": "bad_segments", "raw": "fav.or.able.ly", "segments": ["fav", "or", "able", "ly"]}
+{"word": "understandably", "reason": "bad_segments", "raw": "un.der.stand.able.ly", "segments": ["un", "der", "stand", "able", "ly"]}
+{"word": "insulate", "reason": "bad_segments", "raw": "in.sulat.ate", "segments": ["in", "sulat", "ate"]}
+{"word": "nicotine", "reason": "bad_segments", "raw": "ni.cot.in", "segments": ["ni", "cot", "in"]}
+{"word": "hospice", "reason": "bad_segments", "raw": "hosp.ic", "segments": ["hosp", "ic"]}
+{"word": "paramedic", "reason": "bad_segments", "raw": "par.med.ic", "segments": ["par", "med", "ic"]}
+{"word": "grieving", "reason": "bad_segments", "raw": "grieve.ing", "segments": ["grieve", "ing"]}
+{"word": "saloon", "reason": "bad_segments", "raw": "sa.lloon", "segments": ["sa", "lloon"]}
+{"word": "neutralize", "reason": "bad_segments", "raw": "ne.tral.ize", "segments": ["ne", "tral", "ize"]}
+{"word": "proportional", "reason": "unparsed", "raw": null}
+{"word": "menopause", "reason": "bad_segments", "raw": "me.no.paus", "segments": ["me", "no", "paus"]}
+{"word": "refinement", "reason": "bad_segments", "raw": "re.fin.ment", "segments": ["re", "fin", "ment"]}
+{"word": "cringe", "reason": "bad_segments", "raw": "cring", "segments": ["cring"]}
+{"word": "confinement", "reason": "bad_segments", "raw": "con.fin.ment", "segments": ["con", "fin", "ment"]}
+{"word": "dialect", "reason": "bad_segments", "raw": "di.lect", "segments": ["di", "lect"]}
+{"word": "sharing", "reason": "bad_segments", "raw": "share.ing", "segments": ["share", "ing"]}
+{"word": "info", "reason": "bad_segments", "raw": "in.for", "segments": ["in", "for"]}
+{"word": "tweak", "reason": "unparsed", "raw": null}
+{"word": "backward", "reason": "bad_segments", "raw": "back.word", "segments": ["back", "word"]}
+{"word": "horde", "reason": "bad_segments", "raw": "hord", "segments": ["hord"]}
+{"word": "methodological", "reason": "bad_segments", "raw": "meth.od.ol.og.ic", "segments": ["meth", "od", "ol", "og", "ic"]}
+{"word": "embodiment", "reason": "bad_segments", "raw": "em.body.ment", "segments": ["em", "body", "ment"]}
+{"word": "mythical", "reason": "bad_segments", "raw": "myth.ic", "segments": ["myth", "ic"]}
+{"word": "leukemia", "reason": "bad_segments", "raw": "leuk.ae.mi.a", "segments": ["leuk", "ae", "mi", "a"]}
+{"word": "abduction", "reason": "unparsed", "raw": null}
+{"word": "thicket", "reason": "bad_segments", "raw": "thick.let", "segments": ["thick", "let"]}
+{"word": "diffusion", "reason": "unparsed", "raw": null}
+{"word": "garner", "reason": "unparsed", "raw": null}
+{"word": "sinner", "reason": "unparsed", "raw": null}
+{"word": "pastime", "reason": "bad_segments", "raw": "past.time", "segments": ["past", "time"]}
+{"word": "homecoming", "reason": "bad_segments", "raw": "home.come.ing", "segments": ["home", "come", "ing"]}
+{"word": "incorrectly", "reason": "bad_segments", "raw": "in.cor.rect.able.ly", "segments": ["in", "cor", "rect", "able", "ly"]}
+{"word": "puree", "reason": "bad_segments", "raw": "pur.ree", "segments": ["pur", "ree"]}
+{"word": "nibble", "reason": "bad_segments", "raw": "nib.bl", "segments": ["nib", "bl"]}
+{"word": "destabilize", "reason": "bad_segments", "raw": "de.stab.ile", "segments": ["de", "stab", "ile"]}
+{"word": "unsuccessfully", "reason": "unparsed", "raw": null}
+{"word": "abnormality", "reason": "bad_segments", "raw": "a.normal.ity", "segments": ["a", "normal", "ity"]}
+{"word": "songwriter", "reason": "bad_segments", "raw": "song.wri.te", "segments": ["song", "wri", "te"]}
+{"word": "horrifying", "reason": "bad_segments", "raw": "horr.if.y", "segments": ["horr", "if", "y"]}
+{"word": "crumbling", "reason": "unparsed", "raw": null}
+{"word": "deceptive", "reason": "bad_segments", "raw": "de.ceiv.ptive", "segments": ["de", "ceiv", "ptive"]}
+{"word": "oregano", "reason": "bad_segments", "raw": "o.reg.no", "segments": ["o", "reg", "no"]}
+{"word": "apprehend", "reason": "unparsed", "raw": null}
+{"word": "spoken", "reason": "bad_segments", "raw": "speak.en", "segments": ["speak", "en"]}
+{"word": "unheard", "reason": "bad_segments", "raw": "un.hard", "segments": ["un", "hard"]}
+{"word": "predictably", "reason": "bad_segments", "raw": "pre.dict.able.ly", "segments": ["pre", "dict", "able", "ly"]}
+{"word": "staunch", "reason": "bad_segments", "raw": "stounch", "segments": ["stounch"]}
+{"word": "double", "reason": "bad_segments", "raw": "dou.bl", "segments": ["dou", "bl"]}
+{"word": "candlelight", "reason": "bad_segments", "raw": "candl.light", "segments": ["candl", "light"]}
+{"word": "densely", "reason": "bad_segments", "raw": "dens.ly", "segments": ["dens", "ly"]}
+{"word": "giftedness", "reason": "unparsed", "raw": null}
+{"word": "pellet", "reason": "unparsed", "raw": null}
+{"word": "median", "reason": "unparsed", "raw": null}
+{"word": "tether", "reason": "unparsed", "raw": null}
+{"word": "connecting", "reason": "unparsed", "raw": null}
+{"word": "fencing", "reason": "unparsed", "raw": null}
+{"word": "approximate", "reason": "unparsed", "raw": null}
+{"word": "unprotected", "reason": "unparsed", "raw": null}
+{"word": "workload", "reason": "unparsed", "raw": null}
+{"word": "verbally", "reason": "unparsed", "raw": null}
+{"word": "prelude", "reason": "unparsed", "raw": null}
+{"word": "enigmatic", "reason": "bad_segments", "raw": "en.mat.ic", "segments": ["en", "mat", "ic"]}
+{"word": "cardinal", "reason": "bad_segments", "raw": "card.in.", "segments": ["card", "in"]}
+{"word": "y'all", "reason": "unparsed", "raw": null}
+{"word": "perpetrate", "reason": "bad_segments", "raw": "per.pet.ate", "segments": ["per", "pet", "ate"]}
+{"word": "infidelity", "reason": "bad_segments", "raw": "in.fid.ility", "segments": ["in", "fid", "ility"]}
+{"word": "probing", "reason": "bad_segments", "raw": "probe.ing", "segments": ["probe", "ing"]}
+{"word": "conceivably", "reason": "bad_segments", "raw": "con.ceiv.able.y", "segments": ["con", "ceiv", "able", "y"]}
+{"word": "disarray", "reason": "bad_segments", "raw": "dis.ar.roy", "segments": ["dis", "ar", "roy"]}
+{"word": "momentary", "reason": "unparsed", "raw": null}
+{"word": "feeble", "reason": "bad_segments", "raw": "fee.bl", "segments": ["fee", "bl"]}
+{"word": "his/her", "reason": "unparsed", "raw": null}
+{"word": "concussion", "reason": "bad_segments", "raw": "con.cuss.sion", "segments": ["con", "cuss", "sion"]}
+{"word": "rind", "reason": "unparsed", "raw": null}
+{"word": "cement", "reason": "unparsed", "raw": null}
+{"word": "bellow", "reason": "bad_segments", "raw": "be.low", "segments": ["be", "low"]}
+{"word": "craving", "reason": "bad_segments", "raw": "crave.ing", "segments": ["crave", "ing"]}
+{"word": "scallop", "reason": "bad_segments", "raw": "scal.lopp", "segments": ["scal", "lopp"]}
+{"word": "emerald", "reason": "bad_segments", "raw": "e.mar.eld", "segments": ["e", "mar", "eld"]}
+{"word": "corrupt", "reason": "unparsed", "raw": null}
+{"word": "cinematic", "reason": "bad_segments", "raw": "cin.mat.ic", "segments": ["cin", "mat", "ic"]}
+{"word": "incision", "reason": "bad_segments", "raw": "in.cis.sion", "segments": ["in", "cis", "sion"]}
+{"word": "bedrock", "reason": "bad_segments", "raw": "be.rock", "segments": ["be", "rock"]}
+{"word": "cyclical", "reason": "bad_segments", "raw": "cyc.ic.al", "segments": ["cyc", "ic", "al"]}
+{"word": "enlightenment", "reason": "bad_segments", "raw": "en.light.ment", "segments": ["en", "light", "ment"]}
+{"word": "clamber", "reason": "bad_segments", "raw": "climb.ber", "segments": ["climb", "ber"]}
+{"word": "unilaterally", "reason": "bad_segments", "raw": "un.later.ally", "segments": ["un", "later", "ally"]}
+{"word": "appall", "reason": "bad_segments", "raw": "a.pall", "segments": ["a", "pall"]}
+{"word": "impasse", "reason": "bad_segments", "raw": "im.pass", "segments": ["im", "pass"]}
+{"word": "beleaguered", "reason": "bad_segments", "raw": "be.league.er.ed", "segments": ["be", "league", "er", "ed"]}
+{"word": "experimenter", "reason": "bad_segments", "raw": "ex.perim.entr.er", "segments": ["ex", "perim", "entr", "er"]}
+{"word": "uncomfortably", "reason": "bad_segments", "raw": "un.comfort.able.ly", "segments": ["un", "comfort", "able", "ly"]}
+{"word": "whopping", "reason": "unparsed", "raw": null}
+{"word": "permissible", "reason": "bad_segments", "raw": "per.mit.si.ble", "segments": ["per", "mit", "si", "ble"]}
+{"word": "wondrous", "reason": "bad_segments", "raw": "wonder.ous", "segments": ["wonder", "ous"]}
+{"word": "grizzly", "reason": "bad_segments", "raw": "griz.zy", "segments": ["griz", "zy"]}
+{"word": "apocalyptic", "reason": "bad_segments", "raw": "a.poc.lyp.tic.al", "segments": ["a", "poc", "lyp", "tic", "al"]}
+{"word": "publicized", "reason": "unparsed", "raw": null}
+{"word": "policing", "reason": "bad_segments", "raw": "pol.ice.ing", "segments": ["pol", "ice", "ing"]}
+{"word": "inundate", "reason": "bad_segments", "raw": "in.un.dat.ate", "segments": ["in", "un", "dat", "ate"]}
+{"word": "perpetually", "reason": "bad_segments", "raw": "per.pet.u.ual.ly", "segments": ["per", "pet", "u", "ual", "ly"]}
+{"word": "extremism", "reason": "bad_segments", "raw": "ex.tre.mix.ism", "segments": ["ex", "tre", "mix", "ism"]}
+{"word": "hiking", "reason": "bad_segments", "raw": "hike.ing", "segments": ["hike", "ing"]}
+{"word": "intrinsically", "reason": "bad_segments", "raw": "in.trin.sin.cal.ly", "segments": ["in", "trin", "sin", "cal", "ly"]}
+{"word": "extracurricular", "reason": "bad_segments", "raw": "ex.cur.ri.cu.lar", "segments": ["ex", "cur", "ri", "cu", "lar"]}
+{"word": "transfusion", "reason": "bad_segments", "raw": "trans.fus.on", "segments": ["trans", "fus", "on"]}
+{"word": "forward", "reason": "unparsed", "raw": null}
+{"word": "memento", "reason": "bad_segments", "raw": "men.to.men.to", "segments": ["men", "to", "men", "to"]}
+{"word": "unquestionably", "reason": "bad_segments", "raw": "un.question.able.ly", "segments": ["un", "question", "able", "ly"]}
+{"word": "implied", "reason": "bad_segments", "raw": "im.ply.ed", "segments": ["im", "ply", "ed"]}
+{"word": "smuggling", "reason": "bad_segments", "raw": "smug.gle.ing", "segments": ["smug", "gle", "ing"]}
+{"word": "methodist", "reason": "bad_segments", "raw": "meth.ods.t", "segments": ["meth", "ods", "t"]}
+{"word": "dislocation", "reason": "bad_segments", "raw": "dis.loc.ate.ion", "segments": ["dis", "loc", "ate", "ion"]}
+{"word": "mummy", "reason": "unparsed", "raw": null}
+{"word": "fumble", "reason": "bad_segments", "raw": "fum.bl.", "segments": ["fum", "bl"]}
+{"word": "juxtapose", "reason": "bad_segments", "raw": "juxta.pos.", "segments": ["juxta", "pos"]}
+{"word": "potency", "reason": "bad_segments", "raw": "potent.cy", "segments": ["potent", "cy"]}
+{"word": "coincidentally", "reason": "bad_segments", "raw": "coin.ci.den.tial.ly", "segments": ["coin", "ci", "den", "tial", "ly"]}
+{"word": "unbelievably", "reason": "bad_segments", "raw": "un.believ.able.ly", "segments": ["un", "believ", "able", "ly"]}
+{"word": "normalize", "reason": "unparsed", "raw": null}
+{"word": "aching", "reason": "bad_segments", "raw": "ache.ing", "segments": ["ache", "ing"]}
+{"word": "benefactor", "reason": "bad_segments", "raw": "ben.fac.tor", "segments": ["ben", "fac", "tor"]}
+{"word": "oncoming", "reason": "bad_segments", "raw": "on.come.ing", "segments": ["on", "come", "ing"]}
+{"word": "idyllic", "reason": "bad_segments", "raw": "idyl.llic", "segments": ["idyl", "llic"]}
+{"word": "unattractive", "reason": "unparsed", "raw": null}
+{"word": "gratifying", "reason": "unparsed", "raw": null}
+{"word": "skating", "reason": "bad_segments", "raw": "skate.ing", "segments": ["skate", "ing"]}
+{"word": "amble", "reason": "unparsed", "raw": null}
+{"word": "retrieval", "reason": "bad_segments", "raw": "re.tri.ve.val", "segments": ["re", "tri", "ve", "val"]}
+{"word": "hypocritical", "reason": "bad_segments", "raw": "hy.poc.rit.ic", "segments": ["hy", "poc", "rit", "ic"]}
+{"word": "miserably", "reason": "bad_segments", "raw": "miser.able.ly", "segments": ["miser", "able", "ly"]}
+{"word": "calibrate", "reason": "bad_segments", "raw": "calib.rat.ate", "segments": ["calib", "rat", "ate"]}
+{"word": "sherry", "reason": "bad_segments", "raw": "sher.r", "segments": ["sher", "r"]}
+{"word": "supervisory", "reason": "bad_segments", "raw": "su.per.viso.r", "segments": ["su", "per", "viso", "r"]}
+{"word": "preserving", "reason": "bad_segments", "raw": "pre.serve.ing", "segments": ["pre", "serve", "ing"]}
+{"word": "psychoanalysis", "reason": "unparsed", "raw": null}
+{"word": "manned", "reason": "unparsed", "raw": null}
+{"word": "pandemic", "reason": "bad_segments", "raw": "pan.demo.ic", "segments": ["pan", "demo", "ic"]}
+{"word": "entangle", "reason": "bad_segments", "raw": "en.tang.able", "segments": ["en", "tang", "able"]}
+{"word": "fading", "reason": "bad_segments", "raw": "fade.ing", "segments": ["fade", "ing"]}
+{"word": "gradient", "reason": "bad_segments", "raw": "gra.di.ient", "segments": ["gra", "di", "ient"]}
+{"word": "chauffeur", "reason": "bad_segments", "raw": "chaf.feur", "segments": ["chaf", "feur"]}
+{"word": "venezuelan", "reason": "bad_segments", "raw": "ve.nez.u.lan", "segments": ["ve", "nez", "u", "lan"]}
+{"word": "mozzarella", "reason": "bad_segments", "raw": "moz.zar.rel.la", "segments": ["moz", "zar", "rel", "la"]}
+{"word": "sovereign", "reason": "bad_segments", "raw": "sov.reign", "segments": ["sov", "reign"]}
+{"word": "inextricably", "reason": "bad_segments", "raw": "in.extr.ic.able.ly", "segments": ["in", "extr", "ic", "able", "ly"]}
+{"word": "bistro", "reason": "bad_segments", "raw": "bis.tr", "segments": ["bis", "tr"]}
+{"word": "tinge", "reason": "bad_segments", "raw": "ting", "segments": ["ting"]}
+{"word": "fudge", "reason": "bad_segments", "raw": "fudg", "segments": ["fudg"]}
+{"word": "noose", "reason": "bad_segments", "raw": "noos", "segments": ["noos"]}
+{"word": "likable", "reason": "bad_segments", "raw": "like.able", "segments": ["like", "able"]}
+{"word": "judgement", "reason": "bad_segments", "raw": "judg.ment", "segments": ["judg", "ment"]}
+{"word": "humble", "reason": "unparsed", "raw": null}
+{"word": "awful", "reason": "bad_segments", "raw": "awe.ful", "segments": ["awe", "ful"]}
+{"word": "odyssey", "reason": "bad_segments", "raw": "odys.sy", "segments": ["odys", "sy"]}
+{"word": "icing", "reason": "bad_segments", "raw": "ice.ing", "segments": ["ice", "ing"]}
+{"word": "inexplicably", "reason": "bad_segments", "raw": "in.ex.plic.able.ly", "segments": ["in", "ex", "plic", "able", "ly"]}
+{"word": "induct", "reason": "unparsed", "raw": null}
+{"word": "dizziness", "reason": "bad_segments", "raw": "dizzy.ness", "segments": ["dizzy", "ness"]}
+{"word": "concomitant", "reason": "bad_segments", "raw": "con.com.bi.tant", "segments": ["con", "com", "bi", "tant"]}
+{"word": "grading", "reason": "bad_segments", "raw": "grade.ing", "segments": ["grade", "ing"]}
+{"word": "ember", "reason": "bad_segments", "raw": "em.b", "segments": ["em", "b"]}
+{"word": "amnesia", "reason": "bad_segments", "raw": "a.mnes.tic.a", "segments": ["a", "mnes", "tic", "a"]}
+{"word": "impotence", "reason": "bad_segments", "raw": "im.pot.ent.ce", "segments": ["im", "pot", "ent", "ce"]}
+{"word": "vanguard", "reason": "bad_segments", "raw": "van.gard", "segments": ["van", "gard"]}
+{"word": "waving", "reason": "bad_segments", "raw": "wave.ing", "segments": ["wave", "ing"]}
+{"word": "gripping", "reason": "unparsed", "raw": null}
+{"word": "calming", "reason": "unparsed", "raw": null}
+{"word": "scanning", "reason": "unparsed", "raw": null}
+{"word": "justified", "reason": "bad_segments", "raw": "just.if.yed", "segments": ["just", "if", "yed"]}
+{"word": "peppermint", "reason": "bad_segments", "raw": "pepp.er.min", "segments": ["pepp", "er", "min"]}
+{"word": "lukewarm", "reason": "bad_segments", "raw": "luk.warm", "segments": ["luk", "warm"]}
+{"word": "panoramic", "reason": "bad_segments", "raw": "pan.or.ama.ic", "segments": ["pan", "or", "ama", "ic"]}
+{"word": "paparazzi", "reason": "bad_segments", "raw": "pa.pa.rat.zzi", "segments": ["pa", "pa", "rat", "zzi"]}
+{"word": "noxious", "reason": "bad_segments", "raw": "noc.tious", "segments": ["noc", "tious"]}
+{"word": "rambling", "reason": "unparsed", "raw": null}
+{"word": "babble", "reason": "bad_segments", "raw": "bab.le", "segments": ["bab", "le"]}
+{"word": "parenthesis", "reason": "unparsed", "raw": null}
+{"word": "partake", "reason": "bad_segments", "raw": "part.take", "segments": ["part", "take"]}
+{"word": "daily", "reason": "bad_segments", "raw": "day.li", "segments": ["day", "li"]}
+{"word": "scathing", "reason": "bad_segments", "raw": "scat.thing", "segments": ["scat", "thing"]}
+{"word": "resolutely", "reason": "bad_segments", "raw": "resolv.ely", "segments": ["resolv", "ely"]}
+{"word": "extraterrestrial", "reason": "bad_segments", "raw": "ex.tra.te.res.tri.al", "segments": ["ex", "tra", "te", "res", "tri", "al"]}
+{"word": "infringement", "reason": "bad_segments", "raw": "in.fring.ment", "segments": ["in", "fring", "ment"]}
+{"word": "testimonial", "reason": "bad_segments", "raw": "testi.mon.yal", "segments": ["testi", "mon", "yal"]}
+{"word": "archetype", "reason": "bad_segments", "raw": "arch.type", "segments": ["arch", "type"]}
+{"word": "he/she", "reason": "unparsed", "raw": null}
+{"word": "paltry", "reason": "bad_segments", "raw": "pal.tri", "segments": ["pal", "tri"]}
+{"word": "unannounced", "reason": "bad_segments", "raw": "un.an.nounce.ed", "segments": ["un", "an", "nounce", "ed"]}
+{"word": "insurmountable", "reason": "bad_segments", "raw": "in.sur.moun.tab.able", "segments": ["in", "sur", "moun", "tab", "able"]}
+{"word": "belittle", "reason": "bad_segments", "raw": "be.tit.tle", "segments": ["be", "tit", "tle"]}
+{"word": "deceptively", "reason": "bad_segments", "raw": "de.cep.tiv.ly", "segments": ["de", "cep", "tiv", "ly"]}
+{"word": "lexicon", "reason": "bad_segments", "raw": "lex.ion", "segments": ["lex", "ion"]}
+{"word": "bourgeoisie", "reason": "bad_segments", "raw": "bour.goi.sie", "segments": ["bour", "goi", "sie"]}
+{"word": "trembling", "reason": "unparsed", "raw": null}
+{"word": "jasmine", "reason": "bad_segments", "raw": "jas.min", "segments": ["jas", "min"]}
+{"word": "filtration", "reason": "bad_segments", "raw": "fil.tr.ate.i.on", "segments": ["fil", "tr", "ate", "i", "on"]}
+{"word": "dispersion", "reason": "bad_segments", "raw": "dis.pers.sion", "segments": ["dis", "pers", "sion"]}
+{"word": "indeterminate", "reason": "bad_segments", "raw": "in.de.ter.min.at.able", "segments": ["in", "de", "ter", "min", "at", "able"]}
+{"word": "baroque", "reason": "bad_segments", "raw": "bar.que", "segments": ["bar", "que"]}
+{"word": "businesslike", "reason": "unparsed", "raw": null}
+{"word": "unmistakably", "reason": "bad_segments", "raw": "un.mis.tak.able.ly", "segments": ["un", "mis", "tak", "able", "ly"]}
+{"word": "dialog", "reason": "bad_segments", "raw": "di.log", "segments": ["di", "log"]}
+{"word": "affable", "reason": "bad_segments", "raw": "af.fab.able", "segments": ["af", "fab", "able"]}
+{"word": "uneasiness", "reason": "unparsed", "raw": null}
+{"word": "spying", "reason": "unparsed", "raw": null}
+{"word": "figuratively", "reason": "bad_segments", "raw": "fig.ur.at.iv.ly", "segments": ["fig", "ur", "at", "iv", "ly"]}
+{"word": "mackerel", "reason": "bad_segments", "raw": "mac.rel", "segments": ["mac", "rel"]}
+{"word": "storied", "reason": "bad_segments", "raw": "stor.y", "segments": ["stor", "y"]}
+{"word": "holiness", "reason": "unparsed", "raw": null}
+{"word": "armament", "reason": "bad_segments", "raw": "ar.mar.ment", "segments": ["ar", "mar", "ment"]}
+{"word": "leasing", "reason": "bad_segments", "raw": "lease.ing", "segments": ["lease", "ing"]}
+{"word": "heterogeneity", "reason": "bad_segments", "raw": "het.ero.gen.ity", "segments": ["het", "ero", "gen", "ity"]}
+{"word": "spotty", "reason": "unparsed", "raw": null}
+{"word": "synthesizer", "reason": "bad_segments", "raw": "syn.the.iz.er", "segments": ["syn", "the", "iz", "er"]}
+{"word": "summons", "reason": "bad_segments", "raw": "sum.mon", "segments": ["sum", "mon"]}
+{"word": "keg", "reason": "unparsed", "raw": null}
+{"word": "ugliness", "reason": "unparsed", "raw": null}
+{"word": "assuage", "reason": "bad_segments", "raw": "as.su.ague", "segments": ["as", "su", "ague"]}
+{"word": "ointment", "reason": "bad_segments", "raw": "on.tment", "segments": ["on", "tment"]}
+{"word": "sportswriter", "reason": "bad_segments", "raw": "sport.write.r", "segments": ["sport", "write", "r"]}
+{"word": "disengagement", "reason": "bad_segments", "raw": "dis.engag.ment", "segments": ["dis", "engag", "ment"]}
+{"word": "succulent", "reason": "bad_segments", "raw": "suc.cul.tent", "segments": ["suc", "cul", "tent"]}
+{"word": "inducement", "reason": "bad_segments", "raw": "in.duc.ment", "segments": ["in", "duc", "ment"]}
+{"word": "movable", "reason": "bad_segments", "raw": "move.able", "segments": ["move", "able"]}
+{"word": "sagging", "reason": "bad_segments", "raw": "sag.g", "segments": ["sag", "g"]}
+{"word": "opine", "reason": "bad_segments", "raw": "op.in", "segments": ["op", "in"]}
+{"word": "epicenter", "reason": "bad_segments", "raw": "e.pic.entr", "segments": ["e", "pic", "entr"]}
+{"word": "intricately", "reason": "bad_segments", "raw": "in.tric.at.ly", "segments": ["in", "tric", "at", "ly"]}
+{"word": "sensuality", "reason": "bad_segments", "raw": "sen.su.ual.ity", "segments": ["sen", "su", "ual", "ity"]}
+{"word": "regrettably", "reason": "bad_segments", "raw": "re.grett.able.y", "segments": ["re", "grett", "able", "y"]}
+{"word": "ouster", "reason": "bad_segments", "raw": "out.er", "segments": ["out", "er"]}
+{"word": "desolation", "reason": "bad_segments", "raw": "de.sol.ate.ion", "segments": ["de", "sol", "ate", "ion"]}
+{"word": "inaccuracy", "reason": "bad_segments", "raw": "in.ac.cur.ate.cy", "segments": ["in", "ac", "cur", "ate", "cy"]}
+{"word": "tribulation", "reason": "bad_segments", "raw": "trib.ulate.ion", "segments": ["trib", "ulate", "ion"]}
+{"word": "awkwardness", "reason": "unparsed", "raw": null}
+{"word": "whisky", "reason": "bad_segments", "raw": "whis.key", "segments": ["whis", "key"]}
+{"word": "extramarital", "reason": "bad_segments", "raw": "ex.mar.i.tal", "segments": ["ex", "mar", "i", "tal"]}
+{"word": "downsizing", "reason": "bad_segments", "raw": "down.size.ing", "segments": ["down", "size", "ing"]}
+{"word": "ineffectual", "reason": "bad_segments", "raw": "in.effec.tu.ual", "segments": ["in", "effec", "tu", "ual"]}
+{"word": "politicization", "reason": "bad_segments", "raw": "polit.iz.at.ion", "segments": ["polit", "iz", "at", "ion"]}
+{"word": "formalize", "reason": "bad_segments", "raw": "for.ma.liz.able", "segments": ["for", "ma", "liz", "able"]}
+{"word": "misbehave", "reason": "unparsed", "raw": null}
+{"word": "regrettable", "reason": "bad_segments", "raw": "re.gret.tab.ble", "segments": ["re", "gret", "tab", "ble"]}
+{"word": "grotto", "reason": "bad_segments", "raw": "gro.to", "segments": ["gro", "to"]}
+{"word": "bluish", "reason": "bad_segments", "raw": "blue.ish", "segments": ["blue", "ish"]}
+{"word": "friendliness", "reason": "bad_segments", "raw": "friend.ly.ness", "segments": ["friend", "ly", "ness"]}
+{"word": "notepad", "reason": "bad_segments", "raw": "not.pad", "segments": ["not", "pad"]}
+{"word": "neurotransmitter", "reason": "bad_segments", "raw": "neuro.trans.mitt.ter", "segments": ["neuro", "trans", "mitt", "ter"]}
+{"word": "forerunner", "reason": "unparsed", "raw": null}
+{"word": "stunningly", "reason": "unparsed", "raw": null}
+{"word": "intelligentsia", "reason": "bad_segments", "raw": "in.tel.li.gen.ti.a", "segments": ["in", "tel", "li", "gen", "ti", "a"]}
+{"word": "reprehensible", "reason": "bad_segments", "raw": "re.pre.hens.sible", "segments": ["re", "pre", "hens", "sible"]}
+{"word": "emphysema", "reason": "bad_segments", "raw": "em.phys.se.ma", "segments": ["em", "phys", "se", "ma"]}
+{"word": "qualitatively", "reason": "bad_segments", "raw": "qual.it.at.iv.ly", "segments": ["qual", "it", "at", "iv", "ly"]}
+{"word": "excision", "reason": "bad_segments", "raw": "ex.cis.sion", "segments": ["ex", "cis", "sion"]}
+{"word": "introspection", "reason": "bad_segments", "raw": "in.tro.spect.sion", "segments": ["in", "tro", "spect", "sion"]}
+{"word": "clumsily", "reason": "bad_segments", "raw": "clums.y", "segments": ["clums", "y"]}
+{"word": "admirably", "reason": "bad_segments", "raw": "ad.mir.able.ly", "segments": ["ad", "mir", "able", "ly"]}
+{"word": "craziness", "reason": "unparsed", "raw": null}
+{"word": "indoctrination", "reason": "bad_segments", "raw": "in.doctr.in.ate.ion", "segments": ["in", "doctr", "in", "ate", "ion"]}
+{"word": "arugula", "reason": "unparsed", "raw": null}
+{"word": "emigre", "reason": "bad_segments", "raw": "e.mi.gr", "segments": ["e", "mi", "gr"]}
+{"word": "goatee", "reason": "bad_segments", "raw": "go.ate", "segments": ["go", "ate"]}
+{"word": "misperception", "reason": "bad_segments", "raw": "mis.per.ceiv.tion", "segments": ["mis", "per", "ceiv", "tion"]}
+{"word": "artifice", "reason": "bad_segments", "raw": "ar.tif.fice", "segments": ["ar", "tif", "fice"]}
+{"word": "insulating", "reason": "bad_segments", "raw": "in.sul.tat.ing", "segments": ["in", "sul", "tat", "ing"]}
+{"word": "sweltering", "reason": "bad_segments", "raw": "swell.ter.ing", "segments": ["swell", "ter", "ing"]}
+{"word": "invigorating", "reason": "bad_segments", "raw": "in.vigor.ate.ing", "segments": ["in", "vigor", "ate", "ing"]}
+{"word": "unpretentious", "reason": "bad_segments", "raw": "un.pret.ten.tious", "segments": ["un", "pret", "ten", "tious"]}
+{"word": "suitably", "reason": "bad_segments", "raw": "suit.able.ly", "segments": ["suit", "able", "ly"]}
+{"word": "impinge", "reason": "bad_segments", "raw": "im.p.ing.ge", "segments": ["im", "p", "ing", "ge"]}
+{"word": "apocalypse", "reason": "bad_segments", "raw": "a.caly.ps.se", "segments": ["a", "caly", "ps", "se"]}
+{"word": "disassemble", "reason": "unparsed", "raw": null}
+{"word": "hollow", "reason": "unparsed", "raw": null}
+{"word": "profiling", "reason": "bad_segments", "raw": "pro.file.ing", "segments": ["pro", "file", "ing"]}
+{"word": "sedative", "reason": "bad_segments", "raw": "sed.at.iv.ate", "segments": ["sed", "at", "iv", "ate"]}
+{"word": "dimensional", "reason": "unparsed", "raw": null}
+{"word": "whilst", "reason": "bad_segments", "raw": "while.st", "segments": ["while", "st"]}
+{"word": "inadequately", "reason": "bad_segments", "raw": "in.ad.equ.at.ly", "segments": ["in", "ad", "equ", "at", "ly"]}
+{"word": "defamation", "reason": "bad_segments", "raw": "de.fam.in.at.ion", "segments": ["de", "fam", "in", "at", "ion"]}
+{"word": "quill", "reason": "unparsed", "raw": null}
+{"word": "registrar", "reason": "bad_segments", "raw": "re.gist.ar", "segments": ["re", "gist", "ar"]}
+{"word": "repute", "reason": "bad_segments", "raw": "re.put", "segments": ["re", "put"]}
+{"word": "priestess", "reason": "bad_segments", "raw": "pres.tess", "segments": ["pres", "tess"]}
+{"word": "attentively", "reason": "bad_segments", "raw": "at.tent.iv.ly", "segments": ["at", "tent", "iv", "ly"]}
+{"word": "agribusiness", "reason": "unparsed", "raw": null}
+{"word": "precipice", "reason": "unparsed", "raw": null}
+{"word": "adjudicate", "reason": "unparsed", "raw": null}
+{"word": "preventative", "reason": "unparsed", "raw": null}
+{"word": "feverishly", "reason": "unparsed", "raw": null}
+{"word": "flemish", "reason": "unparsed", "raw": null}
+{"word": "copier", "reason": "unparsed", "raw": null}
+{"word": "firstborn", "reason": "unparsed", "raw": null}
+{"word": "oxidation", "reason": "unparsed", "raw": null}
+{"word": "panicky", "reason": "bad_segments", "raw": "panic.y", "segments": ["panic", "y"]}
+{"word": "stasis", "reason": "bad_segments", "raw": "stat.is", "segments": ["stat", "is"]}
+{"word": "rigging", "reason": "bad_segments", "raw": "rig.gin", "segments": ["rig", "gin"]}
+{"word": "grudging", "reason": "bad_segments", "raw": "grud.gin", "segments": ["grud", "gin"]}
+{"word": "summarily", "reason": "bad_segments", "raw": "sum.mar.ial.ly", "segments": ["sum", "mar", "ial", "ly"]}
+{"word": "discounted", "reason": "bad_segments", "raw": "dis.count.ated", "segments": ["dis", "count", "ated"]}
+{"word": "catharsis", "reason": "bad_segments", "raw": "cath.ar.sys", "segments": ["cath", "ar", "sys"]}
+{"word": "recyclable", "reason": "bad_segments", "raw": "re.cyc.lo.able", "segments": ["re", "cyc", "lo", "able"]}
+{"word": "jurisdictional", "reason": "bad_segments", "raw": "juris.dict.tion.al", "segments": ["juris", "dict", "tion", "al"]}
+{"word": "antibacterial", "reason": "bad_segments", "raw": "an.ti.bacte.ri.cal", "segments": ["an", "ti", "bacte", "ri", "cal"]}
+{"word": "verifiable", "reason": "bad_segments", "raw": "ver.if.y.able", "segments": ["ver", "if", "y", "able"]}
+{"word": "offset", "reason": "bad_segments", "raw": "of.set", "segments": ["of", "set"]}
+{"word": "crucifixion", "reason": "bad_segments", "raw": "cru.ci.fix.tion", "segments": ["cru", "ci", "fix", "tion"]}
+{"word": "meanness", "reason": "unparsed", "raw": null}
+{"word": "sodomy", "reason": "bad_segments", "raw": "so.dy", "segments": ["so", "dy"]}
+{"word": "appeasement", "reason": "bad_segments", "raw": "ap.pease.mont", "segments": ["ap", "pease", "mont"]}
+{"word": "crappie", "reason": "unparsed", "raw": null}
+{"word": "cliché", "reason": "unparsed", "raw": null}
+{"word": "retaliatory", "reason": "unparsed", "raw": null}
+{"word": "chateau", "reason": "bad_segments", "raw": "chat.teau", "segments": ["chat", "teau"]}
+{"word": "exponent", "reason": "bad_segments", "raw": "ex.pont.ent", "segments": ["ex", "pont", "ent"]}
+{"word": "tracing", "reason": "bad_segments", "raw": "trace.ing", "segments": ["trace", "ing"]}
+{"word": "multiplier", "reason": "bad_segments", "raw": "mul.ti.ply.ier", "segments": ["mul", "ti", "ply", "ier"]}
+{"word": "immaterial", "reason": "bad_segments", "raw": "im.mat.ter.ial", "segments": ["im", "mat", "ter", "ial"]}
+{"word": "staunchly", "reason": "bad_segments", "raw": "stanch.ly", "segments": ["stanch", "ly"]}
+{"word": "lollipop", "reason": "bad_segments", "raw": "lolly.pop", "segments": ["lolly", "pop"]}
+{"word": "discernment", "reason": "bad_segments", "raw": "dis.cern.m.ment", "segments": ["dis", "cern", "m", "ment"]}
+{"word": "chartreuse", "reason": "bad_segments", "raw": "char.trouse", "segments": ["char", "trouse"]}
+{"word": "cohesiveness", "reason": "bad_segments", "raw": "co.hes.iv.ess", "segments": ["co", "hes", "iv", "ess"]}
+{"word": "dissension", "reason": "bad_segments", "raw": "dis.sens.sion", "segments": ["dis", "sens", "sion"]}
+{"word": "playfulness", "reason": "unparsed", "raw": null}
+{"word": "sorrowful", "reason": "bad_segments", "raw": "sor.row.full", "segments": ["sor", "row", "full"]}
+{"word": "bereavement", "reason": "bad_segments", "raw": "be.re.av.mt", "segments": ["be", "re", "av", "mt"]}
+{"word": "esthetic", "reason": "bad_segments", "raw": "aes.thet.ic", "segments": ["aes", "thet", "ic"]}
+{"word": "preteen", "reason": "unparsed", "raw": null}
+{"word": "angina", "reason": "bad_segments", "raw": "angin", "segments": ["angin"]}
+{"word": "unknowable", "reason": "unparsed", "raw": null}
+{"word": "volition", "reason": "unparsed", "raw": null}
+{"word": "nebulous", "reason": "unparsed", "raw": null}
+{"word": "wintertime", "reason": "unparsed", "raw": null}
+{"word": "modulation", "reason": "unparsed", "raw": null}
+{"word": "misstate", "reason": "unparsed", "raw": null}
+{"word": "deadbeat", "reason": "unparsed", "raw": null}
+{"word": "demure", "reason": "unparsed", "raw": null}
+{"word": "constructed", "reason": "unparsed", "raw": null}
+{"word": "stoned", "reason": "unparsed", "raw": null}
+{"word": "perturbation", "reason": "unparsed", "raw": null}
+{"word": "neuroscientist", "reason": "unparsed", "raw": null}
+{"word": "wastebasket", "reason": "unparsed", "raw": null}
+{"word": "complicating", "reason": "unparsed", "raw": null}
+{"word": "vicarious", "reason": "bad_segments", "raw": "vi.ari.ous", "segments": ["vi", "ari", "ous"]}
+{"word": "surging", "reason": "bad_segments", "raw": "surge.ing", "segments": ["surge", "ing"]}
+{"word": "silliness", "reason": "unparsed", "raw": null}
+{"word": "shenanigans", "reason": "bad_segments", "raw": "she.na.gans", "segments": ["she", "na", "gans"]}
+{"word": "profitably", "reason": "bad_segments", "raw": "prof.it.able.ly", "segments": ["prof", "it", "able", "ly"]}
+{"word": "icicle", "reason": "bad_segments", "raw": "ice.cil.e", "segments": ["ice", "cil", "e"]}
+{"word": "psychoanalyst", "reason": "bad_segments", "raw": "psych.anal.yst", "segments": ["psych", "anal", "yst"]}
+{"word": "disabling", "reason": "bad_segments", "raw": "dis.abil.ing", "segments": ["dis", "abil", "ing"]}
+{"word": "concave", "reason": "bad_segments", "raw": "con.cav.", "segments": ["con", "cav"]}
+{"word": "mortar", "reason": "unparsed", "raw": null}
+{"word": "stumble", "reason": "bad_segments", "raw": "stum.bl", "segments": ["stum", "bl"]}
+{"word": "dreamily", "reason": "bad_segments", "raw": "dream.ili.y", "segments": ["dream", "ili", "y"]}
+{"word": "prudential", "reason": "bad_segments", "raw": "prude.nti.enti.al", "segments": ["prude", "nti", "enti", "al"]}
+{"word": "breadcrumb", "reason": "bad_segments", "raw": "bread.crum", "segments": ["bread", "crum"]}
+{"word": "doomsday", "reason": "bad_segments", "raw": "doom.day", "segments": ["doom", "day"]}
+{"word": "foible", "reason": "bad_segments", "raw": "fo.ile", "segments": ["fo", "ile"]}
+{"word": "flabbergasted", "reason": "bad_segments", "raw": "flab.berg.gast.ed", "segments": ["flab", "berg", "gast", "ed"]}
+{"word": "indigestion", "reason": "unparsed", "raw": null}
+{"word": "inventiveness", "reason": "bad_segments", "raw": "in.vent.iv.ness", "segments": ["in", "vent", "iv", "ness"]}
+{"word": "serviceable", "reason": "bad_segments", "raw": "ser.vic.able", "segments": ["ser", "vic", "able"]}
+{"word": "equivalency", "reason": "bad_segments", "raw": "equi.val.ent.cy", "segments": ["equi", "val", "ent", "cy"]}
+{"word": "a", "reason": "unparsed", "raw": null}
+{"word": "sorghum", "reason": "bad_segments", "raw": "sor.gum", "segments": ["sor", "gum"]}
+{"word": "rollback", "reason": "bad_segments", "raw": "re.roll.back", "segments": ["re", "roll", "back"]}
+{"word": "unmanageable", "reason": "bad_segments", "raw": "un.mane.ge.able", "segments": ["un", "mane", "ge", "able"]}
+{"word": "turnstile", "reason": "bad_segments", "raw": "turn.style", "segments": ["turn", "style"]}
+{"word": "scrubber", "reason": "bad_segments", "raw": "scrub.b", "segments": ["scrub", "b"]}
+{"word": "symbiosis", "reason": "bad_segments", "raw": "sym.bio.si.os", "segments": ["sym", "bio", "si", "os"]}
+{"word": "attentiveness", "reason": "bad_segments", "raw": "at.tent.iv.ness", "segments": ["at", "tent", "iv", "ness"]}
+{"word": "ghanaian", "reason": "bad_segments", "raw": "ghan.ain", "segments": ["ghan", "ain"]}
+{"word": "javelin", "reason": "bad_segments", "raw": "jav.lin", "segments": ["jav", "lin"]}
+{"word": "pathogenic", "reason": "bad_segments", "raw": "path.gen.ic", "segments": ["path", "gen", "ic"]}
+{"word": "snooze", "reason": "bad_segments", "raw": "sno.ze", "segments": ["sno", "ze"]}
+{"word": "demography", "reason": "bad_segments", "raw": "de.morph.y", "segments": ["de", "morph", "y"]}
+{"word": "arranged", "reason": "bad_segments", "raw": "ar.range.ed", "segments": ["ar", "range", "ed"]}
+{"word": "pheromone", "reason": "bad_segments", "raw": "pher.mo.ne", "segments": ["pher", "mo", "ne"]}
+{"word": "irrelevance", "reason": "bad_segments", "raw": "ir.re.lev.ant", "segments": ["ir", "re", "lev", "ant"]}
+{"word": "phallic", "reason": "bad_segments", "raw": "phal.ic", "segments": ["phal", "ic"]}
+{"word": "retractable", "reason": "bad_segments", "raw": "re.trac.tab.able", "segments": ["re", "trac", "tab", "able"]}
+{"word": "randomness", "reason": "unparsed", "raw": null}
+{"word": "roughness", "reason": "unparsed", "raw": null}
+{"word": "astrology", "reason": "unparsed", "raw": null}
+{"word": "digression", "reason": "unparsed", "raw": null}
+{"word": "constancy", "reason": "unparsed", "raw": null}
+{"word": "interreligious", "reason": "unparsed", "raw": null}
+{"word": "between", "reason": "unparsed", "raw": null}
+{"word": "qur'an", "reason": "unparsed", "raw": null}
+{"word": "unaccompanied", "reason": "bad_segments", "raw": "un.ac.com.pa.ned", "segments": ["un", "ac", "com", "pa", "ned"]}
+{"word": "acclimate", "reason": "bad_segments", "raw": "ac.cli.mat.te", "segments": ["ac", "cli", "mat", "te"]}
+{"word": "wickedness", "reason": "unparsed", "raw": null}
+{"word": "scrabble", "reason": "bad_segments", "raw": "scrub.ble", "segments": ["scrub", "ble"]}
+{"word": "afterward", "reason": "bad_segments", "raw": "after.word", "segments": ["after", "word"]}
+{"word": "draining", "reason": "unparsed", "raw": null}
+{"word": "parasol", "reason": "bad_segments", "raw": "par.sol", "segments": ["par", "sol"]}
+{"word": "contrite", "reason": "bad_segments", "raw": "con.rite", "segments": ["con", "rite"]}
+{"word": "sparring", "reason": "bad_segments", "raw": "spar.ing", "segments": ["spar", "ing"]}
+{"word": "indisputably", "reason": "bad_segments", "raw": "in.dis.put.able.ly", "segments": ["in", "dis", "put", "able", "ly"]}
+{"word": "ceremonial", "reason": "bad_segments", "raw": "ce.re.mon.y.al", "segments": ["ce", "re", "mon", "y", "al"]}
+{"word": "interchangeably", "reason": "bad_segments", "raw": "inter.change.able.y", "segments": ["inter", "change", "able", "y"]}
+{"word": "combustible", "reason": "bad_segments", "raw": "com.bust.ib.ble", "segments": ["com", "bust", "ib", "ble"]}
+{"word": "emcee", "reason": "bad_segments", "raw": "em.ce", "segments": ["em", "ce"]}
+{"word": "strangled", "reason": "bad_segments", "raw": "strang.gled", "segments": ["strang", "gled"]}
+{"word": "crazily", "reason": "bad_segments", "raw": "crazy.ly", "segments": ["crazy", "ly"]}
+{"word": "princely", "reason": "bad_segments", "raw": "princ.ly", "segments": ["princ", "ly"]}
+{"word": "anabolic", "reason": "bad_segments", "raw": "a.no.bol.ic", "segments": ["a", "no", "bol", "ic"]}
+{"word": "indebtedness", "reason": "unparsed", "raw": null}
+{"word": "traveled", "reason": "bad_segments", "raw": "trav.elled", "segments": ["trav", "elled"]}
+{"word": "erasure", "reason": "bad_segments", "raw": "e.ras.sure", "segments": ["e", "ras", "sure"]}
+{"word": "immeasurably", "reason": "bad_segments", "raw": "im.me.asur.able.ly", "segments": ["im", "me", "asur", "able", "ly"]}
+{"word": "consignment", "reason": "bad_segments", "raw": "con.sign.m", "segments": ["con", "sign", "m"]}
+{"word": "vagueness", "reason": "bad_segments", "raw": "va.gu.ness", "segments": ["va", "gu", "ness"]}
+{"word": "ousted", "reason": "bad_segments", "raw": "out.sted", "segments": ["out", "sted"]}
+{"word": "s/he", "reason": "unparsed", "raw": null}
+{"word": "imaginatively", "reason": "bad_segments", "raw": "imag.in.at.iv.ly", "segments": ["imag", "in", "at", "iv", "ly"]}
+{"word": "infomercial", "reason": "bad_segments", "raw": "in.for.mer.cial", "segments": ["in", "for", "mer", "cial"]}
+{"word": "anthropomorphic", "reason": "bad_segments", "raw": "an.thro.por.mor.phic", "segments": ["an", "thro", "por", "mor", "phic"]}
+{"word": "opportune", "reason": "bad_segments", "raw": "op.port.tune", "segments": ["op", "port", "tune"]}
+{"word": "bodily", "reason": "bad_segments", "raw": "bod.y", "segments": ["bod", "y"]}
+{"word": "greenbelt", "reason": "bad_segments", "raw": "green.belts", "segments": ["green", "belts"]}
+{"word": "complementarity", "reason": "unparsed", "raw": null}
+{"word": "irritably", "reason": "bad_segments", "raw": "ir.rit.able.ly", "segments": ["ir", "rit", "able", "ly"]}
+{"word": "unbearably", "reason": "bad_segments", "raw": "un.bear.able.ly", "segments": ["un", "bear", "able", "ly"]}
+{"word": "omelette", "reason": "bad_segments", "raw": "om.let.te", "segments": ["om", "let", "te"]}
+{"word": "scrambling", "reason": "unparsed", "raw": null}
+{"word": "soliloquy", "reason": "bad_segments", "raw": "so.lo.lo.quy", "segments": ["so", "lo", "lo", "quy"]}
+{"word": "equanimity", "reason": "bad_segments", "raw": "e.qua.ni.ty", "segments": ["e", "qua", "ni", "ty"]}
+{"word": "pervasiveness", "reason": "bad_segments", "raw": "per.vas.sive.ness", "segments": ["per", "vas", "sive", "ness"]}
+{"word": "systolic", "reason": "bad_segments", "raw": "sys.to.lie", "segments": ["sys", "to", "lie"]}
+{"word": "denouement", "reason": "bad_segments", "raw": "de.no.ume.nt", "segments": ["de", "no", "ume", "nt"]}
+{"word": "chitchat", "reason": "bad_segments", "raw": "chi.chat", "segments": ["chi", "chat"]}
+{"word": "gypsum", "reason": "bad_segments", "raw": "gy.s.m", "segments": ["gy", "s", "m"]}
+{"word": "filtered", "reason": "bad_segments", "raw": "filtr.ed", "segments": ["filtr", "ed"]}
+{"word": "backwardness", "reason": "bad_segments", "raw": "back.word.ness", "segments": ["back", "word", "ness"]}
+{"word": "sleepily", "reason": "bad_segments", "raw": "sleep.ili.ly", "segments": ["sleep", "ili", "ly"]}
+{"word": "edging", "reason": "bad_segments", "raw": "edge.ing", "segments": ["edge", "ing"]}
+{"word": "aeration", "reason": "bad_segments", "raw": "ae.ri.tion", "segments": ["ae", "ri", "tion"]}
+{"word": "honorably", "reason": "bad_segments", "raw": "honor.able", "segments": ["honor", "able"]}
+{"word": "gelding", "reason": "unparsed", "raw": null}
+{"word": "liftoff", "reason": "bad_segments", "raw": "life.off", "segments": ["life", "off"]}
+{"word": "widget", "reason": "bad_segments", "raw": "wit.get", "segments": ["wit", "get"]}
+{"word": "handicraft", "reason": "bad_segments", "raw": "hand.craft", "segments": ["hand", "craft"]}
+{"word": "quadriplegic", "reason": "bad_segments", "raw": "quadri.leg.ic", "segments": ["quadri", "leg", "ic"]}
+{"word": "demagoguery", "reason": "bad_segments", "raw": "demo.gogu.ery", "segments": ["demo", "gogu", "ery"]}
+{"word": "licensure", "reason": "bad_segments", "raw": "licens.e", "segments": ["licens", "e"]}
+{"word": "bumblebee", "reason": "bad_segments", "raw": "bum.bl.bee", "segments": ["bum", "bl", "bee"]}
+{"word": "paging", "reason": "bad_segments", "raw": "page.ing", "segments": ["page", "ing"]}
+{"word": "either/or", "reason": "unparsed", "raw": null}
+{"word": "armful", "reason": "bad_segments", "raw": "arm.full", "segments": ["arm", "full"]}
+{"word": "idleness", "reason": "bad_segments", "raw": "idl.less", "segments": ["idl", "less"]}
+{"word": "losing", "reason": "bad_segments", "raw": "lose.ing", "segments": ["lose", "ing"]}
+{"word": "comparably", "reason": "bad_segments", "raw": "com.par.able.ly", "segments": ["com", "par", "able", "ly"]}
+{"word": "defame", "reason": "bad_segments", "raw": "de.fam.ate", "segments": ["de", "fam", "ate"]}
+{"word": "calisthenics", "reason": "bad_segments", "raw": "cal.is.th.ene.tics", "segments": ["cal", "is", "th", "ene", "tics"]}
+{"word": "rottweiler", "reason": "bad_segments", "raw": "rot.t.w.ile.r", "segments": ["rot", "t", "w", "ile", "r"]}
+{"word": "hooray", "reason": "bad_segments", "raw": "ho.rr.y", "segments": ["ho", "rr", "y"]}
+{"word": "derisively", "reason": "bad_segments", "raw": "de.ris.iv.ly", "segments": ["de", "ris", "iv", "ly"]}
+{"word": "propitious", "reason": "bad_segments", "raw": "pro.pit.iti.ous", "segments": ["pro", "pit", "iti", "ous"]}
+{"word": "grantee", "reason": "bad_segments", "raw": "grant.tee", "segments": ["grant", "tee"]}
+{"word": "pastiche", "reason": "bad_segments", "raw": "pas.tich", "segments": ["pas", "tich"]}
+{"word": "irresistibly", "reason": "bad_segments", "raw": "ir.resist.ible.ly", "segments": ["ir", "resist", "ible", "ly"]}
+{"word": "thematically", "reason": "bad_segments", "raw": "theo.mat.ic.al.ly", "segments": ["theo", "mat", "ic", "al", "ly"]}
+{"word": "gatherer", "reason": "bad_segments", "raw": "gath.er", "segments": ["gath", "er"]}
+{"word": "phenotype", "reason": "bad_segments", "raw": "phen.type", "segments": ["phen", "type"]}
+{"word": "ahhh", "reason": "bad_segments", "raw": "ah.hhh", "segments": ["ah", "hhh"]}
+{"word": "appreciatively", "reason": "bad_segments", "raw": "ap.pre.ci.at.iv.ly", "segments": ["ap", "pre", "ci", "at", "iv", "ly"]}
+{"word": "substation", "reason": "bad_segments", "raw": "sub.stan.tion", "segments": ["sub", "stan", "tion"]}
+{"word": "memorably", "reason": "bad_segments", "raw": "memor.able.ly", "segments": ["memor", "able", "ly"]}
+{"word": "readjustment", "reason": "bad_segments", "raw": "re.ad.just.mint", "segments": ["re", "ad", "just", "mint"]}
+{"word": "warble", "reason": "bad_segments", "raw": "war.bl", "segments": ["war", "bl"]}
+{"word": "disbursement", "reason": "bad_segments", "raw": "dis.burs.ment", "segments": ["dis", "burs", "ment"]}
+{"word": "timeliness", "reason": "unparsed", "raw": null}
+{"word": "wakefulness", "reason": "bad_segments", "raw": "wake.full.ness", "segments": ["wake", "full", "ness"]}
+{"word": "antifreeze", "reason": "bad_segments", "raw": "an.ti.free.se", "segments": ["an", "ti", "free", "se"]}
+{"word": "affirmatively", "reason": "bad_segments", "raw": "af.firm.at.iv.ly", "segments": ["af", "firm", "at", "iv", "ly"]}
+{"word": "mummified", "reason": "bad_segments", "raw": "mumm.if.yed", "segments": ["mumm", "if", "yed"]}
+{"word": "thoughtfulness", "reason": "bad_segments", "raw": "thought.full.ness", "segments": ["thought", "full", "ness"]}
+{"word": "uncritically", "reason": "bad_segments", "raw": "un.critic.ical.ly", "segments": ["un", "critic", "ical", "ly"]}
+{"word": "sartorial", "reason": "unparsed", "raw": null}
+{"word": "enabling", "reason": "bad_segments", "raw": "en.able.ing", "segments": ["en", "able", "ing"]}
+{"word": "romanesque", "reason": "bad_segments", "raw": "ro.man.escue", "segments": ["ro", "man", "escue"]}
+{"word": "ineffectiveness", "reason": "bad_segments", "raw": "in.e.fect.ive.ness", "segments": ["in", "e", "fect", "ive", "ness"]}
+{"word": "plummeting", "reason": "bad_segments", "raw": "plum.met.ting", "segments": ["plum", "met", "ting"]}
+{"word": "illegible", "reason": "bad_segments", "raw": "il.leg.ib.ile", "segments": ["il", "leg", "ib", "ile"]}
+{"word": "prepackaged", "reason": "bad_segments", "raw": "pre.pack.age.ed", "segments": ["pre", "pack", "age", "ed"]}
+{"word": "incontrovertible", "reason": "bad_segments", "raw": "in.con.ver.ti.ble", "segments": ["in", "con", "ver", "ti", "ble"]}
+{"word": "racial/ethnic", "reason": "unparsed", "raw": null}
+{"word": "wildebeest", "reason": "bad_segments", "raw": "wild.beest", "segments": ["wild", "beest"]}
+{"word": "unavoidably", "reason": "bad_segments", "raw": "un.avoid.able.ly", "segments": ["un", "avoid", "able", "ly"]}
+{"word": "unflappable", "reason": "bad_segments", "raw": "un.flap.ple", "segments": ["un", "flap", "ple"]}
+{"word": "legitimation", "reason": "bad_segments", "raw": "leg.it.mat.ion", "segments": ["leg", "it", "mat", "ion"]}
+{"word": "zeppelin", "reason": "bad_segments", "raw": "ze.pplin", "segments": ["ze", "pplin"]}
+{"word": "hillock", "reason": "bad_segments", "raw": "hill.lock", "segments": ["hill", "lock"]}
+{"word": "neglectful", "reason": "unparsed", "raw": null}
+{"word": "winsome", "reason": "bad_segments", "raw": "wins.om.", "segments": ["wins", "om"]}
+{"word": "hacking", "reason": "unparsed", "raw": null}
+{"word": "comely", "reason": "bad_segments", "raw": "com.ly", "segments": ["com", "ly"]}
+{"word": "expressiveness", "reason": "bad_segments", "raw": "ex.press.ness", "segments": ["ex", "press", "ness"]}
+{"word": "referential", "reason": "bad_segments", "raw": "re.fer.ren.ti.al", "segments": ["re", "fer", "ren", "ti", "al"]}
+{"word": "tardiness", "reason": "unparsed", "raw": null}
+{"word": "amicably", "reason": "bad_segments", "raw": "a.mic.able.ly", "segments": ["a", "mic", "able", "ly"]}
+{"word": "misstatement", "reason": "unparsed", "raw": null}
+{"word": "igloo", "reason": "bad_segments", "raw": "ig.lou", "segments": ["ig", "lou"]}
+{"word": "pitiless", "reason": "bad_segments", "raw": "pit.less", "segments": ["pit", "less"]}
+{"word": "fashionably", "reason": "bad_segments", "raw": "fash.on.ably", "segments": ["fash", "on", "ably"]}
+{"word": "steadiness", "reason": "unparsed", "raw": null}
+{"word": "easing", "reason": "bad_segments", "raw": "ease.ing", "segments": ["ease", "ing"]}
+{"word": "popper", "reason": "unparsed", "raw": null}
+{"word": "perfume", "reason": "bad_segments", "raw": "per.fum", "segments": ["per", "fum"]}
+{"word": "mezzanine", "reason": "bad_segments", "raw": "mez.zan.in", "segments": ["mez", "zan", "in"]}
+{"word": "tonsillectomy", "reason": "bad_segments", "raw": "tonsil.latec.tomy", "segments": ["tonsil", "latec", "tomy"]}
+{"word": "individuation", "reason": "bad_segments", "raw": "in.di.vid.u.ate.ion", "segments": ["in", "di", "vid", "u", "ate", "ion"]}
+{"word": "afghan", "reason": "bad_segments", "raw": "af.gan", "segments": ["af", "gan"]}
+{"word": "preppy", "reason": "bad_segments", "raw": "pre.py", "segments": ["pre", "py"]}
+{"word": "inescapably", "reason": "bad_segments", "raw": "in.escap.able.ly", "segments": ["in", "escap", "able", "ly"]}
+{"word": "ordinal", "reason": "bad_segments", "raw": "ord.in.ate", "segments": ["ord", "in", "ate"]}
+{"word": "unpredictably", "reason": "bad_segments", "raw": "un.pre.dict.able.ly", "segments": ["un", "pre", "dict", "able", "ly"]}
+{"word": "voyeuristic", "reason": "unparsed", "raw": null}
+{"word": "lumberyard", "reason": "bad_segments", "raw": "lum.bar.yard", "segments": ["lum", "bar", "yard"]}
+{"word": "jabber", "reason": "bad_segments", "raw": "jab.b", "segments": ["jab", "b"]}
+{"word": "refashion", "reason": "bad_segments", "raw": "re.fash.on", "segments": ["re", "fash", "on"]}
+{"word": "lube", "reason": "bad_segments", "raw": "lub", "segments": ["lub"]}
+{"word": "protrusion", "reason": "bad_segments", "raw": "pro.trus.sion", "segments": ["pro", "trus", "sion"]}
+{"word": "audibly", "reason": "bad_segments", "raw": "audible.ly", "segments": ["audible", "ly"]}
+{"word": "punctual", "reason": "bad_segments", "raw": "punct.u.ual", "segments": ["punct", "u", "ual"]}
+{"word": "speedily", "reason": "bad_segments", "raw": "speed.ili", "segments": ["speed", "ili"]}
+{"word": "addressee", "reason": "bad_segments", "raw": "add.ress.see", "segments": ["add", "ress", "see"]}
+{"word": "grumble", "reason": "bad_segments", "raw": "grum.bl.ule", "segments": ["grum", "bl", "ule"]}
+{"word": "bootstrap", "reason": "unparsed", "raw": null}
+{"word": "unfavorably", "reason": "bad_segments", "raw": "un.fav.or.able.ly", "segments": ["un", "fav", "or", "able", "ly"]}
+{"word": "unquestionable", "reason": "unparsed", "raw": null}
+{"word": "quietness", "reason": "unparsed", "raw": null}
+{"word": "honeymooner", "reason": "bad_segments", "raw": "hone.you.mer", "segments": ["hone", "you", "mer"]}
+{"word": "cinematography", "reason": "bad_segments", "raw": "cin.mat.og.raph.y", "segments": ["cin", "mat", "og", "raph", "y"]}
+{"word": "anagram", "reason": "bad_segments", "raw": "a.na.gra", "segments": ["a", "na", "gra"]}
+{"word": "unnerving", "reason": "bad_segments", "raw": "un.ner.v", "segments": ["un", "ner", "v"]}
+{"word": "blanched", "reason": "bad_segments", "raw": "blan.ch", "segments": ["blan", "ch"]}
+{"word": "bannister", "reason": "bad_segments", "raw": "ban.nis", "segments": ["ban", "nis"]}
+{"word": "gliding", "reason": "bad_segments", "raw": "glide.ing", "segments": ["glide", "ing"]}
+{"word": "incitement", "reason": "bad_segments", "raw": "in.cit.ment", "segments": ["in", "cit", "ment"]}
+{"word": "unseasonably", "reason": "bad_segments", "raw": "un.season.able.y", "segments": ["un", "season", "able", "y"]}
+{"word": "underemployed", "reason": "bad_segments", "raw": "un.employ.ed", "segments": ["un", "employ", "ed"]}
+{"word": "schnapps", "reason": "bad_segments", "raw": "schn.aps", "segments": ["schn", "aps"]}
+{"word": "subcontract", "reason": "unparsed", "raw": null}
+{"word": "berber", "reason": "bad_segments", "raw": "ber.b", "segments": ["ber", "b"]}
+{"word": "recognizably", "reason": "bad_segments", "raw": "rec.og.niz.able.y", "segments": ["rec", "og", "niz", "able", "y"]}
+{"word": "decisiveness", "reason": "bad_segments", "raw": "de.cis.sive.ness", "segments": ["de", "cis", "sive", "ness"]}
+{"word": "ecumenism", "reason": "unparsed", "raw": null}
+{"word": "unquestioning", "reason": "unparsed", "raw": null}
+{"word": "intrapersonal", "reason": "unparsed", "raw": null}
+{"word": "forging", "reason": "bad_segments", "raw": "forge.ing", "segments": ["forge", "ing"]}
+{"word": "reformulated", "reason": "bad_segments", "raw": "re.for.mu.late.ed", "segments": ["re", "for", "mu", "late", "ed"]}
+{"word": "intranet", "reason": "bad_segments", "raw": "in.tran.net", "segments": ["in", "tran", "net"]}
+{"word": "earful", "reason": "bad_segments", "raw": "ear.full", "segments": ["ear", "full"]}
+{"word": "bizarrely", "reason": "bad_segments", "raw": "biz.az.zi.ly", "segments": ["biz", "az", "zi", "ly"]}
+{"word": "graciousness", "reason": "bad_segments", "raw": "gracious.sness", "segments": ["gracious", "sness"]}
+{"word": "adverb", "reason": "bad_segments", "raw": "a.verb", "segments": ["a", "verb"]}
+{"word": "pathogenesis", "reason": "unparsed", "raw": null}
+{"word": "parolee", "reason": "bad_segments", "raw": "par.ole.ee", "segments": ["par", "ole", "ee"]}
+{"word": "statesmanship", "reason": "bad_segments", "raw": "state.ship.mansh", "segments": ["state", "ship", "mansh"]}
+{"word": "nightingale", "reason": "bad_segments", "raw": "night.ing.gale", "segments": ["night", "ing", "gale"]}
+{"word": "teasingly", "reason": "bad_segments", "raw": "tease.ing.ly", "segments": ["tease", "ing", "ly"]}
+{"word": "tantalizingly", "reason": "bad_segments", "raw": "tan.tan.liz.ing.ly", "segments": ["tan", "tan", "liz", "ing", "ly"]}
+{"word": "decathlon", "reason": "bad_segments", "raw": "de.catl.hon", "segments": ["de", "catl", "hon"]}
+{"word": "synthesized", "reason": "bad_segments", "raw": "syn.thez.ed", "segments": ["syn", "thez", "ed"]}
+{"word": "normalized", "reason": "unparsed", "raw": null}
+{"word": "repeatability", "reason": "bad_segments", "raw": "re.pe.ta.bil.ity", "segments": ["re", "pe", "ta", "bil", "ity"]}
+{"word": "calculating", "reason": "unparsed", "raw": null}
+{"word": "incapacitated", "reason": "bad_segments", "raw": "in.cap.ac.it.ed", "segments": ["in", "cap", "ac", "it", "ed"]}
+{"word": "incised", "reason": "bad_segments", "raw": "in.cid.ed", "segments": ["in", "cid", "ed"]}
+{"word": "toffee", "reason": "bad_segments", "raw": "tof.fe", "segments": ["tof", "fe"]}
+{"word": "introvert", "reason": "bad_segments", "raw": "in.travert", "segments": ["in", "travert"]}
+{"word": "dissolving", "reason": "bad_segments", "raw": "dis.sol.ing", "segments": ["dis", "sol", "ing"]}
+{"word": "him/her", "reason": "unparsed", "raw": null}
+{"word": "phenotypic", "reason": "bad_segments", "raw": "phen.typ.ic", "segments": ["phen", "typ", "ic"]}
+{"word": "excommunication", "reason": "bad_segments", "raw": "ex.commun.ic.ate", "segments": ["ex", "commun", "ic", "ate"]}
+{"word": "unacceptably", "reason": "bad_segments", "raw": "un.accept.able.ly", "segments": ["un", "accept", "able", "ly"]}
+{"word": "interstitial", "reason": "bad_segments", "raw": "inter.stit.tial", "segments": ["inter", "stit", "tial"]}
+{"word": "undervalued", "reason": "bad_segments", "raw": "un.valu.ed", "segments": ["un", "valu", "ed"]}
+{"word": "helmsman", "reason": "bad_segments", "raw": "helm.man", "segments": ["helm", "man"]}
+{"word": "irreparably", "reason": "bad_segments", "raw": "ir.re.par.able.ly", "segments": ["ir", "re", "par", "able", "ly"]}
+{"word": "ignominious", "reason": "bad_segments", "raw": "ig.nom.in.ous", "segments": ["ig", "nom", "in", "ous"]}
+{"word": "clandestinely", "reason": "bad_segments", "raw": "clan.des.tin.ly", "segments": ["clan", "des", "tin", "ly"]}
+{"word": "instrumentality", "reason": "bad_segments", "raw": "in.stru.men.tar.i.ty", "segments": ["in", "stru", "men", "tar", "i", "ty"]}
+{"word": "palisade", "reason": "bad_segments", "raw": "pal.is.sade", "segments": ["pal", "is", "sade"]}
+{"word": "emplacement", "reason": "bad_segments", "raw": "em.plac.ment", "segments": ["em", "plac", "ment"]}
+{"word": "inferential", "reason": "bad_segments", "raw": "in.ferr.en.tial", "segments": ["in", "ferr", "en", "tial"]}
+{"word": "piquant", "reason": "bad_segments", "raw": "pic.ant", "segments": ["pic", "ant"]}
+{"word": "agreeably", "reason": "bad_segments", "raw": "a.gree.able.ly", "segments": ["a", "gree", "able", "ly"]}
+{"word": "incompleteness", "reason": "bad_segments", "raw": "in.com.plet.ness", "segments": ["in", "com", "plet", "ness"]}
+{"word": "smugness", "reason": "unparsed", "raw": null}
+{"word": "suggestively", "reason": "bad_segments", "raw": "sug.gest.y.ing.ly", "segments": ["sug", "gest", "y", "ing", "ly"]}
+{"word": "flexibly", "reason": "bad_segments", "raw": "flex.ible.ly", "segments": ["flex", "ible", "ly"]}
+{"word": "injectable", "reason": "bad_segments", "raw": "in.jec.tab.able", "segments": ["in", "jec", "tab", "able"]}
+{"word": "expansively", "reason": "bad_segments", "raw": "ex.pans.iv.ly", "segments": ["ex", "pans", "iv", "ly"]}
+{"word": "measurably", "reason": "bad_segments", "raw": "measur.able.ly", "segments": ["measur", "able", "ly"]}
+{"word": "divestiture", "reason": "bad_segments", "raw": "dis.ves.ti.ture", "segments": ["dis", "ves", "ti", "ture"]}
+{"word": "diffident", "reason": "bad_segments", "raw": "dif.fic.ent", "segments": ["dif", "fic", "ent"]}
+{"word": "avenging", "reason": "bad_segments", "raw": "avenge.ing", "segments": ["avenge", "ing"]}
+{"word": "bullock", "reason": "bad_segments", "raw": "bull.lock", "segments": ["bull", "lock"]}
+{"word": "omnipotence", "reason": "bad_segments", "raw": "om.ni.potent.ce", "segments": ["om", "ni", "potent", "ce"]}
+{"word": "funereal", "reason": "bad_segments", "raw": "funer.al", "segments": ["funer", "al"]}
+{"word": "shi'ite", "reason": "unparsed", "raw": null}
+{"word": "purposive", "reason": "bad_segments", "raw": "pur.pos.sive", "segments": ["pur", "pos", "sive"]}
+{"word": "palpably", "reason": "bad_segments", "raw": "palp.able.ly", "segments": ["palp", "able", "ly"]}
+{"word": "peaceably", "reason": "bad_segments", "raw": "peace.able.ly", "segments": ["peace", "able", "ly"]}
+{"word": "dinnerware", "reason": "unparsed", "raw": null}
+{"word": "hailstorm", "reason": "unparsed", "raw": null}
+{"word": "travelling", "reason": "unparsed", "raw": null}
+{"word": "frankincense", "reason": "unparsed", "raw": null}
+{"word": "otorrhea", "reason": "unparsed", "raw": null}
+{"word": "halcyon", "reason": "unparsed", "raw": null}
+{"word": "adder", "reason": "unparsed", "raw": null}
+{"word": "cantonese", "reason": "unparsed", "raw": null}
+{"word": "gramophone", "reason": "unparsed", "raw": null}
+{"word": "modeled", "reason": "unparsed", "raw": null}
+{"word": "rezoning", "reason": "unparsed", "raw": null}
+{"word": "canna", "reason": "unparsed", "raw": null}
+{"word": "exploiter", "reason": "unparsed", "raw": null}
+{"word": "myelin", "reason": "unparsed", "raw": null}
+{"word": "debonair", "reason": "unparsed", "raw": null}
+{"word": "bluesman", "reason": "unparsed", "raw": null}
+{"word": "repurchase", "reason": "unparsed", "raw": null}
+{"word": "ringed", "reason": "unparsed", "raw": null}
+{"word": "prattle", "reason": "unparsed", "raw": null}
+{"word": "diurnal", "reason": "unparsed", "raw": null}
+{"word": "repo", "reason": "bad_segments", "raw": "re.por", "segments": ["re", "por"]}
+{"word": "yes/no", "reason": "unparsed", "raw": null}
+{"word": "butterscotch", "reason": "bad_segments", "raw": "butter.sotch", "segments": ["butter", "sotch"]}
+{"word": "astutely", "reason": "bad_segments", "raw": "ast.ut.ly", "segments": ["ast", "ut", "ly"]}
+{"word": "offsetting", "reason": "bad_segments", "raw": "of.set.ting", "segments": ["of", "set", "ting"]}
+{"word": "worldliness", "reason": "bad_segments", "raw": "world.lyness", "segments": ["world", "lyness"]}
+{"word": "grumbling", "reason": "bad_segments", "raw": "grum.blung", "segments": ["grum", "blung"]}
+{"word": "anomie", "reason": "bad_segments", "raw": "a.nom.i", "segments": ["a", "nom", "i"]}
+{"word": "immunoglobulin", "reason": "bad_segments", "raw": "im.mu.no.glu.lin", "segments": ["im", "mu", "no", "glu", "lin"]}
+{"word": "silencing", "reason": "bad_segments", "raw": "sin.ce.ing", "segments": ["sin", "ce", "ing"]}
+{"word": "pictograph", "reason": "bad_segments", "raw": "pic.tog.rap", "segments": ["pic", "tog", "rap"]}
+{"word": "seersucker", "reason": "bad_segments", "raw": "see.ruck.er", "segments": ["see", "ruck", "er"]}
+{"word": "mutable", "reason": "bad_segments", "raw": "mu.tab.able", "segments": ["mu", "tab", "able"]}
+{"word": "condescend", "reason": "unparsed", "raw": null}
+{"word": "chunk", "reason": "unparsed", "raw": null}
+{"word": "pinecone", "reason": "unparsed", "raw": null}
+{"word": "poultice", "reason": "unparsed", "raw": null}
+{"word": "corporatism", "reason": "unparsed", "raw": null}
+{"word": "quickening", "reason": "unparsed", "raw": null}
+{"word": "deafen", "reason": "unparsed", "raw": null}
+{"word": "suppertime", "reason": "unparsed", "raw": null}
+{"word": "tithe", "reason": "unparsed", "raw": null}
+{"word": "biggie", "reason": "unparsed", "raw": null}
+{"word": "stepladder", "reason": "unparsed", "raw": null}
+{"word": "flatulence", "reason": "unparsed", "raw": null}
+{"word": "erector", "reason": "unparsed", "raw": null}
+{"word": "nativism", "reason": "unparsed", "raw": null}
+{"word": "bruiser", "reason": "unparsed", "raw": null}
+{"word": "workgroup", "reason": "unparsed", "raw": null}
+{"word": "punchline", "reason": "unparsed", "raw": null}
+{"word": "psychoeducational", "reason": "unparsed", "raw": null}
+{"word": "fourths", "reason": "unparsed", "raw": null}
+{"word": "resistor", "reason": "unparsed", "raw": null}
+{"word": "hopefulness", "reason": "bad_segments", "raw": "hope.full.ness", "segments": ["hope", "full", "ness"]}
+{"word": "preemptively", "reason": "bad_segments", "raw": "pre.emp.tiv.ly", "segments": ["pre", "emp", "tiv", "ly"]}
+{"word": "charitably", "reason": "bad_segments", "raw": "char.it.able.ly", "segments": ["char", "it", "able", "ly"]}
+{"word": "businessperson", "reason": "unparsed", "raw": null}
+{"word": "hothead", "reason": "bad_segments", "raw": "head", "segments": ["head"]}
+{"word": "copywriter", "reason": "unparsed", "raw": null}
+{"word": "positivity", "reason": "bad_segments", "raw": "un.posit.iv.ity", "segments": ["un", "posit", "iv", "ity"]}
+{"word": "languorous", "reason": "bad_segments", "raw": "lan.gu.ori.ous", "segments": ["lan", "gu", "ori", "ous"]}
+{"word": "grapple", "reason": "unparsed", "raw": null}
+{"word": "hollowness", "reason": "unparsed", "raw": null}
+{"word": "pervasively", "reason": "bad_segments", "raw": "per.vas.sive.ly", "segments": ["per", "vas", "sive", "ly"]}
+{"word": "intrauterine", "reason": "bad_segments", "raw": "in.tru.ter.ine", "segments": ["in", "tru", "ter", "ine"]}
+{"word": "glancing", "reason": "bad_segments", "raw": "glance.ing", "segments": ["glance", "ing"]}
+{"word": "hottie", "reason": "bad_segments", "raw": "hot.te", "segments": ["hot", "te"]}
+{"word": "strangling", "reason": "bad_segments", "raw": "strang.gling", "segments": ["strang", "gling"]}
+{"word": "outrigger", "reason": "bad_segments", "raw": "out.tra.ger", "segments": ["out", "tra", "ger"]}
+{"word": "endoscope", "reason": "bad_segments", "raw": "en.scop.e", "segments": ["en", "scop", "e"]}
+{"word": "colloquium", "reason": "bad_segments", "raw": "collo.qui.ous", "segments": ["collo", "qui", "ous"]}
+{"word": "gastroenteritis", "reason": "bad_segments", "raw": "gastro.entr.it.is", "segments": ["gastro", "entr", "it", "is"]}
+{"word": "messiness", "reason": "unparsed", "raw": null}
+{"word": "billionth", "reason": "bad_segments", "raw": "bi.lion.th", "segments": ["bi", "lion", "th"]}
+{"word": "outplacement", "reason": "bad_segments", "raw": "out.plac.ment", "segments": ["out", "plac", "ment"]}
+{"word": "spaciousness", "reason": "unparsed", "raw": null}
+{"word": "grayness", "reason": "unparsed", "raw": null}
+{"word": "transect", "reason": "bad_segments", "raw": "trans.sect", "segments": ["trans", "sect"]}
+{"word": "pastureland", "reason": "bad_segments", "raw": "pas.tur.land", "segments": ["pas", "tur", "land"]}
+{"word": "unidirectional", "reason": "bad_segments", "raw": "un.di.rect.i.on.al", "segments": ["un", "di", "rect", "i", "on", "al"]}
+{"word": "shortsightedness", "reason": "unparsed", "raw": null}
+{"word": "gladness", "reason": "unparsed", "raw": null}
+{"word": "licence", "reason": "unparsed", "raw": null}
+{"word": "glutton", "reason": "unparsed", "raw": null}
+{"word": "kinfolk", "reason": "unparsed", "raw": null}
+{"word": "marketeer", "reason": "unparsed", "raw": null}
+{"word": "singer/songwriter", "reason": "unparsed", "raw": null}
+{"word": "quadrennial", "reason": "bad_segments", "raw": "quad.enn.ial", "segments": ["quad", "enn", "ial"]}
+{"word": "norepinephrine", "reason": "bad_segments", "raw": "no.ri.ner.phrin.e", "segments": ["no", "ri", "ner", "phrin", "e"]}
+{"word": "placemat", "reason": "bad_segments", "raw": "plate.mat", "segments": ["plate", "mat"]}
+{"word": "whispery", "reason": "unparsed", "raw": null}
+{"word": "unjustifiable", "reason": "bad_segments", "raw": "un.just.if.i.ab.able", "segments": ["un", "just", "if", "i", "ab", "able"]}
+{"word": "irretrievable", "reason": "bad_segments", "raw": "ir.re.tri.iev.able", "segments": ["ir", "re", "tri", "iev", "able"]}
+{"word": "monstrously", "reason": "bad_segments", "raw": "mon.stru.ous.ly", "segments": ["mon", "stru", "ous", "ly"]}
+{"word": "partiality", "reason": "unparsed", "raw": null}
+{"word": "intracellular", "reason": "bad_segments", "raw": "in.tracell.ar", "segments": ["in", "tracell", "ar"]}
+{"word": "demagogic", "reason": "bad_segments", "raw": "demo.gog.ic", "segments": ["demo", "gog", "ic"]}
+{"word": "unforeseeable", "reason": "bad_segments", "raw": "un.for.see.able", "segments": ["un", "for", "see", "able"]}
+{"word": "incomparably", "reason": "bad_segments", "raw": "in.com.par.able.ly", "segments": ["in", "com", "par", "able", "ly"]}
+{"word": "carry", "reason": "bad_segments", "raw": "car.r", "segments": ["car", "r"]}
+{"word": "shi'i", "reason": "unparsed", "raw": null}
+{"word": "wriggling", "reason": "bad_segments", "raw": "wrigg.ing", "segments": ["wrigg", "ing"]}
+{"word": "imprecision", "reason": "bad_segments", "raw": "im.pre.cis.sion", "segments": ["im", "pre", "cis", "sion"]}
+{"word": "divisible", "reason": "bad_segments", "raw": "di.vis.si.ble", "segments": ["di", "vis", "si", "ble"]}
+{"word": "malware", "reason": "unparsed", "raw": null}
+{"word": "anthropocentric", "reason": "bad_segments", "raw": "anthro.pot.centr.ic", "segments": ["anthro", "pot", "centr", "ic"]}
+{"word": "stigmatized", "reason": "bad_segments", "raw": "stig.mat.tize.d", "segments": ["stig", "mat", "tize", "d"]}
+{"word": "megaton", "reason": "bad_segments", "raw": "me.gon", "segments": ["me", "gon"]}
+{"word": "finitude", "reason": "unparsed", "raw": null}
+{"word": "salvageable", "reason": "bad_segments", "raw": "sal.vag.able", "segments": ["sal", "vag", "able"]}
+{"word": "public/private", "reason": "unparsed", "raw": null}
+{"word": "intermix", "reason": "bad_segments", "raw": "in.mix", "segments": ["in", "mix"]}
+{"word": "aggrandizement", "reason": "bad_segments", "raw": "a.grand.iz.ement", "segments": ["a", "grand", "iz", "ement"]}
+{"word": "cesarean", "reason": "bad_segments", "raw": "caes.are.an", "segments": ["caes", "are", "an"]}
+{"word": "reshaping", "reason": "bad_segments", "raw": "re.shape.ing", "segments": ["re", "shape", "ing"]}
+{"word": "miscellany", "reason": "bad_segments", "raw": "mis.cell.ane.y", "segments": ["mis", "cell", "ane", "y"]}
+{"word": "male/female", "reason": "unparsed", "raw": null}
+{"word": "her/his", "reason": "unparsed", "raw": null}
+{"word": "unmentioned", "reason": "unparsed", "raw": null}
+{"word": "aperitif", "reason": "bad_segments", "raw": "a.per.tif", "segments": ["a", "per", "tif"]}
+{"word": "velveteen", "reason": "bad_segments", "raw": "vel.vet.teen", "segments": ["vel", "vet", "teen"]}
+{"word": "horsey", "reason": "bad_segments", "raw": "hors.y", "segments": ["hors", "y"]}
+{"word": "concreteness", "reason": "bad_segments", "raw": "con.cret.ness", "segments": ["con", "cret", "ness"]}
+{"word": "exchequer", "reason": "bad_segments", "raw": "ex.ch.queer", "segments": ["ex", "ch", "queer"]}
+{"word": "ranging", "reason": "bad_segments", "raw": "range.ing", "segments": ["range", "ing"]}
+{"word": "debridement", "reason": "bad_segments", "raw": "de.brid.ment", "segments": ["de", "brid", "ment"]}
+{"word": "hazing", "reason": "bad_segments", "raw": "haze.ing", "segments": ["haze", "ing"]}
+{"word": "pimiento", "reason": "bad_segments", "raw": "pimen.to", "segments": ["pimen", "to"]}
+{"word": "parenthetically", "reason": "bad_segments", "raw": "par.thet.ical.ly", "segments": ["par", "thet", "ical", "ly"]}
+{"word": "transferability", "reason": "bad_segments", "raw": "trans.ferr.abil.ity", "segments": ["trans", "ferr", "abil", "ity"]}
+{"word": "oxymoronic", "reason": "unparsed", "raw": null}
+{"word": "orderliness", "reason": "bad_segments", "raw": "or.der.lyness", "segments": ["or", "der", "lyness"]}
+{"word": "hydrodynamic", "reason": "unparsed", "raw": null}
+{"word": "planetesimal", "reason": "bad_segments", "raw": "pla.net.esti.mal", "segments": ["pla", "net", "esti", "mal"]}
+{"word": "joking", "reason": "bad_segments", "raw": "joke.ing", "segments": ["joke", "ing"]}
+{"word": "crewmate", "reason": "unparsed", "raw": null}
+{"word": "likability", "reason": "bad_segments", "raw": "like.abil.ity", "segments": ["like", "abil", "ity"]}
+{"word": "interpretable", "reason": "bad_segments", "raw": "in.ter.pre.tab.able", "segments": ["in", "ter", "pre", "tab", "able"]}
+{"word": "privileging", "reason": "bad_segments", "raw": "priv.ileg.ging", "segments": ["priv", "ileg", "ging"]}
+{"word": "cabling", "reason": "bad_segments", "raw": "cable.ing", "segments": ["cable", "ing"]}
+{"word": "micronutrient", "reason": "bad_segments", "raw": "micro.nutri.ient", "segments": ["micro", "nutri", "ient"]}
+{"word": "criminalization", "reason": "bad_segments", "raw": "crim.in.iz.at.ion", "segments": ["crim", "in", "iz", "at", "ion"]}
+{"word": "chef/owner", "reason": "bad_segments", "raw": "chef.owner", "segments": ["chef", "owner"]}
+{"word": "metatarsal", "reason": "bad_segments", "raw": "me.tar.sar.al", "segments": ["me", "tar", "sar", "al"]}
+{"word": "acceptably", "reason": "bad_segments", "raw": "ac.cept.able.ly", "segments": ["ac", "cept", "able", "ly"]}
+{"word": "afrikaans", "reason": "bad_segments", "raw": "af.rik.ans", "segments": ["af", "rik", "ans"]}
+{"word": "stirrer", "reason": "bad_segments", "raw": "stir.rr.er", "segments": ["stir", "rr", "er"]}
+{"word": "specialness", "reason": "unparsed", "raw": null}
+{"word": "redoubtable", "reason": "bad_segments", "raw": "red.out.able", "segments": ["red", "out", "able"]}
+{"word": "aerator", "reason": "bad_segments", "raw": "a.erate.or", "segments": ["a", "erate", "or"]}
+{"word": "fashionista", "reason": "bad_segments", "raw": "fash.on.ist.a", "segments": ["fash", "on", "ist", "a"]}
+{"word": "intrusiveness", "reason": "bad_segments", "raw": "in.trus.sive.ness", "segments": ["in", "trus", "sive", "ness"]}
+{"word": "foreshadowing", "reason": "bad_segments", "raw": "fore.shad.ing", "segments": ["fore", "shad", "ing"]}
+{"word": "flaring", "reason": "bad_segments", "raw": "flare.ing", "segments": ["flare", "ing"]}
+{"word": "wondrously", "reason": "bad_segments", "raw": "wonder.ous.ly", "segments": ["wonder", "ous", "ly"]}
+{"word": "neighborliness", "reason": "bad_segments", "raw": "neigh.bor.lyn.ess", "segments": ["neigh", "bor", "lyn", "ess"]}
+{"word": "invitee", "reason": "bad_segments", "raw": "in.vite.ee", "segments": ["in", "vite", "ee"]}
+{"word": "unlabeled", "reason": "bad_segments", "raw": "un.lab.led", "segments": ["un", "lab", "led"]}
+{"word": "tasseled", "reason": "bad_segments", "raw": "tass.led", "segments": ["tass", "led"]}
+{"word": "pintail", "reason": "bad_segments", "raw": "pint.tail", "segments": ["pint", "tail"]}
+{"word": "breathalyzer", "reason": "bad_segments", "raw": "breath.ana.lyzer", "segments": ["breath", "ana", "lyzer"]}
+{"word": "laughably", "reason": "bad_segments", "raw": "laugh.able.y", "segments": ["laugh", "able", "y"]}
+{"word": "fuzziness", "reason": "unparsed", "raw": null}
+{"word": "transept", "reason": "bad_segments", "raw": "trans.sept", "segments": ["trans", "sept"]}
+{"word": "particularistic", "reason": "unparsed", "raw": null}
+{"word": "possessiveness", "reason": "unparsed", "raw": null}
+{"word": "believing", "reason": "unparsed", "raw": null}
+{"word": "mifepristone", "reason": "bad_segments", "raw": "mi.fris.tone", "segments": ["mi", "fris", "tone"]}
+{"word": "intellectualism", "reason": "unparsed", "raw": null}
+{"word": "unabridged", "reason": "bad_segments", "raw": "un.abrid.ge", "segments": ["un", "abrid", "ge"]}
+{"word": "oestrogen", "reason": "bad_segments", "raw": "oes.trig.en", "segments": ["oes", "trig", "en"]}
+{"word": "cockatoo", "reason": "bad_segments", "raw": "coc.ca.too", "segments": ["coc", "ca", "too"]}
+{"word": "abutment", "reason": "bad_segments", "raw": "a.butt.ment", "segments": ["a", "butt", "ment"]}
+{"word": "nearsightedness", "reason": "unparsed", "raw": null}
+{"word": "steepness", "reason": "unparsed", "raw": null}
+{"word": "phylogeny", "reason": "bad_segments", "raw": "phy.logy", "segments": ["phy", "logy"]}
+{"word": "elderberry", "reason": "bad_segments", "raw": "elder.ber", "segments": ["elder", "ber"]}
+{"word": "picaresque", "reason": "bad_segments", "raw": "pic.resque", "segments": ["pic", "resque"]}
+{"word": "outspokenness", "reason": "bad_segments", "raw": "out.speak.ness", "segments": ["out", "speak", "ness"]}
+{"word": "waterproof/breathable", "reason": "unparsed", "raw": null}
+{"word": "singaporean", "reason": "bad_segments", "raw": "sing.apor.eg.ian", "segments": ["sing", "apor", "eg", "ian"]}
+{"word": "suppleness", "reason": "bad_segments", "raw": "suppl.ess", "segments": ["suppl", "ess"]}
+{"word": "expansiveness", "reason": "bad_segments", "raw": "ex.pans.ive.ess", "segments": ["ex", "pans", "ive", "ess"]}
+{"word": "brokenness", "reason": "bad_segments", "raw": "broken.ess", "segments": ["broken", "ess"]}
+{"word": "psychotherapeutic", "reason": "bad_segments", "raw": "psy.cho.ther.ap.ut.ic", "segments": ["psy", "cho", "ther", "ap", "ut", "ic"]}
+{"word": "riposte", "reason": "bad_segments", "raw": "ri.ste", "segments": ["ri", "ste"]}
+{"word": "chancel", "reason": "bad_segments", "raw": "chan.cell", "segments": ["chan", "cell"]}
+{"word": "transmissible", "reason": "bad_segments", "raw": "trans.mit.si.ble", "segments": ["trans", "mit", "si", "ble"]}
+{"word": "input/output", "reason": "unparsed", "raw": null}
+{"word": "qur'anic", "reason": "unparsed", "raw": null}
+{"word": "obscuring", "reason": "bad_segments", "raw": "ob.scure.ing", "segments": ["ob", "scure", "ing"]}
+{"word": "freeloader", "reason": "bad_segments", "raw": "free.loan.er", "segments": ["free", "loan", "er"]}
+{"word": "interminably", "reason": "bad_segments", "raw": "in.ter.min.able.y", "segments": ["in", "ter", "min", "able", "y"]}
+{"word": "armorer", "reason": "bad_segments", "raw": "ar.mo.ner", "segments": ["ar", "mo", "ner"]}
+{"word": "appropriator", "reason": "bad_segments", "raw": "ap.pri.or.ia.tor", "segments": ["ap", "pri", "or", "ia", "tor"]}
+{"word": "episcopate", "reason": "unparsed", "raw": null}
+{"word": "chasing", "reason": "bad_segments", "raw": "chase.ing", "segments": ["chase", "ing"]}
+{"word": "wrathful", "reason": "bad_segments", "raw": "wrath.full", "segments": ["wrath", "full"]}
+{"word": "topically", "reason": "bad_segments", "raw": "topo.cal.ly", "segments": ["topo", "cal", "ly"]}
+{"word": "carmelite", "reason": "unparsed", "raw": null}
+{"word": "invariable", "reason": "bad_segments", "raw": "in.vari.abl.able", "segments": ["in", "vari", "abl", "able"]}
+{"word": "metafictional", "reason": "bad_segments", "raw": "met.a.fict.i.on.able", "segments": ["met", "a", "fict", "i", "on", "able"]}
+{"word": "epiphyte", "reason": "bad_segments", "raw": "e.phy.te", "segments": ["e", "phy", "te"]}
+{"word": "patisserie", "reason": "bad_segments", "raw": "pa.tis.ser.rie", "segments": ["pa", "tis", "ser", "rie"]}
+{"word": "extroversion", "reason": "bad_segments", "raw": "ex.trav.ersion", "segments": ["ex", "trav", "ersion"]}
+{"word": "anesthesiology", "reason": "bad_segments", "raw": "an.aesth.es.i.o.log.y", "segments": ["an", "aesth", "es", "i", "o", "log", "y"]}
+{"word": "prettiness", "reason": "unparsed", "raw": null}
+{"word": "misappropriate", "reason": "unparsed", "raw": null}
+{"word": "inwardness", "reason": "unparsed", "raw": null}
+{"word": "hydraulically", "reason": "bad_segments", "raw": "hydrau.llic.ally", "segments": ["hydrau", "llic", "ally"]}
+{"word": "extragalactic", "reason": "bad_segments", "raw": "ex.gal.ac.tic", "segments": ["ex", "gal", "ac", "tic"]}
+{"word": "reawakening", "reason": "bad_segments", "raw": "re.aw.ken.ing", "segments": ["re", "aw", "ken", "ing"]}
+{"word": "wobbling", "reason": "unparsed", "raw": null}
+{"word": "ototoxic", "reason": "bad_segments", "raw": "o.tox.ic", "segments": ["o", "tox", "ic"]}
+{"word": "tagging", "reason": "bad_segments", "raw": "tag.g", "segments": ["tag", "g"]}
+{"word": "tagged", "reason": "bad_segments", "raw": "tag.g", "segments": ["tag", "g"]}
+{"word": "certiorari", "reason": "bad_segments", "raw": "cer.ti.or.ri.a", "segments": ["cer", "ti", "or", "ri", "a"]}
+{"word": "oriole", "reason": "bad_segments", "raw": "or.ior.le", "segments": ["or", "ior", "le"]}
+{"word": "drizzly", "reason": "bad_segments", "raw": "driz.zy", "segments": ["driz", "zy"]}
+{"word": "piccolo", "reason": "bad_segments", "raw": "pic.collo", "segments": ["pic", "collo"]}
+{"word": "crystallography", "reason": "bad_segments", "raw": "crys.tal.log.graph.y", "segments": ["crys", "tal", "log", "graph", "y"]}
+{"word": "intramuscular", "reason": "bad_segments", "raw": "in.tri.mus.cu.lar", "segments": ["in", "tri", "mus", "cu", "lar"]}
+{"word": "antimalarial", "reason": "bad_segments", "raw": "an.ti.mari.al", "segments": ["an", "ti", "mari", "al"]}
+{"word": "derangement", "reason": "bad_segments", "raw": "de.rang.ment", "segments": ["de", "rang", "ment"]}
+{"word": "companionably", "reason": "bad_segments", "raw": "com.pan.ion.able.ly", "segments": ["com", "pan", "ion", "able", "ly"]}
+{"word": "docility", "reason": "bad_segments", "raw": "doc.ile.ty", "segments": ["doc", "ile", "ty"]}
+{"word": "rearward", "reason": "unparsed", "raw": null}
+{"word": "hysteresis", "reason": "bad_segments", "raw": "his.te.res.is", "segments": ["his", "te", "res", "is"]}
+{"word": "she/he", "reason": "unparsed", "raw": null}
+{"word": "contradistinction", "reason": "bad_segments", "raw": "con.tras.dis.tinc.tion", "segments": ["con", "tras", "dis", "tinc", "tion"]}
+{"word": "posing", "reason": "bad_segments", "raw": "pose.ing", "segments": ["pose", "ing"]}
+{"word": "illicitly", "reason": "unparsed", "raw": null}
+{"word": "knowledgeably", "reason": "bad_segments", "raw": "know.ledge.able.ly", "segments": ["know", "ledge", "able", "ly"]}
+{"word": "pimento", "reason": "unparsed", "raw": null}
+{"word": "pentagram", "reason": "bad_segments", "raw": "pen.ta.graph", "segments": ["pen", "ta", "graph"]}
+{"word": "carnivalesque", "reason": "unparsed", "raw": null}
+{"word": "wholesomeness", "reason": "unparsed", "raw": null}
+{"word": "grumpily", "reason": "bad_segments", "raw": "grump.ili.y", "segments": ["grump", "ili", "y"]}
+{"word": "beckoning", "reason": "bad_segments", "raw": "be.con.n.ing", "segments": ["be", "con", "n", "ing"]}
+{"word": "catechetical", "reason": "unparsed", "raw": null}
+{"word": "suasion", "reason": "bad_segments", "raw": "suas.sion", "segments": ["suas", "sion"]}
+{"word": "babbling", "reason": "unparsed", "raw": null}
+{"word": "nor'easter", "reason": "bad_segments", "raw": "nor.eas.ter", "segments": ["nor", "eas", "ter"]}
+{"word": "camber", "reason": "bad_segments", "raw": "cam.b", "segments": ["cam", "b"]}
+{"word": "engorge", "reason": "bad_segments", "raw": "en.gorg", "segments": ["en", "gorg"]}
+{"word": "spritzer", "reason": "bad_segments", "raw": "sprit.z", "segments": ["sprit", "z"]}
+{"word": "infinitesimally", "reason": "bad_segments", "raw": "infinit.essim.al.ly", "segments": ["infinit", "essim", "al", "ly"]}
+{"word": "defecation", "reason": "bad_segments", "raw": "de.fect.at.ion", "segments": ["de", "fect", "at", "ion"]}
+{"word": "colourful", "reason": "bad_segments", "raw": "colour.full", "segments": ["colour", "full"]}
+{"word": "carried", "reason": "bad_segments", "raw": "carry.ed", "segments": ["carry", "ed"]}
+{"word": "implacably", "reason": "bad_segments", "raw": "im.plac.able.y", "segments": ["im", "plac", "able", "y"]}
+{"word": "exceptionality", "reason": "unparsed", "raw": null}
+{"word": "genuineness", "reason": "bad_segments", "raw": "gen.u.in.ess", "segments": ["gen", "u", "in", "ess"]}
+{"word": "intellectualize", "reason": "unparsed", "raw": null}
+{"word": "smilingly", "reason": "bad_segments", "raw": "smile.ing.ly", "segments": ["smile", "ing", "ly"]}
+{"word": "phenolic", "reason": "bad_segments", "raw": "pheno.lia", "segments": ["pheno", "lia"]}
+{"word": "m", "reason": "unparsed", "raw": null}
+{"word": "edginess", "reason": "bad_segments", "raw": "edge.ines", "segments": ["edge", "ines"]}
+{"word": "vitreous", "reason": "bad_segments", "raw": "vitr.ous", "segments": ["vitr", "ous"]}
+{"word": "parallelogram", "reason": "bad_segments", "raw": "paral.lel.o.graph", "segments": ["paral", "lel", "o", "graph"]}
+{"word": "colloquially", "reason": "bad_segments", "raw": "collo.qui.ial.ly", "segments": ["collo", "qui", "ial", "ly"]}
+{"word": "contentiousness", "reason": "bad_segments", "raw": "con.ten.tion.ous.ness", "segments": ["con", "ten", "tion", "ous", "ness"]}
+{"word": "townsman", "reason": "unparsed", "raw": null}
+{"word": "discomfiture", "reason": "bad_segments", "raw": "dis.com.fit.ture", "segments": ["dis", "com", "fit", "ture"]}
+{"word": "opposable", "reason": "bad_segments", "raw": "op.pos.ab.able", "segments": ["op", "pos", "ab", "able"]}
+{"word": "ummm", "reason": "bad_segments", "raw": "um.mmm", "segments": ["um", "mmm"]}
+{"word": "bridging", "reason": "bad_segments", "raw": "bridge.ing", "segments": ["bridge", "ing"]}
+{"word": "unilateralist", "reason": "bad_segments", "raw": "un.later.al.ist", "segments": ["un", "later", "al", "ist"]}
+{"word": "voicing", "reason": "bad_segments", "raw": "voice.ing", "segments": ["voice", "ing"]}
+{"word": "tidiness", "reason": "unparsed", "raw": null}
+{"word": "plucked", "reason": "unparsed", "raw": null}
+{"word": "enfranchisement", "reason": "bad_segments", "raw": "en.franchis.ment", "segments": ["en", "franchis", "ment"]}
+{"word": "encircling", "reason": "bad_segments", "raw": "en.circ.ing", "segments": ["en", "circ", "ing"]}
+{"word": "archdiocesan", "reason": "bad_segments", "raw": "arch.di.o.ce.an", "segments": ["arch", "di", "o", "ce", "an"]}
+{"word": "subsonic", "reason": "unparsed", "raw": null}
+{"word": "meltwater", "reason": "unparsed", "raw": null}
+{"word": "misrule", "reason": "unparsed", "raw": null}
+{"word": "cholla", "reason": "unparsed", "raw": null}
+{"word": "snakehead", "reason": "unparsed", "raw": null}
+{"word": "leatherette", "reason": "unparsed", "raw": null}
+{"word": "guestroom", "reason": "unparsed", "raw": null}
+{"word": "streamlining", "reason": "unparsed", "raw": null}
+{"word": "liniment", "reason": "unparsed", "raw": null}
+{"word": "bursitis", "reason": "unparsed", "raw": null}
+{"word": "oddsmaker", "reason": "unparsed", "raw": null}
+{"word": "playbill", "reason": "unparsed", "raw": null}
+{"word": "dickhead", "reason": "unparsed", "raw": null}
+{"word": "patagonian", "reason": "unparsed", "raw": null}
+{"word": "horseshit", "reason": "unparsed", "raw": null}
+{"word": "dyspnea", "reason": "unparsed", "raw": null}
+{"word": "reviled", "reason": "unparsed", "raw": null}
+{"word": "oozing", "reason": "unparsed", "raw": null}
+{"word": "cordiality", "reason": "unparsed", "raw": null}
+{"word": "unendurable", "reason": "unparsed", "raw": null}
+{"word": "personal/social", "reason": "unparsed", "raw": null}
+{"word": "irredeemably", "reason": "bad_segments", "raw": "ir.re.deem.able.ly", "segments": ["ir", "re", "deem", "able", "ly"]}
+{"word": "disaggregation", "reason": "bad_segments", "raw": "dis.ag.gre.gat.tion", "segments": ["dis", "ag", "gre", "gat", "tion"]}
+{"word": "harvestable", "reason": "unparsed", "raw": null}
+{"word": "grimness", "reason": "unparsed", "raw": null}
+{"word": "laundress", "reason": "unparsed", "raw": null}
+{"word": "tactless", "reason": "unparsed", "raw": null}
+{"word": "cozily", "reason": "bad_segments", "raw": "cozy.ly", "segments": ["cozy", "ly"]}
+{"word": "mirthless", "reason": "unparsed", "raw": null}
+{"word": "geode", "reason": "unparsed", "raw": null}
+{"word": "goober", "reason": "unparsed", "raw": null}
+{"word": "sledding", "reason": "unparsed", "raw": null}
+{"word": "slackness", "reason": "unparsed", "raw": null}
+{"word": "blushing", "reason": "unparsed", "raw": null}
+{"word": "citric", "reason": "unparsed", "raw": null}
+{"word": "unexploited", "reason": "bad_segments", "raw": "un.explor.ed", "segments": ["un", "explor", "ed"]}
+{"word": "stuffiness", "reason": "unparsed", "raw": null}
+{"word": "corporeality", "reason": "bad_segments", "raw": "cor.por.re.al.i.ty", "segments": ["cor", "por", "re", "al", "i", "ty"]}

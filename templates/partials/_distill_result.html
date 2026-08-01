@@ -1,0 +1,10 @@
+<div class="affix-analysis distill-analysis">
+  <div class="affix-title">蒸馏模型2</div>
+  {% if segments %}
+  <div class="affix-word-breakdown">
+    {% for seg in segments %}
+    <span class="affix-part affix-part-matched">{{ seg }}</span>{% if not loop.last %}<span class="affix-dot">.</span>{% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>

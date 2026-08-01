@@ -1,0 +1,8 @@
+===== full24149_v2 =====
+total records: 23697
+valid: 23694  invalid: 3  valid_rate: 100.0%
+  invalid[bad_segments]: 3
+avg segments/word: 2.31
+multi-segment words: 19058/23694
+segment length top: 3->14551, 2->12886, 4->11225, 5->6603, 6->3238, 1->2881, 7->1721, 8->885
+consistency(before): 72.2%  after: 83.4%  repaired: 30311

@@ -32,6 +32,15 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
     margin-bottom: 12px;
 }
 
+/* ── 蒸馏模型2 ── */
+.distill-analysis {
+    background: #f0fbf4;
+    border: 1px solid #d3ecdf;
+}
+.distill-analysis .affix-title {
+    color: #2e8b57;
+}
+
 /* ── 第一行：词根段显示 ── */
 .affix-word-breakdown {
     display: inline-flex;

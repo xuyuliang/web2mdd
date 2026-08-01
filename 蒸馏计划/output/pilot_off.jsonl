@@ -1,0 +1,170 @@
+{"word": "foreignness", "ok": true, "segments": ["for", "eign", "ness"], "raw": "for.eign.ness", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 8.566168546676636, "error": null}}
+{"word": "invidious", "ok": true, "segments": ["in", "vi", "dic", "ous"], "raw": "in.vi.dic.ous", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 8.566168546676636, "error": null}}
+{"word": "jackhammer", "ok": true, "segments": ["jack", "ham", "mer"], "raw": "jack.ham.mer", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 8.566168546676636, "error": null}}
+{"word": "craziness", "ok": true, "segments": ["cra", "zi", "ness"], "raw": "cra.zi.ness", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 8.566168546676636, "error": null}}
+{"word": "collarbone", "ok": true, "segments": ["col", "lar", "bone"], "raw": "col.lar.bone", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 8.566168546676636, "error": null}}
+{"word": "tattle", "ok": true, "segments": ["tat", "tle"], "raw": "tat.tle", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 8.566168546676636, "error": null}}
+{"word": "effluent", "ok": true, "segments": ["ef", "flu", "ent"], "raw": "ef.flu.ent", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 8.566168546676636, "error": null}}
+{"word": "antecedent", "ok": true, "segments": ["an", "te", "ce", "dent"], "raw": "an.te.ce.dent", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 8.566168546676636, "error": null}}
+{"word": "lifesaver", "ok": true, "segments": ["life", "sav", "er"], "raw": "life.sav.er", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 8.566168546676636, "error": null}}
+{"word": "caesarean", "ok": true, "segments": ["cae", "sar", "ean"], "raw": "cae.sar.ean", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 8.566168546676636, "error": null}}
+{"word": "fixate", "ok": true, "segments": ["fix", "ate"], "raw": "fix.ate", "meta": {"reasoning_tokens": 0, "completion_tokens": 72, "elapsed": 2.7224836349487305, "error": null}}
+{"word": "crusade", "ok": true, "segments": ["crus", "ade"], "raw": "crus.ade", "meta": {"reasoning_tokens": 0, "completion_tokens": 72, "elapsed": 2.7224836349487305, "error": null}}
+{"word": "fishy", "ok": true, "segments": ["fish", "y"], "raw": "fish.y", "meta": {"reasoning_tokens": 0, "completion_tokens": 72, "elapsed": 2.7224836349487305, "error": null}}
+{"word": "twitching", "ok": true, "segments": ["twitch", "ing"], "raw": "twitch.ing", "meta": {"reasoning_tokens": 0, "completion_tokens": 72, "elapsed": 2.7224836349487305, "error": null}}
+{"word": "pat", "ok": true, "segments": ["pat"], "raw": "pat", "meta": {"reasoning_tokens": 0, "completion_tokens": 72, "elapsed": 2.7224836349487305, "error": null}}
+{"word": "quatrain", "ok": true, "segments": ["qua", "train"], "raw": "qua.train", "meta": {"reasoning_tokens": 0, "completion_tokens": 72, "elapsed": 2.7224836349487305, "error": null}}
+{"word": "hamstring", "ok": true, "segments": ["hamstring"], "raw": "hamstring", "meta": {"reasoning_tokens": 0, "completion_tokens": 72, "elapsed": 2.7224836349487305, "error": null}}
+{"word": "delusional", "ok": true, "segments": ["delu", "sion", "al"], "raw": "delu.sion.al", "meta": {"reasoning_tokens": 0, "completion_tokens": 72, "elapsed": 2.7224836349487305, "error": null}}
+{"word": "groomsman", "ok": true, "segments": ["groom", "sman"], "raw": "groom.sman", "meta": {"reasoning_tokens": 0, "completion_tokens": 72, "elapsed": 2.7224836349487305, "error": null}}
+{"word": "globalizing", "ok": true, "segments": ["glob", "al", "iz", "ing"], "raw": "glob.al.iz.ing", "meta": {"reasoning_tokens": 0, "completion_tokens": 72, "elapsed": 2.7224836349487305, "error": null}}
+{"word": "unwell", "ok": true, "segments": ["un", "well"], "raw": "un.well", "meta": {"reasoning_tokens": 0, "completion_tokens": 76, "elapsed": 10.130608558654785, "error": null}}
+{"word": "conscientious", "ok": true, "segments": ["con", "scien", "ti", "ous"], "raw": "con.scien.ti.ous", "meta": {"reasoning_tokens": 0, "completion_tokens": 76, "elapsed": 10.130608558654785, "error": null}}
+{"word": "outflow", "ok": true, "segments": ["out", "flow"], "raw": "out.flow", "meta": {"reasoning_tokens": 0, "completion_tokens": 76, "elapsed": 10.130608558654785, "error": null}}
+{"word": "sepulchral", "ok": true, "segments": ["sepul", "chr", "al"], "raw": "sepul.chr.al", "meta": {"reasoning_tokens": 0, "completion_tokens": 76, "elapsed": 10.130608558654785, "error": null}}
+{"word": "weighing", "ok": true, "segments": ["weigh", "ing"], "raw": "weigh.ing", "meta": {"reasoning_tokens": 0, "completion_tokens": 76, "elapsed": 10.130608558654785, "error": null}}
+{"word": "oracle", "ok": true, "segments": ["or", "acle"], "raw": "or.acle", "meta": {"reasoning_tokens": 0, "completion_tokens": 76, "elapsed": 10.130608558654785, "error": null}}
+{"word": "steers", "ok": true, "segments": ["steer", "s"], "raw": "steer.s", "meta": {"reasoning_tokens": 0, "completion_tokens": 76, "elapsed": 10.130608558654785, "error": null}}
+{"word": "unsold", "ok": true, "segments": ["un", "sold"], "raw": "un.sold", "meta": {"reasoning_tokens": 0, "completion_tokens": 76, "elapsed": 10.130608558654785, "error": null}}
+{"word": "saracen", "ok": true, "segments": ["sar", "acen"], "raw": "sar.acen", "meta": {"reasoning_tokens": 0, "completion_tokens": 76, "elapsed": 10.130608558654785, "error": null}}
+{"word": "celtic", "ok": true, "segments": ["celt", "ic"], "raw": "celt.ic", "meta": {"reasoning_tokens": 0, "completion_tokens": 76, "elapsed": 10.130608558654785, "error": null}}
+{"word": "understatement", "ok": true, "segments": ["un", "der", "statement"], "raw": "un.der.statement", "meta": {"reasoning_tokens": 0, "completion_tokens": 75, "elapsed": 9.300949096679688, "error": null}}
+{"word": "sixteenth", "ok": true, "segments": ["six", "teenth"], "raw": "six.teenth", "meta": {"reasoning_tokens": 0, "completion_tokens": 75, "elapsed": 9.300949096679688, "error": null}}
+{"word": "engineered", "ok": true, "segments": ["en", "gine", "er", "ed"], "raw": "en.gine.er.ed", "meta": {"reasoning_tokens": 0, "completion_tokens": 75, "elapsed": 9.300949096679688, "error": null}}
+{"word": "mythic", "ok": true, "segments": ["myth", "ic"], "raw": "myth.ic", "meta": {"reasoning_tokens": 0, "completion_tokens": 75, "elapsed": 9.300949096679688, "error": null}}
+{"word": "overabundance", "ok": true, "segments": ["over", "abund", "ance"], "raw": "over.abund.ance", "meta": {"reasoning_tokens": 0, "completion_tokens": 75, "elapsed": 9.300949096679688, "error": null}}
+{"word": "croup", "ok": true, "segments": ["croup"], "raw": "croup", "meta": {"reasoning_tokens": 0, "completion_tokens": 75, "elapsed": 9.300949096679688, "error": null}}
+{"word": "twin", "ok": true, "segments": ["twin"], "raw": "twin", "meta": {"reasoning_tokens": 0, "completion_tokens": 75, "elapsed": 9.300949096679688, "error": null}}
+{"word": "sherpa", "ok": true, "segments": ["sher", "pa"], "raw": "sher.pa", "meta": {"reasoning_tokens": 0, "completion_tokens": 75, "elapsed": 9.300949096679688, "error": null}}
+{"word": "incredulous", "ok": true, "segments": ["in", "cred", "ulous"], "raw": "in.cred.ulous", "meta": {"reasoning_tokens": 0, "completion_tokens": 75, "elapsed": 9.300949096679688, "error": null}}
+{"word": "moaning", "ok": true, "segments": ["moan", "ing"], "raw": "moan.ing", "meta": {"reasoning_tokens": 0, "completion_tokens": 75, "elapsed": 9.300949096679688, "error": null}}
+{"word": "thoughtfully", "ok": true, "segments": ["thought", "ful", "ly"], "raw": "thought.ful.ly", "meta": {"reasoning_tokens": 0, "completion_tokens": 79, "elapsed": 9.139650106430054, "error": null}}
+{"word": "fearlessness", "ok": true, "segments": ["fear", "less", "ness"], "raw": "fear.less.ness", "meta": {"reasoning_tokens": 0, "completion_tokens": 79, "elapsed": 9.139650106430054, "error": null}}
+{"word": "homeric", "ok": true, "segments": ["hom", "er", "ic"], "raw": "hom.er.ic", "meta": {"reasoning_tokens": 0, "completion_tokens": 79, "elapsed": 9.139650106430054, "error": null}}
+{"word": "uncluttered", "ok": true, "segments": ["un", "clutter", "ed"], "raw": "un.clutter.ed", "meta": {"reasoning_tokens": 0, "completion_tokens": 79, "elapsed": 9.139650106430054, "error": null}}
+{"word": "heirloom", "ok": true, "segments": ["heir", "loom"], "raw": "heir.loom", "meta": {"reasoning_tokens": 0, "completion_tokens": 79, "elapsed": 9.139650106430054, "error": null}}
+{"word": "arterial", "ok": true, "segments": ["arter", "ial"], "raw": "arter.ial", "meta": {"reasoning_tokens": 0, "completion_tokens": 79, "elapsed": 9.139650106430054, "error": null}}
+{"word": "disgruntled", "ok": true, "segments": ["dis", "gruntled"], "raw": "dis.gruntled", "meta": {"reasoning_tokens": 0, "completion_tokens": 79, "elapsed": 9.139650106430054, "error": null}}
+{"word": "connectedness", "ok": true, "segments": ["connect", "ed", "ness"], "raw": "connect.ed.ness", "meta": {"reasoning_tokens": 0, "completion_tokens": 79, "elapsed": 9.139650106430054, "error": null}}
+{"word": "vexed", "ok": true, "segments": ["vex", "ed"], "raw": "vex.ed", "meta": {"reasoning_tokens": 0, "completion_tokens": 79, "elapsed": 9.139650106430054, "error": null}}
+{"word": "ancho", "ok": true, "segments": ["anch", "o"], "raw": "anch.o", "meta": {"reasoning_tokens": 0, "completion_tokens": 79, "elapsed": 9.139650106430054, "error": null}}
+{"word": "funnel", "ok": true, "segments": ["fun", "nel"], "raw": "fun.nel", "meta": {"reasoning_tokens": 0, "completion_tokens": 74, "elapsed": 10.7091646194458, "error": null}}
+{"word": "snowflake", "ok": true, "segments": ["snow", "flake"], "raw": "snow.flake", "meta": {"reasoning_tokens": 0, "completion_tokens": 74, "elapsed": 10.7091646194458, "error": null}}
+{"word": "undressed", "ok": true, "segments": ["un", "dress", "ed"], "raw": "un.dress.ed", "meta": {"reasoning_tokens": 0, "completion_tokens": 74, "elapsed": 10.7091646194458, "error": null}}
+{"word": "squirm", "ok": true, "segments": ["squirm"], "raw": "squirm", "meta": {"reasoning_tokens": 0, "completion_tokens": 74, "elapsed": 10.7091646194458, "error": null}}
+{"word": "beaver", "ok": true, "segments": ["beav", "er"], "raw": "beav.er", "meta": {"reasoning_tokens": 0, "completion_tokens": 74, "elapsed": 10.7091646194458, "error": null}}
+{"word": "antic", "ok": true, "segments": ["an", "tic"], "raw": "an.tic", "meta": {"reasoning_tokens": 0, "completion_tokens": 74, "elapsed": 10.7091646194458, "error": null}}
+{"word": "subfield", "ok": true, "segments": ["sub", "field"], "raw": "sub.field", "meta": {"reasoning_tokens": 0, "completion_tokens": 74, "elapsed": 10.7091646194458, "error": null}}
+{"word": "vanishingly", "ok": true, "segments": ["van", "ish", "ing", "ly"], "raw": "van.ish.ing.ly", "meta": {"reasoning_tokens": 0, "completion_tokens": 74, "elapsed": 10.7091646194458, "error": null}}
+{"word": "superhero", "ok": true, "segments": ["su", "per", "hero"], "raw": "su.per.hero", "meta": {"reasoning_tokens": 0, "completion_tokens": 74, "elapsed": 10.7091646194458, "error": null}}
+{"word": "rehydrate", "ok": true, "segments": ["re", "hydr", "ate"], "raw": "re.hydr.ate", "meta": {"reasoning_tokens": 0, "completion_tokens": 74, "elapsed": 10.7091646194458, "error": null}}
+{"word": "scarcity", "ok": true, "segments": ["scarce", "ty"], "raw": "scarce.ty", "meta": {"reasoning_tokens": 0, "completion_tokens": 81, "elapsed": 9.778378248214722, "error": null}}
+{"word": "unraveling", "ok": true, "segments": ["un", "rav", "el", "ing"], "raw": "un.rav.el.ing", "meta": {"reasoning_tokens": 0, "completion_tokens": 81, "elapsed": 9.778378248214722, "error": null}}
+{"word": "android", "ok": true, "segments": ["and", "roid"], "raw": "and.roid", "meta": {"reasoning_tokens": 0, "completion_tokens": 81, "elapsed": 9.778378248214722, "error": null}}
+{"word": "retardation", "ok": true, "segments": ["re", "tar", "da", "tion"], "raw": "re.tar.da.tion", "meta": {"reasoning_tokens": 0, "completion_tokens": 81, "elapsed": 9.778378248214722, "error": null}}
+{"word": "papaya", "ok": true, "segments": ["pa", "pa", "ya"], "raw": "pa.pa.ya", "meta": {"reasoning_tokens": 0, "completion_tokens": 81, "elapsed": 9.778378248214722, "error": null}}
+{"word": "wildland", "ok": true, "segments": ["wild", "land"], "raw": "wild.land", "meta": {"reasoning_tokens": 0, "completion_tokens": 81, "elapsed": 9.778378248214722, "error": null}}
+{"word": "comparatively", "ok": true, "segments": ["com", "par", "at", "ive", "ly"], "raw": "com.par.at.ive.ly", "meta": {"reasoning_tokens": 0, "completion_tokens": 81, "elapsed": 9.778378248214722, "error": null}}
+{"word": "away", "ok": true, "segments": ["a", "way"], "raw": "a.way", "meta": {"reasoning_tokens": 0, "completion_tokens": 81, "elapsed": 9.778378248214722, "error": null}}
+{"word": "firm", "ok": true, "segments": ["firm"], "raw": "firm", "meta": {"reasoning_tokens": 0, "completion_tokens": 81, "elapsed": 9.778378248214722, "error": null}}
+{"word": "unconditioned", "ok": true, "segments": ["un", "condi", "tion", "ed"], "raw": "un.condi.tion.ed", "meta": {"reasoning_tokens": 0, "completion_tokens": 81, "elapsed": 9.778378248214722, "error": null}}
+{"word": "cyclical", "ok": true, "segments": ["cyclo", "cyc", "ical"], "raw": "cyclo.cyc.ical", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 15.275392055511475, "error": null}}
+{"word": "thin", "ok": true, "segments": ["thin"], "raw": "thin", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 15.275392055511475, "error": null}}
+{"word": "smorgasbord", "ok": true, "segments": ["smorg", "as", "bord"], "raw": "smorg.as.bord", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 15.275392055511475, "error": null}}
+{"word": "reorganize", "ok": true, "segments": ["re", "org", "an", "ize"], "raw": "re.org.an.ize", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 15.275392055511475, "error": null}}
+{"word": "inculturation", "ok": true, "segments": ["in", "cul", "tur", "at", "ion"], "raw": "in.cul.tur.at.ion", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 15.275392055511475, "error": null}}
+{"word": "fouled", "ok": true, "segments": ["foul", "ed"], "raw": "foul.ed", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 15.275392055511475, "error": null}}
+{"word": "groping", "ok": true, "segments": ["grop", "ing"], "raw": "grop.ing", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 15.275392055511475, "error": null}}
+{"word": "reciprocity", "ok": true, "segments": ["re", "cip", "ro", "cit", "y"], "raw": "re.cip.ro.cit.y", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 15.275392055511475, "error": null}}
+{"word": "oblivion", "ok": true, "segments": ["ob", "liv", "ion"], "raw": "ob.liv.ion", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 15.275392055511475, "error": null}}
+{"word": "reclusive", "ok": true, "segments": ["re", "clus", "ive"], "raw": "re.clus.ive", "meta": {"reasoning_tokens": 0, "completion_tokens": 95, "elapsed": 15.275392055511475, "error": null}}
+{"word": "unsheathed", "ok": true, "segments": ["un", "sheat", "head"], "raw": "un.sheat.head", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 15.782991409301758, "error": null}}
+{"word": "accommodationist", "ok": true, "segments": ["ac", "com", "mo", "dat", "ion", "ist"], "raw": "ac.com.mo.dat.ion.ist", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 15.782991409301758, "error": null}}
+{"word": "amended", "ok": true, "segments": ["a", "mend", "ed"], "raw": "a.mend.ed", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 15.782991409301758, "error": null}}
+{"word": "exactitude", "ok": true, "segments": ["ex", "act", "it", "ude"], "raw": "ex.act.it.ude", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 15.782991409301758, "error": null}}
+{"word": "vehicular", "ok": true, "segments": ["ve", "hic", "u", "lar"], "raw": "ve.hic.u.lar", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 15.782991409301758, "error": null}}
+{"word": "silver", "ok": true, "segments": ["sil", "ver"], "raw": "sil.ver", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 15.782991409301758, "error": null}}
+{"word": "weighted", "ok": true, "segments": ["weight", "ed"], "raw": "weight.ed", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 15.782991409301758, "error": null}}
+{"word": "meatless", "ok": true, "segments": ["meat", "less"], "raw": "meat.less", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 15.782991409301758, "error": null}}
+{"word": "religiously", "ok": true, "segments": ["re", "lig", "i", "ous", "ly"], "raw": "re.lig.i.ous.ly", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 15.782991409301758, "error": null}}
+{"word": "fiscally", "ok": true, "segments": ["fis", "cal", "ly"], "raw": "fis.cal.ly", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 15.782991409301758, "error": null}}
+{"word": "cobweb", "ok": true, "segments": ["cob", "web"], "raw": "cob.web", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.619072198867798, "error": null}}
+{"word": "serial", "ok": true, "segments": ["se", "ri", "al"], "raw": "se.ri.al", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.619072198867798, "error": null}}
+{"word": "harbinger", "ok": true, "segments": ["har", "bin", "ger"], "raw": "har.bin.ger", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.619072198867798, "error": null}}
+{"word": "quid", "ok": true, "segments": ["quid"], "raw": "quid", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.619072198867798, "error": null}}
+{"word": "biopsy", "ok": true, "segments": ["bi", "op", "sy"], "raw": "bi.op.sy", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.619072198867798, "error": null}}
+{"word": "bittersweet", "ok": true, "segments": ["bit", "ter", "sweet"], "raw": "bit.ter.sweet", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.619072198867798, "error": null}}
+{"word": "bacilli", "ok": true, "segments": ["bac", "ill", "i"], "raw": "bac.ill.i", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.619072198867798, "error": null}}
+{"word": "godforsaken", "ok": true, "segments": ["god", "for", "sak", "en"], "raw": "god.for.sak.en", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.619072198867798, "error": null}}
+{"word": "lightsaber", "ok": true, "segments": ["light", "sab", "er"], "raw": "light.sab.er", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.619072198867798, "error": null}}
+{"word": "hypnotize", "ok": true, "segments": ["hyp", "no", "tize"], "raw": "hyp.no.tize", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.619072198867798, "error": null}}
+{"word": "down", "ok": true, "segments": ["down"], "raw": "down", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 8.827046394348145, "error": null}}
+{"word": "townsman", "ok": true, "segments": ["town", "sman"], "raw": "town.sman", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 8.827046394348145, "error": null}}
+{"word": "maliciously", "ok": true, "segments": ["mal", "ic", "i", "ous", "ly"], "raw": "mal.ic.i.ous.ly", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 8.827046394348145, "error": null}}
+{"word": "correspondingly", "ok": true, "segments": ["cor", "res", "pond", "ing", "ly"], "raw": "cor.res.pond.ing.ly", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 8.827046394348145, "error": null}}
+{"word": "cassoulet", "ok": true, "segments": ["cas", "sou", "let"], "raw": "cas.sou.let", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 8.827046394348145, "error": null}}
+{"word": "origami", "ok": true, "segments": ["or", "i", "gam", "i"], "raw": "or.i.gam.i", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 8.827046394348145, "error": null}}
+{"word": "oversupply", "ok": true, "segments": ["over", "sup", "ply"], "raw": "over.sup.ply", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 8.827046394348145, "error": null}}
+{"word": "oasis", "ok": true, "segments": ["o", "as", "is"], "raw": "o.as.is", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 8.827046394348145, "error": null}}
+{"word": "piety", "ok": true, "segments": ["pi", "et", "y"], "raw": "pi.et.y", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 8.827046394348145, "error": null}}
+{"word": "hospitable", "ok": true, "segments": ["hos", "pi", "ta", "ble"], "raw": "hos.pi.ta.ble", "meta": {"reasoning_tokens": 0, "completion_tokens": 87, "elapsed": 8.827046394348145, "error": null}}
+{"word": "enslave", "ok": true, "segments": ["en", "slave"], "raw": "en.slave", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.368491888046265, "error": null}}
+{"word": "unyielding", "ok": true, "segments": ["un", "yield", "ing"], "raw": "un.yield.ing", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.368491888046265, "error": null}}
+{"word": "prosthetic", "ok": true, "segments": ["pro", "sthet", "ic"], "raw": "pro.sthet.ic", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.368491888046265, "error": null}}
+{"word": "exacting", "ok": true, "segments": ["ex", "act", "ing"], "raw": "ex.act.ing", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.368491888046265, "error": null}}
+{"word": "locust", "ok": true, "segments": ["locust"], "raw": "locust", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.368491888046265, "error": null}}
+{"word": "overtone", "ok": true, "segments": ["over", "tone"], "raw": "over.tone", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.368491888046265, "error": null}}
+{"word": "brucellosis", "ok": true, "segments": ["bru", "cel", "lo", "sis"], "raw": "bru.cel.lo.sis", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.368491888046265, "error": null}}
+{"word": "aviary", "ok": true, "segments": ["avi", "ary"], "raw": "avi.ary", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.368491888046265, "error": null}}
+{"word": "trapeze", "ok": true, "segments": ["tra", "peze"], "raw": "tra.peze", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.368491888046265, "error": null}}
+{"word": "lament", "ok": true, "segments": ["la", "ment"], "raw": "la.ment", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 10.368491888046265, "error": null}}
+{"word": "notification", "ok": true, "segments": ["no", "ti", "fic", "ation"], "raw": "no.ti.fic.ation", "meta": {"reasoning_tokens": 0, "completion_tokens": 88, "elapsed": 8.608186960220337, "error": null}}
+{"word": "polygynous", "ok": true, "segments": ["poly", "gyn", "ous"], "raw": "poly.gyn.ous", "meta": {"reasoning_tokens": 0, "completion_tokens": 88, "elapsed": 8.608186960220337, "error": null}}
+{"word": "abdicate", "ok": true, "segments": ["ab", "dic", "ate"], "raw": "ab.dic.ate", "meta": {"reasoning_tokens": 0, "completion_tokens": 88, "elapsed": 8.608186960220337, "error": null}}
+{"word": "exorcist", "ok": true, "segments": ["ex", "or", "cist"], "raw": "ex.or.cist", "meta": {"reasoning_tokens": 0, "completion_tokens": 88, "elapsed": 8.608186960220337, "error": null}}
+{"word": "modern", "ok": true, "segments": ["mod", "ern"], "raw": "mod.ern", "meta": {"reasoning_tokens": 0, "completion_tokens": 88, "elapsed": 8.608186960220337, "error": null}}
+{"word": "broadband", "ok": true, "segments": ["broad", "band"], "raw": "broad.band", "meta": {"reasoning_tokens": 0, "completion_tokens": 88, "elapsed": 8.608186960220337, "error": null}}
+{"word": "hydrangea", "ok": true, "segments": ["hy", "dran", "gea"], "raw": "hy.dran.gea", "meta": {"reasoning_tokens": 0, "completion_tokens": 88, "elapsed": 8.608186960220337, "error": null}}
+{"word": "unconscious", "ok": true, "segments": ["un", "con", "scious"], "raw": "un.con.scious", "meta": {"reasoning_tokens": 0, "completion_tokens": 88, "elapsed": 8.608186960220337, "error": null}}
+{"word": "pervasiveness", "ok": true, "segments": ["per", "vas", "sive", "ness"], "raw": "per.vas.sive.ness", "meta": {"reasoning_tokens": 0, "completion_tokens": 88, "elapsed": 8.608186960220337, "error": null}}
+{"word": "lyric", "ok": true, "segments": ["lyr", "ic"], "raw": "lyr.ic", "meta": {"reasoning_tokens": 0, "completion_tokens": 88, "elapsed": 8.608186960220337, "error": null}}
+{"word": "wagnerian", "ok": true, "segments": ["wagn", "er", "ian"], "raw": "wagn.er.ian", "meta": {"reasoning_tokens": 0, "completion_tokens": 77, "elapsed": 8.983495712280273, "error": null}}
+{"word": "bonsai", "ok": true, "segments": ["bon", "sai"], "raw": "bon.sai", "meta": {"reasoning_tokens": 0, "completion_tokens": 77, "elapsed": 8.983495712280273, "error": null}}
+{"word": "silencer", "ok": true, "segments": ["silenc", "er"], "raw": "silenc.er", "meta": {"reasoning_tokens": 0, "completion_tokens": 77, "elapsed": 8.983495712280273, "error": null}}
+{"word": "tacitly", "ok": true, "segments": ["tacit", "ly"], "raw": "tacit.ly", "meta": {"reasoning_tokens": 0, "completion_tokens": 77, "elapsed": 8.983495712280273, "error": null}}
+{"word": "grub", "ok": true, "segments": ["grub"], "raw": "grub", "meta": {"reasoning_tokens": 0, "completion_tokens": 77, "elapsed": 8.983495712280273, "error": null}}
+{"word": "anyhow", "ok": true, "segments": ["any", "how"], "raw": "any.how", "meta": {"reasoning_tokens": 0, "completion_tokens": 77, "elapsed": 8.983495712280273, "error": null}}
+{"word": "nightie", "ok": true, "segments": ["night", "ie"], "raw": "night.ie", "meta": {"reasoning_tokens": 0, "completion_tokens": 77, "elapsed": 8.983495712280273, "error": null}}
+{"word": "aztec", "ok": true, "segments": ["az", "tec"], "raw": "az.tec", "meta": {"reasoning_tokens": 0, "completion_tokens": 77, "elapsed": 8.983495712280273, "error": null}}
+{"word": "socializing", "ok": true, "segments": ["social", "iz", "ing"], "raw": "social.iz.ing", "meta": {"reasoning_tokens": 0, "completion_tokens": 77, "elapsed": 8.983495712280273, "error": null}}
+{"word": "epistemology", "ok": true, "segments": ["epis", "tem", "ol", "o", "gy"], "raw": "epis.tem.ol.o.gy", "meta": {"reasoning_tokens": 0, "completion_tokens": 77, "elapsed": 8.983495712280273, "error": null}}
+{"word": "forager", "ok": true, "segments": ["for", "ag", "er"], "raw": "for.ag.er", "meta": {"reasoning_tokens": 0, "completion_tokens": 78, "elapsed": 8.570331573486328, "error": null}}
+{"word": "overloaded", "ok": true, "segments": ["over", "load", "ed"], "raw": "over.load.ed", "meta": {"reasoning_tokens": 0, "completion_tokens": 78, "elapsed": 8.570331573486328, "error": null}}
+{"word": "spectrograph", "ok": true, "segments": ["spec", "tro", "graph"], "raw": "spec.tro.graph", "meta": {"reasoning_tokens": 0, "completion_tokens": 78, "elapsed": 8.570331573486328, "error": null}}
+{"word": "tacky", "ok": true, "segments": ["tack", "y"], "raw": "tack.y", "meta": {"reasoning_tokens": 0, "completion_tokens": 78, "elapsed": 8.570331573486328, "error": null}}
+{"word": "methodical", "ok": true, "segments": ["meth", "od", "ical"], "raw": "meth.od.ical", "meta": {"reasoning_tokens": 0, "completion_tokens": 78, "elapsed": 8.570331573486328, "error": null}}
+{"word": "careless", "ok": true, "segments": ["care", "less"], "raw": "care.less", "meta": {"reasoning_tokens": 0, "completion_tokens": 78, "elapsed": 8.570331573486328, "error": null}}
+{"word": "dingy", "ok": true, "segments": ["ding", "y"], "raw": "ding.y", "meta": {"reasoning_tokens": 0, "completion_tokens": 78, "elapsed": 8.570331573486328, "error": null}}
+{"word": "insufficiency", "ok": true, "segments": ["in", "suf", "fic", "i", "ency"], "raw": "in.suf.fic.i.ency", "meta": {"reasoning_tokens": 0, "completion_tokens": 78, "elapsed": 8.570331573486328, "error": null}}
+{"word": "musky", "ok": true, "segments": ["mus", "ky"], "raw": "mus.ky", "meta": {"reasoning_tokens": 0, "completion_tokens": 78, "elapsed": 8.570331573486328, "error": null}}
+{"word": "falsetto", "ok": true, "segments": ["false", "tto"], "raw": "false.tto", "meta": {"reasoning_tokens": 0, "completion_tokens": 78, "elapsed": 8.570331573486328, "error": null}}
+{"word": "scheming", "ok": true, "segments": ["scheme", "ing"], "raw": "scheme.ing", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 11.124389886856079, "error": null}}
+{"word": "aphorism", "ok": true, "segments": ["a", "phor", "ism"], "raw": "a.phor.ism", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 11.124389886856079, "error": null}}
+{"word": "turnoff", "ok": true, "segments": ["turn", "off"], "raw": "turn.off", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 11.124389886856079, "error": null}}
+{"word": "undeclared", "ok": true, "segments": ["un", "de", "clared"], "raw": "un.de.clared", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 11.124389886856079, "error": null}}
+{"word": "stepmother", "ok": true, "segments": ["step", "mother"], "raw": "step.mother", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 11.124389886856079, "error": null}}
+{"word": "wunderkind", "ok": true, "segments": ["wunder", "kind"], "raw": "wunder.kind", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 11.124389886856079, "error": null}}
+{"word": "lustily", "ok": true, "segments": ["lust", "ily"], "raw": "lust.ily", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 11.124389886856079, "error": null}}
+{"word": "podiatrist", "ok": true, "segments": ["pod", "i", "atrist"], "raw": "pod.i.atrist", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 11.124389886856079, "error": null}}
+{"word": "extortion", "ok": true, "segments": ["ex", "tort", "ion"], "raw": "ex.tort.ion", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 11.124389886856079, "error": null}}
+{"word": "sumatran", "ok": true, "segments": ["su", "mat", "ran"], "raw": "su.mat.ran", "meta": {"reasoning_tokens": 0, "completion_tokens": 80, "elapsed": 11.124389886856079, "error": null}}
+{"word": "squeak", "ok": true, "segments": ["sque", "ak"], "raw": "sque.ak", "meta": {"reasoning_tokens": 0, "completion_tokens": 84, "elapsed": 9.384892463684082, "error": null}}
+{"word": "estuarine", "ok": true, "segments": ["estu", "ar", "in", "e"], "raw": "estu.ar.in.e", "meta": {"reasoning_tokens": 0, "completion_tokens": 84, "elapsed": 9.384892463684082, "error": null}}
+{"word": "enabling", "ok": true, "segments": ["en", "abil", "in", "g"], "raw": "en.abil.in.g", "meta": {"reasoning_tokens": 0, "completion_tokens": 84, "elapsed": 9.384892463684082, "error": null}}
+{"word": "girder", "ok": true, "segments": ["gird", "er"], "raw": "gird.er", "meta": {"reasoning_tokens": 0, "completion_tokens": 84, "elapsed": 9.384892463684082, "error": null}}
+{"word": "expired", "ok": true, "segments": ["ex", "pir", "ed"], "raw": "ex.pir.ed", "meta": {"reasoning_tokens": 0, "completion_tokens": 84, "elapsed": 9.384892463684082, "error": null}}
+{"word": "strainer", "ok": true, "segments": ["strain", "er"], "raw": "strain.er", "meta": {"reasoning_tokens": 0, "completion_tokens": 84, "elapsed": 9.384892463684082, "error": null}}
+{"word": "underachieving", "ok": true, "segments": ["un", "der", "achiev", "in", "g"], "raw": "un.der.achiev.in.g", "meta": {"reasoning_tokens": 0, "completion_tokens": 84, "elapsed": 9.384892463684082, "error": null}}
+{"word": "reawakening", "ok": true, "segments": ["re", "a", "waken", "in", "g"], "raw": "re.a.waken.in.g", "meta": {"reasoning_tokens": 0, "completion_tokens": 84, "elapsed": 9.384892463684082, "error": null}}
+{"word": "slurred", "ok": true, "segments": ["slur", "red"], "raw": "slur.red", "meta": {"reasoning_tokens": 0, "completion_tokens": 84, "elapsed": 9.384892463684082, "error": null}}
+{"word": "unhurried", "ok": true, "segments": ["un", "hurried"], "raw": "un.hurried", "meta": {"reasoning_tokens": 0, "completion_tokens": 84, "elapsed": 9.384892463684082, "error": null}}

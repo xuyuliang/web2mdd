@@ -1,0 +1,22 @@
+蒸馏计划2完整词根 - 最终结果 (model 2)
+
+数据: 24,149 词 -> 解析 23,697 (98.1%) -> 规则预处理后全部保留 (23,697)
+标签: output/rules_clean.jsonl  (对结果的预处理规则套用后)
+
+对结果的预处理: 2591 词被规则改动 (10.9%), 0 切分失败
+  per-rule: 1letter:1464 er:523 ation:226 ed:164 us:110 ization:106
+            ia:68 ist:53 tion:43 ment:20 etic:16 ify:15 exo:10 iatric:4 cata:2 devas:1
+  文档示例全部命中: diuretic->di.ure.tic, magnetically->magn.etic.al.ly,
+    cybernetic->cyber.netic, exoticism->exo.tic.ism, devastatingly->de.vast.ating.ly,
+    pediatric->ped.iatric, tipper->tipp.er, forger->forg.er, tilapia->tilap.ia,
+    hernia->hern.ia, troubadour->troub.adour, catamaran->cata.maran, talus->tal.us,
+    fortify->fort.ify
+
+模型: numpy MLP (window6/hidden128), 阈值 0.39
+  训练 21,327 / 验证 1,184 / 测试 1,186, val_bce 0.2182 (early stop @20)
+  测试集 (模型输出已套规则, 与 app 端一致):
+    gap-level P=0.710 R=0.718 F1=0.714 (tp=1064 fp=435 fn=418)
+    word exact-match 649/1186 = 54.7%
+   (较 run1 的 F1 0.825/60.4% 略低, 因规则标签更难: 更激进的 er/ed/ia/ist 切分)
+
+推理端 segment.py 已内置同一套 rules.apply_rules, 保证 app 输出与训练标签一致.
