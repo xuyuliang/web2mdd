@@ -1,6 +1,17 @@
 test words: 1186
-gap-level  P=0.710 R=0.718 F1=0.714   (tp=1064 fp=435 fn=418)
-word exact-match: 649/1186 = 54.7%
+gap ratio  positive(cut)=1500  negative(non-cut)=7089  (pos:8589 = 17.46%)
+  thr      P      R     F1     exact
+  0.30  0.661  0.771  0.712     53.6%
+  0.35  0.678  0.751  0.713     54.9%
+  0.40  0.700  0.735  0.717     55.4%
+  0.45  0.724  0.717  0.720     55.4%
+  0.50  0.735  0.685  0.709     55.0%
+  0.55  0.755  0.662  0.705     55.4%
+  0.60  0.773  0.633  0.696     54.3%
+  0.65  0.780  0.596  0.676     52.4%
+  0.70  0.793  0.561  0.657     51.1%
+
+== best: threshold=0.45  F1=0.720  exact=55.4%  (tp=1075 fp=410 fn=425)
 --- samples (OK=matches teacher, DIFF=diffs) ---
   OK  separateness
        teacher: se . par . ate . ness
@@ -8,33 +19,33 @@ word exact-match: 649/1186 = 54.7%
   DIFF legged
        teacher: leg . ged
        model  : legg . ed
-  DIFF hombre
+  OK  hombre
        teacher: hom . bre
-       model  : hombre
+       model  : hom . bre
   OK  discriminating
        teacher: dis . crim . in . at . ing
        model  : dis . crim . in . at . ing
-  DIFF wrongdoer
+  OK  wrongdoer
        teacher: wrongdo . er
-       model  : wrong . do . er
+       model  : wrongdo . er
   DIFF agrarian
        teacher: agr . arian
-       model  : a . grar . ian
-  DIFF roundup
+       model  : a . grari . an
+  OK  roundup
        teacher: round . up
-       model  : roun . dup
-  OK  preachy
-       teacher: preach . y
-       model  : preach . y
+       model  : round . up
+  OK  polynomial
+       teacher: poly . nomial
+       model  : poly . nomial
   DIFF bougainvillea
        teacher: bougain . vill . ea
-       model  : bougain . villea
+       model  : bou . gain . villea
   DIFF invalidate
        teacher: in . val . id . ate
        model  : in . valid . ate
   DIFF audition
        teacher: au . di . tion
-       model  : audi . tion
+       model  : aud . ition
   DIFF picnic
        teacher: pic . nic
        model  : picn . ic

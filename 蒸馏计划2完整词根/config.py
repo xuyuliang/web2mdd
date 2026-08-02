@@ -37,7 +37,12 @@ TRAIN_JSONL = OUT_DIR / "train.jsonl"
 VAL_JSONL = OUT_DIR / "val.jsonl"
 TEST_JSONL = OUT_DIR / "test.jsonl"
 MODEL_NPZ = OUT_DIR / "model.npz"
+MODEL_ONNX = OUT_DIR / "model.onnx"
+MODEL_META = OUT_DIR / "model_meta.npz"
 EVAL_REPORT = OUT_DIR / "eval_report.txt"
+
+# 推理切分阈值（扫描自 sweep_pos_weight.py，POS_WEIGHT=1.5 的 F1 平台中心）
+THRESHOLD = 0.44
 
 SEED = 42
 SPLIT_TRAIN = 0.90

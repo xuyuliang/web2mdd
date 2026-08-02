@@ -41,7 +41,7 @@ async def lifespan(app: FastAPI):
 
     print("正在加载蒸馏模型2...")
     from app.distill_cutter import DistillCutter
-    distill_model_path = os.path.join(BASE_DIR, "蒸馏计划2完整词根", "output", "model.npz")
+    distill_model_path = os.path.join(BASE_DIR, "蒸馏计划2完整词根", "output", "model.onnx")
     distill_rules_path = os.path.join(BASE_DIR, "蒸馏计划2完整词根", "rules.py")
     if os.path.exists(distill_model_path):
         distill_cutter = DistillCutter(distill_model_path, distill_rules_path)

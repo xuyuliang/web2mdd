@@ -5,7 +5,7 @@
 {"word": "wrongdoer", "segments": ["wrongdo", "er"]}
 {"word": "agrarian", "segments": ["agr", "arian"]}
 {"word": "roundup", "segments": ["round", "up"]}
-{"word": "preachy", "segments": ["preach", "y"]}
+{"word": "polynomial", "segments": ["poly", "nomial"]}
 {"word": "bougainvillea", "segments": ["bougain", "vill", "ea"]}
 {"word": "invalidate", "segments": ["in", "val", "id", "ate"]}
 {"word": "audition", "segments": ["au", "di", "tion"]}
@@ -21,8 +21,8 @@
 {"word": "mythical", "segments": ["myth", "ical"]}
 {"word": "legwork", "segments": ["leg", "work"]}
 {"word": "undeniably", "segments": ["un", "deni", "ab", "ly"]}
-{"word": "disruptor", "segments": ["dis", "rupt", "or"]}
-{"word": "radially", "segments": ["radial", "ly"]}
+{"word": "iridescence", "segments": ["iridesc", "ence"]}
+{"word": "investiture", "segments": ["in", "vest", "iture"]}
 {"word": "micrometer", "segments": ["micromet", "er"]}
 {"word": "systolic", "segments": ["sys", "to", "lic"]}
 {"word": "monopolization", "segments": ["mono", "pol", "ization"]}
@@ -46,7 +46,7 @@
 {"word": "whitefish", "segments": ["white", "fish"]}
 {"word": "smelly", "segments": ["smell", "y"]}
 {"word": "denigration", "segments": ["de", "nigr", "ation"]}
-{"word": "inconsiderable", "segments": ["in", "consid", "erable"]}
+{"word": "doggerel", "segments": ["dog", "ger", "el"]}
 {"word": "triumphalism", "segments": ["triumph", "al", "ism"]}
 {"word": "piezoelectric", "segments": ["piezo", "electric"]}
 {"word": "wildness", "segments": ["wild", "ness"]}
@@ -75,11 +75,11 @@
 {"word": "largesse", "segments": ["largesse"]}
 {"word": "ka", "segments": ["ka"]}
 {"word": "screaming", "segments": ["scream", "ing"]}
-{"word": "quantization", "segments": ["quant", "ization"]}
+{"word": "plateful", "segments": ["plate", "ful"]}
 {"word": "inverted", "segments": ["in", "vert", "ed"]}
 {"word": "ostracism", "segments": ["ostra", "cism"]}
 {"word": "mellow", "segments": ["mellow"]}
-{"word": "masquerader", "segments": ["masquerad", "er"]}
+{"word": "masquerader", "segments": ["masquer", "ad", "er"]}
 {"word": "promulgate", "segments": ["promulg", "ate"]}
 {"word": "yellowfin", "segments": ["yellow", "fin"]}
 {"word": "chaperon", "segments": ["chaper", "on"]}
@@ -94,7 +94,7 @@
 {"word": "whisker", "segments": ["whisker"]}
 {"word": "dyslexic", "segments": ["dys", "lex", "ic"]}
 {"word": "mailer", "segments": ["mail", "er"]}
-{"word": "shoestring", "segments": ["shoe", "string"]}
+{"word": "shoestring", "segments": ["shoe", "str", "ing"]}
 {"word": "rub", "segments": ["rub"]}
 {"word": "possessed", "segments": ["pos", "sess", "ed"]}
 {"word": "stunt", "segments": ["stunt"]}
@@ -111,9 +111,9 @@
 {"word": "ripper", "segments": ["ripp", "er"]}
 {"word": "declaim", "segments": ["de", "claim"]}
 {"word": "datum", "segments": ["dat", "um"]}
-{"word": "exploitive", "segments": ["exploit", "ive"]}
+{"word": "vivacity", "segments": ["vivac", "ity"]}
 {"word": "luncheon", "segments": ["luncheon"]}
-{"word": "barbiturate", "segments": ["bar", "bi", "tu", "rate"]}
+{"word": "barbiturate", "segments": ["barbit", "ur", "ate"]}
 {"word": "thrashing", "segments": ["thrash", "ing"]}
 {"word": "hegemonic", "segments": ["hegemon", "ic"]}
 {"word": "checkerboard", "segments": ["checker", "board"]}
@@ -124,14 +124,14 @@
 {"word": "embodiment", "segments": ["em", "bodi", "ment"]}
 {"word": "ethnology", "segments": ["ethno", "logy"]}
 {"word": "socialized", "segments": ["social", "ized"]}
-{"word": "graven", "segments": ["graven"]}
-{"word": "darkening", "segments": ["dark", "ening"]}
+{"word": "anesthesiology", "segments": ["an", "esthesio", "logy"]}
+{"word": "darkening", "segments": ["dark", "en", "ing"]}
 {"word": "phenotypic", "segments": ["pheno", "typ", "ic"]}
 {"word": "gran", "segments": ["gran"]}
 {"word": "bookmark", "segments": ["book", "mark"]}
 {"word": "scalpel", "segments": ["scalpel"]}
-{"word": "nutritious", "segments": ["nutri", "ti", "ous"]}
-{"word": "superstation", "segments": ["su", "per", "stat", "ion"]}
+{"word": "nutritious", "segments": ["nutri", "tious"]}
+{"word": "sextant", "segments": ["sex", "tant"]}
 {"word": "expressionism", "segments": ["ex", "pres", "sion", "ism"]}
 {"word": "burst", "segments": ["burst"]}
 {"word": "jacuzzi", "segments": ["jacuzzi"]}
@@ -145,18 +145,18 @@
 {"word": "concise", "segments": ["con", "cise"]}
 {"word": "transpose", "segments": ["trans", "pose"]}
 {"word": "maudlin", "segments": ["maud", "lin"]}
-{"word": "misspent", "segments": ["mis", "spent"]}
+{"word": "exhibited", "segments": ["ex", "hibit", "ed"]}
 {"word": "dispensing", "segments": ["dis", "pens", "ing"]}
 {"word": "opioid", "segments": ["opioid"]}
 {"word": "creeping", "segments": ["creep", "ing"]}
 {"word": "rein", "segments": ["rein"]}
 {"word": "diminishment", "segments": ["dimin", "ish", "ment"]}
 {"word": "indy", "segments": ["indy"]}
-{"word": "defeatism", "segments": ["defeat", "ism"]}
+{"word": "mediastinal", "segments": ["mediast", "in", "al"]}
 {"word": "swell", "segments": ["swell"]}
 {"word": "jinks", "segments": ["jinks"]}
 {"word": "prioritization", "segments": ["priorit", "ization"]}
-{"word": "computationally", "segments": ["comput", "at", "ion", "al", "ly"]}
+{"word": "safehouse", "segments": ["safe", "house"]}
 {"word": "redaction", "segments": ["red", "act", "ion"]}
 {"word": "waxed", "segments": ["wax", "ed"]}
 {"word": "bumper", "segments": ["bump", "er"]}
@@ -173,33 +173,33 @@
 {"word": "vomiting", "segments": ["vomit", "ing"]}
 {"word": "cheating", "segments": ["cheat", "ing"]}
 {"word": "siting", "segments": ["sit", "ing"]}
-{"word": "magnificently", "segments": ["mag", "nif", "ic", "ent", "ly"]}
-{"word": "stolidly", "segments": ["stolid", "ly"]}
+{"word": "magnificently", "segments": ["magn", "ific", "ent", "ly"]}
+{"word": "grumpily", "segments": ["grumpi", "ly"]}
 {"word": "pilaf", "segments": ["pilaf"]}
 {"word": "mouthpiece", "segments": ["mouth", "piece"]}
 {"word": "dented", "segments": ["dent", "ed"]}
 {"word": "vaunted", "segments": ["vaunt", "ed"]}
 {"word": "ductwork", "segments": ["duct", "work"]}
-{"word": "intrapsychic", "segments": ["intra", "psychic"]}
+{"word": "compartmentalized", "segments": ["com", "part", "ment", "al", "ized"]}
 {"word": "perilously", "segments": ["per", "il", "ous", "ly"]}
 {"word": "annihilate", "segments": ["an", "nih", "il", "ate"]}
 {"word": "torrent", "segments": ["torrent"]}
-{"word": "artilleryman", "segments": ["artillery", "man"]}
+{"word": "artilleryman", "segments": ["art", "il", "lery", "man"]}
 {"word": "somatic", "segments": ["somat", "ic"]}
 {"word": "dislocate", "segments": ["dis", "locate"]}
 {"word": "intone", "segments": ["in", "tone"]}
-{"word": "reordering", "segments": ["re", "order", "ing"]}
+{"word": "aspirate", "segments": ["a", "spir", "ate"]}
 {"word": "inordinate", "segments": ["in", "ordin", "ate"]}
 {"word": "talmudic", "segments": ["tal", "mud", "ic"]}
 {"word": "creole", "segments": ["creole"]}
 {"word": "streetwise", "segments": ["street", "wise"]}
 {"word": "emissary", "segments": ["emis", "sar", "y"]}
-{"word": "creamer", "segments": ["cream", "er"]}
+{"word": "falafel", "segments": ["falafel"]}
 {"word": "lacuna", "segments": ["lacuna"]}
 {"word": "interoperability", "segments": ["inter", "oper", "abil", "ity"]}
-{"word": "pilings", "segments": ["pilings"]}
+{"word": "pilings", "segments": ["pil", "ing", "s"]}
 {"word": "hypothermia", "segments": ["hypo", "therm", "ia"]}
-{"word": "indisposed", "segments": ["in", "dis", "pos", "ed"]}
+{"word": "unframed", "segments": ["un", "fram", "ed"]}
 {"word": "counteract", "segments": ["counter", "act"]}
 {"word": "bigwig", "segments": ["big", "wig"]}
 {"word": "confetti", "segments": ["conf", "et", "ti"]}
@@ -209,7 +209,7 @@
 {"word": "ode", "segments": ["ode"]}
 {"word": "underemployed", "segments": ["under", "employ", "ed"]}
 {"word": "arrondissement", "segments": ["ar", "rond", "is", "sement"]}
-{"word": "ramjet", "segments": ["ram", "jet"]}
+{"word": "soured", "segments": ["sour", "ed"]}
 {"word": "carabiner", "segments": ["carabiner"]}
 {"word": "hooray", "segments": ["hooray"]}
 {"word": "blackness", "segments": ["black", "ness"]}
@@ -220,7 +220,7 @@
 {"word": "cleanser", "segments": ["cleans", "er"]}
 {"word": "drapery", "segments": ["drap", "ery"]}
 {"word": "pedagogy", "segments": ["peda", "gogy"]}
-{"word": "heavy", "segments": ["heav", "y"]}
+{"word": "luminance", "segments": ["lumi", "nance"]}
 {"word": "perforation", "segments": ["per", "for", "ation"]}
 {"word": "khakis", "segments": ["khak", "is"]}
 {"word": "relativize", "segments": ["re", "lativ", "ize"]}
@@ -231,7 +231,7 @@
 {"word": "stereotype", "segments": ["ste", "reo", "type"]}
 {"word": "fib", "segments": ["fib"]}
 {"word": "empathic", "segments": ["em", "pathic"]}
-{"word": "recoverable", "segments": ["re", "cov", "er", "able"]}
+{"word": "recoverable", "segments": ["re", "cover", "able"]}
 {"word": "syncopation", "segments": ["syn", "cop", "ation"]}
 {"word": "roomful", "segments": ["room", "ful"]}
 {"word": "tau", "segments": ["tau"]}
@@ -252,13 +252,13 @@
 {"word": "apologetic", "segments": ["apo", "log", "etic"]}
 {"word": "smash", "segments": ["smash"]}
 {"word": "saliva", "segments": ["saliva"]}
-{"word": "carnivalesque", "segments": ["carnivalesque"]}
+{"word": "punditry", "segments": ["pundit", "ry"]}
 {"word": "stipulated", "segments": ["stip", "ul", "at", "ed"]}
 {"word": "escarole", "segments": ["escar", "ole"]}
 {"word": "eater", "segments": ["eat", "er"]}
 {"word": "woodcock", "segments": ["wood", "cock"]}
 {"word": "granddad", "segments": ["grand", "dad"]}
-{"word": "perpetrate", "segments": ["per", "petrate"]}
+{"word": "perpetrate", "segments": ["per", "petr", "ate"]}
 {"word": "bathrobe", "segments": ["bath", "robe"]}
 {"word": "creosote", "segments": ["cre", "os", "ote"]}
 {"word": "facsimile", "segments": ["fac", "simile"]}
@@ -269,7 +269,7 @@
 {"word": "invincibility", "segments": ["in", "vinc", "ibil", "ity"]}
 {"word": "decompress", "segments": ["de", "compress"]}
 {"word": "phonics", "segments": ["phon", "ics"]}
-{"word": "handicapping", "segments": ["handi", "capp", "ing"]}
+{"word": "handicapping", "segments": ["handi", "cap", "ping"]}
 {"word": "dope", "segments": ["dope"]}
 {"word": "burned", "segments": ["burn", "ed"]}
 {"word": "whiplash", "segments": ["whip", "lash"]}
@@ -299,7 +299,7 @@
 {"word": "frailty", "segments": ["frail", "ty"]}
 {"word": "bash", "segments": ["bash"]}
 {"word": "lenient", "segments": ["leni", "ent"]}
-{"word": "gladiolus", "segments": ["glad", "iol", "us"]}
+{"word": "hookah", "segments": ["hook", "ah"]}
 {"word": "malagasy", "segments": ["malagas", "y"]}
 {"word": "wriggle", "segments": ["wrig", "gle"]}
 {"word": "triage", "segments": ["tri", "age"]}
@@ -320,10 +320,10 @@
 {"word": "fizz", "segments": ["fizz"]}
 {"word": "buckskin", "segments": ["buck", "skin"]}
 {"word": "preeminently", "segments": ["pre", "emin", "ent", "ly"]}
-{"word": "impasto", "segments": ["im", "pasto"]}
+{"word": "indenture", "segments": ["in", "dent", "ure"]}
 {"word": "gangsta", "segments": ["gang", "sta"]}
 {"word": "bridesmaid", "segments": ["bride", "smaid"]}
-{"word": "sprayed", "segments": ["spray", "ed"]}
+{"word": "dragster", "segments": ["dragst", "er"]}
 {"word": "centaur", "segments": ["cen", "taur"]}
 {"word": "toolbox", "segments": ["tool", "box"]}
 {"word": "caged", "segments": ["caged"]}
@@ -331,9 +331,9 @@
 {"word": "sprig", "segments": ["sprig"]}
 {"word": "unmediated", "segments": ["un", "mediat", "ed"]}
 {"word": "slasher", "segments": ["slash", "er"]}
-{"word": "genealogist", "segments": ["genealog", "ist"]}
+{"word": "incus", "segments": ["inc", "us"]}
 {"word": "rad", "segments": ["rad"]}
-{"word": "sibilant", "segments": ["sib", "il", "ant"]}
+{"word": "psychoanalytical", "segments": ["psycho", "analyt", "ical"]}
 {"word": "introspection", "segments": ["intro", "spect", "ion"]}
 {"word": "mealy", "segments": ["meal", "y"]}
 {"word": "sandalwood", "segments": ["sandal", "wood"]}
@@ -358,7 +358,7 @@
 {"word": "feeding", "segments": ["feed", "ing"]}
 {"word": "eugenics", "segments": ["eu", "gen", "ics"]}
 {"word": "countermand", "segments": ["counter", "mand"]}
-{"word": "tachometer", "segments": ["tachomet", "er"]}
+{"word": "photoreceptor", "segments": ["photo", "recept", "or"]}
 {"word": "sangria", "segments": ["sangr", "ia"]}
 {"word": "bitchy", "segments": ["bitch", "y"]}
 {"word": "chrysalis", "segments": ["chry", "sal", "is"]}
@@ -376,7 +376,7 @@
 {"word": "cliched", "segments": ["clich", "ed"]}
 {"word": "saccharin", "segments": ["sacchar", "in"]}
 {"word": "steppe", "segments": ["step", "pe"]}
-{"word": "parterre", "segments": ["par", "terre"]}
+{"word": "ptarmigan", "segments": ["ptar", "mig", "an"]}
 {"word": "zippy", "segments": ["zip", "py"]}
 {"word": "repulsive", "segments": ["re", "puls", "ive"]}
 {"word": "trailblazer", "segments": ["trail", "blaz", "er"]}
@@ -390,11 +390,11 @@
 {"word": "kevlar", "segments": ["kev", "lar"]}
 {"word": "perverse", "segments": ["per", "verse"]}
 {"word": "rioter", "segments": ["riot", "er"]}
-{"word": "dipstick", "segments": ["dip", "stick"]}
+{"word": "monumentally", "segments": ["monu", "ment", "al", "ly"]}
 {"word": "lunging", "segments": ["lung", "ing"]}
 {"word": "misuse", "segments": ["mis", "use"]}
 {"word": "cutlery", "segments": ["cutl", "ery"]}
-{"word": "acidly", "segments": ["acid", "ly"]}
+{"word": "continence", "segments": ["con", "tin", "ence"]}
 {"word": "superlative", "segments": ["su", "perl", "at", "ive"]}
 {"word": "focalization", "segments": ["focal", "ization"]}
 {"word": "bloodthirsty", "segments": ["blood", "thirst", "y"]}
@@ -402,19 +402,19 @@
 {"word": "unsaturated", "segments": ["un", "satur", "ated"]}
 {"word": "redistribution", "segments": ["re", "dis", "tri", "bu", "tion"]}
 {"word": "serge", "segments": ["serge"]}
-{"word": "arachnid", "segments": ["arachnid"]}
+{"word": "tinned", "segments": ["tin", "ned"]}
 {"word": "garter", "segments": ["garter"]}
-{"word": "raked", "segments": ["raked"]}
+{"word": "disgustedly", "segments": ["dis", "gust", "ed", "ly"]}
 {"word": "intrinsically", "segments": ["in", "trinsic", "ally"]}
 {"word": "franchise", "segments": ["fran", "chise"]}
 {"word": "crackers", "segments": ["crack", "ers"]}
-{"word": "spongiform", "segments": ["spong", "if", "orm"]}
+{"word": "fiberboard", "segments": ["fiber", "board"]}
 {"word": "magnetometer", "segments": ["magnetomet", "er"]}
 {"word": "stab", "segments": ["stab"]}
 {"word": "blanch", "segments": ["blan", "ch"]}
 {"word": "birdsong", "segments": ["bird", "song"]}
 {"word": "pantyhose", "segments": ["panty", "hose"]}
-{"word": "sizing", "segments": ["siz", "ing"]}
+{"word": "subjunctive", "segments": ["sub", "junct", "ive"]}
 {"word": "unenlightened", "segments": ["un", "en", "light", "ened"]}
 {"word": "morphological", "segments": ["morpho", "logi", "cal"]}
 {"word": "viral", "segments": ["vir", "al"]}
@@ -428,12 +428,12 @@
 {"word": "oversize", "segments": ["over", "size"]}
 {"word": "derisive", "segments": ["de", "ris", "ive"]}
 {"word": "turpentine", "segments": ["turpentine"]}
-{"word": "ruled", "segments": ["ruled"]}
+{"word": "thawed", "segments": ["thaw", "ed"]}
 {"word": "lumpectomy", "segments": ["lum", "pect", "omy"]}
 {"word": "retainer", "segments": ["re", "tain", "er"]}
 {"word": "homeric", "segments": ["homer", "ic"]}
 {"word": "vested", "segments": ["vest", "ed"]}
-{"word": "weal", "segments": ["weal"]}
+{"word": "backlight", "segments": ["back", "light"]}
 {"word": "gunboat", "segments": ["gun", "boat"]}
 {"word": "diligently", "segments": ["diligent", "ly"]}
 {"word": "emphysema", "segments": ["em", "phys", "ema"]}
@@ -444,9 +444,9 @@
 {"word": "reticence", "segments": ["re", "tic", "ence"]}
 {"word": "splendor", "segments": ["splendor"]}
 {"word": "shortcut", "segments": ["short", "cut"]}
-{"word": "roseate", "segments": ["rose", "ate"]}
+{"word": "microfiche", "segments": ["micro", "fiche"]}
 {"word": "meteorite", "segments": ["me", "teo", "rite"]}
-{"word": "thundercloud", "segments": ["thunder", "cloud"]}
+{"word": "longitudinally", "segments": ["long", "itu", "din", "al", "ly"]}
 {"word": "thistle", "segments": ["thist", "le"]}
 {"word": "defence", "segments": ["de", "fence"]}
 {"word": "fearless", "segments": ["fear", "less"]}
@@ -473,7 +473,7 @@
 {"word": "photoelectric", "segments": ["photo", "electric"]}
 {"word": "congregate", "segments": ["con", "greg", "ate"]}
 {"word": "emigrate", "segments": ["e", "migr", "ate"]}
-{"word": "tediously", "segments": ["tedio", "us", "ly"]}
+{"word": "airspeed", "segments": ["air", "speed"]}
 {"word": "altimeter", "segments": ["alt", "imet", "er"]}
 {"word": "canopied", "segments": ["canopi", "ed"]}
 {"word": "guardrail", "segments": ["guard", "rail"]}
@@ -484,8 +484,8 @@
 {"word": "striptease", "segments": ["strip", "tease"]}
 {"word": "quaker", "segments": ["quak", "er"]}
 {"word": "navigable", "segments": ["navig", "able"]}
-{"word": "guiltless", "segments": ["guilt", "less"]}
-{"word": "drizzling", "segments": ["driz", "zl", "ing"]}
+{"word": "wildcatter", "segments": ["wild", "catt", "er"]}
+{"word": "doric", "segments": ["doric"]}
 {"word": "unitarian", "segments": ["unit", "arian"]}
 {"word": "vibrancy", "segments": ["vibr", "an", "cy"]}
 {"word": "varsity", "segments": ["var", "sity"]}
@@ -507,22 +507,22 @@
 {"word": "maquiladora", "segments": ["ma", "qui", "la", "dora"]}
 {"word": "territoriality", "segments": ["territor", "ial", "ity"]}
 {"word": "taut", "segments": ["taut"]}
-{"word": "greenness", "segments": ["green", "ness"]}
+{"word": "unmixed", "segments": ["un", "mix", "ed"]}
 {"word": "projectionist", "segments": ["pro", "jec", "tion", "ist"]}
 {"word": "disappeared", "segments": ["dis", "ap", "pear", "ed"]}
-{"word": "meritorious", "segments": ["merit", "ori", "ous"]}
+{"word": "meritorious", "segments": ["merit", "or", "ious"]}
 {"word": "liberated", "segments": ["liber", "at", "ed"]}
 {"word": "manhood", "segments": ["man", "hood"]}
 {"word": "sleight", "segments": ["sle", "ight"]}
 {"word": "herding", "segments": ["herd", "ing"]}
-{"word": "augustinian", "segments": ["august", "ini", "an"]}
+{"word": "augustinian", "segments": ["august", "in", "ian"]}
 {"word": "brawny", "segments": ["brawn", "y"]}
 {"word": "puritanical", "segments": ["puritan", "ical"]}
 {"word": "kitchenette", "segments": ["kitchen", "ette"]}
 {"word": "distraught", "segments": ["dis", "traught"]}
 {"word": "exasperate", "segments": ["ex", "asper", "ate"]}
 {"word": "multicolored", "segments": ["mul", "ti", "color", "ed"]}
-{"word": "leaderless", "segments": ["leader", "less"]}
+{"word": "alphanumeric", "segments": ["alpha", "numeric"]}
 {"word": "tickle", "segments": ["tickle"]}
 {"word": "justifiably", "segments": ["justif", "iab", "ly"]}
 {"word": "removable", "segments": ["re", "mov", "able"]}
@@ -549,7 +549,7 @@
 {"word": "sanctioned", "segments": ["sanc", "tion", "ed"]}
 {"word": "paprika", "segments": ["paprika"]}
 {"word": "credibly", "segments": ["cred", "ib", "ly"]}
-{"word": "flapping", "segments": ["flapp", "ing"]}
+{"word": "flapping", "segments": ["flap", "ping"]}
 {"word": "knickers", "segments": ["knick", "ers"]}
 {"word": "swampland", "segments": ["swamp", "land"]}
 {"word": "egoism", "segments": ["ego", "ism"]}
@@ -558,7 +558,7 @@
 {"word": "comedienne", "segments": ["comed", "ienne"]}
 {"word": "hacksaw", "segments": ["hack", "saw"]}
 {"word": "crystallization", "segments": ["crystall", "ization"]}
-{"word": "localism", "segments": ["local", "ism"]}
+{"word": "attending", "segments": ["at", "tend", "ing"]}
 {"word": "flustered", "segments": ["flu", "ster", "ed"]}
 {"word": "regulated", "segments": ["reg", "ulat", "ed"]}
 {"word": "gusty", "segments": ["gust", "y"]}
@@ -568,20 +568,20 @@
 {"word": "quarterly", "segments": ["quart", "er", "ly"]}
 {"word": "credulity", "segments": ["cred", "ul", "ity"]}
 {"word": "fettuccine", "segments": ["fettuc", "cine"]}
-{"word": "precipitating", "segments": ["pre", "cipit", "ating"]}
+{"word": "shitload", "segments": ["shit", "load"]}
 {"word": "streetcar", "segments": ["street", "car"]}
 {"word": "defraud", "segments": ["de", "fraud"]}
 {"word": "big", "segments": ["big"]}
 {"word": "bribery", "segments": ["bri", "ber", "y"]}
 {"word": "chromosome", "segments": ["chromo", "some"]}
-{"word": "megastore", "segments": ["mega", "store"]}
-{"word": "monitored", "segments": ["monitor", "ed"]}
+{"word": "dramatics", "segments": ["dramat", "ics"]}
+{"word": "refurbishing", "segments": ["re", "furbish", "ing"]}
 {"word": "ranked", "segments": ["rank", "ed"]}
 {"word": "travesty", "segments": ["tra", "vest", "y"]}
 {"word": "portobello", "segments": ["por", "to", "bello"]}
 {"word": "birthing", "segments": ["birth", "ing"]}
 {"word": "tussle", "segments": ["tussle"]}
-{"word": "maquette", "segments": ["maquet", "te"]}
+{"word": "lockean", "segments": ["locke", "an"]}
 {"word": "frenetic", "segments": ["fren", "etic"]}
 {"word": "raping", "segments": ["r", "ap", "ing"]}
 {"word": "recapitulation", "segments": ["re", "capitu", "lation"]}
@@ -597,27 +597,27 @@
 {"word": "radicalism", "segments": ["radic", "al", "ism"]}
 {"word": "idealize", "segments": ["ide", "al", "ize"]}
 {"word": "prudential", "segments": ["pruden", "tial"]}
-{"word": "heatstroke", "segments": ["heat", "stroke"]}
+{"word": "transcriber", "segments": ["trans", "crib", "er"]}
 {"word": "fab", "segments": ["fab"]}
 {"word": "annuity", "segments": ["an", "nuit", "y"]}
 {"word": "allele", "segments": ["al", "lele"]}
 {"word": "urinalysis", "segments": ["urin", "alysis"]}
 {"word": "participle", "segments": ["parti", "ciple"]}
-{"word": "audiophile", "segments": ["audio", "phile"]}
+{"word": "guideway", "segments": ["guide", "way"]}
 {"word": "jicama", "segments": ["jic", "ama"]}
 {"word": "breathable", "segments": ["breath", "able"]}
 {"word": "aperture", "segments": ["a", "per", "ture"]}
-{"word": "metafictional", "segments": ["meta", "fiction", "al"]}
-{"word": "terrier", "segments": ["terrier"]}
+{"word": "valorization", "segments": ["val", "or", "ization"]}
+{"word": "terrier", "segments": ["terr", "ier"]}
 {"word": "teary", "segments": ["tear", "y"]}
 {"word": "scrimp", "segments": ["scrimp"]}
 {"word": "chameleon", "segments": ["chameleon"]}
-{"word": "coeducation", "segments": ["co", "educ", "ati", "on"]}
+{"word": "unmercifully", "segments": ["un", "merciful", "ly"]}
 {"word": "universalism", "segments": ["universal", "ism"]}
 {"word": "hermetically", "segments": ["hermetic", "ally"]}
 {"word": "ingenue", "segments": ["in", "genue"]}
 {"word": "persian", "segments": ["persian"]}
-{"word": "assemblywoman", "segments": ["assembly", "woman"]}
+{"word": "underachieving", "segments": ["under", "achiev", "ing"]}
 {"word": "cooper", "segments": ["cooper"]}
 {"word": "nonsurgical", "segments": ["non", "surg", "ical"]}
 {"word": "realpolitik", "segments": ["real", "politik"]}
@@ -631,34 +631,34 @@
 {"word": "shirttail", "segments": ["shirt", "tail"]}
 {"word": "untraceable", "segments": ["un", "trace", "able"]}
 {"word": "contiguous", "segments": ["con", "tigu", "ous"]}
-{"word": "pentathlon", "segments": ["pent", "ath", "lon"]}
+{"word": "sizing", "segments": ["siz", "ing"]}
 {"word": "excoriate", "segments": ["ex", "cori", "ate"]}
-{"word": "tacking", "segments": ["tack", "ing"]}
+{"word": "precooked", "segments": ["pre", "cook", "ed"]}
 {"word": "whitish", "segments": ["whit", "ish"]}
 {"word": "risotto", "segments": ["risotto"]}
 {"word": "deplore", "segments": ["de", "plore"]}
 {"word": "phosphor", "segments": ["phos", "phor"]}
 {"word": "venomous", "segments": ["ve", "nom", "ous"]}
-{"word": "grooved", "segments": ["groov", "ed"]}
+{"word": "mystically", "segments": ["mystic", "al", "ly"]}
 {"word": "backroom", "segments": ["back", "room"]}
 {"word": "brotherly", "segments": ["brother", "ly"]}
 {"word": "loony", "segments": ["loony"]}
-{"word": "frugally", "segments": ["frug", "al", "ly"]}
+{"word": "monism", "segments": ["mon", "ism"]}
 {"word": "heist", "segments": ["heist"]}
 {"word": "chipping", "segments": ["chip", "ping"]}
 {"word": "placenta", "segments": ["pla", "cen", "ta"]}
 {"word": "corrosion", "segments": ["cor", "ro", "sion"]}
-{"word": "directionality", "segments": ["direc", "tion", "ali", "ty"]}
+{"word": "directionality", "segments": ["direct", "ion", "al", "ity"]}
 {"word": "nonathlete", "segments": ["non", "ath", "lete"]}
 {"word": "reacquaint", "segments": ["re", "acquaint"]}
 {"word": "dominican", "segments": ["dominic", "an"]}
-{"word": "dray", "segments": ["dray"]}
+{"word": "cruciform", "segments": ["cruci", "form"]}
 {"word": "masked", "segments": ["mask", "ed"]}
 {"word": "lib", "segments": ["lib"]}
 {"word": "infra", "segments": ["infra"]}
 {"word": "rusher", "segments": ["rush", "er"]}
-{"word": "gainsay", "segments": ["gain", "say"]}
-{"word": "virtuality", "segments": ["virtual", "ity"]}
+{"word": "fumigate", "segments": ["fum", "igate"]}
+{"word": "medico", "segments": ["medico"]}
 {"word": "gab", "segments": ["gab"]}
 {"word": "vale", "segments": ["vale"]}
 {"word": "warhead", "segments": ["war", "head"]}
@@ -686,7 +686,7 @@
 {"word": "memorabilia", "segments": ["memorabil", "ia"]}
 {"word": "undisciplined", "segments": ["un", "disciplin", "ed"]}
 {"word": "mucky", "segments": ["muck", "y"]}
-{"word": "enlarger", "segments": ["en", "larg", "er"]}
+{"word": "homesite", "segments": ["home", "site"]}
 {"word": "penultimate", "segments": ["pen", "ul", "tim", "ate"]}
 {"word": "tensely", "segments": ["tense", "ly"]}
 {"word": "myeloma", "segments": ["my", "elo", "ma"]}
@@ -697,7 +697,7 @@
 {"word": "unobstructed", "segments": ["un", "obstruct", "ed"]}
 {"word": "embittered", "segments": ["em", "bitt", "ered"]}
 {"word": "kiln", "segments": ["kiln"]}
-{"word": "taxi", "segments": ["taxi"]}
+{"word": "recognizance", "segments": ["rec", "ogniz", "ance"]}
 {"word": "surplus", "segments": ["sur", "plus"]}
 {"word": "unproductive", "segments": ["un", "produc", "tive"]}
 {"word": "grand", "segments": ["grand"]}
@@ -710,11 +710,11 @@
 {"word": "pink", "segments": ["pink"]}
 {"word": "undeclared", "segments": ["un", "de", "clar", "ed"]}
 {"word": "flaunt", "segments": ["flaunt"]}
-{"word": "oaxacan", "segments": ["oaxacan"]}
+{"word": "neigh", "segments": ["neigh"]}
 {"word": "cleanliness", "segments": ["clean", "lin", "ess"]}
 {"word": "granny", "segments": ["granny"]}
 {"word": "unharmed", "segments": ["un", "harm", "ed"]}
-{"word": "conversationally", "segments": ["convers", "ation", "al", "ly"]}
+{"word": "songstress", "segments": ["song", "stress"]}
 {"word": "inquirer", "segments": ["in", "quir", "er"]}
 {"word": "striving", "segments": ["striv", "ing"]}
 {"word": "wrongful", "segments": ["wrong", "ful"]}
@@ -727,11 +727,11 @@
 {"word": "unlabeled", "segments": ["un", "label", "ed"]}
 {"word": "sensationalism", "segments": ["sens", "at", "ion", "al", "ism"]}
 {"word": "scavenging", "segments": ["scav", "eng", "ing"]}
-{"word": "abrogate", "segments": ["ab", "ro", "gate"]}
+{"word": "abrogate", "segments": ["ab", "rog", "ate"]}
 {"word": "caterpillar", "segments": ["cate", "rpil", "lar"]}
-{"word": "pharynx", "segments": ["pharynx"]}
+{"word": "nonresidential", "segments": ["non", "resid", "enti", "al"]}
 {"word": "cripple", "segments": ["cripp", "le"]}
-{"word": "phlegmatic", "segments": ["phleg", "mat", "ic"]}
+{"word": "trinidadian", "segments": ["trinidad", "ian"]}
 {"word": "ablaze", "segments": ["a", "blaze"]}
 {"word": "interchangeably", "segments": ["inter", "change", "abl", "y"]}
 {"word": "fancy", "segments": ["fancy"]}
@@ -747,13 +747,13 @@
 {"word": "outstretched", "segments": ["out", "stretch", "ed"]}
 {"word": "imperiled", "segments": ["im", "peril", "ed"]}
 {"word": "throes", "segments": ["throes"]}
-{"word": "milkmaid", "segments": ["milk", "maid"]}
+{"word": "embargo", "segments": ["em", "bar", "go"]}
 {"word": "sunken", "segments": ["sun", "ken"]}
 {"word": "boomlet", "segments": ["boom", "let"]}
 {"word": "halve", "segments": ["halve"]}
 {"word": "classifieds", "segments": ["class", "ifi", "eds"]}
 {"word": "dependability", "segments": ["de", "pen", "dab", "il", "ity"]}
-{"word": "reunified", "segments": ["reu", "nifi", "ed"]}
+{"word": "airbase", "segments": ["air", "base"]}
 {"word": "vacantly", "segments": ["vacantly"]}
 {"word": "frivolity", "segments": ["frivol", "ity"]}
 {"word": "wryly", "segments": ["wry", "ly"]}
@@ -763,17 +763,17 @@
 {"word": "jailed", "segments": ["jail", "ed"]}
 {"word": "shade", "segments": ["shade"]}
 {"word": "pricey", "segments": ["price", "y"]}
-{"word": "structuring", "segments": ["struct", "uring"]}
+{"word": "structuring", "segments": ["struct", "ur", "ing"]}
 {"word": "carolinian", "segments": ["carolin", "ian"]}
 {"word": "scientism", "segments": ["scien", "tism"]}
-{"word": "cunning", "segments": ["cunning"]}
-{"word": "horrifying", "segments": ["horr", "if", "ying"]}
+{"word": "cunning", "segments": ["cun", "ning"]}
+{"word": "horrifying", "segments": ["horr", "ify", "ing"]}
 {"word": "graduated", "segments": ["gradu", "at", "ed"]}
 {"word": "rasping", "segments": ["rasp", "ing"]}
 {"word": "billable", "segments": ["bill", "able"]}
 {"word": "overdrive", "segments": ["over", "drive"]}
 {"word": "vegetate", "segments": ["veg", "et", "ate"]}
-{"word": "theistic", "segments": ["the", "is", "tic"]}
+{"word": "bellybutton", "segments": ["belly", "button"]}
 {"word": "underdeveloped", "segments": ["un", "der", "develop", "ed"]}
 {"word": "plausibly", "segments": ["plausibl", "y"]}
 {"word": "lavishly", "segments": ["lavish", "ly"]}
@@ -785,18 +785,18 @@
 {"word": "forcibly", "segments": ["forc", "ibly"]}
 {"word": "grated", "segments": ["grat", "ed"]}
 {"word": "patrolman", "segments": ["patrol", "man"]}
-{"word": "qualifying", "segments": ["qual", "if", "ying"]}
+{"word": "qualifying", "segments": ["qual", "ify", "ing"]}
 {"word": "blunder", "segments": ["blund", "er"]}
-{"word": "galvanic", "segments": ["galvan", "ic"]}
+{"word": "outdistance", "segments": ["out", "distance"]}
 {"word": "psych", "segments": ["psych"]}
 {"word": "clubby", "segments": ["club", "by"]}
-{"word": "reparative", "segments": ["re", "par", "at", "ive"]}
+{"word": "ey", "segments": ["ey"]}
 {"word": "clipping", "segments": ["clip", "ping"]}
 {"word": "employable", "segments": ["em", "ploy", "able"]}
-{"word": "sublimity", "segments": ["sublim", "ity"]}
+{"word": "saddened", "segments": ["sad", "den", "ed"]}
 {"word": "introverted", "segments": ["intro", "vert", "ed"]}
 {"word": "bulgarian", "segments": ["bulgar", "ian"]}
-{"word": "sexologist", "segments": ["sex", "olog", "ist"]}
+{"word": "pyrite", "segments": ["pyrite"]}
 {"word": "tankard", "segments": ["tank", "ard"]}
 {"word": "nuptials", "segments": ["nupti", "als"]}
 {"word": "rebuttal", "segments": ["re", "butt", "al"]}
@@ -811,7 +811,7 @@
 {"word": "alchemy", "segments": ["al", "chem", "y"]}
 {"word": "examined", "segments": ["ex", "amin", "ed"]}
 {"word": "acting", "segments": ["act", "ing"]}
-{"word": "kissing", "segments": ["kiss", "ing"]}
+{"word": "kissing", "segments": ["kis", "sing"]}
 {"word": "clarinetist", "segments": ["clar", "in", "etist"]}
 {"word": "tautology", "segments": ["taut", "olog", "y"]}
 {"word": "soothingly", "segments": ["sooth", "ing", "ly"]}
@@ -820,21 +820,21 @@
 {"word": "outbuilding", "segments": ["out", "build", "ing"]}
 {"word": "falsity", "segments": ["fals", "ity"]}
 {"word": "gulag", "segments": ["gul", "ag"]}
-{"word": "drily", "segments": ["dril", "y"]}
+{"word": "undrained", "segments": ["un", "drain", "ed"]}
 {"word": "tokenism", "segments": ["token", "ism"]}
 {"word": "purposefully", "segments": ["purpose", "ful", "ly"]}
 {"word": "mojo", "segments": ["mojo"]}
 {"word": "yardage", "segments": ["yard", "age"]}
 {"word": "weightless", "segments": ["weight", "less"]}
 {"word": "papacy", "segments": ["papa", "cy"]}
-{"word": "reauthorize", "segments": ["re", "author", "ize"]}
+{"word": "unceasingly", "segments": ["un", "ceas", "ing", "ly"]}
 {"word": "ointment", "segments": ["oin", "tment"]}
 {"word": "flagrant", "segments": ["flag", "rant"]}
 {"word": "peripheral", "segments": ["peri", "pher", "al"]}
 {"word": "beatnik", "segments": ["beat", "nik"]}
 {"word": "timorese", "segments": ["timor", "ese"]}
 {"word": "dimensionality", "segments": ["dimen", "sion", "ali", "ty"]}
-{"word": "embryology", "segments": ["embry", "ology"]}
+{"word": "proscribed", "segments": ["pro", "scrib", "ed"]}
 {"word": "putt", "segments": ["putt"]}
 {"word": "dreamy", "segments": ["dream", "y"]}
 {"word": "newsboy", "segments": ["news", "boy"]}
@@ -846,7 +846,7 @@
 {"word": "font", "segments": ["font"]}
 {"word": "remarriage", "segments": ["re", "marriage"]}
 {"word": "upturned", "segments": ["up", "turn", "ed"]}
-{"word": "javelina", "segments": ["javelina"]}
+{"word": "munchkin", "segments": ["munch", "kin"]}
 {"word": "processed", "segments": ["pro", "cess", "ed"]}
 {"word": "helm", "segments": ["helm"]}
 {"word": "dissolution", "segments": ["dis", "solu", "tion"]}
@@ -861,19 +861,19 @@
 {"word": "luddite", "segments": ["lud", "dite"]}
 {"word": "chinese", "segments": ["chinese"]}
 {"word": "violet", "segments": ["violet"]}
-{"word": "encyclical", "segments": ["en", "cy", "clic", "al"]}
+{"word": "encyclical", "segments": ["en", "cycl", "ic", "al"]}
 {"word": "lug", "segments": ["lug"]}
-{"word": "edify", "segments": ["e", "dif", "y"]}
+{"word": "edify", "segments": ["ed", "ify"]}
 {"word": "shoeless", "segments": ["shoe", "less"]}
 {"word": "miraculously", "segments": ["mir", "ac", "ul", "ous", "ly"]}
-{"word": "gregarious", "segments": ["greg", "ari", "ous"]}
+{"word": "gregarious", "segments": ["greg", "ar", "ious"]}
 {"word": "disrepair", "segments": ["dis", "repair"]}
 {"word": "urinary", "segments": ["ur", "inar", "y"]}
 {"word": "succeeding", "segments": ["suc", "ceed", "ing"]}
 {"word": "faerie", "segments": ["faer", "ie"]}
-{"word": "coalescence", "segments": ["co", "al", "escence"]}
+{"word": "periodization", "segments": ["period", "ization"]}
 {"word": "daiquiri", "segments": ["daiquiri"]}
-{"word": "bagger", "segments": ["bagg", "er"]}
+{"word": "blackish", "segments": ["black", "ish"]}
 {"word": "tabulation", "segments": ["tabul", "ation"]}
 {"word": "togetherness", "segments": ["to", "geth", "er", "ness"]}
 {"word": "excluded", "segments": ["ex", "clud", "ed"]}
@@ -883,7 +883,7 @@
 {"word": "minaret", "segments": ["minaret"]}
 {"word": "welding", "segments": ["weld", "ing"]}
 {"word": "impatiently", "segments": ["im", "pati", "ent", "ly"]}
-{"word": "rapacious", "segments": ["rapac", "ious"]}
+{"word": "rapacious", "segments": ["rap", "ac", "ious"]}
 {"word": "distributed", "segments": ["dis", "tribut", "ed"]}
 {"word": "hotdog", "segments": ["hot", "dog"]}
 {"word": "synthesized", "segments": ["syn", "the", "siz", "ed"]}
@@ -893,7 +893,7 @@
 {"word": "cayenne", "segments": ["cayenne"]}
 {"word": "safe", "segments": ["safe"]}
 {"word": "sass", "segments": ["sass"]}
-{"word": "cortege", "segments": ["cortege"]}
+{"word": "strontium", "segments": ["stron", "ti", "um"]}
 {"word": "blank", "segments": ["blank"]}
 {"word": "recur", "segments": ["re", "cur"]}
 {"word": "asphyxiate", "segments": ["as", "phyxi", "ate"]}
@@ -915,16 +915,16 @@
 {"word": "plebiscite", "segments": ["pleb", "isc", "ite"]}
 {"word": "peek", "segments": ["peek"]}
 {"word": "handbook", "segments": ["hand", "book"]}
-{"word": "tyrannosaur", "segments": ["tyrannosaur"]}
-{"word": "cuneiform", "segments": ["cunei", "form"]}
-{"word": "blaring", "segments": ["blar", "ing"]}
+{"word": "manga", "segments": ["manga"]}
+{"word": "amyloid", "segments": ["amyloid"]}
+{"word": "sneaking", "segments": ["sne", "ak", "ing"]}
 {"word": "outcry", "segments": ["out", "cry"]}
 {"word": "hillbilly", "segments": ["hill", "billy"]}
 {"word": "hobbit", "segments": ["hob", "bit"]}
 {"word": "showmanship", "segments": ["show", "man", "ship"]}
 {"word": "opulence", "segments": ["opul", "ence"]}
 {"word": "unflappable", "segments": ["un", "flapp", "able"]}
-{"word": "virologist", "segments": ["viro", "log", "ist"]}
+{"word": "lidded", "segments": ["lid", "ded"]}
 {"word": "brothel", "segments": ["broth", "el"]}
 {"word": "manually", "segments": ["manu", "al", "ly"]}
 {"word": "eminently", "segments": ["em", "in", "ent", "ly"]}
@@ -938,7 +938,7 @@
 {"word": "mohair", "segments": ["mohair"]}
 {"word": "didactic", "segments": ["didact", "ic"]}
 {"word": "abortionist", "segments": ["abor", "tion", "ist"]}
-{"word": "industriousness", "segments": ["in", "dustri", "ous", "ness"]}
+{"word": "transportable", "segments": ["trans", "port", "able"]}
 {"word": "pansy", "segments": ["pans", "y"]}
 {"word": "sac", "segments": ["sac"]}
 {"word": "eclecticism", "segments": ["eclect", "ic", "ism"]}
@@ -949,7 +949,7 @@
 {"word": "chronicler", "segments": ["chron", "icl", "er"]}
 {"word": "harshly", "segments": ["harsh", "ly"]}
 {"word": "blotchy", "segments": ["blot", "chy"]}
-{"word": "agora", "segments": ["agora"]}
+{"word": "brakeman", "segments": ["brake", "man"]}
 {"word": "rudimentary", "segments": ["rudim", "ent", "ary"]}
 {"word": "emblem", "segments": ["emblem"]}
 {"word": "snob", "segments": ["snob"]}
@@ -968,12 +968,12 @@
 {"word": "insulator", "segments": ["in", "sulat", "or"]}
 {"word": "phoneme", "segments": ["phon", "eme"]}
 {"word": "glassmaker", "segments": ["glass", "mak", "er"]}
-{"word": "ravenously", "segments": ["raven", "ously"]}
+{"word": "penetrator", "segments": ["penetr", "at", "or"]}
 {"word": "encephalitis", "segments": ["encephal", "itis"]}
 {"word": "capsize", "segments": ["cap", "size"]}
-{"word": "compartmentalized", "segments": ["com", "part", "ment", "al", "ized"]}
+{"word": "vesicle", "segments": ["ves", "icle"]}
 {"word": "chastity", "segments": ["chast", "it", "y"]}
-{"word": "catechetical", "segments": ["catech", "et", "ical"]}
+{"word": "hussy", "segments": ["hus", "sy"]}
 {"word": "matronly", "segments": ["matron", "ly"]}
 {"word": "banter", "segments": ["banter"]}
 {"word": "bandy", "segments": ["band", "y"]}
@@ -983,7 +983,7 @@
 {"word": "legalization", "segments": ["legal", "ization"]}
 {"word": "demigod", "segments": ["demi", "god"]}
 {"word": "girlie", "segments": ["girl", "ie"]}
-{"word": "polycarbonate", "segments": ["poly", "car", "bon", "ate"]}
+{"word": "leaver", "segments": ["leav", "er"]}
 {"word": "willful", "segments": ["will", "ful"]}
 {"word": "conveyor", "segments": ["convey", "or"]}
 {"word": "psychoactive", "segments": ["psycho", "act", "ive"]}
@@ -1011,7 +1011,7 @@
 {"word": "foot", "segments": ["foot"]}
 {"word": "wangle", "segments": ["wangle"]}
 {"word": "translational", "segments": ["trans", "la", "tion", "al"]}
-{"word": "uncompetitive", "segments": ["un", "competit", "ive"]}
+{"word": "uncompetitive", "segments": ["un", "com", "pet", "it", "ive"]}
 {"word": "pinball", "segments": ["pin", "ball"]}
 {"word": "complaining", "segments": ["complain", "ing"]}
 {"word": "unquestionably", "segments": ["un", "ques", "tion", "ab", "ly"]}
@@ -1029,9 +1029,9 @@
 {"word": "footplate", "segments": ["foot", "plate"]}
 {"word": "realtor", "segments": ["real", "tor"]}
 {"word": "structuralism", "segments": ["structur", "al", "ism"]}
-{"word": "engagingly", "segments": ["en", "gag", "ing", "ly"]}
+{"word": "bringer", "segments": ["bring", "er"]}
 {"word": "attractiveness", "segments": ["at", "trac", "tive", "ness"]}
-{"word": "benevolently", "segments": ["bene", "vol", "ent", "ly"]}
+{"word": "war", "segments": ["war"]}
 {"word": "neutron", "segments": ["neut", "ron"]}
 {"word": "kipper", "segments": ["kipp", "er"]}
 {"word": "dictatorial", "segments": ["dictat", "orial"]}
@@ -1040,10 +1040,10 @@
 {"word": "diagnosed", "segments": ["di", "ag", "no", "sed"]}
 {"word": "guerilla", "segments": ["guer", "illa"]}
 {"word": "dutchman", "segments": ["dutch", "man"]}
-{"word": "stuffing", "segments": ["stuff", "ing"]}
+{"word": "stuffing", "segments": ["stuf", "fing"]}
 {"word": "compellingly", "segments": ["compel", "ling", "ly"]}
 {"word": "unroll", "segments": ["un", "roll"]}
-{"word": "deflationary", "segments": ["de", "fl", "at", "ion", "ary"]}
+{"word": "oxygenate", "segments": ["oxy", "gen", "ate"]}
 {"word": "ticking", "segments": ["tick", "ing"]}
 {"word": "toilette", "segments": ["toilet", "te"]}
 {"word": "emblematic", "segments": ["em", "blem", "at", "ic"]}
@@ -1070,10 +1070,10 @@
 {"word": "chine", "segments": ["chine"]}
 {"word": "chino", "segments": ["chino"]}
 {"word": "archduke", "segments": ["arch", "duke"]}
-{"word": "immunohistochemical", "segments": ["immuno", "histo", "chem", "ical"]}
+{"word": "uncultivated", "segments": ["un", "cultiv", "at", "ed"]}
 {"word": "anathema", "segments": ["an", "athema"]}
 {"word": "deliberative", "segments": ["de", "libera", "tive"]}
-{"word": "philadelphian", "segments": ["phil", "adel", "phi", "an"]}
+{"word": "allergenic", "segments": ["al", "ler", "gen", "ic"]}
 {"word": "messiness", "segments": ["messi", "ness"]}
 {"word": "hermit", "segments": ["her", "mit"]}
 {"word": "blinding", "segments": ["blind", "ing"]}
@@ -1081,13 +1081,13 @@
 {"word": "unscheduled", "segments": ["un", "schedul", "ed"]}
 {"word": "biofeedback", "segments": ["bio", "feed", "back"]}
 {"word": "physiology", "segments": ["physi", "olo", "gy"]}
-{"word": "hardcover", "segments": ["hardcov", "er"]}
+{"word": "hardcover", "segments": ["hard", "cover"]}
 {"word": "baptism", "segments": ["bap", "tism"]}
 {"word": "gallows", "segments": ["gall", "ows"]}
-{"word": "potholed", "segments": ["pothol", "ed"]}
-{"word": "sizzling", "segments": ["sizz", "ling"]}
+{"word": "international", "segments": ["inter", "nation", "al"]}
+{"word": "sizzling", "segments": ["sizzl", "ing"]}
 {"word": "parsimony", "segments": ["pars", "imon", "y"]}
-{"word": "congressperson", "segments": ["congress", "person"]}
+{"word": "polarizer", "segments": ["polar", "iz", "er"]}
 {"word": "closeted", "segments": ["close", "ted"]}
 {"word": "undeterred", "segments": ["un", "deter", "red"]}
 {"word": "airtime", "segments": ["air", "time"]}
@@ -1099,11 +1099,11 @@
 {"word": "semolina", "segments": ["semolina"]}
 {"word": "banked", "segments": ["bank", "ed"]}
 {"word": "sill", "segments": ["sill"]}
-{"word": "paperboy", "segments": ["paper", "boy"]}
-{"word": "tangibly", "segments": ["tang", "ib", "ly"]}
-{"word": "supercluster", "segments": ["superclust", "er"]}
+{"word": "boatmen", "segments": ["boat", "men"]}
+{"word": "diverted", "segments": ["di", "vert", "ed"]}
+{"word": "gustatory", "segments": ["gust", "atory"]}
 {"word": "annal", "segments": ["annal"]}
-{"word": "bearskin", "segments": ["bear", "skin"]}
+{"word": "armless", "segments": ["arm", "less"]}
 {"word": "strangeness", "segments": ["strang", "eness"]}
 {"word": "facilitation", "segments": ["fac", "il", "it", "ation"]}
 {"word": "repackage", "segments": ["re", "pack", "age"]}
@@ -1118,21 +1118,21 @@
 {"word": "snowflake", "segments": ["snow", "flake"]}
 {"word": "mob", "segments": ["mob"]}
 {"word": "forensics", "segments": ["fore", "nsics"]}
-{"word": "patentable", "segments": ["patent", "able"]}
+{"word": "heritability", "segments": ["herit", "ability"]}
 {"word": "masculinity", "segments": ["mascul", "in", "ity"]}
 {"word": "handout", "segments": ["hand", "out"]}
-{"word": "townsman", "segments": ["town", "sman"]}
+{"word": "extortionist", "segments": ["extort", "ion", "ist"]}
 {"word": "incessantly", "segments": ["in", "cess", "ant", "ly"]}
 {"word": "exoplanet", "segments": ["exo", "planet"]}
 {"word": "pelagic", "segments": ["pel", "ag", "ic"]}
-{"word": "ermine", "segments": ["ermine"]}
+{"word": "ermine", "segments": ["erm", "ine"]}
 {"word": "wholesale", "segments": ["whole", "sale"]}
 {"word": "hunted", "segments": ["hunt", "ed"]}
 {"word": "inoffensive", "segments": ["in", "offensive"]}
 {"word": "diffuse", "segments": ["dif", "fuse"]}
 {"word": "tiredness", "segments": ["tired", "ness"]}
 {"word": "stairs", "segments": ["stairs"]}
-{"word": "despondency", "segments": ["des", "pond", "enc", "y"]}
+{"word": "despondency", "segments": ["des", "pond", "ency"]}
 {"word": "bandleader", "segments": ["bandlead", "er"]}
 {"word": "homogeneous", "segments": ["homo", "gen", "eous"]}
 {"word": "talking", "segments": ["talk", "ing"]}
@@ -1149,19 +1149,19 @@
 {"word": "wrenching", "segments": ["wrench", "ing"]}
 {"word": "randy", "segments": ["rand", "y"]}
 {"word": "enquiry", "segments": ["en", "quiry"]}
-{"word": "careerism", "segments": ["career", "ism"]}
+{"word": "unproved", "segments": ["un", "prov", "ed"]}
 {"word": "justified", "segments": ["just", "if", "ied"]}
 {"word": "midtown", "segments": ["mid", "town"]}
 {"word": "fedora", "segments": ["fed", "ora"]}
 {"word": "canape", "segments": ["canape"]}
 {"word": "paraplegic", "segments": ["para", "pleg", "ic"]}
-{"word": "viciously", "segments": ["vi", "cio", "us", "ly"]}
+{"word": "viciously", "segments": ["vic", "ious", "ly"]}
 {"word": "contemptuously", "segments": ["contemptu", "ous", "ly"]}
 {"word": "condescend", "segments": ["con", "descend"]}
-{"word": "neigh", "segments": ["neigh"]}
-{"word": "torpid", "segments": ["tor", "pid"]}
-{"word": "polymath", "segments": ["poly", "math"]}
-{"word": "exorbitant", "segments": ["exo", "rbitant"]}
+{"word": "knothole", "segments": ["knot", "hole"]}
+{"word": "trivialization", "segments": ["trivial", "ization"]}
+{"word": "graybeard", "segments": ["gray", "beard"]}
+{"word": "exorbitant", "segments": ["ex", "orbit", "ant"]}
 {"word": "irksome", "segments": ["irk", "some"]}
 {"word": "nonfiction", "segments": ["non", "fiction"]}
 {"word": "glutamate", "segments": ["glutamate"]}
@@ -1175,7 +1175,7 @@
 {"word": "steadying", "segments": ["stead", "ying"]}
 {"word": "millimeter", "segments": ["millimet", "er"]}
 {"word": "bruiser", "segments": ["bruis", "er"]}
-{"word": "winded", "segments": ["wind", "ed"]}
+{"word": "coarseness", "segments": ["coarse", "ness"]}
 {"word": "observational", "segments": ["ob", "ser", "vat", "ion", "al"]}
 {"word": "tacky", "segments": ["tack", "y"]}
 {"word": "intelligible", "segments": ["in", "tel", "lig", "ible"]}

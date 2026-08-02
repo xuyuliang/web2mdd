@@ -1,44 +1,28 @@
 import sys
 
-import numpy as np
-
-from config import MODEL_NPZ
+from config import MODEL_ONNX, THRESHOLD
 from rules import apply_rules
-from train_model import features, predict_batch, char_id
+from onnx_infer import OnnxCutter, probs_to_segments
 
 
-def load_model(path=MODEL_NPZ):
-    z = np.load(path)
-    return z["W1"], z["b1"], z["W2"], z["b2"]
-
-
-def segment(word, model, threshold=0.37):
-    W1, b1, W2, b2 = model
+def segment(word, cutter, threshold=THRESHOLD):
     word = word.lower()
     if not word.isalpha() or len(word) < 2:
         return [word]
-    true = np.zeros(len(word) - 1, dtype=np.float32)
-    xs, _ = features(word, true)
-    if not xs:
+    probs = cutter.gap_probs(word)
+    if probs.size == 0:
         return [word]
-    p = predict_batch(W1, b1, W2, b2, np.stack(xs)).ravel()
-    segs = []
-    start = 0
-    for i, prob in enumerate(p):
-        if prob >= threshold:
-            segs.append(word[start:i + 1])
-            start = i + 1
-    segs.append(word[start:])
+    segs = probs_to_segments(word, probs, threshold)
     segs, _ = apply_rules(word, segs)
     return segs
 
 
 def main():
-    model = load_model()
+    cutter = OnnxCutter(MODEL_ONNX)
     words = sys.argv[1:] or ["unbelievable", "pediatrician", "subordinate", "generalizability",
                              "sander", "titillation", "hillbilly", "consecrate"]
     for w in words:
-        print(f"{w:16s} -> {' . '.join(segment(w, model))}")
+        print(f"{w:16s} -> {' . '.join(segment(w, cutter))}")
 
 
 if __name__ == "__main__":
