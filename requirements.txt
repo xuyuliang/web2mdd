@@ -1,17 +1,19 @@
+# torch==2.13.0+cpu CPU 版，必须手动安装
+# pip install torch --index-url https://download.pytorch.org/whl/cpu
+# 
 fastapi==0.115.0
 uvicorn==0.30.6
 jinja2==3.1.4
 readmdict
 numpy==1.26.4
-pytest==8.3.3
+pytest==8.3.4
 
 # ---- 部署服务器（app 运行时必需）----
 # 蒸馏模型2 通过 onnxruntime 加载 output/model.onnx，服务器上必须装这个。
 onnxruntime==1.28.0
 
 # ---- 仅在本地重训/导出模型时可选 ----
-# torch 只用于蒸馏计划2完整词根/train_model.py 训练；导出 .onnx 依赖 onnx/onnxscript。
 # 服务器只跑 app 则可全部忽略。
-torch==2.13.0+cpu  # 训练端；CPU 版，来源: https://download.pytorch.org/whl/cpu
+
 onnx==1.22.0
 onnxscript==0.7.1
