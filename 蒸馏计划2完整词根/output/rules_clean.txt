@@ -744,7 +744,7 @@ austrian    austri.an
 fleeting    fleet.ing
 pedestal    pede.stal
 biographer    bio.graph.er
-abdominal    ab.domin.al
+abdominal    abdomin.al
 parade    pa.rade
 diarrhea    di.ar.rhea
 delineate    de.line.ate
@@ -1852,7 +1852,7 @@ touring    tour.ing
 shaman    sham.an
 coupling    coupl.ing
 shawl    shawl
-predominant    pre.dom.in.ant
+predominant    pre.domin.ant
 tyrant    tyr.ant
 reliably    reliab.ly
 fidelity    fidel.ity
@@ -3119,7 +3119,7 @@ refill    re.fill
 empirically    empir.ical.ly
 weave    weave
 borderline    border.line
-domestically    domestic.ally
+domestically    dom.estic.ally
 drench    drench
 guinea    guinea
 pity    pity
@@ -4115,7 +4115,7 @@ medley    medley
 uniformity    uniform.ity
 frontline    front.line
 counterpoint    counter.point
-predominate    pre.dominate
+predominate    pre.domin.ate
 earner    earn.er
 distressing    dis.tres.sing
 conveyor    convey.or
@@ -5846,7 +5846,7 @@ reassemble    re.as.sem.ble
 payday    pay.day
 dill    dill
 mm    mm
-domesticated    do.mest.ic.ated
+domesticated    dom.estic.ated
 zenith    zenith
 restaurateur    res.tau.ra.teur
 unbiased    un.bias.ed
@@ -9238,7 +9238,7 @@ manila    manila
 revile    re.vile
 shading    shad.ing
 demarcation    de.marca.tion
-sodomy    sodomy
+sodomy    sodom.y
 electrolyte    electro.lyte
 weighing    weigh.ing
 undergrowth    under.growth
@@ -13123,7 +13123,7 @@ nitrous    nitro.us
 socialized    social.ized
 lakeshore    lake.shore
 ginkgo    ginkgo
-speedometer    speedomet.er
+speedometer    speedo.meter
 nadir    nadir
 moonless    moon.less
 valence    valence
@@ -14068,8 +14068,8 @@ blase    blase
 batterer    batter.er
 equalization    equal.ization
 epistemic    epist.em.ic
-domestication    domest.ic.ation
-odometer    od.omet.er
+domestication    dom.estic.ation
+odometer    odo.meter
 beatific    beat.ific
 binational    bi.nat.ion.al
 reachable    reach.able
@@ -14141,7 +14141,7 @@ whoops    who.ops
 roadie    road.ie
 ahem    ah.em
 gratin    grat.in
-dominated    dom.in.at.ed
+dominated    domin.at.ed
 lactation    lact.ation
 advertised    ad.vert.is.ed
 stoicism    sto.ic.ism
@@ -14854,7 +14854,7 @@ stomachache    stomach.ache
 conflation    con.fl.ation
 senegalese    senegal.ese
 blacklist    black.list
-pedometer    pedomet.er
+pedometer    pedo.meter
 armband    arm.band
 landmass    land.mass
 telly    telly
@@ -16715,7 +16715,7 @@ overlying    over.ly.ing
 quicksilver    quicksilv.er
 paring    par.ing
 covey    cove.y
-domineer    dom.ine.er
+domineer    domin.eer
 unionism    union.ism
 gravitationally    gravit.ati.onal.ly
 turbidity    turb.id.ity
@@ -17469,7 +17469,7 @@ fife    fife
 pigmentation    pigm.ent.ati.on
 bedpan    bed.pan
 crybaby    cry.baby
-domicile    do.mi.cile
+domicile    dom.ic.ile
 slaveholder    slave.hold.er
 callused    call.us.ed
 bonobo    bonobo
@@ -18459,7 +18459,7 @@ careerist    career.ist
 unpolished    un.polish.ed
 guano    guano
 tritium    trit.ium
-sadomasochistic    sadomasoch.is.tic
+sadomasochistic    sado.masoch.istic
 firebomb    fire.bomb
 ayurvedic    ayurv.ed.ic
 habituation    habitu.ation
@@ -21966,7 +21966,7 @@ southpaw    south.paw
 unpronounceable    un.pronounce.able
 imploring    im.plor.ing
 frictionless    fric.tion.less
-dominatrix    dominat.rix
+dominatrix    domin.atrix
 ototoxic    oto.tox.ic
 certifiably    cert.ifi.ably
 uproarious    up.roar.ious
@@ -22002,7 +22002,7 @@ rechristen    re.chr.ist.en
 spittoon    spit.toon
 unremarked    un.re.mark.ed
 ethmoid    eth.mo.id
-seductress    seduct.ress
+seductress    se.ductr.ess
 hull    hull
 uneventfully    un.event.fully
 intolerably    in.toler.ably

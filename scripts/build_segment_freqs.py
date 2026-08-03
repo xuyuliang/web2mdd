@@ -2,7 +2,7 @@
 import json
 import sys
 
-src = "数据资料\\splits.json"
+src = "data\\anki_splits.json"
 dst = "数据资料\\segment-freqs.json"
 
 with open(src, encoding="utf-8") as f:

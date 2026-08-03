@@ -84,7 +84,7 @@ class WordCutter:
         return root_index, max_len
 
     def _load_high_freq(self, base_dir):
-        path = os.path.join(base_dir, "数据资料", "highfreq.json")
+        path = os.path.join(base_dir, "data", "anki_highfreq.json")
         with open(path, encoding="utf-8") as f:
             entries = json.load(f)
         freq = {}

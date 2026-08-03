@@ -5,7 +5,7 @@ import sys
 SEG_PATH = "数据资料\\segment-freqs.json"
 HF_PATH = "data\\high-freq-affixes.json"
 ROOTS_PATH = "data\\roots.json"
-DST = "数据资料\\highfreq.json"
+DST = "data\\anki_highfreq.json"
 MIN_COUNT = 3
 
 
