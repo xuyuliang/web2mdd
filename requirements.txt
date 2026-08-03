@@ -10,7 +10,7 @@ pytest==8.3.4
 
 # ---- 部署服务器（app 运行时必需）----
 # 蒸馏模型2 通过 onnxruntime 加载 output/model.onnx，服务器上必须装这个。
-onnxruntime==1.28.0
+onnxruntime
 
 # ---- 仅在本地重训/导出模型时可选 ----
 # 服务器只跑 app 则可全部忽略。
