@@ -22,6 +22,7 @@
 import json
 import re
 import sys
+import time
 from collections import defaultdict
 
 ROOTS = "data\\roots.json"
@@ -250,8 +251,11 @@ def ld_insdel(a, b):
     return False, "", -1, None
 
 
-def rule_edges_for(pos):
-    """在 prefix/suffix 同位置节点间生成 pad/elide/assimilation 候选边。"""
+CONSONANTS = set("bcdfghjklmnpqrstvwxz")
+
+
+def _rule_edges_for_legacy(pos):
+    """旧实验法：前缀/后缀同位置全两两配对联（仅 prefix/suffix，保留作 B 回归基准）。"""
     by_len_forms = defaultdict(list)
     for (f, p), n in NODES.items():
         if p == pos and f.isalpha():
@@ -283,6 +287,67 @@ def rule_edges_for(pos):
                     continue
                 edges.append((a, b, "assimilation"))
     return edges
+
+
+def rule_edges_for(pos):
+    """候选索引式生成 pad/elide/assimilation 候选边（等价重构，避免两两爆炸）。
+
+    对 prefix/suffix 应产出与 _rule_edges_for_legacy 完全一致的边三元组集合。
+    root 位置只探右侧变形（见 §3 词形规则）：
+      - pad/elide：仅 cand == 长形删末位（右端插/删）；
+      - assimilation：仅在右边界 L-1 替换辅音，不试左边界 0。
+    """
+    root_only_right = (pos == "root")
+    by_len_set = defaultdict(set)
+    for (f, p), n in NODES.items():
+        if p == pos and f.isalpha():
+            by_len_set[len(f)].add(f)
+    lens = sorted(by_len_set)
+    pad_edges = []
+    # pad/elide：对每个长形用候选删除查出短形命中；sub 判定沿用 ld_insdel（与旧式一致）
+    seen_pad = set()
+    for L in lens:
+        short_set = by_len_set.get(L)
+        for longer in by_len_set.get(L + 1, ()):
+            if root_only_right:
+                cands = (longer[:-1],) if longer[:-1] in short_set else ()
+            else:
+                cands = [longer[:i] + longer[i + 1:] for i in range(len(longer))]
+                cands = [c for c in cands if c in short_set]
+            for cand in set(cands):
+                ok, _long, ins_pos, ins_ch = ld_insdel(cand, longer)
+                if not ok or ins_ch is None:
+                    continue
+                sub = "elide" if (ins_pos > 0 and _long[ins_pos - 1] == ins_ch) else "pad"
+                edge = (cand, longer, sub)
+                if edge not in seen_pad:
+                    seen_pad.add(edge)
+                    pad_edges.append(edge)
+    # assimilation
+    ass_edges = []
+    seen = set()
+    for L in lens:
+        fs = by_len_set[L]
+        positions = (L - 1,) if root_only_right else (0, L - 1)
+        for f in fs:
+            for k in positions:
+                if k < 0:
+                    continue
+                if f[k] in VOWELS:
+                    continue
+                for c in CONSONANTS:
+                    if c == f[k]:
+                        continue
+                    cand = f[:k] + c + f[k + 1:]
+                    if cand not in fs:
+                        continue
+                    key = tuple(sorted((f, cand)))
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    a, b = (f, cand) if f < cand else (cand, f)
+                    ass_edges.append((a, b, "assimilation"))
+    return pad_edges + ass_edges
 
 
 class UF:
@@ -368,16 +433,26 @@ def main():
             add_review(b, f, p, "roots_form", nb, nf, "gate" if r is False else "cross_lang")
 
     # 2) 规则候选边（过门）
-    for p in ("prefix", "suffix"):
-        for a, b, etype in rule_edges_for(p):
+    for p in ("prefix", "suffix", "root"):
+        t0 = time.time()
+        cands = rule_edges_for(p)
+        merged = gated = cross = 0
+        for a, b, etype in cands:
             if (a, p) not in NODES or (b, p) not in NODES:
                 continue
             na, nb = NODES[(a, p)], NODES[(b, p)]
             r = decide_merge(na, nb, etype)
             if r is True:
                 edges.append((a, b, p, etype))
+                merged += 1
             elif r is False or r is None:
                 add_review(a, b, p, etype, na, nb, "gate" if r is False else "cross_lang")
+                if r is False:
+                    gated += 1
+                else:
+                    cross += 1
+        print(f"[rule_edges] pos={p} candidates={len(cands)} merged={merged} " +
+              f"gated={gated} cross_lang={cross} time={time.time() - t0:.2f}s", file=sys.stderr)
 
     # 3) union-find
     uf = UF(list(NODES.keys()))

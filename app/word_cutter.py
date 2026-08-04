@@ -27,7 +27,7 @@ class WordCutter:
         self.base_dir = base_dir
         self.rev_index = self._load_rev_index(base_dir)
         self.root_index, self.max_root_len = self._load_unified_index(base_dir)
-        self.high_freq, self.high_freq_pos = self._load_high_freq(base_dir)
+        self.high_freq, self.high_freq_pos, self.hf_groups = self._load_high_freq(base_dir)
         WordCutter.hf_pos_map = self.high_freq_pos
 
     # ── data loading ────────────────────────────────────────────
@@ -89,16 +89,25 @@ class WordCutter:
             entries = json.load(f)
         freq = {}
         pos_map = {}
+        groups = {}
         for e in entries:
             form = (e.get("affix") or "").strip("-").strip().lower()
             if len(form) < 2:
                 continue
             n = e.get("次数") or 0
             freq[form] = max(freq.get(form, 0), n)
+            m = e.get("merged_count") or n
+            prev = groups.get(form)
+            if prev is None or m > prev["merged"]:
+                groups[form] = {
+                    "merged": m,
+                    "canonical": e.get("canonical", form),
+                    "variants": e.get("variants", [form]),
+                }
             t = e.get("type", "")
             if t:
                 pos_map.setdefault(form, set()).add(t)
-        return freq, {f: frozenset(t) for f, t in pos_map.items()}
+        return freq, {f: frozenset(t) for f, t in pos_map.items()}, groups
 
     # ── Stage 1: derivation tracing ─────────────────────────────
 
@@ -162,12 +171,16 @@ class WordCutter:
         return count
 
     @staticmethod
-    def _secondary_score(text, high_freq, opt=False):
+    def _secondary_score(text, high_freq, groups, opt=False):
         penalty = WordCutter.OPT_PENALTY if opt else 0
         bonus = 0.0
         n = high_freq.get(text)
         if n is not None and n >= 3:
             bonus = 0.5 + 0.25 * math.log2(n / 3)
+        elif n is not None and n < 3:
+            g = groups.get(text)
+            if g and g["merged"] >= 3:
+                bonus = 0.25 + 0.125 * math.log2(g["merged"] / 3)
         return bonus - penalty
 
     @staticmethod
@@ -202,7 +215,7 @@ class WordCutter:
         return candidates
 
     @staticmethod
-    def _segment_global(word, abs_base, root_index, word_len, max_len, high_freq):
+    def _segment_global(word, abs_base, root_index, word_len, max_len, high_freq, groups):
         w = word.lower()
         L = len(w)
         memo = {}
@@ -223,7 +236,7 @@ class WordCutter:
                 ):
                     Lm = len(form)
                     end = pos + Lm
-                    sec = WordCutter._secondary_score(form, high_freq, interp["opt"])
+                    sec = WordCutter._secondary_score(form, high_freq, groups, interp["opt"])
                     tail = memo[(end, True)]
                     t = tail[0]
                     ec = 1 if (Lm == 2 and (pos == 0 or end == L)) else 0
@@ -270,7 +283,7 @@ class WordCutter:
                                 edge_list.append((
                                     (
                                         t[0] + (Lm + Lo - 1 - 2 * WordCutter.SEG_COST),
-                                        t[1] + sec + WordCutter._secondary_score(form2, high_freq, interp2["opt"]),
+                                        t[1] + sec + WordCutter._secondary_score(form2, high_freq, groups, interp2["opt"]),
                                         t[2] - 2,
                                         t[3] - ec1 - ec2,
                                         Lo,
@@ -282,7 +295,7 @@ class WordCutter:
                         pos + 1, w, root_index, abs_base, word_len, max_len, True
                     ):
                         Lm2 = len(form2)
-                        sec2 = WordCutter._secondary_score(form2, high_freq, interp2["opt"])
+                        sec2 = WordCutter._secondary_score(form2, high_freq, groups, interp2["opt"])
                         tail = memo[(pos + 1 + Lm2, True)]
                         t = tail[0]
                         edge_list.append((
@@ -358,7 +371,7 @@ class WordCutter:
                 merged.append(dict(s))
         return merged
 
-    def _segment_word(self, word, root_index, max_len, abs_base, word_len, high_freq):
+    def _segment_word(self, word, root_index, max_len, abs_base, word_len, high_freq, groups):
         if self._count_syllables(word) <= 1:
             interps = root_index.get(word.lower())
             if interps:
@@ -371,7 +384,7 @@ class WordCutter:
                 }]
             return [{"text": word, "meaning": None, "source": "", "langCode": ""}]
 
-        chunks = self._segment_global(word, abs_base, root_index, word_len, max_len, high_freq)
+        chunks = self._segment_global(word, abs_base, root_index, word_len, max_len, high_freq, groups)
         segments = self._merge_unknowns(chunks)
 
         for seg in segments:
@@ -400,7 +413,7 @@ class WordCutter:
             aligned = self._apply_stage1_split(parts, word)
             final_segs = []
             for p, off in aligned:
-                sub = self._segment_word(p, self.root_index, self.max_root_len, off, len(word), self.high_freq)
+                sub = self._segment_word(p, self.root_index, self.max_root_len, off, len(word), self.high_freq, self.hf_groups)
                 final_segs.extend(sub)
             return {
                 "word": word,
@@ -416,7 +429,7 @@ class WordCutter:
                 ],
             }
         else:
-            segs = self._segment_word(word, self.root_index, self.max_root_len, 0, len(word), self.high_freq)
+            segs = self._segment_word(word, self.root_index, self.max_root_len, 0, len(word), self.high_freq, self.hf_groups)
             return {
                 "word": word,
                 "stage1": None,

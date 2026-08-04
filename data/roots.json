@@ -115508,18 +115508,6 @@
         }
       }
     },
-    "ied": {
-      "meaning": "past tense",
-      "lang": "?",
-      "forms": {
-        "ied": {
-          "opt": false,
-          "pos": [
-            "suffix"
-          ]
-        }
-      }
-    },
     "ient": {
       "meaning": "form adjective; indication; kind of agent",
       "lang": "?",
@@ -125418,18 +125406,6 @@
       "lang": "?",
       "forms": {
         "uble": {
-          "opt": false,
-          "pos": [
-            "suffix"
-          ]
-        }
-      }
-    },
-    "ued": {
-      "meaning": "past tense",
-      "lang": "?",
-      "forms": {
-        "ued": {
           "opt": false,
           "pos": [
             "suffix"

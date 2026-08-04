@@ -1,14 +1,14 @@
-Score: 40/120 = 33.3%
-Mismatches: 80
+Score: 42/120 = 35.0%
+Mismatches: 78
 
 Word                 Expected                                 Got                                      OK
 ---------------------------------------------------------------------------------------------------------
 abate                ab.ate                                   ab.ate                                   ✓
-belittle             be.little                                be.lit.[tle]                             ✗
+belittle             be.lit.tle                                be.lit.[tle]                             ✗
 candid               cand.id                                  cand.id                                  ✓
 dearth               [dearth]                                 [dearth]                                 ✓
 ebullient            e.bull.ient                              [e].bull.ient                            ✗
-fastidious           fastid.ious                              fas.tid.ious                             ✗
+fastidious           fastid.ious                              fast.id.ious                             ✗
 garrulous            garr.ulous                               garrul.ous                               ✗
 harangue             [harangue]                               har.angu.[e]                             ✗
 idiosyncrasy         idio.syncras.y                           idio.syn.crasy                           ✗
@@ -21,18 +21,18 @@ obdurate             ob.dur.ate                               obdur.ate         
 paucity              pauc.ity                                 pauc.ity                                 ✓
 quixotic             quixot.ic                                qui.xot.ic                               ✗
 recondite            re.cond.ite                              recondite                                ✗
-sycophant            syco.phant                               sy.coph.ant                              ✗
+sycophant            syco.phant                               syco.pha.ant                             ✗
 taciturn             tac.it.urn                               tacit.ur.[n]                             ✗
 ubiquitous           ubiqu.itous                              ubiquit.ous                              ✗
 vacillate            vacill.ate                               vacill.ate                               ✓
 whimsical            whims.ical                               [whim].[s].ical                          ✗
 xenophobia           xeno.phobia                              xeno.phob.ia                             ✗
-zealot               zeal.ot                                  zea.lot                                  ✗
+zealot               zeal.ot                                  zeal.ot                                  ✓
 affable              af.fab.le                                af.fable                                 ✗
 belligerent          bell.i.ger.ent                           belli.ger.ent                            ✗
 cogent               co.gent                                  cog.ent                                  ✗
 deference            de.fer.ence                              de.fer.ence                              ✓
-ephemeral            e.phem.eral                              ephemer.al                               ✗
+ephemeral            e.phem.eral                              ephemera.[l]                             ✗
 frugal               frug.al                                  frugal                                   ✗
 gregarious           greg.arious                              gregar.ious                              ✗
 hackneyed            hackney.ed                               hac.[kney].ed                            ✗
@@ -62,9 +62,9 @@ fortuitous           fortu.itous                              fortuit.ous       
 guile                [guile]                                  gui.le                                   ✗
 hegemony             hegemon.y                                hege.mon.[y]                             ✗
 insipid              in.sip.id                                insipid                                  ✗
-jocular              joc.ular                                 jocul.ar                                 ✗
+jocular              joc.ular                                 jocu.lar                                 ✗
 kudos                [kudos]                                  kudo.os                                  ✗
-lucid                luc.id                                   lucid                                    ✗
+lucid                luc.id                                   luc.id                                   ✓
 meticulous           met.icul.ous                             metic.ulous                              ✗
 nascent              na.scent                                 nasc.ent                                 ✗
 opaque               op.aque                                  op.aqu.[e]                               ✗
@@ -96,7 +96,7 @@ recalcitrant         re.calc.it.rant                          re.calcitr.ant    
 sanguine             sanguin.e                                sanguine                                 ✗
 trepidation          trepid.ation                             trepid.ation                             ✓
 unbridled            un.bridl.ed                              un.[brid].led                            ✗
-veracity             ver.ac.ity                               ver.acity                                ✗
+veracity             ver.ac.ity                               verac.ity                                ✗
 wane                 [wane]                                   wane                                     ✗
 anomalous            an.omal.ous                              anomal.ous                               ✗
 bolster              bolst.er                                 bol.ster                                 ✗
