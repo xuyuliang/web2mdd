@@ -38,7 +38,7 @@ fi
 echo "启动服务器（后台运行，按 Ctrl+C 不会停止）..."
 echo ""
 
-nohup uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4 > logs/server.log 2>&1 &
+nohup uvicorn app.main:app --host 0.0.0.0 --port 8000  > logs/server.log 2>&1 &
 SERVER_PID=$!
 
 echo "$SERVER_PID" > "$PID_FILE"
