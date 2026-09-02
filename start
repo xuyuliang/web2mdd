@@ -22,9 +22,6 @@ source venv/bin/activate
 # 服务器无桌面环境，禁止自动打开浏览器
 export OPEN_BROWSER=0
 
-# 强制 Python 无缓冲输出，否则 print() 日志重定向到文件后需攒满 8KB 才落盘
-export PYTHONUNBUFFERED=1
-
 mkdir -p logs
 
 PID_FILE=".server.pid"
@@ -33,7 +30,7 @@ PID_FILE=".server.pid"
 if [ -f "$PID_FILE" ]; then
     OLD_PID=$(cat "$PID_FILE")
     if kill -0 "$OLD_PID" 2>/dev/null; then
-        echo "[WARN] 服务已在运行（PID: $OLD_PID），如需重启请先执行: ./stop"
+        echo "[WARN] 服务已在运行（PID: $OLD_PID)，如需重启请先执行: ./stop"
         exit 1
     else
         rm -f "$PID_FILE"
@@ -59,3 +56,4 @@ else
     echo "[ERROR] 服务启动失败（进程已退出），查看: tail -f logs/server.log"
     exit 1
 fi
+
