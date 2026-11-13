@@ -6,11 +6,14 @@
 """
 
 import importlib.util
+import sys
 
 import numpy as np
 import onnxruntime as ort
 
 THRESHOLD = 0.44
+
+_MISSING = object()
 
 
 def _load_module_from_path(path, name):
@@ -18,6 +21,25 @@ def _load_module_from_path(path, name):
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     return mod
+
+
+def _load_module_without_torch(path, name):
+    """加载模块，但让其中的 `import torch` 失败。
+
+    char_model.py 顶部的 `try: import torch` 只有训练/导出时才需要；
+    线上推理只用它的 tokenize/char_id 等纯 Python 常量。
+    torch 一旦被导入会多占约 160MB 内存、多花约 1 秒启动时间，
+    在 500MB 的小机器上不能接受。
+    """
+    saved = sys.modules.get("torch", _MISSING)
+    sys.modules["torch"] = None  # Python 里置为 None 会让 import 抛 ImportError
+    try:
+        return _load_module_from_path(path, name)
+    finally:
+        if saved is _MISSING:
+            sys.modules.pop("torch", None)
+        else:
+            sys.modules["torch"] = saved
 
 
 class DistillCutter:
@@ -29,7 +51,7 @@ class DistillCutter:
         if char_model_path is None:
             import pathlib
             char_model_path = str(pathlib.Path(rules_path).with_name("char_model.py"))
-        char_mod = _load_module_from_path(char_model_path, "distill_char_model")
+        char_mod = _load_module_without_torch(char_model_path, "distill_char_model")
 
         self.sess = ort.InferenceSession(str(model_path), providers=["CPUExecutionProvider"])
         self.input_name = self.sess.get_inputs()[0].name
