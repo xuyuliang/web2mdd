@@ -158,8 +158,8 @@
         <h2><span class="icon">🅰️</span>元音占位符</h2>
         <ul>
           <li><code>A</code>（或 <code>[A]</code>）— 匹配任意一个元音字母（a, e, i, o, u）</li>
-          <li><code>AA</code>（或 <code>[AA]</code>）— 匹配任意一个常见双字母元音组合（ai, ay, ee, ea, oa, oo, ie, ei, ey, au, aw, ow, ou, oi, oy, ue, ui, eu, ew, oe）</li>
-          <li><code>AAA</code>（或 <code>[AAA]</code>）— 匹配任意三个字母的元音组合（如 eau, eia 等，具体取决于替换表）</li>
+          <li><code>AA</code>（或 <code>[AA]</code>）— 匹配任意一个常见双字母元音组合（ai, ay, ee, ea, oa, oo, ie, ei, ey, au, aw, ow, ou, oi, oy, ue, ui, eu, ew, oe, al, ar, er, ir, or, ur）</li>
+          <li><code>AAA</code>（或 <code>[AAA]</code>）— 匹配任意一个常见三字母元音组合（air, are, awn, ear, eer, ere, ier, igh, ire, oir, oor, ore, oun, our, ure）</li>
         </ul>
         <div class="guide-example">
           <div class="label">搜索形如 "c_n_" 的 4 字母单词（第 2、4 位是元音）：</div>
@@ -167,7 +167,7 @@
         </div>
         <div class="guide-example">
           <div class="label">搜索含双元音的 "t*er" 单词：</div>
-          <code>tAAer</code> <span class="arrow">→</span> <span class="result">tower</span>注意这里的双元音定义，ow,aw也被定义成了双元音，并不是只有ou,ai才是双元音
+          <code>tAAer</code> <span class="arrow">→</span> <span class="result">tower</span>注意这里的双元音定义，ow,aw也被定义成了双元音，并不是只有ou,ai才是双元音；ar,er,ir,or,ur 这类"元音+r"组合也算在内
         </div>
       </div>
 
@@ -229,7 +229,7 @@
         <div class="guide-example">
           <div class="label">📌 场景 4：找 "ceive/ceiv" 家族（含双元音）</div>
           <p>用 <code>AA</code> 匹配各种元音组合：</p>
-          <code>*AAceiv*</code> <span class="arrow">→</span> <span class="result">receive, perceive, conceive, deceive, achieve...</span>
+          <code>*cAAv*</code> <span class="arrow">→</span> <span class="result">receive, perceive, conceive, deceive...</span>
         </div>
 
         <div class="guide-example">

@@ -168,6 +168,24 @@ def test_bare_digraph_search():
     print(f"[PASS] tAAer: {len(results)} 个匹配（含 tower）")
 
 
+def test_bare_digraph_includes_vowel_r():
+    """AA 需覆盖 ar/er/ir/or/ur 等"元音+r"组合（回归：scAAp 漏掉 scarp）"""
+    results = wf.search("scAAp", max_results=50)
+    assert "scarp" in results, "scAAp 应匹配 scarp（ar 组合）"
+    assert "scaup" in results, "scAAp 应匹配 scaup（au 组合）"
+    assert "scoop" in results, "scAAp 应匹配 scoop（oo 组合）"
+    print(f"[PASS] scAAp: {len(results)} 个匹配（含 scarp, scaup, scoop）")
+
+
+def test_bare_trigraph_vowel_search():
+    """裸 AAA 通配符搜索（三字母元音组合）"""
+    results = wf.search("bAAA*", max_results=50)
+    assert "bear" in results, "bAAA* 应匹配 bear（ear）"
+    assert "beer" in results, "bAAA* 应匹配 beer（eer）"
+    assert "bare" in results, "bAAA* 应匹配 bare（are）"
+    print(f"[PASS] bAAA*: {len(results)} 个匹配（含 bear, beer, bare）")
+
+
 def test_bare_consonant_search():
     """裸 TT 通配符搜索（通过 PatternPreprocessor 展开）"""
     results = wf.search("TTout", max_results=50)
@@ -233,6 +251,8 @@ if __name__ == "__main__":
     test_add_brackets_noop()
     test_bare_vowel_search()
     test_bare_digraph_search()
+    test_bare_digraph_includes_vowel_r()
+    test_bare_trigraph_vowel_search()
     test_bare_consonant_search()
     test_bare_trigraph_search()
     test_bare_caret_search()
