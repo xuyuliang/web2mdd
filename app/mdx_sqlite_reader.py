@@ -15,6 +15,7 @@ import zlib
 import re
 import time
 import types
+from collections import OrderedDict
 
 # ⚠️ 注入假的 lzo stub
 _lzo_stub = types.ModuleType("lzo")
@@ -28,7 +29,10 @@ from readmdict import MDX
 
 class MDXSQLiteReader:
     """使用 SQLite 缓存索引的 MDX 阅读器"""
-    
+
+    # 解压后的记录块缓存数量（每块约 64KB，128 块约 8MB）
+    BLOCK_CACHE_SIZE = 128
+
     def __init__(self, mdx_path: str, db_path: str = None, build_if_not_exists: bool = True):
         """
         初始化阅读器
@@ -51,6 +55,12 @@ class MDXSQLiteReader:
         self._block_infos = []
         self._block_starts = []
         self._data_offset = 0
+        # 每个压缩块在 MDX 文件中的绝对偏移（避免逐块 seek）
+        self._block_byte_offsets = []
+        # 解压块 LRU 缓存：块号 -> 解压后的 bytes
+        self._block_cache = OrderedDict()
+        # 常驻文件句柄（避免每次查词重新 open）
+        self._file_handle = None
         
         # 连接数据库（必须先连接才能加载元数据）
         self.conn = sqlite3.connect(db_path)
@@ -67,7 +77,9 @@ class MDXSQLiteReader:
             # 从 SQLite 数据库读取块信息（用于记录解压）
             print(f"[MDX-SQLite] 从数据库读取块信息...")
             self._load_block_info_from_mdx()
-        
+
+        self._prepare_block_offsets()
+
         print(f"[MDX-SQLite] 已连接索引数据库: {db_path}")
     
     def _build_index(self):
@@ -222,6 +234,22 @@ class MDXSQLiteReader:
             s += decomp
         
         print(f"[MDX-SQLite] 块信息加载完成: {len(self._block_infos)} 个块")
+
+    def _prepare_block_offsets(self):
+        """预计算每个压缩块的绝对字节偏移（一次累加，查词时 O(1) 定位）"""
+        offsets = []
+        off = self._data_offset
+        for comp, _decomp in self._block_infos:
+            offsets.append(off)
+            off += comp
+        self._block_byte_offsets = offsets
+        self._block_cache = OrderedDict()
+
+    def _get_file_handle(self):
+        """获取常驻的 MDX 文件句柄（延迟打开）"""
+        if self._file_handle is None or self._file_handle.closed:
+            self._file_handle = open(self.path, "rb")
+        return self._file_handle
     
     def _calculate_record_offsets(self, raw_key_list):
         """计算每条记录的偏移和长度"""
@@ -240,23 +268,32 @@ class MDXSQLiteReader:
         return records
     
     def _decompress_block(self, idx):
-        """读取并解压指定索引的记录块"""
-        comp, decomp = self._block_infos[idx]
-        f = open(self.path, "rb")
-        f.seek(self._data_offset)
-        for i in range(idx):
-            f.seek(self._block_infos[i][0], 1)
+        """读取并解压指定索引的记录块（带 LRU 缓存，O(1) 定位）"""
+        cache = self._block_cache
+        cached = cache.get(idx)
+        if cached is not None:
+            cache.move_to_end(idx)
+            return cached
+
+        comp = self._block_infos[idx][0]
+        f = self._get_file_handle()
+        f.seek(self._block_byte_offsets[idx])
         data = f.read(comp)
-        f.close()
-        
+
         bt = data[:4]
         if bt == b"\x00\x00\x00\x00":
-            return data[8:]
+            dec = data[8:]
         elif bt == b"\x01\x00\x00\x00":
-            return data[8:]  # lzo stub won't be called for this MDX
+            dec = data[8:]  # lzo stub won't be called for this MDX
         elif bt == b"\x02\x00\x00\x00":
-            return zlib.decompress(data[8:])
-        raise ValueError(f"未知压缩类型: {bt}")
+            dec = zlib.decompress(data[8:])
+        else:
+            raise ValueError(f"未知压缩类型: {bt}")
+
+        cache[idx] = dec
+        if len(cache) > self.BLOCK_CACHE_SIZE:
+            cache.popitem(last=False)
+        return dec
     
     def _read_record_from_file(self, record_offset: int, record_length: int) -> str:
         """从 MDX 文件读取指定记录"""
@@ -380,7 +417,10 @@ class MDXSQLiteReader:
         return None
     
     def close(self):
-        """关闭数据库连接"""
+        """关闭文件句柄和数据库连接"""
+        if self._file_handle and not self._file_handle.closed:
+            self._file_handle.close()
+        self._file_handle = None
         if self.conn:
             self.conn.close()
     

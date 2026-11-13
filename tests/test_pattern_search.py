@@ -168,6 +168,13 @@ def test_bare_digraph_search():
     print(f"[PASS] tAAer: {len(results)} 个匹配（含 tower）")
 
 
+def test_search_case_insensitive():
+    """模式搜索不区分大小写（与旧实现一致）"""
+    assert wf.search("DUR*", max_results=50) == wf.search("dur*", max_results=50)
+    assert "scarp" in wf.search("SCAAP", max_results=50)
+    print("[PASS] 大写模式与小写模式结果一致")
+
+
 def test_bare_digraph_includes_vowel_r():
     """AA 需覆盖 ar/er/ir/or/ur 等"元音+r"组合（回归：scAAp 漏掉 scarp）"""
     results = wf.search("scAAp", max_results=50)
@@ -251,6 +258,7 @@ if __name__ == "__main__":
     test_add_brackets_noop()
     test_bare_vowel_search()
     test_bare_digraph_search()
+    test_search_case_insensitive()
     test_bare_digraph_includes_vowel_r()
     test_bare_trigraph_vowel_search()
     test_bare_consonant_search()

@@ -56,7 +56,7 @@ async def lifespan(app: FastAPI):
 
     DATA_DIR = os.path.join(BASE_DIR, "数据资料")
     print("正在加载相似词搜索数据...")
-    related_words_searcher = RelatedWordsSearcher(DB_PATH, DATA_DIR)
+    related_words_searcher = RelatedWordsSearcher(DB_PATH, DATA_DIR, word_freq=word_freq)
     print("[OK] 相似词搜索器初始化完成")
 
     # 存储到 app.state
@@ -95,8 +95,7 @@ PATTERN_PAGE_SIZE = 10  # 模式搜索每页显示数量
 PATTERN_MAX_TOTAL = 50  # 模式搜索预获取的候选单词总数（用于排序和分页）
 
 templates = Jinja2Templates(directory=TEMPLATES_DIR)
-# Python 3.14 兼容：Jinja2 3.1.6 缓存键含 dict（不可哈希），禁用缓存
-templates.env.cache = None
+# 模板缓存保持默认开启：设为 None 会导致每次请求都重新编译模板（实测 ~2.5ms/次）
 
 
 class MDXReader:
