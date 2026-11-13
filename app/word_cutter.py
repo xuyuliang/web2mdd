@@ -33,16 +33,20 @@ class WordCutter:
     # ── data loading ────────────────────────────────────────────
 
     def _load_rev_index(self, base_dir):
+        """加载派生词反查表：word -> (base, affix, is_suffix)
+
+        值用 tuple 而不是 dict：22 万条记录，tuple 比 dict 省约 24MB 内存。
+        """
         path = os.path.join(base_dir, "data", "word_derivations.json")
         with open(path, encoding="utf-8") as f:
             wd = json.load(f)
+        words = wd["w"]
+        bases = wd["b"]
+        affixes = wd["a"]
+        types = wd["t"]
         rev = {}
-        for i in range(len(wd["w"])):
-            rev[wd["w"][i]] = {
-                "base": wd["b"][i],
-                "affix": wd["a"][i],
-                "affix_type": "suffix" if wd["t"][i] == "s" else "prefix",
-            }
+        for i, word in enumerate(words):
+            rev[word] = (bases[i], affixes[i], types[i] == "s")
         return rev
 
     def _load_unified_index(self, base_dir):
@@ -117,10 +121,9 @@ class WordCutter:
         info = rev_index.get(word)
         if info is None:
             return None
-        base_word = info["base"]
+        base_word, affix, is_suffix = info
         inner = self._trace_derivation(base_word, rev_index, depth + 1, max_depth)
-        affix = info["affix"]
-        if info["affix_type"] == "suffix":
+        if is_suffix:
             if inner:
                 return inner + [affix]
             return [base_word, affix]
