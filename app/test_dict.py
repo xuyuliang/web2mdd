@@ -190,7 +190,9 @@ word_freq = WordFreq(DB_PATH)
 for word, expected in [("splice", 20290), ("hello", 2252), ("abandon", 2195), ("book", 241)]:
     rank_val = word_freq.get_rank(word)
     match = "✅" if rank_val == expected else "❌"
-    print(f"  {
+    print(f"  {match} {word}: 期望 {expected}, 实际 {rank_val}")
+
+# 测试不存在的单词
 rank_val = word_freq.get_rank("xyznonexistent12345")
 print(f"  ✅ 不存在词: rank={rank_val}")
 

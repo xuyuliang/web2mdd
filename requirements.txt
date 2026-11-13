@@ -1,6 +1,3 @@
-# torch==2.13.0+cpu CPU 版，必须手动安装
-# pip install torch --index-url https://download.pytorch.org/whl/cpu
-# 
 fastapi==0.115.0
 uvicorn==0.30.6
 jinja2==3.1.4
@@ -12,8 +9,14 @@ pytest==8.3.4
 # 蒸馏模型2 通过 onnxruntime 加载 output/model.onnx，服务器上必须装这个。
 onnxruntime
 
-# ---- 仅在本地重训/导出模型时可选 ----
-# 服务器只跑 app 则可全部忽略。
-
-onnx==1.22.0
-onnxscript==0.7.1
+# ---- 仅本地重训/导出模型时需要，服务器只跑 app 一律不要装 ----
+#
+# ⚠️ 千万不要在服务器上安装 torch ⚠️
+# 蒸馏计划2完整词根/char_model.py 顶部有 `try: import torch`，只要环境里装了
+# torch 就会被拖进进程：一个 55KB 的 ONNX 模型会因此多占约 160MB 内存、
+# 多花数秒启动时间（实测 500MB 小机器上 RSS 从 210MB 涨到 368MB，接近 OOM）。
+# app/distill_cutter.py 已在加载时屏蔽 torch，但请从源头上不要安装。
+#
+# 需要重训时再手动装：
+#   pip install torch==2.13.0+cpu --index-url https://download.pytorch.org/whl/cpu
+#   pip install onnx==1.22.0 onnxscript==0.7.1
