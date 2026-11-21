@@ -372,10 +372,26 @@ class MDXSQLiteReader:
         Returns:
             匹配的单词列表 [(word, record_offset, record_length), ...]
         """
+        prefix = prefix.lower()
+        if not prefix:
+            return []
+
+        # 用范围查询代替 LIKE：LIKE 默认大小写不敏感，无法利用 BINARY 排序的
+        # idx_word_lower 索引，会退化为全表扫描（430 万行，冷缓存可达数秒）。
+        # 上界取“前缀最后一个字符 +1”，例如 'pruck' -> 'prucl'。
+        last = ord(prefix[-1])
+        if last < 0x10FFFF:
+            upper = prefix[:-1] + chr(last + 1)
+        else:
+            # 极端 Unicode 边界：退化为前缀 + 最大码点
+            upper = prefix + "\U0010FFFF"
+
         cursor = self.conn.cursor()
         cursor.execute(
-            "SELECT word, record_offset, record_length FROM word_index WHERE word_lower LIKE ? LIMIT ?",
-            (prefix.lower() + "%", limit)
+            "SELECT word, record_offset, record_length FROM word_index "
+            "WHERE word_lower >= ? AND word_lower < ? "
+            "ORDER BY word_lower LIMIT ?",
+            (prefix, upper, limit)
         )
         return [(row["word"], row["record_offset"], row["record_length"]) for row in cursor.fetchall()]
     
